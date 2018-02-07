@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>被遗忘的地方</title>
+  
+  <subtitle>是谁来自山川湖海，却囿于昼夜，厨房与爱。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-02-07T09:55:02.095Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Qianyugang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从 HEXO 的第一篇文章开始</title>
+    <link href="http://yoursite.com/2018/02/07/hello-world/"/>
+    <id>http://yoursite.com/2018/02/07/hello-world/</id>
+    <published>2018-02-07T09:55:02.095Z</published>
+    <updated>2018-02-07T09:55:02.095Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于-HEXO"><a href="#关于-HEXO" class="headerlink" title="关于 HEXO"></a>关于 HEXO</h2><ul><li>官方网站 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> </li><li>文档 <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> </li><li>故障排除 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a></li><li>反馈 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a></li></ul><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"我的新文章"</span></div></pre></td></tr></table></figure><p>查看更多: <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">写作</a></p><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo s</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="external">服务器</a></p><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo g</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/generating.html" target="_blank" rel="external">生成文件</a></p><h3 id="部署到远程服务"><a href="#部署到远程服务" class="headerlink" title="部署到远程服务"></a>部署到远程服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo d</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">部署</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;关于-HEXO&quot;&gt;&lt;a href=&quot;#关于-HEXO&quot; class=&quot;headerlink&quot; title=&quot;关于 HEXO&quot;&gt;&lt;/a&gt;关于 HEXO&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;官方网站 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_bla
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://yoursite.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Hexo, 代码" scheme="http://yoursite.com/tags/Hexo-%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+</feed>
