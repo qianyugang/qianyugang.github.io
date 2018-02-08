@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>被遗忘的地方</title>
+  <title>九又四分之三个字节</title>
   
   <subtitle>是谁来自山川湖海，却囿于昼夜，厨房与爱。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-02-08T06:01:48.114Z</updated>
+  <updated>2018-02-08T06:20:24.465Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,45 +17,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>不知所云区块链</title>
-    <link href="http://yoursite.com/2018/02/08/about-block-chain/"/>
-    <id>http://yoursite.com/2018/02/08/about-block-chain/</id>
-    <published>2018-02-08T06:01:48.114Z</published>
-    <updated>2018-02-08T06:01:48.114Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h3><h3 id="区块链和理财"><a href="#区块链和理财" class="headerlink" title="区块链和理财"></a>区块链和理财</h3><h3 id="创建一篇新文"><a href="#创建一篇新文" class="headerlink" title="创建一篇新文"></a>创建一篇新文</h3><h3 id="区块链应用"><a href="#区块链应用" class="headerlink" title="区块链应用"></a>区块链应用</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;区块链&quot;&gt;&lt;a href=&quot;#区块链&quot; class=&quot;headerlink&quot; title=&quot;区块链&quot;&gt;&lt;/a&gt;区块链&lt;/h3&gt;&lt;h3 id=&quot;区块链和理财&quot;&gt;&lt;a href=&quot;#区块链和理财&quot; class=&quot;headerlink&quot; title=&quot;区块链和理财&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="与理财" scheme="http://yoursite.com/categories/%E4%B8%8E%E7%90%86%E8%B4%A2/"/>
-    
-    
-      <category term="Hexo, 理财, 区块链" scheme="http://yoursite.com/tags/Hexo-%E7%90%86%E8%B4%A2-%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>从 HEXO 的第一篇文章开始</title>
-    <link href="http://yoursite.com/2018/02/07/hello-world/"/>
-    <id>http://yoursite.com/2018/02/07/hello-world/</id>
-    <published>2018-02-07T09:55:02.095Z</published>
-    <updated>2018-02-07T09:55:02.095Z</updated>
+    <link href="http://yoursite.com/2018/02/08/hello-world/"/>
+    <id>http://yoursite.com/2018/02/08/hello-world/</id>
+    <published>2018-02-08T06:20:24.465Z</published>
+    <updated>2018-02-08T06:20:24.465Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="关于-HEXO"><a href="#关于-HEXO" class="headerlink" title="关于 HEXO"></a>关于 HEXO</h2><ul><li>官方网站 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> </li><li>文档 <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> </li><li>故障排除 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a></li><li>反馈 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a></li></ul><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"我的新文章"</span></div></pre></td></tr></table></figure><p>查看更多: <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">写作</a></p><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo s</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="external">服务器</a></p><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo g</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/generating.html" target="_blank" rel="external">生成文件</a></p><h3 id="部署到远程服务"><a href="#部署到远程服务" class="headerlink" title="部署到远程服务"></a>部署到远程服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo d</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">部署</a></p>]]></content>
+    <content type="html"><![CDATA[<p>算来算去，折腾博客也有很多年了，也就才开始折腾的时候写的比较勤快，17年就弄了这个hexo站，但是一直没有坚持写下来，所以现在又把它重启了一下，和我的102no并行，已经过了折腾博客的时候了，内容还是最重要的，希望18年开始能把这个博客丰满起来吧，多写文章少刷知乎，多看书本少刷微博。</p><h2 id="关于-HEXO"><a href="#关于-HEXO" class="headerlink" title="关于 HEXO"></a>关于 HEXO</h2><ul><li>官方网站 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> </li><li>文档 <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> </li><li>故障排除 <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a></li><li>反馈 <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a></li></ul><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新文章"><a href="#创建一篇新文章" class="headerlink" title="创建一篇新文章"></a>创建一篇新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"我的新文章"</span></div></pre></td></tr></table></figure><p>查看更多: <a href="https://hexo.io/zh-cn/docs/writing.html" target="_blank" rel="external">写作</a></p><h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo s</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/server.html" target="_blank" rel="external">服务器</a></p><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo g</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/generating.html" target="_blank" rel="external">生成文件</a></p><h3 id="部署到远程服务"><a href="#部署到远程服务" class="headerlink" title="部署到远程服务"></a>部署到远程服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>简便命令 <code>$ hexo d</code></p><p>查看更多: <a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">部署</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;关于-HEXO&quot;&gt;&lt;a href=&quot;#关于-HEXO&quot; class=&quot;headerlink&quot; title=&quot;关于 HEXO&quot;&gt;&lt;/a&gt;关于 HEXO&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;官方网站 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_bla
+        &lt;p&gt;算来算去，折腾博客也有很多年了，也就才开始折腾的时候写的比较勤快，17年就弄了这个hexo站，但是一直没有坚持写下来，所以现在又把它重启了一下，和我的102no并行，已经过了折腾博客的时候了，内容还是最重要的，希望18年开始能把这个博客丰满起来吧，多写文章少刷知乎，多看书本
       
     
     </summary>
@@ -64,6 +38,32 @@
     
     
       <category term="Hexo, 代码" scheme="http://yoursite.com/tags/Hexo-%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我所了解的比特币</title>
+    <link href="http://yoursite.com/2018/02/08/about-block-chain/"/>
+    <id>http://yoursite.com/2018/02/08/about-block-chain/</id>
+    <published>2018-02-08T06:17:07.746Z</published>
+    <updated>2018-02-08T06:17:07.746Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h3><p>其实最开始接触</p><h3 id="区块链和理财"><a href="#区块链和理财" class="headerlink" title="区块链和理财"></a>区块链和理财</h3><h3 id="创建一篇新文"><a href="#创建一篇新文" class="headerlink" title="创建一篇新文"></a>创建一篇新文</h3><h3 id="区块链应用"><a href="#区块链应用" class="headerlink" title="区块链应用"></a>区块链应用</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;区块链&quot;&gt;&lt;a href=&quot;#区块链&quot; class=&quot;headerlink&quot; title=&quot;区块链&quot;&gt;&lt;/a&gt;区块链&lt;/h3&gt;&lt;p&gt;其实最开始接触&lt;/p&gt;
+&lt;h3 id=&quot;区块链和理财&quot;&gt;&lt;a href=&quot;#区块链和理财&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+      <category term="与理财" scheme="http://yoursite.com/categories/%E4%B8%8E%E7%90%86%E8%B4%A2/"/>
+    
+    
+      <category term="Hexo, 理财, 区块链" scheme="http://yoursite.com/tags/Hexo-%E7%90%86%E8%B4%A2-%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   
