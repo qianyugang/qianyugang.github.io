@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>九又四分之三个字节</title>
   
-  <subtitle>是谁来自山川湖海，却囿于昼夜，厨房与爱。</subtitle>
+  <subtitle>是谁来自 Python Java，却囿于 PHP ，Go 与 Angular。（句中提及语言，博主一概不会。单押x3）</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
