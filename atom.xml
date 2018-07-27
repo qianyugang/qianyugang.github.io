@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2018-03-16T03:05:13.166Z</updated>
+  <updated>2018-07-27T15:08:37.123Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一些面试题</title>
+    <link href="http://git.102no.com/2018/07/27/some-interview-questions/"/>
+    <id>http://git.102no.com/2018/07/27/some-interview-questions/</id>
+    <published>2018-07-26T16:00:00.000Z</published>
+    <updated>2018-07-27T15:08:37.123Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul><li><a href="https://segmentfault.com/a/1190000010262869" target="_blank" rel="external">高级PHP (初级架构师) 面试题</a></li></ul><h2 id="Web安全"><a href="#Web安全" class="headerlink" title="Web安全"></a>Web安全</h2><ul><li><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-php-xss/index.html" target="_blank" rel="external">使用 PHP 构建的 Web 应用如何避免 XSS 攻击</a></li><li><a href="https://blog.csdn.net/loophome/article/details/53896012" target="_blank" rel="external">PHP XSS攻击防范–如何过滤用户输入</a></li><li><a href="https://www.jianshu.com/p/78d59a43cf78" target="_blank" rel="external">整理php防注入和XSS攻击通用过滤</a></li></ul><h2 id="秒杀相关"><a href="#秒杀相关" class="headerlink" title="秒杀相关"></a>秒杀相关</h2><ul><li><a href="https://my.oschina.net/xianggao/blog/524943" target="_blank" rel="external">秒杀系统架构分析与实战</a></li><li><a href="https://www.jianshu.com/p/48c1a92fbf3a" target="_blank" rel="external">商城抢购秒杀防止库存超卖方法</a></li><li><a href="http://longxzq-126-com.iteye.com/blog/2228804" target="_blank" rel="external">秒杀核心设计(减库存部分)-防超卖与高并发</a></li><li><a href="https://blog.csdn.net/kankan231/article/details/51108450" target="_blank" rel="external">PHP 解决并发问题的几种实现</a></li><li><a href="https://blog.csdn.net/nuli888/article/details/51865401" target="_blank" rel="external">PHP 结合redis实现高并发下的抢购、秒杀功能</a></li><li><a href="https://my.oschina.net/programs/blog/1538228" target="_blank" rel="external">PHP高并发下抢购、秒杀功能的超卖问题</a></li><li><a href="http://www.51ask.org/article/520" target="_blank" rel="external">PHP 高并发秒杀解决方案（有demo）</a></li><li><a href="https://www.awaimai.com/348.html" target="_blank" rel="external">网站大规模并发处理方案：电商秒杀与抢购</a></li><li><a href="https://www.phpsong.com/2906.html" target="_blank" rel="external">PHP 秒杀系统架构设计实例</a></li></ul><h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2><ul><li><a href="http://www.cnblogs.com/zhoujinyi/p/3437475.html" target="_blank" rel="external">MySQL 四种事务隔离级的说明</a></li><li><a href="https://blog.csdn.net/kingzone_2008/article/details/51513910" target="_blank" rel="external">MySQL中间件研究</a></li></ul><h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><ul><li><a href="https://blog.csdn.net/yajlv/article/details/73467865" target="_blank" rel="external">Redis面试题及分布式集群</a></li><li><a href="https://blog.csdn.net/ydyang1126/article/details/72667602" target="_blank" rel="external">Redis面试题总结</a></li><li><a href="https://zhuanlan.zhihu.com/p/32540678" target="_blank" rel="external">天下无难试之Redis面试题刁难大全</a></li><li><a href="https://www.jianshu.com/p/85d55f2ffd0a" target="_blank" rel="external">史上最全Redis面试题及答案</a></li></ul><h2 id="框架分析"><a href="#框架分析" class="headerlink" title="框架分析"></a>框架分析</h2><ul><li><a href="https://www.kancloud.cn/come11234/yii/47722" target="_blank" rel="external">Yii PHP 框架分析</a></li><li><a href="https://mzkmzk.gitbooks.io/read/content/laravelkuang_jia_guan_jian_ji_zhu_jie_xi.html" target="_blank" rel="external">Laravel 框架关键技术解析</a></li><li><a href="https://www.jianshu.com/p/2ea03e4b8836" target="_blank" rel="external">Laravel 架构解析</a></li><li><a href="https://blog.csdn.net/u011466674/article/details/52335770" target="_blank" rel="external">Phalcon 框架启动流程(部分源码)分析</a></li><li><a href="https://avnpc.com/pages/phalcon-mvc-process" target="_blank" rel="external">Phalcon Framework的Mvc结构及启动流程（部分源码分析）</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;面试题&quot;&gt;&lt;a href=&quot;#面试题&quot; class=&quot;headerlink&quot; title=&quot;面试题&quot;&gt;&lt;/a&gt;面试题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000010262869&quot; target
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="一些面试题" scheme="http://git.102no.com/tags/%E4%B8%80%E4%BA%9B%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL避免重复插入记录方法</title>
