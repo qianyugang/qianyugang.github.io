@@ -288,7 +288,7 @@ div {
         padding-right: 0.3em; }
 
 .page-navigator {
-  border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
   list-style: none;
   margin-top: 25px;
   padding: 25px 0 0;
@@ -1372,7 +1372,7 @@ figure.highlight,
   margin-bottom: 20px;
   padding: 10px;
   white-space: nowrap;
-  border-top: 1px solid #eee; }
+  /*border-top: 1px solid #eee;*/ }
   .post-nav a {
     display: inline-block;
     line-height: 25px;
