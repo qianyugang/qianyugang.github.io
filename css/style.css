@@ -928,7 +928,7 @@ figure.highlight,
       overflow-y: hidden; }
   figure.highlight .line,
   .codeblock .line {
-    height: 1.3em;
+    height: 1.5em;
     font-size: 13px; }
 
 .gist .line,
@@ -1446,6 +1446,7 @@ table {
 }
 */
 table {
+  width: 100%;
   font-size: 14px;
   text-align: left;
   margin: 0 auto;
