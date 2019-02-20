@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-02-15T16:48:03.415Z</updated>
+  <updated>2019-02-20T15:26:49.954Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微服务 API 网关 Kong CORS 插件中文文档</title>
+    <link href="http://git.102no.com/2019/02/20/kong-CORS-doc/"/>
+    <id>http://git.102no.com/2019/02/20/kong-CORS-doc/</id>
+    <published>2019-02-19T16:00:00.000Z</published>
+    <updated>2019-02-20T15:26:49.954Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文地址：<a href="https://docs.konghq.com/hub/kong-inc/cors/" target="_blank" rel="external">https://docs.konghq.com/hub/kong-inc/cors/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。<br>通过启用此插件，轻松将跨源资源共享（CORS）添加到 Service, Route。</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="在-Service-上启用插件"><a href="#在-Service-上启用插件" class="headerlink" title="在 Service 上启用插件"></a>在 Service 上启用插件</h3><p>通过发出以下请求在 <a href="https://docs.konghq.com/latest/admin-api/#service-object" target="_blank" rel="external">Service</a> 上配置此插件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/services/&#123;service&#125;/plugins \</div><div class="line">    --data &quot;name=cors&quot;  \</div><div class="line">    --data &quot;config.origins=http://mockbin.com&quot; \</div><div class="line">    --data &quot;config.methods=GET, POST&quot; \</div><div class="line">    --data &quot;config.headers=Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Auth-Token&quot; \</div><div class="line">    --data &quot;config.exposed_headers=X-Auth-Token&quot; \</div><div class="line">    --data &quot;config.credentials=true&quot; \</div><div class="line">    --data &quot;config.max_age=3600&quot;</div></pre></td></tr></table></figure><ul><li><code>service</code>：此插件配置将绑定的服务的ID或名称。</li></ul><h3 id="在-Route-上启用插件"><a href="#在-Route-上启用插件" class="headerlink" title="在 Route 上启用插件"></a>在 Route 上启用插件</h3><p>通过发出以下请求在 <a href="https://docs.konghq.com/latest/admin-api/#Route-object" target="_blank" rel="external">Route</a> 上配置此插件：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/routes/&#123;route_id&#125;/plugins \</div><div class="line">    --data &quot;name=cors&quot;  \</div><div class="line">    --data &quot;config.origins=http://mockbin.com&quot; \</div><div class="line">    --data &quot;config.methods=GET, POST&quot; \</div><div class="line">    --data &quot;config.headers=Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Auth-Token&quot; \</div><div class="line">    --data &quot;config.exposed_headers=X-Auth-Token&quot; \</div><div class="line">    --data &quot;config.credentials=true&quot; \</div><div class="line">    --data &quot;config.max_age=3600&quot;</div></pre></td></tr></table></figure><h3 id="全局插件"><a href="#全局插件" class="headerlink" title="全局插件"></a>全局插件</h3><p>可以使用<code>http://kong:8001/plugins/</code> 配置所有插件。与任何Service, Route 或者 Consumer（或API，如果您使用旧版本的Kong）无关的插件被视为“全局”，并将在每个请求上运行。有关更多信息，请阅读<a href="https://docs.konghq.com/latest/admin-api/#add-plugin" target="_blank" rel="external">插件参考</a>和<a href="https://docs.konghq.com/latest/admin-api/#precedence" target="_blank" rel="external">插件优先级</a>部分。</p><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>以下是可在此插件配置中使用的所有参数的列表：</p><table><thead><tr><th>参数名称</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td>name</td><td></td><td>要使用的插件的名称，在本例中为cors</td></tr><tr><td>service_id</td><td></td><td>此插件将绑定的 Service 的ID。</td></tr><tr><td>route_id</td><td></td><td>此插件将绑定的 Route 的ID。</td></tr><tr><td>enabled</td><td><code>true</code></td><td>是否将应用此插件。</td></tr><tr><td>config.origins <br> <em>optional</em></td><td></td><td><code>Access-Control-Allow-Origin</code>标头的允许域，用逗号分割，如果想允许所有，就使用<code>*</code>。接受的值可以是flat strings 或PCRE正则表达式。 <br> 注意：在Kong 0.10.x之前，此参数是<code>config.origin</code>（请注意<code>s</code>的更改），并且只接受单个值或<code>*</code>特殊值。</td></tr><tr><td>config.methods <br> <em>optional</em></td><td><code>GET</code>, <code>HEAD</code>, <code>PUT</code>, <code>PATCH</code>, <code>POST</code></td><td><code>Access-Control-Allow-Methods</code> header的值，使用逗号分隔的字符串（例如<code>GET</code>，<code>POST</code>）。</td></tr><tr><td>config.headers <br> <em>optional</em></td><td><code>Access-Control-Request-Headers</code>请求header的值</td><td><code>Access-Control-Allow-Headers</code> header的值，使用逗号分割（例如<code>Origin</code>，<code>Authorization</code>）。</td></tr><tr><td>config.exposed_headers <br> <em>optional</em></td><td></td><td><code>Access-Control-Expose-Headers</code> header 的值，使用逗号分割（例如<code>Origin</code>，<code>Authorization</code>），如果未指定，则不会开放自定义header。</td></tr><tr><td>config.credentials <br> <em>optional</em></td><td><code>false</code></td><td>用于确定是否应使用<code>true</code>作为值发送<code>Access-Control-Allow-Credentials</code> header。</td></tr><tr><td>config.max_age <br> <em>optional</em></td><td></td><td>指示可以缓存预检请求的结果的时间长度（以秒为单位）。</td></tr><tr><td>config.preflight_continue <br> <em>optional</em></td><td><code>false</code></td><td>一个布尔值，指示插件将<code>OPTIONS</code>预检请求代理到上游服务。</td></tr></tbody></table><h2 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h2><p>以下是此插件的已知问题或限制的列表。</p><h3 id="CORS限制"><a href="#CORS限制" class="headerlink" title="CORS限制"></a>CORS限制</h3><p>如果客户端是浏览器，则由于CORS规范的限制导致此插件存在已知问题，该限制不允许在预检<code>OPTIONS</code>请求中指定自定义header。<br>由于此限制，此插件仅适用于已使用路径设置配置的路由，并且对于使用自定义DNS（<code>hosts</code>属性）解析的路由不起作用。<br>要了解如何为Route配置路径，请阅读<a href="https://docs.konghq.com/0.12.x/proxy/#request-uri" target="_blank" rel="external">代理参考</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原文地址：&lt;a href=&quot;https://docs.konghq.com/hub/kong-inc/cors/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.com/hub/kong-inc/cors/&lt;/a&gt; （
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Hexo, 代码" scheme="http://git.102no.com/tags/Hexo-%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务 API 网关 Kong 插件开发套件中文文档</title>
@@ -346,31 +371,6 @@
   </entry>
   
   <entry>
-    <title>初探Api Gateway Tyk</title>
-    <link href="http://git.102no.com/2018/11/15/api-gateway-tyk/"/>
-    <id>http://git.102no.com/2018/11/15/api-gateway-tyk/</id>
-    <published>2018-11-14T16:00:00.000Z</published>
-    <updated>2018-11-17T07:13:16.875Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><strong> 项目官网：</strong> <a href="https://tyk.io/" target="_blank" rel="external">https://tyk.io/</a></p><p><strong> 项目地址：</strong> </p><ul><li><a href="https://github.com/TykTechnologies/tyk" target="_blank" rel="external">https://github.com/TykTechnologies/tyk</a></li><li><a href="https://github.com/PGBI/kong-dashboard" target="_blank" rel="external">https://github.com/PGBI/kong-dashboard</a></li></ul><p><strong> 项目文档：</strong> <a href="https://tyk.io/docs/" target="_blank" rel="external">https://tyk.io/docs/</a></p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>使用go语言开发，启动之前需要使用redis和mongodb，tyk使用这两个数据做了依赖，Tyk 功能比较全，包括鉴权、监控、负载均衡，用户管理、域名管理、策略等。</p><p><strong>Tyk不足</strong> </p><p>Tyk只能支持HTTP REST API，不支持SOAP或者RPC等其他服务。需要用插件支持<br>这些功能不一定能满足我们自己的业务需求，在其基础上修改，比较困难。<br>存在商业付费版，安装license收费、免费版。（免费版的也需要一个license，一个节点一年）<br>dashboard 需要购买</p><h2 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h2><p><strong>官方性能测试：</strong>  </p><ul><li>所有这些都在一个2核，2GB， 虚拟服务器上。</li><li>Tyk可以轻松地每秒代理3000个请求，延迟低于65ms，性能曲线相当平坦。</li><li>在负载下，执行全密钥验证、安全检查、配额管理和分析收集，Tyk每秒可以处理大约2000个请求，延迟低于85ms。</li></ul><p><strong> 并发性能，稳定性：</strong></p><p>较为正常请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>5000</td><td>500</td><td>16.650 seconds</td><td>300.31</td><td>1664.958 ms</td><td>3.330</td></tr><tr><td>10000</td><td>500</td><td>34.037 seconds</td><td>293.80</td><td>1701.856</td><td>3.404</td></tr><tr><td>15000</td><td>500</td><td>57.850 seconds</td><td>259.29</td><td>1928.319</td><td>3.857</td></tr></tbody></table><p>sleep 2 sec 请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>500</td><td>50</td><td>59.483 seconds</td><td>8.41</td><td>5948.322 ms</td><td>118.966</td></tr><tr><td>1000</td><td>100</td><td>110.049 seconds</td><td>9.09</td><td>11004.902</td><td>110.049</td></tr><tr><td>3000</td><td>100</td><td>311.065 seconds</td><td>9.64</td><td>10368.826</td><td>103.688</td></tr></tbody></table><p><strong> 日志功能：</strong></p><p>控制面板有直观查看log以及统计</p><p><strong>插件/二次开发开发</strong></p><p>lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</p><p><strong>控制面板</strong></p><p><a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a></p><h2 id="社区声音"><a href="#社区声音" class="headerlink" title="社区声音"></a>社区声音</h2><ul><li>客户支持快；</li><li>Kong 的插件只能用 lua 写，Tyk 则不然，lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</li><li>Kong 依赖于 Nginx，假如 Nginx 出了 bug，他们很难修复，Tyk 则不然，全部技术栈都是他们可控的；</li><li>两者的性能差不多，2k qps 完全不是问题，能满足大部分需求；</li><li>Kong 的 UI 是企业版才有的，Tyk 免费用；</li><li>我们不靠 VC 支持，玩的是长线战略；</li></ul><h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ul><li><a href="https://www.bbsmax.com/A/amd0MmQ6zg/" target="_blank" rel="external">Tyk API网关介绍及安装说明</a></li><li><a href="https://sdk.cn/news/7023" target="_blank" rel="external">深入浅出聊聊企业级API网关</a></li><li><a href="http://www.damonyi.cc/%E5%BC%80%E6%BA%90api%E7%BD%91%E5%85%B3tyk%E4%B8%8Ekong/" target="_blank" rel="external">开源API网关Tyk与Kong</a></li><li><a href="https://www.bbva.com/en/api-gateways-kong-vs-tyk/" target="_blank" rel="external">API Gateways: Kong vs. Tyk</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;&lt;strong&gt; 项目官网：&lt;/strong&gt; &lt;a href=&quot;https://tyk.io/&quot; target=&quot;_blank&quot; rel=
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Apigateway, api网关, Tyk, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Tyk-%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Tyk 安装以及使用</title>
     <link href="http://git.102no.com/2018/11/15/api-gateway-tyk-install/"/>
     <id>http://git.102no.com/2018/11/15/api-gateway-tyk-install/</id>
@@ -385,6 +385,31 @@
       
         &lt;h2 id=&quot;Tyk介绍&quot;&gt;&lt;a href=&quot;#Tyk介绍&quot; class=&quot;headerlink&quot; title=&quot;Tyk介绍&quot;&gt;&lt;/a&gt;Tyk介绍&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;官网地址：&lt;a href=&quot;https://tyk.io/&quot; target=&quot;_blank&quot; rel=&quot;
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Apigateway, api网关, Tyk, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Tyk-%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初探Api Gateway Tyk</title>
+    <link href="http://git.102no.com/2018/11/15/api-gateway-tyk/"/>
+    <id>http://git.102no.com/2018/11/15/api-gateway-tyk/</id>
+    <published>2018-11-14T16:00:00.000Z</published>
+    <updated>2018-11-17T07:13:16.875Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><strong> 项目官网：</strong> <a href="https://tyk.io/" target="_blank" rel="external">https://tyk.io/</a></p><p><strong> 项目地址：</strong> </p><ul><li><a href="https://github.com/TykTechnologies/tyk" target="_blank" rel="external">https://github.com/TykTechnologies/tyk</a></li><li><a href="https://github.com/PGBI/kong-dashboard" target="_blank" rel="external">https://github.com/PGBI/kong-dashboard</a></li></ul><p><strong> 项目文档：</strong> <a href="https://tyk.io/docs/" target="_blank" rel="external">https://tyk.io/docs/</a></p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>使用go语言开发，启动之前需要使用redis和mongodb，tyk使用这两个数据做了依赖，Tyk 功能比较全，包括鉴权、监控、负载均衡，用户管理、域名管理、策略等。</p><p><strong>Tyk不足</strong> </p><p>Tyk只能支持HTTP REST API，不支持SOAP或者RPC等其他服务。需要用插件支持<br>这些功能不一定能满足我们自己的业务需求，在其基础上修改，比较困难。<br>存在商业付费版，安装license收费、免费版。（免费版的也需要一个license，一个节点一年）<br>dashboard 需要购买</p><h2 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h2><p><strong>官方性能测试：</strong>  </p><ul><li>所有这些都在一个2核，2GB， 虚拟服务器上。</li><li>Tyk可以轻松地每秒代理3000个请求，延迟低于65ms，性能曲线相当平坦。</li><li>在负载下，执行全密钥验证、安全检查、配额管理和分析收集，Tyk每秒可以处理大约2000个请求，延迟低于85ms。</li></ul><p><strong> 并发性能，稳定性：</strong></p><p>较为正常请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>5000</td><td>500</td><td>16.650 seconds</td><td>300.31</td><td>1664.958 ms</td><td>3.330</td></tr><tr><td>10000</td><td>500</td><td>34.037 seconds</td><td>293.80</td><td>1701.856</td><td>3.404</td></tr><tr><td>15000</td><td>500</td><td>57.850 seconds</td><td>259.29</td><td>1928.319</td><td>3.857</td></tr></tbody></table><p>sleep 2 sec 请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>500</td><td>50</td><td>59.483 seconds</td><td>8.41</td><td>5948.322 ms</td><td>118.966</td></tr><tr><td>1000</td><td>100</td><td>110.049 seconds</td><td>9.09</td><td>11004.902</td><td>110.049</td></tr><tr><td>3000</td><td>100</td><td>311.065 seconds</td><td>9.64</td><td>10368.826</td><td>103.688</td></tr></tbody></table><p><strong> 日志功能：</strong></p><p>控制面板有直观查看log以及统计</p><p><strong>插件/二次开发开发</strong></p><p>lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</p><p><strong>控制面板</strong></p><p><a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a></p><h2 id="社区声音"><a href="#社区声音" class="headerlink" title="社区声音"></a>社区声音</h2><ul><li>客户支持快；</li><li>Kong 的插件只能用 lua 写，Tyk 则不然，lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</li><li>Kong 依赖于 Nginx，假如 Nginx 出了 bug，他们很难修复，Tyk 则不然，全部技术栈都是他们可控的；</li><li>两者的性能差不多，2k qps 完全不是问题，能满足大部分需求；</li><li>Kong 的 UI 是企业版才有的，Tyk 免费用；</li><li>我们不靠 VC 支持，玩的是长线战略；</li></ul><h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ul><li><a href="https://www.bbsmax.com/A/amd0MmQ6zg/" target="_blank" rel="external">Tyk API网关介绍及安装说明</a></li><li><a href="https://sdk.cn/news/7023" target="_blank" rel="external">深入浅出聊聊企业级API网关</a></li><li><a href="http://www.damonyi.cc/%E5%BC%80%E6%BA%90api%E7%BD%91%E5%85%B3tyk%E4%B8%8Ekong/" target="_blank" rel="external">开源API网关Tyk与Kong</a></li><li><a href="https://www.bbva.com/en/api-gateways-kong-vs-tyk/" target="_blank" rel="external">API Gateways: Kong vs. Tyk</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;&lt;strong&gt; 项目官网：&lt;/strong&gt; &lt;a href=&quot;https://tyk.io/&quot; target=&quot;_blank&quot; rel=
       
     
     </summary>
@@ -494,31 +519,6 @@
     
     
       <category term="MySQL, MySQL优化, MySQL注意事项" scheme="http://git.102no.com/tags/MySQL-MySQL%E4%BC%98%E5%8C%96-MySQL%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用亚马逊AWS的免费服务搭建Shadowsocks(Ubuntu 16.04)</title>
-    <link href="http://git.102no.com/2018/02/28/aws-shadowsocks-server/"/>
-    <id>http://git.102no.com/2018/02/28/aws-shadowsocks-server/</id>
-    <published>2018-02-27T16:00:00.000Z</published>
-    <updated>2018-03-01T02:43:51.767Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="亚马逊-AWS-免费服务"><a href="#亚马逊-AWS-免费服务" class="headerlink" title="亚马逊 AWS 免费服务"></a>亚马逊 AWS 免费服务</h2><p>首先你需要注册一个免费的亚马逊的 AWS 服务，具体注册教程如下，准备好一张信用卡，根据下面的免费注册教程一步一步的来，就可以得到了一年免费使用的vps。这里就使用这个免费的vps来搭建一下Shadowsocks服务。</p><ul><li>免费注册教程 <a href="https://www.vpsbuluo.com/youhui/76.html" target="_blank" rel="external">AWS一年免费VPS服务器申请及使用教程</a> </li><li>aws官方首页 <a href="https://aws.amazon.com" target="_blank" rel="external">https://aws.amazon.com</a> </li><li>免费vps地址 <a href="https://aws.amazon.com/free" target="_blank" rel="external">https://aws.amazon.com/free</a></li><li>VPS管理 <a href="https://console.aws.amazon.com/ec2/home" target="_blank" rel="external">https://console.aws.amazon.com/ec2/home</a></li></ul><h3 id="注册时候的注意事项"><a href="#注册时候的注意事项" class="headerlink" title="注册时候的注意事项"></a>注册时候的注意事项</h3><p>在注册完成后开始选择vps的时候，切记暂停一下，看一下右上角的服务器节点地址，因为很多人直接默认填过去了，导致选择的美国东部俄亥俄等，其实俄亥俄的延时还是比较大的，个人建议选择东京节点，还算是相当快的。虽然还是不如google的台湾节点。可以访问 <a href="http://www.cloudping.info/" target="_blank" rel="external">http://www.cloudping.info/</a>这个网址去查看各个节点的速度。</p><h3 id="安全组设置"><a href="#安全组设置" class="headerlink" title="安全组设置"></a>安全组设置</h3><p>在启动了aws的实例之后，记得一定要设置一下安全组策略，不然到后面开启了ss服务会发现依旧无法访问。<br>在安全组的入站中创建一个自定义 TCP 规则，协议为TCP，然后端口范围就写你下面<code>shadowsocks.json</code>文件中的<code>server_port</code>的端口，来源就是选择<code>0.0.0.0/0</code>，点击添加即可</p><h2 id="搭建shadowsocks服务"><a href="#搭建shadowsocks服务" class="headerlink" title="搭建shadowsocks服务"></a>搭建shadowsocks服务</h2><h3 id="安装Shadowsocks"><a href="#安装Shadowsocks" class="headerlink" title="安装Shadowsocks"></a>安装Shadowsocks</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install python-gevent python-pip python-m2crypto python-wheel python-setuptools</div><div class="line">$ sudo pip install shadowsocks</div></pre></td></tr></table></figure><p>在安装中可能会出现以下报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># pip install shadowsocks</span></div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/usr/bin/pip"</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    sys.exit(main())</div><div class="line">  File <span class="string">"/usr/lib/python2.7/dist-packages/pip/__init__.py"</span>, line 215, <span class="keyword">in</span> main</div><div class="line">    locale.setlocale(locale.LC_ALL, <span class="string">''</span>)</div><div class="line">  File <span class="string">"/usr/lib/python2.7/locale.py"</span>, line 581, <span class="keyword">in</span> setlocale</div><div class="line">    <span class="built_in">return</span> _setlocale(category, locale)</div><div class="line">locale.Error: unsupported locale setting</div></pre></td></tr></table></figure></p><p>是因为语言配置错误导致的，解决方案<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">export</span> LC_ALL=C</div></pre></td></tr></table></figure></p><h3 id="配置Shadowsocks"><a href="#配置Shadowsocks" class="headerlink" title="配置Shadowsocks"></a>配置Shadowsocks</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo vim /etc/shadowsocks.json</div></pre></td></tr></table></figure><p>写入以下内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"my_server_ip"</span>,</div><div class="line">    <span class="string">"server_port"</span>:8000,</div><div class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"my_password"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"rc4-md5"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>然后保存</p><h3 id="启动和停止"><a href="#启动和停止" class="headerlink" title="启动和停止"></a>启动和停止</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo ssserver -c /etc/shadowsocks.json -d start</div><div class="line">$ sudo ssserver -c /etc/shadowsocks.json -d stop</div></pre></td></tr></table></figure><p>在启动的时候有可能提示说找不到<code>ssserver</code>，这个时候可能是这个命令没有加入全局变量中，先使用<code>whereis ssserver</code>找到命令的位置，然做一个软连接<code>ln -s 源位置 目标位置</code>即可。或者直接把命令中的<code>ssserver</code>更换为你实际安装路径<br>如果出现以下报错<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"/bin/ssserver"</span>, line 9, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    load_entry_point(<span class="string">'shadowsocks==2.6.8'</span>, <span class="string">'console_scripts'</span>, <span class="string">'ssserver'</span>)()</div><div class="line">  File <span class="string">"/usr/lib/python2.7/site-packages/shadowsocks/server.py"</span>, line 60, <span class="keyword">in</span> main</div><div class="line">    tcp_servers.append(tcprelay.TCPRelay(a_config, dns_resolver, False))</div><div class="line">  File <span class="string">"/usr/lib/python2.7/site-packages/shadowsocks/tcprelay.py"</span>, line 584, <span class="keyword">in</span> __init__</div><div class="line">    server_socket.bind(sa)</div><div class="line">  File <span class="string">"/usr/lib64/python2.7/socket.py"</span>, line 224, <span class="keyword">in</span> meth</div><div class="line">    <span class="built_in">return</span> getattr(self._sock,name)(*args)</div><div class="line">socket.error: [Errno 99] Cannot assign requested address</div></pre></td></tr></table></figure></p><p>如果不想频繁重启来验证是否修改正确，可以使用以下命令查看<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ssserver -c /etc/shadowsocks.json -d status</div></pre></td></tr></table></figure></p><p>可以尝试把上面的开始命令更换为再次启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo sslocal -c /etc/shadowsocks.json -d start</div></pre></td></tr></table></figure></p><h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p>启动和访问的日志位置在<code>/var/log/shadowsocks.log</code>，访问日志和报错日志都在这里，如果有启动不了或者访问受限的问题，记得来这里查看并解决。 </p><h2 id="客户端下载和安装"><a href="#客户端下载和安装" class="headerlink" title="客户端下载和安装"></a>客户端下载和安装</h2><p>最后只需要安装好对应的客户端<a href="https://github.com/shadowsocks" target="_blank" rel="external">https://github.com/shadowsocks</a>，就可以正常使用ss了</p><h2 id="疑问和解答"><a href="#疑问和解答" class="headerlink" title="疑问和解答"></a>疑问和解答</h2><p>如果在安装或者启动途中有什么报错和问题，可以直接访问<a href="https://github.com/shadowsocks/shadowsocks/issues" target="_blank" rel="external">https://github.com/shadowsocks/shadowsocks/issues</a>，即可，应该能解决你大部分的疑问。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;亚马逊-AWS-免费服务&quot;&gt;&lt;a href=&quot;#亚马逊-AWS-免费服务&quot; class=&quot;headerlink&quot; title=&quot;亚马逊 AWS 免费服务&quot;&gt;&lt;/a&gt;亚马逊 AWS 免费服务&lt;/h2&gt;&lt;p&gt;首先你需要注册一个免费的亚马逊的 AWS 服务，具体注册教程
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="AWS, 免费, Shadowsocks" scheme="http://git.102no.com/tags/AWS-%E5%85%8D%E8%B4%B9-Shadowsocks/"/>
     
   </entry>
   
