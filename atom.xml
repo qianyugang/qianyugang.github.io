@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-03-18T14:18:17.670Z</updated>
+  <updated>2019-03-28T15:54:59.802Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微服务 API 网关 Kong 单元测试中文文档</title>
+    <link href="http://git.102no.com/2019/03/28/kong-test-doc/"/>
+    <id>http://git.102no.com/2019/03/28/kong-test-doc/</id>
+    <published>2019-03-27T16:00:00.000Z</published>
+    <updated>2019-03-28T15:54:59.802Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文链接: <a href="https://docs.konghq.com/1.0.x/plugin-development/tests/" target="_blank" rel="external">https://docs.konghq.com/1.0.x/plugin-development/tests/</a><br>（如有翻译的不准确或错误之处，欢迎留言指出）<br>集成测试：<a href="https://docs.konghq.com/1.0.x/plugin-development/tests/#write-integration-tests" target="_blank" rel="external">https://docs.konghq.com/1.0.x/plugin-development/tests/#write-integration-tests</a></p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>如果你认真对待你写的插件，你可能想为它编写一些测试。Lua的单元测试很简单，并且可以使用许多<a href="http://lua-users.org/wiki/UnitTesting" target="_blank" rel="external">测试框架</a>。但是，您可能还想编写集成测试。Kong可以再次为您提供支援。</p><h2 id="编写集成测试"><a href="#编写集成测试" class="headerlink" title="编写集成测试"></a>编写集成测试</h2><p>Kong的首选测试框架是<a href="http://olivinelabs.com/busted/" target="_blank" rel="external">busted</a>，它与resty-cli解释器一起运行，但如果您愿意，可以自由使用另一个。在Kong存储库中，可以在<code>bin/busted</code>找到 busted 的可执行文件。</p><p>Kong为您提供了一个帮助程序，可以在测试套件中从Lua启动和停止它：<code>spec.helpers</code>。此助手还提供了在运行测试之前在数据存储区中插入fixtures的方法，以及删除，以及各种其他helper。</p><p>如果您在自己的存储库中编写插件，则需要复制以下文件，直到Kong测试框架发布：</p><ul><li><code>bin/busted</code>： 与resty-cli解释器一起运行的 busted 的可执行文件</li><li><code>spec/helpers.lua</code>：Kong的helper函数 可以从busted中 启动/关闭kong</li><li><code>spec/kong_tests.conf</code>：使用helpers模块运行的Kong实例的配置文件</li></ul><p>假设您的<code>LUA_PATH</code>中有<code>spec.helpers</code>模块，您可以使用以下Lua代码来启动和停止Kong：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">local helpers = require &quot;spec.helpers&quot;</div><div class="line"></div><div class="line">for _, strategy in helpers.each_strategy() do</div><div class="line">  describe(&quot;my plugin&quot;, function()</div><div class="line"></div><div class="line">    local bp = helpers.get_db_utils(strategy)</div><div class="line"></div><div class="line">    setup(function()</div><div class="line">      local service = bp.services:insert &#123;</div><div class="line">        name = &quot;test-service&quot;,</div><div class="line">        host = &quot;httpbin.org&quot;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      bp.routes:insert(&#123;</div><div class="line">        hosts = &#123; &quot;test.com&quot; &#125;,</div><div class="line">        service = &#123; id = service.id &#125;</div><div class="line">      &#125;)</div><div class="line"></div><div class="line">      -- start Kong with your testing Kong configuration (defined in &quot;spec.helpers&quot;)</div><div class="line">      assert(helpers.start_kong( &#123; plugins = &quot;bundled,my-plugin&quot; &#125;))</div><div class="line"></div><div class="line">      admin_client = helpers.admin_client()</div><div class="line">    end)</div><div class="line"></div><div class="line">    teardown(function()</div><div class="line">      if admin_client then</div><div class="line">        admin_client:close()</div><div class="line">      endhttps://github.com/Kong/kong/tree/master/spec/03-plugins/09-key-auth</div><div class="line"></div><div class="line">      helpers.stop_kong()</div><div class="line">    end)</div><div class="line"></div><div class="line">    before_each(function()</div><div class="line">      proxy_client = helpers.proxy_client()</div><div class="line">    end)</div><div class="line"></div><div class="line">    after_each(function()</div><div class="line">      if proxy_client then</div><div class="line">        proxy_client:close()</div><div class="line">      end</div><div class="line">    end)</div><div class="line"></div><div class="line">    describe(&quot;thing&quot;, function()</div><div class="line">      it(&quot;should do thing&quot;, function()</div><div class="line">        -- send requests through Kong</div><div class="line">        local res = proxy_client:get(&quot;/get&quot;, &#123;</div><div class="line">          headers = &#123;</div><div class="line">            [&quot;Host&quot;] = &quot;test.com&quot;</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line"></div><div class="line">        local body = assert.res_status(200, res)</div><div class="line"></div><div class="line">        -- body is a string containing the response</div><div class="line">      end)</div><div class="line">    end)</div><div class="line">  end)</div><div class="line">end</div></pre></td></tr></table></figure><blockquote><p>提醒：通过test Kong配置文件，Kong运行在代理监听端口9000(HTTP),9443 (HTTPS)和端口9001上的Admin API。</p></blockquote><p>如果想看一下真实的例子，可以来这里看一看  <a href="https://github.com/Kong/kong/tree/master/spec/03-plugins/09-key-auth" target="_blank" rel="external">Key-Auth plugin specs</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原文链接: &lt;a href=&quot;https://docs.konghq.com/1.0.x/plugin-development/tests/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.com/1.0.x/plug
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Hexo, 代码" scheme="http://git.102no.com/tags/Hexo-%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务 API 网关 Kong 命令行中文文档</title>
@@ -467,31 +492,6 @@
     
     
       <category term="Apigateway, api网关, Kong, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Kong-%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初探Api Gateway Tyk</title>
-    <link href="http://git.102no.com/2018/11/15/api-gateway-tyk/"/>
-    <id>http://git.102no.com/2018/11/15/api-gateway-tyk/</id>
-    <published>2018-11-14T16:00:00.000Z</published>
-    <updated>2019-02-24T14:57:41.190Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><strong> 项目官网：</strong> <a href="https://tyk.io/" target="_blank" rel="external">https://tyk.io/</a></p><p><strong> 项目地址：</strong> </p><ul><li><a href="https://github.com/TykTechnologies/tyk" target="_blank" rel="external">https://github.com/TykTechnologies/tyk</a></li><li><a href="https://github.com/PGBI/kong-dashboard" target="_blank" rel="external">https://github.com/PGBI/kong-dashboard</a></li></ul><p><strong> 项目文档：</strong> <a href="https://tyk.io/docs/" target="_blank" rel="external">https://tyk.io/docs/</a></p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>使用go语言开发，启动之前需要使用redis和mongodb，tyk使用这两个数据做了依赖，Tyk 功能比较全，包括鉴权、监控、负载均衡，用户管理、域名管理、策略等。</p><p><strong>Tyk不足</strong> </p><p>Tyk只能支持HTTP REST API，不支持SOAP或者RPC等其他服务。需要用插件支持<br>这些功能不一定能满足我们自己的业务需求，在其基础上修改，比较困难。<br>存在商业付费版，安装license收费、免费版。（免费版的也需要一个license，一个节点一年）<br>dashboard 需要购买</p><h2 id="评估指标"><a href="#评估指标" class="headerlink" title="评估指标"></a>评估指标</h2><p><strong>官方性能测试：</strong>  </p><ul><li>所有这些都在一个2核，2GB， 虚拟服务器上。</li><li>Tyk可以轻松地每秒代理3000个请求，延迟低于65ms，性能曲线相当平坦。</li><li>在负载下，执行全密钥验证、安全检查、配额管理和分析收集，Tyk每秒可以处理大约2000个请求，延迟低于85ms。</li></ul><p><strong> 并发性能，稳定性：</strong></p><p>较为正常请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>5000</td><td>500</td><td>16.650 seconds</td><td>300.31</td><td>1664.958 ms</td><td>3.330</td></tr><tr><td>10000</td><td>500</td><td>34.037 seconds</td><td>293.80</td><td>1701.856</td><td>3.404</td></tr><tr><td>15000</td><td>500</td><td>57.850 seconds</td><td>259.29</td><td>1928.319</td><td>3.857</td></tr></tbody></table><p>sleep 2 sec 请求情况下</p><table><thead><tr><th>请求总数</th><th>并发数</th><th>总用时</th><th>每秒完成请求数</th><th>用户平均请求等待时间</th><th>服务器平均请求等待时间</th></tr></thead><tbody><tr><td>500</td><td>50</td><td>59.483 seconds</td><td>8.41</td><td>5948.322 ms</td><td>118.966</td></tr><tr><td>1000</td><td>100</td><td>110.049 seconds</td><td>9.09</td><td>11004.902</td><td>110.049</td></tr><tr><td>3000</td><td>100</td><td>311.065 seconds</td><td>9.64</td><td>10368.826</td><td>103.688</td></tr></tbody></table><p><strong> 日志功能：</strong></p><p>控制面板有直观查看log以及统计</p><p><strong>插件/二次开发开发</strong></p><p>lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</p><p><strong>控制面板</strong></p><p><a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a></p><h2 id="社区声音"><a href="#社区声音" class="headerlink" title="社区声音"></a>社区声音</h2><ul><li>客户支持快；</li><li>Kong 的插件只能用 lua 写，Tyk 则不然，lua、Python、JS 统统支持，另外 插件里面的 gRPC 也是支持的；</li><li>Kong 依赖于 Nginx，假如 Nginx 出了 bug，他们很难修复，Tyk 则不然，全部技术栈都是他们可控的；</li><li>两者的性能差不多，2k qps 完全不是问题，能满足大部分需求；</li><li>Kong 的 UI 是企业版才有的，Tyk 免费用；</li><li>我们不靠 VC 支持，玩的是长线战略；</li></ul><h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><ul><li><a href="https://www.bbsmax.com/A/amd0MmQ6zg/" target="_blank" rel="external">Tyk API网关介绍及安装说明</a></li><li><a href="https://sdk.cn/news/7023" target="_blank" rel="external">深入浅出聊聊企业级API网关</a></li><li><a href="http://www.damonyi.cc/%E5%BC%80%E6%BA%90api%E7%BD%91%E5%85%B3tyk%E4%B8%8Ekong/" target="_blank" rel="external">开源API网关Tyk与Kong</a></li><li><a href="https://www.bbva.com/en/api-gateways-kong-vs-tyk/" target="_blank" rel="external">API Gateways: Kong vs. Tyk</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;说明&quot;&gt;&lt;a href=&quot;#说明&quot; class=&quot;headerlink&quot; title=&quot;说明&quot;&gt;&lt;/a&gt;说明&lt;/h2&gt;&lt;p&gt;&lt;strong&gt; 项目官网：&lt;/strong&gt; &lt;a href=&quot;https://tyk.io/&quot; target=&quot;_blank&quot; rel=
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Apigateway, api网关, Tyk, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Tyk-%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
