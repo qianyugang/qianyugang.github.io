@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-03-28T15:54:59.802Z</updated>
+  <updated>2019-03-31T12:14:53.707Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>openSSL 的加密方式与证书制作</title>
+    <link href="http://git.102no.com/2019/04/01/what-is-openssl/"/>
+    <id>http://git.102no.com/2019/04/01/what-is-openssl/</id>
+    <published>2019-03-31T16:00:00.000Z</published>
+    <updated>2019-03-31T12:14:53.707Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="openSSL是什么"><a href="#openSSL是什么" class="headerlink" title="openSSL是什么"></a>openSSL是什么</h2><p>OpenSSL项目是安全套接字层（secure sockets layer，SSL）和传输层安全（transport layer security，TLS）协议的一个实现，是大家共同努力开发出的代码可靠、功能齐全、商业级别的开源工具集。除了OpenSSL之外的其他TLS实现方式，如GnuTLS、Mozilla的网络安全服务（NSS）和Windows平台的TLS。</p><p>项目由遍布世界的志愿者所组成的社区进行管理，他们通过互联网进行沟通、计划和开发OpenSSL工具集以及相关的文档。现在几乎所有的服务器软件和很多客户端软件都在使用OpenSSL，其中基于命令行的工具是进行密钥、证书管理以及测试最常用到的软件了。</p><h2 id="公钥算法与私钥算法"><a href="#公钥算法与私钥算法" class="headerlink" title="公钥算法与私钥算法"></a>公钥算法与私钥算法</h2><h3 id="私钥算法"><a href="#私钥算法" class="headerlink" title="私钥算法"></a>私钥算法</h3><p>私钥加密算法，又称 对称加密算法，因为这种算法解密密钥和加密密钥是相同的。也正因为同一密钥既用于加密又用于解密，所以这个密钥是不能公开的。常见的有《DES加密算法》、《AES加密算法》。</p><h3 id="公钥算法"><a href="#公钥算法" class="headerlink" title="公钥算法"></a>公钥算法</h3><p>公钥加密算法，也就是 非对称加密算法，这种算法加密和解密的密码不一样，一个是公钥，另一个是私钥：</p><ul><li>公钥和私钥成对出现</li><li>公开的密钥叫公钥，只有自己知道的叫私钥</li><li>用公钥加密的数据只有对应的私钥可以解密</li><li>用私钥加密的数据只有对应的公钥可以解密</li><li>如果可以用公钥解密，则必然是对应的私钥加的密</li><li>如果可以用私钥解密，则必然是对应的公钥加的密</li><li>公钥和私钥是相对的，两者本身并没有规定哪一个必须是公钥或私钥。</li></ul><ol><li><p>当该用户发送文件时，用私钥签名，别人用他给的公钥解密，可以保证该信息是由他发送的。即数字签名。</p></li><li><p>当该用户接受文件时，别人用他的公钥加密，他用私钥解密，可以保证该信息只能由他看到。即安全传输。  </p></li></ol><ul><li>加密: 公钥用于对数据进行加密，私钥用于对数据进行解密  </li><li>签名: 私钥用于对数据进行签名，公钥用于对签名进行验证</li></ul><p>由于在非对称算法中，公钥加密的数据必须用对应的私钥才能解密，而私钥又只有接收方自己知道，这样就保证了数据传输的安全性。</p><p><img src="https://img-blog.csdn.net/20150502122610368" alt=""></p><h3 id="openssl生成公私钥对文件进行加解密"><a href="#openssl生成公私钥对文件进行加解密" class="headerlink" title="openssl生成公私钥对文件进行加解密"></a>openssl生成公私钥对文件进行加解密</h3><p><strong>生成一个私钥</strong>   </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">openssl genrsa -out rsa-private.key 1024</div><div class="line">- genrsa：生成RSA参数</div><div class="line">- -out：输出文件</div></pre></td></tr></table></figure><p><strong>由私钥生成一个公钥</strong>     </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl rsa -in rsa-private.key -pubout -out rsa-public.key</div></pre></td></tr></table></figure><ul><li>-pubout: 输出公钥文件</li></ul><p><strong>随便新建一个文件</strong>     </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;this is a test message balbalabalabalbalabala&quot; &gt; test.log</div></pre></td></tr></table></figure><p><strong>使用公钥加密这个文件</strong>     </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">openssl rsautl -encrypt -inkey rsa-public.key -pubin -in test.log -out encrypt-test.log</div><div class="line">- rsautl：用于完成RSA签名、验证、加密和解密功能</div><div class="line">- -pubin：检查待处理文件是否为公钥文件</div></pre></td></tr></table></figure><p><strong>使用私钥解密这个文件</strong>     </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl rsautl -decrypt -inkey rsa-private.key -in encode-test.log -out decrypt-test.log</div></pre></td></tr></table></figure><h2 id="使用openssl获取证书"><a href="#使用openssl获取证书" class="headerlink" title="使用openssl获取证书"></a>使用openssl获取证书</h2><p>显示所有证书<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl s_client -connect www.baidu.com:443 -showcerts</div></pre></td></tr></table></figure></p><ul><li><code>Certificate chain</code> 证书链</li><li><code>s:</code>证书本身主体</li><li><code>i:</code>证书颁发机构</li></ul><p>服务器查看并解析证书 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -in baidu.pem -text -noout</div></pre></td></tr></table></figure><ul><li><a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="external">X.509</a> 是密码学里公钥证书的格式标准。</li></ul><h2 id="使用openssl制作证书"><a href="#使用openssl制作证书" class="headerlink" title="使用openssl制作证书"></a>使用openssl制作证书</h2><h3 id="第一步：创建非对称密钥对"><a href="#第一步：创建非对称密钥对" class="headerlink" title="第一步：创建非对称密钥对"></a>第一步：创建非对称密钥对</h3><p>可以选择 RSA DSA ECDSA 的都可以，其中RSA 在浏览器的兼容是最好的。<a href="https://blog.csdn.net/sszgg2006/article/details/25478269" target="_blank" rel="external">三者区别</a></p><ul><li><p><strong>rsa key</strong>  </p><p>  和 openssl生成公私钥对文件进行加解密 中一样</p></li><li><p><strong>dsa key</strong>  </p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">openssl dsaparam -genkey 2048 | openssl dsa -out dsa.key</div><div class="line">- dsaparam：本指令用来生成和操作dsa参数。</div><div class="line">-  -genkey：生成dsa密钥。</div></pre></td></tr></table></figure></li><li><p><strong>ec key</strong>  </p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl ecparam -genkey -name secp256r1 | openssl ec -out ec.key</div></pre></td></tr></table></figure></li></ul><h3 id="第二步：创建证书签名请求-CSR-文件"><a href="#第二步：创建证书签名请求-CSR-文件" class="headerlink" title="第二步：创建证书签名请求 CSR 文件"></a>第二步：创建证书签名请求 CSR 文件</h3><blockquote><p>注：Certificate Signing Request,即证书签名请求，这个并不是证书，而是向权威证书颁发机构获得签名证书的申请，其核心内容是一个公钥(当然还附带了一些别的信息)，在生成这个申请的时候，同时也会生成一个私钥,私钥要自己保管好。做过iOS APP的朋友都应该知道是怎么向苹果申请开发者证书的吧。</p></blockquote><p>新建csr<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl req -new -key rsa-private.key -out rsa.csr</div></pre></td></tr></table></figure></p><p>查看csr<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl req -text -in rsa.csr -noout</div></pre></td></tr></table></figure></p><h3 id="第三步：-自签名证书-（提交）"><a href="#第三步：-自签名证书-（提交）" class="headerlink" title="第三步： 自签名证书 （提交）"></a>第三步： 自签名证书 （提交）</h3><p> 生成 csr 文件之后，需要提交到权威的 CA 数字认证中心 VeriSign 后者其他，这里是讲自己认证。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -req -days 365 -in rsa.csr -signkey rsa-private.key -out rsa_yugang.cer</div></pre></td></tr></table></figure><p>查看证书</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -noout -text -in rsa_yugang.cer</div></pre></td></tr></table></figure><h2 id="证书格式"><a href="#证书格式" class="headerlink" title="证书格式"></a>证书格式</h2><ul><li>.pem – Privacy Enhanced Mail,打开看文本格式,以”—–BEGIN…”开头, “—–END…”结尾,内容是BASE64编码.</li><li>.cer, .crt, .der – 通常是DER二进制格式的，但Base64编码后也很常见。</li></ul><h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul><li><a href="http://www.178linux.com/48764" target="_blank" rel="external">OpenSSL 的使用详解</a></li><li><a href="https://juejin.im/entry/59f6c30ef265da43085d4e82" target="_blank" rel="external">OpenSSL开发学习总结</a></li><li><a href="https://www.openssl.org" target="_blank" rel="external">openssl 官网</a></li><li><a href="http://seanlook.com/2015/01/15/openssl-certificate-encryption/" target="_blank" rel="external">OpenSSL 与 SSL 数字证书概念贴</a></li><li><a href="http://www.cnblogs.com/LittleHann/p/3741907.html" target="_blank" rel="external">OPENSSL编程入门学习</a></li><li><a href="https://jin-yang.github.io/reference/linux/OpenSSL.pdf" target="_blank" rel="external">OpenSSL使用指南</a></li><li><a href="http://www.ituring.com.cn/book/download/338e1e55-fd94-4ac3-9e21-e0bf04984b3f" target="_blank" rel="external">OpenSSL攻略</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;openSSL是什么&quot;&gt;&lt;a href=&quot;#openSSL是什么&quot; class=&quot;headerlink&quot; title=&quot;openSSL是什么&quot;&gt;&lt;/a&gt;openSSL是什么&lt;/h2&gt;&lt;p&gt;OpenSSL项目是安全套接字层（secure sockets layer，
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="openSSL" scheme="http://git.102no.com/tags/openSSL/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务 API 网关 Kong 单元测试中文文档</title>
@@ -492,32 +517,6 @@
     
     
       <category term="Apigateway, api网关, Kong, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Kong-%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tyk 安装以及使用</title>
-    <link href="http://git.102no.com/2018/11/15/api-gateway-tyk-install/"/>
-    <id>http://git.102no.com/2018/11/15/api-gateway-tyk-install/</id>
-    <published>2018-11-14T16:00:00.000Z</published>
-    <updated>2018-11-17T07:14:31.345Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Tyk介绍"><a href="#Tyk介绍" class="headerlink" title="Tyk介绍"></a>Tyk介绍</h2><ul><li>官网地址：<a href="https://tyk.io/" target="_blank" rel="external">https://tyk.io/</a></li><li>官方文档：<a href="https://tyk.io/docs/" target="_blank" rel="external">https://tyk.io/docs/</a></li><li>项目地址：<a href="https://github.com/TykTechnologies/" target="_blank" rel="external">https://github.com/TykTechnologies/</a></li></ul><h2 id="安装介绍"><a href="#安装介绍" class="headerlink" title="安装介绍"></a>安装介绍</h2><p>tyk依赖mongo以及redis，如果手动安装按照步骤，需要注意先安装好这两个。</p><h2 id="docker安装方式："><a href="#docker安装方式：" class="headerlink" title="docker安装方式："></a>docker安装方式：</h2><p>官方有提供一个demo，这个demo已经集成了所有的安装项目需要，项目地址 ：<a href="https://github.com/TykTechnologies/tyk-pro-docker-demo" target="_blank" rel="external">https://github.com/TykTechnologies/tyk-pro-docker-demo</a> 执行命令clone项目下来</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/TykTechnologies/tyk-pro-docker-demo.git</div></pre></td></tr></table></figure><p>然后启动docker，注意，如果你的电脑上已经启动了其他的docker环境，<strong>要看看端口是否已经被占用掉了，如果占用了，需要更改docker的配置文件的端口。</strong></p><p>启动docker-composer</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose -f docker-compose.yml -f docker-local.yml up</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Starting tykprodockerdemo_tyk-redis_1 ... </div><div class="line">Starting tykprodockerdemo_tyk-mongo_1 ... </div><div class="line">Starting tykprodockerdemo_tyk-mongo_1</div><div class="line">Starting tykprodockerdemo_tyk-redis_1 ... done</div><div class="line">Starting tykprodockerdemo_tyk-gateway_1 ... </div><div class="line">Starting tykprodockerdemo_tyk-gateway_1</div><div class="line">Starting tykprodockerdemo_tyk-dashboard_1 ... </div><div class="line">Starting tykprodockerdemo_tyk-gateway_1 ... done</div><div class="line">Starting tykprodockerdemo_tyk-pump_1 ... </div><div class="line">Starting tykprodockerdemo_tyk-pump_1 ... done</div></pre></td></tr></table></figure><p>看到成功启动之后，就可以打开 <a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a> 出现控制面板，此时暂时还不能使用控制面板，需要根据提示去注册一个免费的开发license，注册好了之后可以在邮箱中收到这个license，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim confs/tyk_analytics.conf</div></pre></td></tr></table></figure></p><p>找到license这一行，把邮件收到的key填入进去。<br>之后执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh setup.sh</div></pre></td></tr></table></figure><p>看到一个测试开发版的用户名和密码，登入后面板，即可使用。</p><h2 id="常规安装方式"><a href="#常规安装方式" class="headerlink" title="常规安装方式"></a>常规安装方式</h2><p>参照官方文档安装：<br><a href="https://tyk.io/docs/get-started/with-tyk-on-premise/installation/" target="_blank" rel="external">https://tyk.io/docs/get-started/with-tyk-on-premise/installation/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Tyk介绍&quot;&gt;&lt;a href=&quot;#Tyk介绍&quot; class=&quot;headerlink&quot; title=&quot;Tyk介绍&quot;&gt;&lt;/a&gt;Tyk介绍&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;官网地址：&lt;a href=&quot;https://tyk.io/&quot; target=&quot;_blank&quot; rel=&quot;
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Apigateway, api网关, Tyk, 代码" scheme="http://git.102no.com/tags/Apigateway-api%E7%BD%91%E5%85%B3-Tyk-%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
