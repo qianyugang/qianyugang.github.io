@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-04-03T15:48:36.583Z</updated>
+  <updated>2019-04-08T15:42:01.919Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微服务 API 网关 Kong 插件开发 - 访问数据存储区</title>
+    <link href="http://git.102no.com/2019/04/08/kong-plugin-access-datastore-doc/"/>
+    <id>http://git.102no.com/2019/04/08/kong-plugin-access-datastore-doc/</id>
+    <published>2019-04-07T16:00:00.000Z</published>
+    <updated>2019-04-08T15:42:01.919Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文地址：<a href="https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/" target="_blank" rel="external">https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Kong通过我们称为“DAOs”的类与模型层交互。本章将详细介绍与数据存储交互的可用API。Kong支持两个主数据存储：<a href="http://cassandra.apache.org/" target="_blank" rel="external">Cassandra 3.x.x</a>和<a href="http://www.postgresql.org/" target="_blank" rel="external">PostgreSQL 9.5+</a>。</p><h1 id="kong-db"><a href="#kong-db" class="headerlink" title="kong.db"></a>kong.db</h1><p>Kong 的所有实例表示为：</p><ul><li>描述实体在数据存储区中与哪个表相关的模式，对其字段的约束，如外键，非空约束等…此schema是<a href="https://docs.konghq.com/1.1.x/plugin-development/plugin-configuration/" target="_blank" rel="external">插件配置</a>章节中描述的表。</li><li>DAO类的一个实例映射到当前正在使用的数据库（Cassandra或PostgreSQL）。此类的方法使用模式并公开方法来插入，更新，查找和删除该类型的实体。</li></ul><p>Kong的核心实体是：Services, Routes, Consumers 和 Plugins。所有这些都可以作为数据访问对象（DAO）通过kong.db全局单例访问：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-- Core DAOs</div><div class="line">local services_dao = kong.db.services</div><div class="line">local routes_dao = kong.db.routes</div><div class="line">local consumers_dao = kong.db.consumers</div><div class="line">local plugins_dao = kong.dao.plugins</div></pre></td></tr></table></figure><p>来自Kong的核心实体和插件中的自定义实体都可以通过<code>kong.db.*</code>。</p><h2 id="The-DAO-Lua-API"><a href="#The-DAO-Lua-API" class="headerlink" title="The DAO Lua API"></a>The DAO Lua API</h2><p>DAO类负责在数据存储区中的给定表上执行的操作，通常映射到Kong的实体。所有底层支持的数据库（目前是Cassandra和PostgreSQL）都遵循相同的接口，从而使DAO与所有这些兼容。<br>例如，插入服务和插件非常简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">local inserted_service, err = kong.db.services:insert(&#123;</div><div class="line">  name = &quot;mockbin&quot;,</div><div class="line">  url = &quot;http://mockbin.org&quot;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line">local inserted_plugin, err = kong.db.plugins:insert(&#123;</div><div class="line">  name = &quot;key-auth&quot;,</div><div class="line">  service_id = &#123; id = inserted_service.id &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p><p>有关在插件中使用的DAO的实际示例，请参阅 <a href="https://github.com/Kong/kong/blob/master/kong/plugins/key-auth/handler.lua" target="_blank" rel="external">Key-Auth plugin 的源代码</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原文地址：&lt;a href=&quot;https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+    
+      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="Kong插件开发" scheme="http://git.102no.com/tags/Kong%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务 API 网关 Kong 插件开发 - 存储自定义实体</title>
@@ -580,39 +611,6 @@
       <category term="session" scheme="http://git.102no.com/tags/session/"/>
     
       <category term="JWT" scheme="http://git.102no.com/tags/JWT/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong初探 (插件开发以及使用)</title>
-    <link href="http://git.102no.com/2018/11/17/api-gateway-kong-plugins/"/>
-    <id>http://git.102no.com/2018/11/17/api-gateway-kong-plugins/</id>
-    <published>2018-11-16T16:00:00.000Z</published>
-    <updated>2019-04-03T15:51:18.323Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Kong已有插件介绍"><a href="#Kong已有插件介绍" class="headerlink" title="Kong已有插件介绍"></a>Kong已有插件介绍</h2><p>Kong Plugins中列出了已有的所有插件，有些插件只能在企业版使用，有些插件是社区成员开发的，大部分是Kong公司开发，并集成到社区版中。下面是社区版集成的、Kong公司维护的插件(2018-09-30 14:33:03)：</p><p><strong>认证插件：</strong></p><ul><li>Basic Auth</li><li>HMAC Auth</li><li>JWT Auth</li><li>Key Auth</li><li>LDAP Auth</li><li>OAuth 2.0 Auth</li></ul><p><strong>安全插件：</strong></p><ul><li>Bot Detection (机器人爬虫检测)</li><li>CORS (跨域请求)</li><li>IP Restriction (IP限制)</li></ul><p><strong>流控插件：</strong></p><ul><li>ACL (访问控制）</li><li>Rate Limiting （请求速率限制）</li><li>Request Size Limiting（返请求大小限制）</li><li>Request Termination （请求终止）</li><li>Response Rate Limiting (返回限速)</li></ul><p><strong>微服务插件：</strong></p><ul><li>AWS Lambda（无服务器计算平台）</li><li>Azure Functions（一个无服务器计算服务，使用它可以按需运行代码，而无需显式预配或管理基础结构。）</li><li>Apache OpenWhisk（开源的、事件驱动的计算平台）</li><li>Serverless Functions（无服务器架构）</li></ul><p><strong>分析和监控插件：</strong></p><ul><li>Datadog（记录API Metric如请求次数、请求大小、响应状态和延迟，可视化API Metric）</li><li>Prometheus（监控报警平台）</li><li>Zipkin（一款开源的分布式实时数据追踪系统。其主要功能是聚集来自各个异构系统的实时监控数据，用来追踪微服务架构下的系统延时问题）</li></ul><p><strong>内容修改插件：</strong></p><ul><li>Correlation ID(使用http头的唯一id传输来关联请求和返回）</li><li>Request Transformer（在转发到upstream之前修改请求）</li><li>Response Transformer（在upstream响应返回给客户端之前修改响应）</li></ul><p><strong>日志插件：</strong></p><ul><li>File Log</li><li>HTTP Log</li><li>Loggly</li><li>StatsD</li><li>Syslog</li><li>TCP Log</li><li>UDP Log</li></ul><h2 id="开发一个自己的插件"><a href="#开发一个自己的插件" class="headerlink" title="开发一个自己的插件"></a>开发一个自己的插件</h2><p><strong>官方插件开发指南 </strong></p><p>文档：<a href="https://docs.konghq.com/0.14.x/plugin-development/" target="_blank" rel="external">https://docs.konghq.com/0.14.x/plugin-development/</a></p><p>首先查看第一篇文章，保证你已经成功的安装以及启动了kong的服务，接下来第一件事情，就是要找到你的kong插件所在的位置<br>一般会在如下文件中，此文件夹就存放的是所有kong的插件位置，当然，你要写的插件也在这里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/share/lua/5.1/kong/plugins/</div></pre></td></tr></table></figure></p><p>在此文件下新建你的插件文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch /usr/local/share/lua/5.1/kong/plugins/testplugin</div></pre></td></tr></table></figure></p><p>然后新建两个必须的文件，这两个文件是一个插件最基本的组成部分，其中，handler.lua 是插件核心，它是一个接口实现，其中每个函数将在请求生命周期中的期望时刻运行。schema.lua 用于定义插件配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">handler.lua  schema.lua</div></pre></td></tr></table></figure></p><h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><p>Kong 插件通过schema.lua文件定义配置。schema.lua 返回一个Table类型，包含no_consumer、fields、self_check三个属性：</p><table><thead><tr><th>属性名</th><th>Lua 类型</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td>no_consumer</td><td>Boolean</td><td>false</td><td>如果为true将不能应用此插件至指定消费者，只能被应用到 Services 或者 Routes, 例如：认证插件</td></tr><tr><td>fields</td><td>Table</td><td>{}</td><td>插件的 schema，使用一个键值对定义可用属性和他们的规则</td></tr><tr><td>self_check</td><td>Function</td><td>nil</td><td>如果在接受插件配置之前需要进行自定义验证，需要实现此函数</td></tr></tbody></table><p>schema.lua 文件样本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">return &#123;</div><div class="line">  no_consumer = true, -- this plugin will only be applied to Services or Routes, 此插件是否用于所有用户</div><div class="line">  fields = &#123;</div><div class="line">    -- Describe your plugin&apos;s configuration&apos;s schema here. 描述你的配置文件</div><div class="line">  &#125;,</div><div class="line">  self_check = function(schema, plugin_t, dao, is_updating)</div><div class="line">    -- perform any custom verification 执行任何自定义的验证</div><div class="line">    return true</div><div class="line">  end</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><p>Kong 插件可以在请求/响应生命周期中的几个入口点注入自定义逻辑，插件实现者必须在 handler.lua 中实现 base_plugin.lua 文件中的一个或多个接口。 base_plugin.lua 文件中的几个方法如下：</p><table><thead><tr><th>函数名</th><th>LUA-NGINX-MODULE Context</th><th>描述</th></tr></thead><tbody><tr><td>:init_worker()</td><td>init_worker_by_lua</td><td>在每个 Nginx 工作进程启动时执行</td></tr><tr><td>:certificate()</td><td>ssl_certificate_by_lua</td><td>在SSL握手阶段的SSL证书服务阶段执行</td></tr><tr><td>:rewrite()</td><td>rewrite_by_lua</td><td>从客户端接收作为重写阶段处理程序的每个请求执行。在这个阶段，无论是API还是消费者都没有被识别，因此这个处理器只在插件被配置为全局插件时执行</td></tr><tr><td>:access()</td><td>access_by_lua</td><td>为客户的每一个请求而执行，并在它被代理到上游服务之前执行</td></tr><tr><td>:header_filter()</td><td>header_filter_by_lua</td><td>从上游服务接收到所有响应头字节时执行</td></tr><tr><td>:body_filter()</td><td>body_filter_by_lua</td><td>从上游服务接收的响应体的每个块时执行。由于响应流回客户端，它可以超过缓冲区大小，因此，如果响应较大，该方法可以被多次调用</td></tr><tr><td>:log()</td><td>log_by_lua</td><td>当最后一个响应字节已经发送到客户端时执行</td></tr></tbody></table><p>接下来找到你的conf文件<a href="https://docs.konghq.com/0.14.x/plugin-development/" target="_blank" rel="external">https://docs.konghq.com/0.14.x/plugin-development/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kong/kong.conf</div></pre></td></tr></table></figure></p><p>找到其中这一行，去掉开头的注释并修改如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugins = bundled, testplugin</div></pre></td></tr></table></figure></p><p>在testplugin目录执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luarocks write_rockspec</div></pre></td></tr></table></figure></p><p>会在本目录下生成一个 <code>testplugin-scm-1.rockspec</code> 文件  </p><p>所以，一个最基本款的插件的结构将会是这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">testplugin/</div><div class="line">├── handler.lua</div><div class="line">├── schema.lua</div><div class="line">└── testplugin-scm-1.rockspec</div></pre></td></tr></table></figure></p><p>接着重启kong<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">kong stop</div><div class="line">kong start -c /etc/kong/kong.conf</div></pre></td></tr></table></figure></p><p>再到 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> 控制面板的插件列表中就能看到你的插件了。</p><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>日志路径：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/kong/logs/error.log</div></pre></td></tr></table></figure><p>当然也可以在 /etc/kong/kong.conf  中找到配置日志路径修改即可</p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://ms2008.github.io/2018/06/19/kong-plugin-development/" target="_blank" rel="external">Kong 插件开发指南</a></li><li><a href="https://www.lijiaocn.com/tags/class.html" target="_blank" rel="external">Kong 系列教程</a></li><li><a href="https://www.jianshu.com/p/a68e45bcadb6" target="_blank" rel="external">开源API网关系统（Kong教程）入门到精通</a></li><li><a href="http://www.yuxiumin.com/2018/07/09/kong-api-gateway-plugin/" target="_blank" rel="external">Kong Api网关简介(二) 插件</a></li><li><a href="https://www.jerney.io/header-echo-kong-plugin/" target="_blank" rel="external">Writing a Plugin for Kong API Gateway 0.14.x</a></li><li><a href="http://cyukang.com/2017/07/02/kong-intro.html" target="_blank" rel="external">Kong源码分析</a></li><li><a href="http://techblog.ppdai.com/2018/04/16/20180416/" target="_blank" rel="external">Kong源码解读</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;Kong已有插件介绍&quot;&gt;&lt;a href=&quot;#Kong已有插件介绍&quot; class=&quot;headerlink&quot; title=&quot;Kong已有插件介绍&quot;&gt;&lt;/a&gt;Kong已有插件介绍&lt;/h2&gt;&lt;p&gt;Kong Plugins中列出了已有的所有插件，有些插件只能在企业版使用，有
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Apigateway" scheme="http://git.102no.com/tags/Apigateway/"/>
-    
-      <category term="api网关" scheme="http://git.102no.com/tags/api%E7%BD%91%E5%85%B3/"/>
-    
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
-    
-      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
   </entry>
   
