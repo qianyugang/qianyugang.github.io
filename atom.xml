@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-04-08T15:42:01.919Z</updated>
+  <updated>2019-04-11T15:31:38.704Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在Kong的插件中使用自建数据表的问题</title>
+    <link href="http://git.102no.com/2019/04/11/kong-table-issuse/"/>
+    <id>http://git.102no.com/2019/04/11/kong-table-issuse/</id>
+    <published>2019-04-10T16:00:00.000Z</published>
+    <updated>2019-04-11T15:31:38.704Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前正在开发的kong 插件中需要用到自己新建表，然后对其进行读写，但是由于kong的版本升级原因，有一些问题在官方文档中没有提到，如果按照官方文档开发，很容易掉坑里,导致一直读取失败，这里把其中一些可能会遇到的问题列一下，有一些代码是参考了升级之后，官方自带的插件中的代码，主要注意的点如下：</p><h2 id="1-迁移文件的差异"><a href="#1-迁移文件的差异" class="headerlink" title="1.迁移文件的差异"></a>1.迁移文件的差异</h2><h3 id="kong的版本-gt-1-0"><a href="#kong的版本-gt-1-0" class="headerlink" title="kong的版本&gt;= 1.0"></a>kong的版本&gt;= 1.0</h3><p>迁移文件的名字为<code>000_base_xxx.lua</code>，其中格式格式如下：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> return &#123;</div><div class="line">    postgres = &#123;</div><div class="line">        up = [[</div><div class="line">          CREATE TABLE IF NOT EXISTS &quot;xxxxx&quot; (</div><div class="line">            &quot;id&quot;uuidNOT NULLDEFAULT uuid_generate_v4 ()PRIMARY KEY,</div><div class="line">            &quot;xx&quot;intNOT NULL,</div><div class="line">            &quot;xx&quot;bool,</div><div class="line">            &quot;xx&quot;json,</div><div class="line">            &quot;xx&quot;json</div><div class="line">          );</div><div class="line">        ]],</div><div class="line">    &#125;,</div><div class="line">    cassandra =&#123;</div><div class="line">        up =[[</div><div class="line"></div><div class="line">        ]]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><h3 id="kong的版本小于1-0版本"><a href="#kong的版本小于1-0版本" class="headerlink" title="kong的版本小于1.0版本"></a>kong的版本小于1.0版本</h3><p>迁移文件的名字为<code>postgres.lua</code>和<code>cassandra.lua</code>，其中格式如下：<br>此为postgres.lua</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"> return &#123;</div><div class="line">  &#123;</div><div class="line">    name = &quot;2015-07-31-172400_init_keyauth&quot;,</div><div class="line">    up = [[</div><div class="line">      CREATE TABLE IF NOT EXISTS keyauth_credentials(</div><div class="line">        id uuid,</div><div class="line">        consumer_id uuid REFERENCES consumers (id) ON DELETE CASCADE,</div><div class="line">        key text UNIQUE,</div><div class="line">        created_at timestamp without time zone default (CURRENT_TIMESTAMP(0) at time zone &apos;utc&apos;),</div><div class="line">        PRIMARY KEY (id)</div><div class="line">      );</div><div class="line"></div><div class="line">      DO $$</div><div class="line">      BEGIN</div><div class="line">        IF (SELECT to_regclass(&apos;public.keyauth_key_idx&apos;)) IS NULL THEN</div><div class="line">          CREATE INDEX keyauth_key_idx ON keyauth_credentials(key);</div><div class="line">        END IF;</div><div class="line">        IF (SELECT to_regclass(&apos;public.keyauth_consumer_idx&apos;)) IS NULL THEN</div><div class="line">          CREATE INDEX keyauth_consumer_idx ON keyauth_credentials(consumer_id);</div><div class="line">        END IF;</div><div class="line">      END$$;</div><div class="line">    ]],</div><div class="line">    down = [[</div><div class="line">      DROP TABLE keyauth_credentials;</div><div class="line">    ]]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="2-daos-lua的差异"><a href="#2-daos-lua的差异" class="headerlink" title="2.daos.lua的差异"></a>2.daos.lua的差异</h2><p> daos.lua的格式也是有差异的，但是这部分的差异在文档中是没有体现的</p><h3 id="kong的版本-gt-1-0-1"><a href="#kong的版本-gt-1-0-1" class="headerlink" title="kong的版本&gt;= 1.0"></a>kong的版本&gt;= 1.0</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> local typedefs = require &quot;kong.db.schema.typedefs&quot;</div><div class="line"></div><div class="line">local xxx = &#123;</div><div class="line">    primary_key = &#123; &quot;id&quot; &#125;,</div><div class="line">    name = &quot;app_config&quot;,</div><div class="line">    fields = &#123;</div><div class="line">        &#123; id = typedefs.uuid &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false, unique = true &#125;, &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false, unique = true &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">return &#123;</div><div class="line">    zz = xxx,</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="kong的版本小于1-0版本-1"><a href="#kong的版本小于1-0版本-1" class="headerlink" title="kong的版本小于1.0版本"></a>kong的版本小于1.0版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">-- daos.lua</div><div class="line">local SCHEMA = &#123;</div><div class="line">  primary_key = &#123;&quot;id&quot;&#125;,</div><div class="line">  table = &quot;keyauth_credentials&quot;, -- the actual table in the database</div><div class="line">  fields = &#123;</div><div class="line">    id = &#123;type = &quot;id&quot;, dao_insert_value = true&#125;, -- a value to be inserted by the DAO itself (think of serial ID and the uniqueness of such required here)</div><div class="line">    created_at = &#123;type = &quot;timestamp&quot;, immutable = true, dao_insert_value = true&#125;, -- also interted by the DAO itself</div><div class="line">    consumer_id = &#123;type = &quot;id&quot;, required = true, foreign = &quot;consumers:id&quot;&#125;, -- a foreign key to a Consumer&apos;s id</div><div class="line">    key = &#123;type = &quot;string&quot;, required = false, unique = true&#125; -- a unique API key</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">return &#123;keyauth_credentials = SCHEMA&#125; -- this plugin only results in one custom DAO, named `keyauth_credentials`</div><div class="line">``` </div><div class="line"></div><div class="line">尤其注意`fields`字段的结构差异，不然很容易弄混</div><div class="line"></div><div class="line">## 3.调用差异</div><div class="line"></div><div class="line">### kong的版本&gt;= 1.0</div></pre></td></tr></table></figure><p>– 通过某个字段查询<br>local app_configs, err = kong.db.app_config:select_by_app_key(app_key)<br>– 通过主键查询<br>local app_group_configs, err = kong.db.app_group_config:select({ id = group_id })<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### kong的版本小于1.0版本</div></pre></td></tr></table></figure></p><p>local app_configs, err = kong.dao.app_config:find()<br>local app_configs, err = kong.dao.app_config:find_all()<br>```</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;目前正在开发的kong 插件中需要用到自己新建表，然后对其进行读写，但是由于kong的版本升级原因，有一些问题在官方文档中没有提到，如果按照官方文档开发，很容易掉坑里,导致一直读取失败，这里把其中一些可能会遇到的问题列一下，有一些代码是参考了升级之后，官方自带的插件中的代码
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+    
+      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务 API 网关 Kong 插件开发 - 访问数据存储区</title>
@@ -215,9 +244,9 @@
     
       <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
     
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
       <category term="kong1.0" scheme="http://git.102no.com/tags/kong1-0/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong升级指南" scheme="http://git.102no.com/tags/Kong%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/"/>
     
@@ -428,9 +457,9 @@
     
       <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
     
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
       <category term="kong1.0" scheme="http://git.102no.com/tags/kong1-0/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong升级指南" scheme="http://git.102no.com/tags/Kong%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/"/>
     
@@ -584,33 +613,6 @@
       <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
       <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>有状态（SESSION）和无状态（JWT）登录验证</title>
-    <link href="http://git.102no.com/2018/12/05/session-and-jwt/"/>
-    <id>http://git.102no.com/2018/12/05/session-and-jwt/</id>
-    <published>2018-12-04T16:00:00.000Z</published>
-    <updated>2019-04-03T15:56:38.034Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近公司在做系统设计的时候提到了这么一个讨论，就是有状态的登录验证和无状态的登录验证，至于这两者的利弊有哪些，具体如何做选择，可以把两者的特点来做一些对比。其实这两者共同的目的就是解决http协议的无状态特性，标示客户端会话用户。不论用这两者哪种方式，token 和 session 都可能会被窃取从而发生CSRF攻击，全站 HTTPS 是必不可少。google一下发现关于这两者的讨论都不少，在此总结一番，有其他意见的欢迎留言讨论。</p><h2 id="有状态（SESSION）"><a href="#有状态（SESSION）" class="headerlink" title="有状态（SESSION）"></a>有状态（SESSION）</h2><p>所谓有状态，就是的就是传统的 cookie session ，cookie的身份验证是有状态的。这意味着验证的记录或者会话(session)必须同时保存在服务器端和客户端。服务器端需要跟踪记录session并存至数据库，同时前端需要在cookie中保存一个sessionID，作为session的唯一标识符，可看做是session的“身份证”。前端退出的话就清cookie。后端强制前端重新认证的话就清或者修改session。</p><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul><li>相较于无状态的验证机制，传统的session可以直接从后端主动控制下线，删除session，方便实现互t等功能    </li><li>session保存在服务端，相对比较安全</li><li>有状态的session可以较为准确统计在线人数</li></ul><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul><li>有状态的存储session需要服务器空间</li><li>扩展不方便，需要session同步，借助redis实现共享等</li></ul><h2 id="无状态（JWT）"><a href="#无状态（JWT）" class="headerlink" title="无状态（JWT）"></a>无状态（JWT）</h2><p>无状态，首先就是不需要服务端去存储，只需要将用户名密码传入后端接口后，将用户的信息作为 JWT的payload，将其与头部分别进行Base64编码拼接后签名，形成一个JWT。形成的JWT就是一个形同lll.zzz.xxx的字符串。前端就需要保存这个返回的结果在localStorage或sessionStorage上，退出登录时前端删除即可。</p><h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3><ul><li>json通用性，方便跨语言</li><li>不需要在服务端保存会话信息, 易于应用的扩展</li><li>占用字节很小，方便传输</li></ul><h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ul><li>JWT的加解密耗费CPU计算资源</li><li>不能方便的管理会话</li><li>注销没有即时性，如果token泄露，注销状态下仍可登录操作</li></ul><h2 id="相关讨论-amp-链接"><a href="#相关讨论-amp-链接" class="headerlink" title="相关讨论&amp;链接"></a>相关讨论&amp;链接</h2><ul><li><a href="https://juejin.im/post/5a437441f265da43294e54c3" target="_blank" rel="external">聊一聊JWT与session</a></li><li><a href="https://www.jianshu.com/p/cbe253281d26" target="_blank" rel="external">cookie-session机制与JWT机制对比</a></li><li><a href="https://www.bonjourcs.com/2017/12/19/%E5%88%AB%E5%86%8D%E7%94%A8-JWT-%E5%81%9A%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%E4%BA%86/" target="_blank" rel="external">别再用 JWT 做会话管理了</a></li><li><a href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/" target="_blank" rel="external">Stop using JWT for sessions</a></li><li><a href="https://www.zcfy.cc/article/stop-using-jwt-for-sessions-joepie91s-ramblings" target="_blank" rel="external">请停止使用 JWT 认证</a></li><li><a href="https://blog.csdn.net/kikajack/article/details/80293328" target="_blank" rel="external">从有状态应用（Session）到无状态应用（JWT），以及 SSO 和 OAuth2</a></li><li><a href="https://zhuanlan.zhihu.com/p/38942172" target="_blank" rel="external">不要用JWT替代session管理（上）：全面了解Token,JWT,OAuth,SAML,SSO</a></li><li><a href="https://ponyfoo.com/articles/json-web-tokens-vs-session-cookies" target="_blank" rel="external">JSON Web Tokens vs. Session Cookies: In Practice</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;最近公司在做系统设计的时候提到了这么一个讨论，就是有状态的登录验证和无状态的登录验证，至于这两者的利弊有哪些，具体如何做选择，可以把两者的特点来做一些对比。其实这两者共同的目的就是解决http协议的无状态特性，标示客户端会话用户。不论用这两者哪种方式，token 和 ses
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="session" scheme="http://git.102no.com/tags/session/"/>
-    
-      <category term="JWT" scheme="http://git.102no.com/tags/JWT/"/>
     
   </entry>
   
