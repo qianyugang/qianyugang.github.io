@@ -46,6 +46,35 @@
   </entry>
   
   <entry>
+    <title>在 Ubuntu 上安装 Kong</title>
+    <link href="http://git.102no.com/2019/08/29/kong-install-ubuntu/"/>
+    <id>http://git.102no.com/2019/08/29/kong-install-ubuntu/</id>
+    <published>2019-08-28T16:00:00.000Z</published>
+    <updated>2019-09-01T11:48:37.437Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><p>首先下载配置的相应软件包：</p><ul><li><strong>12.04 Precise：</strong> <a href="https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.precise.amd64.deb" target="_blank" rel="external">https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.precise.amd64.deb</a></li><li><strong>14.04 Trusty：</strong> <a href="https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.trusty.amd64.deb" target="_blank" rel="external">https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.trusty.amd64.deb</a></li><li><strong>16.04 Xenial：</strong> <a href="https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.xenial.amd64.deb" target="_blank" rel="external">https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.xenial.amd64.deb</a></li><li><strong>17.04 Zesty：</strong> <a href="https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.zesty.amd64.deb" target="_blank" rel="external">https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.zesty.amd64.deb</a></li><li><strong>18.04 Bionic：</strong> <a href="https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.bionic.amd64.deb" target="_blank" rel="external">https://bintray.com/kong/kong-deb/download_file?file_path=kong-1.3.0.bionic.amd64.deb</a></li></ul><p>企业试用用户应从其欢迎电子邮件中下载其包，并在步骤1之后将其许可保存到<code>/etc/kong/license.json</code>。</p><h2 id="APT存储库"><a href="#APT存储库" class="headerlink" title="APT存储库"></a>APT存储库</h2><p>您也可以通过APT安装Kong;<br>按照下面页面上“Set Me Up”部分的说明，将分布设置为适当的值（lsb_release -sc）（例如，<code>precise</code>）和组件到<code>main</code>。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol><li><p>安装Kong<br> 如果要下载<a href="https://docs.konghq.com/install/ubuntu/#packages" target="_blank" rel="external">程序包</a>，请执行：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install openssl libpcre3 procps perl</div><div class="line">$ sudo dpkg -i kong-1.3.0.*.deb</div></pre></td></tr></table></figure><p> 如果您正在使用apt存储库执行：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install -y apt-transport-https curl lsb-core</div><div class="line">$ echo &quot;deb https://kong.bintray.com/kong-deb `lsb_release -sc` main&quot; | sudo tee -a /etc/apt/sources.list</div><div class="line">$ curl -o bintray.key https://bintray.com/user/downloadSubjectPublicKey?username=bintray</div><div class="line">$ sudo apt-key add bintray.key</div><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install -y kong</div></pre></td></tr></table></figure></li></ol><ol><li><p>准备数据库或声明性配置文件</p><p> 无论是否有数据库，Kong都可以运行。</p><p> 使用数据库时，您将使用    kong.conf    配置文件在启动时设置Kong的配置属性，并将数据库用作所有已配置实体的存储，例如Kong代理所在的 Routes 和 Services 。</p><p> 不使用数据库时，您将使用<code>kong.conf</code>的配置属性和<code>kong.yml</code>文件来将实体指定为声明性配置。</p><p> <strong>使用数据库</strong></p><p> <a href="https://docs.konghq.com/1.3.x/configuration#database" target="_blank" rel="external">配置</a>Kong以便它可以连接到您的数据库。Kong支持<a href="http://www.postgresql.org/" target="_blank" rel="external">PostgreSQL 9.5+</a>和<a href="http://cassandra.apache.org/" target="_blank" rel="external">Cassandra 3.x.x</a>作为其数据存储。</p><p> 如果您使用Postgres，请在开始Kong之前配置数据库和用户，即：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CREATE USER kong; CREATE DATABASE kong OWNER kong;</div></pre></td></tr></table></figure></li></ol><pre><code>   然后执行Kong的数据迁移：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kong migrations bootstrap [-c /path/to/kong.conf]</div></pre></td></tr></table></figure>对于Kong 小于0.15的注意事项：如果Kong版本低于0.15（最高0.14），请使用up子命令而不是bootstrap。另请注意，如果Kong 小于0.15，则不应同时进行迁移;只有一个Kong节点应该一次执行迁移。对于0.15,1.0及以上的Kong，此限制被取消。**不使用数据库**如果要在[无DB模式](https://docs.konghq.com/1.3.x/db-less-and-declarative-config/)下运行Kong，则应首先生成声明性配置文件。以下命令将在当前文件夹中生成`kong.yml`文件。它包含有关如何填写它的说明。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kong config init</div></pre></td></tr></table></figure>填写`kong.yml`文件后，编辑您的`kong.conf`文件。将数据库选项设置为`off`，将`declarative_config`选项设置为`kong.yml`文件的路径：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  database = off</div><div class="line">declarative_config = /path/to/kong.yml</div></pre></td></tr></table></figure></code></pre><ol><li><p>启动Kong</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kong start [-c /path/to/kong.conf]</div></pre></td></tr></table></figure></li></ol><ol><li><p>使用Kong</p><p> Kong正在运行</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl -i http://localhost:8001/</div></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装包&quot;&gt;&lt;a href=&quot;#安装包&quot; class=&quot;headerlink&quot; title=&quot;安装包&quot;&gt;&lt;/a&gt;安装包&lt;/h2&gt;&lt;p&gt;首先下载配置的相应软件包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;12.04 Precise：&lt;/strong&gt; &lt;a href
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Kong 1.3发布！支持原生gRPC代理，上游双向TLS认证，以及更多功</title>
     <link href="http://git.102no.com/2019/08/27/kong-1.3/"/>
     <id>http://git.102no.com/2019/08/27/kong-1.3/</id>
@@ -596,37 +625,6 @@
       <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
     
       <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务 API 网关 Kong 插件开发 - 访问数据存储区</title>
-    <link href="http://git.102no.com/2019/04/08/kong-plugin-access-datastore-doc/"/>
-    <id>http://git.102no.com/2019/04/08/kong-plugin-access-datastore-doc/</id>
-    <published>2019-04-07T16:00:00.000Z</published>
-    <updated>2019-04-08T15:42:01.919Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文地址：<a href="https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/" target="_blank" rel="external">https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Kong通过我们称为“DAOs”的类与模型层交互。本章将详细介绍与数据存储交互的可用API。Kong支持两个主数据存储：<a href="http://cassandra.apache.org/" target="_blank" rel="external">Cassandra 3.x.x</a>和<a href="http://www.postgresql.org/" target="_blank" rel="external">PostgreSQL 9.5+</a>。</p><h1 id="kong-db"><a href="#kong-db" class="headerlink" title="kong.db"></a>kong.db</h1><p>Kong 的所有实例表示为：</p><ul><li>描述实体在数据存储区中与哪个表相关的模式，对其字段的约束，如外键，非空约束等…此schema是<a href="https://docs.konghq.com/1.1.x/plugin-development/plugin-configuration/" target="_blank" rel="external">插件配置</a>章节中描述的表。</li><li>DAO类的一个实例映射到当前正在使用的数据库（Cassandra或PostgreSQL）。此类的方法使用模式并公开方法来插入，更新，查找和删除该类型的实体。</li></ul><p>Kong的核心实体是：Services, Routes, Consumers 和 Plugins。所有这些都可以作为数据访问对象（DAO）通过kong.db全局单例访问：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-- Core DAOs</div><div class="line">local services_dao = kong.db.services</div><div class="line">local routes_dao = kong.db.routes</div><div class="line">local consumers_dao = kong.db.consumers</div><div class="line">local plugins_dao = kong.dao.plugins</div></pre></td></tr></table></figure><p>来自Kong的核心实体和插件中的自定义实体都可以通过<code>kong.db.*</code>。</p><h2 id="The-DAO-Lua-API"><a href="#The-DAO-Lua-API" class="headerlink" title="The DAO Lua API"></a>The DAO Lua API</h2><p>DAO类负责在数据存储区中的给定表上执行的操作，通常映射到Kong的实体。所有底层支持的数据库（目前是Cassandra和PostgreSQL）都遵循相同的接口，从而使DAO与所有这些兼容。<br>例如，插入服务和插件非常简单：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">local inserted_service, err = kong.db.services:insert(&#123;</div><div class="line">  name = &quot;mockbin&quot;,</div><div class="line">  url = &quot;http://mockbin.org&quot;,</div><div class="line">&#125;)</div><div class="line"></div><div class="line">local inserted_plugin, err = kong.db.plugins:insert(&#123;</div><div class="line">  name = &quot;key-auth&quot;,</div><div class="line">  service_id = &#123; id = inserted_service.id &#125;,</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p><p>有关在插件中使用的DAO的实际示例，请参阅 <a href="https://github.com/Kong/kong/blob/master/kong/plugins/key-auth/handler.lua" target="_blank" rel="external">Key-Auth plugin 的源代码</a>。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文地址：&lt;a href=&quot;https://docs.konghq.com/1.1.x/plugin-development/access-the-datastore/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
-    
-      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="Kong插件开发" scheme="http://git.102no.com/tags/Kong%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
