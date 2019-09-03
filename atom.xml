@@ -18,8 +18,8 @@
   
   <entry>
     <title>如何在 Kong 和 OpenResty 中使用环境变量 os.getenv()</title>
-    <link href="http://git.102no.com/2019/09/02/kong-getebv/"/>
-    <id>http://git.102no.com/2019/09/02/kong-getebv/</id>
+    <link href="http://git.102no.com/2019/09/02/kong-getenv/"/>
+    <id>http://git.102no.com/2019/09/02/kong-getenv/</id>
     <published>2019-09-01T16:00:00.000Z</published>
     <updated>2019-09-03T16:12:59.751Z</updated>
     
