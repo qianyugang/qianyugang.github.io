@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2019-09-03T16:09:21.631Z</updated>
+  <updated>2019-09-03T16:12:15.694Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在 Kong 和 OpenResty 中使用环境变量 os.getenv()</title>
+    <link href="http://git.102no.com/2019/09/02/kong-getebv/"/>
+    <id>http://git.102no.com/2019/09/02/kong-getebv/</id>
+    <published>2019-09-01T16:00:00.000Z</published>
+    <updated>2019-09-03T16:12:15.694Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何在-Kong-和-OpenResty-中使用环境变量-os-getenv"><a href="#如何在-Kong-和-OpenResty-中使用环境变量-os-getenv" class="headerlink" title="如何在 Kong 和 OpenResty 中使用环境变量 os.getenv()"></a>如何在 Kong 和 OpenResty 中使用环境变量 os.getenv()</h1><p>在项目中有时会遇到使用系统环境变量的问题，但是直接使用 <code>os.getenv()</code> 是不可行的，不仅是在 Kong 中，在 OpenResty 也都是不可以的，原因是 Kong 是基于 OpenResty ，OpenResty 是基于 Nginx 的，而Nginx在启动的时候，会把环境中所有的环境变量都清除掉，我们可以从Nginx的官方文档中看到这段描述：<a href="http://nginx.org/en/docs/ngx_core_module.html#env" target="_blank" rel="external">http://nginx.org/en/docs/ngx_core_module.html#env</a> 。</p><blockquote><p>By default, nginx removes all environment variables inherited from its parent process except the TZ variable. </p></blockquote><p>具体可以参考春哥在这个issue下的回复：<a href="https://github.com/openresty/lua-nginx-module/issues/601" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module/issues/601</a></p><p>所以需要在你的nginx.conf文件中把你需要的环境变量声明一下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">events&#123;</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">env PATH;</div><div class="line">env USERNAME;</div></pre></td></tr></table></figure><p>然后重启一下Nginx，就可以直接在你的 Lua 代码中使用 <code>os.getenv(&quot;USERNAME&quot;)</code> 获取环境变量。</p><h2 id="在-Kong-中使用-os-getenv"><a href="#在-Kong-中使用-os-getenv" class="headerlink" title="在 Kong 中使用 os.getenv()"></a>在 Kong 中使用 os.getenv()</h2><p>那如果我想在kong的插件中是使用<code>os.getenv()</code>要怎么操作呢？</p><p>在 Kong 里面，我们看到Kong生成的 Nginx配置文件是不可修改的，即使你修改了，Kong 还是会生成恢复成修改前，那么这个时候就要用到 Kong 的一个<a href="https://getkong.org/docs/0.13.x/configuration/#custom-nginx-configuration-embedding-kong" target="_blank" rel="external">自定义 Nginx 配置文件</a>功能。详情可以看这俩issue：</p><ul><li><a href="https://github.com/Kong/kong/issues/3473" target="_blank" rel="external">https://github.com/Kong/kong/issues/3473</a></li><li><a href="https://github.com/Kong/kong/issues/3424" target="_blank" rel="external">https://github.com/Kong/kong/issues/3424</a></li></ul><p>那么实际操作起来就很简单了，新建一个<code>custom-nginx.conf</code>文件，里面和上文一样，把你需要使用到的环境变量写到这个配置文件中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">events&#123;</div><div class="line">  ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">env PATH;</div><div class="line">env USERNAME;</div></pre></td></tr></table></figure></p><p>接着重启 Kong 即可。不过这里要注意的是，重启的时候，需要带上一个参数<code>--nginx-conf</code>。不过不要搞错的是<code>-c</code>参数是kong的配置文件参数，<code>--nginx-conf</code> 是自定义Nginx模板配置参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kong restart -c kong.conf --nginx-conf custom-nginx.conf</div></pre></td></tr></table></figure><p>重启成功之后，就可以在 Kong 的插件中使用代码中使用 <code>os.getenv(&quot;USERNAME&quot;)</code> 来获取环境变量了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;如何在-Kong-和-OpenResty-中使用环境变量-os-getenv&quot;&gt;&lt;a href=&quot;#如何在-Kong-和-OpenResty-中使用环境变量-os-getenv&quot; class=&quot;headerlink&quot; title=&quot;如何在 Kong 和 OpenR
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+    
+      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="OpenResty" scheme="http://git.102no.com/tags/OpenResty/"/>
+    
+  </entry>
   
   <entry>
     <title>在 Ubuntu 上安装 Kong</title>
@@ -596,35 +627,6 @@
       <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong插件开发" scheme="http://git.102no.com/tags/Kong%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在Kong的插件中使用自建数据表的问题</title>
-    <link href="http://git.102no.com/2019/04/11/kong-table-issuse/"/>
-    <id>http://git.102no.com/2019/04/11/kong-table-issuse/</id>
-    <published>2019-04-10T16:00:00.000Z</published>
-    <updated>2019-04-11T15:37:54.580Z</updated>
-    
-    <content type="html"><![CDATA[<p>目前正在开发的kong 插件中需要用到自己新建表，然后对其进行读写，但是由于kong的版本升级原因，有一些问题在官方文档中没有提到，如果按照官方文档开发，很容易掉坑里,导致一直读取失败，这里把其中一些可能会遇到的问题列一下，有一些代码是参考了升级之后，官方自带的插件中的代码，主要注意的点如下：</p><h2 id="1-迁移文件的差异"><a href="#1-迁移文件的差异" class="headerlink" title="1.迁移文件的差异"></a>1.迁移文件的差异</h2><h3 id="kong的版本-gt-1-0"><a href="#kong的版本-gt-1-0" class="headerlink" title="kong的版本&gt;= 1.0"></a>kong的版本&gt;= 1.0</h3><p>迁移文件的名字为<code>000_base_xxx.lua</code>，其中格式格式如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> return &#123;</div><div class="line">    postgres = &#123;</div><div class="line">        up = [[</div><div class="line">          CREATE TABLE IF NOT EXISTS &quot;xxxxx&quot; (</div><div class="line">            &quot;id&quot;uuidNOT NULLDEFAULT uuid_generate_v4 ()PRIMARY KEY,</div><div class="line">            &quot;xx&quot;intNOT NULL,</div><div class="line">            &quot;xx&quot;bool,</div><div class="line">            &quot;xx&quot;json,</div><div class="line">            &quot;xx&quot;json</div><div class="line">          );</div><div class="line">        ]],</div><div class="line">    &#125;,</div><div class="line">    cassandra =&#123;</div><div class="line">        up =[[</div><div class="line"></div><div class="line">        ]]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="kong的版本小于1-0版本"><a href="#kong的版本小于1-0版本" class="headerlink" title="kong的版本小于1.0版本"></a>kong的版本小于1.0版本</h3><p>迁移文件的名字为<code>postgres.lua</code>和<code>cassandra.lua</code>，其中格式如下：<br>此为postgres.lua</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"> return &#123;</div><div class="line">  &#123;</div><div class="line">    name = &quot;2015-07-31-172400_init_keyauth&quot;,</div><div class="line">    up = [[</div><div class="line">      CREATE TABLE IF NOT EXISTS keyauth_credentials(</div><div class="line">        id uuid,</div><div class="line">        consumer_id uuid REFERENCES consumers (id) ON DELETE CASCADE,</div><div class="line">        key text UNIQUE,</div><div class="line">        created_at timestamp without time zone default (CURRENT_TIMESTAMP(0) at time zone &apos;utc&apos;),</div><div class="line">        PRIMARY KEY (id)</div><div class="line">      );</div><div class="line"></div><div class="line">      DO $$</div><div class="line">      BEGIN</div><div class="line">        IF (SELECT to_regclass(&apos;public.keyauth_key_idx&apos;)) IS NULL THEN</div><div class="line">          CREATE INDEX keyauth_key_idx ON keyauth_credentials(key);</div><div class="line">        END IF;</div><div class="line">        IF (SELECT to_regclass(&apos;public.keyauth_consumer_idx&apos;)) IS NULL THEN</div><div class="line">          CREATE INDEX keyauth_consumer_idx ON keyauth_credentials(consumer_id);</div><div class="line">        END IF;</div><div class="line">      END$$;</div><div class="line">    ]],</div><div class="line">    down = [[</div><div class="line">      DROP TABLE keyauth_credentials;</div><div class="line">    ]]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h2 id="2-daos-lua的差异"><a href="#2-daos-lua的差异" class="headerlink" title="2.daos.lua的差异"></a>2.daos.lua的差异</h2><p>daos.lua的格式也是有差异的，但是这部分的差异在文档中是没有体现的</p><h3 id="kong的版本-gt-1-0-1"><a href="#kong的版本-gt-1-0-1" class="headerlink" title="kong的版本&gt;= 1.0"></a>kong的版本&gt;= 1.0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">local typedefs = require &quot;kong.db.schema.typedefs&quot;</div><div class="line"></div><div class="line">local xxx = &#123;</div><div class="line">    primary_key = &#123; &quot;id&quot; &#125;,</div><div class="line">    name = &quot;app_config&quot;,</div><div class="line">    fields = &#123;</div><div class="line">        &#123; id = typedefs.uuid &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false, unique = true &#125;, &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false, unique = true &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;,</div><div class="line">        &#123; xx = &#123; type = &quot;string&quot;, required = false &#125; &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">return &#123;</div><div class="line">    zz = xxx,</div><div class="line">&#125;</div></pre></td></tr></table></figure><h3 id="kong的版本小于1-0版本-1"><a href="#kong的版本小于1-0版本-1" class="headerlink" title="kong的版本小于1.0版本"></a>kong的版本小于1.0版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">-- daos.lua</div><div class="line">local SCHEMA = &#123;</div><div class="line">  primary_key = &#123;&quot;id&quot;&#125;,</div><div class="line">  table = &quot;keyauth_credentials&quot;, -- the actual table in the database</div><div class="line">  fields = &#123;</div><div class="line">    id = &#123;type = &quot;id&quot;, dao_insert_value = true&#125;, -- a value to be inserted by the DAO itself (think of serial ID and the uniqueness of such required here)</div><div class="line">    created_at = &#123;type = &quot;timestamp&quot;, immutable = true, dao_insert_value = true&#125;, -- also interted by the DAO itself</div><div class="line">    consumer_id = &#123;type = &quot;id&quot;, required = true, foreign = &quot;consumers:id&quot;&#125;, -- a foreign key to a Consumer&apos;s id</div><div class="line">    key = &#123;type = &quot;string&quot;, required = false, unique = true&#125; -- a unique API key</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">return &#123;keyauth_credentials = SCHEMA&#125; -- this plugin only results in one custom DAO, named &apos;keyauth_credentials&apos;</div></pre></td></tr></table></figure><p>尤其注意<code>fields</code>字段的结构差异，不然很容易弄混</p><h2 id="3-调用差异"><a href="#3-调用差异" class="headerlink" title="3.调用差异"></a>3.调用差异</h2><h3 id="kong的版本-gt-1-0-2"><a href="#kong的版本-gt-1-0-2" class="headerlink" title="kong的版本&gt;= 1.0"></a>kong的版本&gt;= 1.0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-- 通过某个字段查询</div><div class="line">local app_configs, err = kong.db.app_config:select_by_app_key(app_key)</div><div class="line">-- 通过主键查询</div><div class="line">local app_group_configs, err = kong.db.app_group_config:select(&#123; id = group_id &#125;)</div></pre></td></tr></table></figure><h3 id="kong的版本小于1-0版本-2"><a href="#kong的版本小于1-0版本-2" class="headerlink" title="kong的版本小于1.0版本"></a>kong的版本小于1.0版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">local app_configs, err = kong.dao.app_config:find()</div><div class="line">local app_configs, err = kong.dao.app_config:find_all()</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;目前正在开发的kong 插件中需要用到自己新建表，然后对其进行读写，但是由于kong的版本升级原因，有一些问题在官方文档中没有提到，如果按照官方文档开发，很容易掉坑里,导致一直读取失败，这里把其中一些可能会遇到的问题列一下，有一些代码是参考了升级之后，官方自带的插件中的代码
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
-    
-      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
