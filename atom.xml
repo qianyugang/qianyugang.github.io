@@ -37,9 +37,9 @@
       <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="docker" scheme="http://git.102no.com/tags/docker/"/>
-    
       <category term="faketime" scheme="http://git.102no.com/tags/faketime/"/>
+    
+      <category term="docker" scheme="http://git.102no.com/tags/docker/"/>
     
   </entry>
   
@@ -73,9 +73,9 @@
     <link href="http://git.102no.com/2019/11/15/php-protobuf-err/"/>
     <id>http://git.102no.com/2019/11/15/php-protobuf-err/</id>
     <published>2019-11-14T16:00:00.000Z</published>
-    <updated>2019-12-23T04:15:48.056Z</updated>
+    <updated>2019-12-25T06:59:10.072Z</updated>
     
-    <content type="html"><![CDATA[<p>前两天在项目中突然遇到一个protobuf php库报错，报错为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Undefined offset: 8&quot;,&quot;context&quot;</div></pre></td></tr></table></figure></p><p>这个一看就是直接是索引下标，找不到值就超出报错了，再往前回溯一下报错，发现这个错误是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Google\\Protobuf\\Internal\\Message</div></pre></td></tr></table></figure></p><p>报出的。后来看了项目的.proto文件，发现是其他项目的同事更新了这个proto文件，把一个结构体的枚举值添加了一个，导致我们这边项目在收到这个结构体的时候无法识别。此时其实只要更新proto文件就可以解决问题，但是这样并不能一劳永逸，下一次遇到了枚举值增加的时候依旧会出现。</p><p>不过按说谷歌的protobuf php库用了这么多年应该没什么大问题，回溯一下代码发现在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/protocolbuffers/protobuf/blob/master/php/src/Google/Protobuf/Internal/EnumDescriptor.php</div></pre></td></tr></table></figure></p><p>这行代码的问题，这里直接使用的是，没有做异常处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return $this-&gt;value[$number];</div></pre></td></tr></table></figure></p><p>再接着经过同事的发现，这个问题已经解决了，也已经有人提了pr<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/protocolbuffers/protobuf/pull/6155#issuecomment-493795218</div></pre></td></tr></table></figure></p><p>只需要把依赖升级一下即可，之前使用的是3.6.<em>，直接升级到3.10.</em>就可以解决问题。</p>]]></content>
+    <content type="html"><![CDATA[<p>前两天在项目中突然遇到一个protobuf php库报错，报错为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;Undefined offset: 8&quot;,&quot;context&quot;</div></pre></td></tr></table></figure></p><p>这个一看就是直接是索引下标，找不到值就超出报错了，再往前回溯一下报错，发现这个错误是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Google\\Protobuf\\Internal\\Message</div></pre></td></tr></table></figure></p><p>报出的。后来看了项目的.proto文件，发现是其他项目的同事更新了这个proto文件，把一个结构体的枚举值添加了一个，导致我们这边项目在收到这个结构体的时候无法识别。此时其实只要更新proto文件就可以解决问题，但是这样并不能一劳永逸，下一次遇到了枚举值增加的时候依旧会出现。</p><p>不过按说谷歌的protobuf php库用了这么多年应该没什么大问题，回溯一下代码发现在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/protocolbuffers/protobuf/blob/master/php/src/Google/Protobuf/Internal/EnumDescriptor.php</div></pre></td></tr></table></figure></p><p>这行代码的问题，这里直接使用的是，没有做异常处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">return $this-&gt;value[$number];</div></pre></td></tr></table></figure></p><p>再接着经过同事的发现，这个问题已经解决了，也已经有人提了pr<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/protocolbuffers/protobuf/pull/6155#issuecomment-493795218</div></pre></td></tr></table></figure></p><p>只需要把依赖升级一下即可，之前使用的是<code>3.6.*</code>，直接升级到<code>3.10.*</code>就可以解决问题。</p>]]></content>
     
     <summary type="html">
     
