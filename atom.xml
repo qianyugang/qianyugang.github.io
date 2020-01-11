@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2020-01-08T07:11:24.840Z</updated>
+  <updated>2020-01-11T14:37:01.882Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>微服务网关 APISIX 初探</title>
-    <link href="http://git.102no.com/2020/02/08/gateway-apisix/"/>
-    <id>http://git.102no.com/2020/02/08/gateway-apisix/</id>
-    <published>2020-02-07T16:00:00.000Z</published>
-    <updated>2020-01-08T07:11:24.840Z</updated>
+    <link href="http://git.102no.com/2020/01/08/gateway-apisix/"/>
+    <id>http://git.102no.com/2020/01/08/gateway-apisix/</id>
+    <published>2020-01-07T16:00:00.000Z</published>
+    <updated>2020-01-11T14:37:01.882Z</updated>
     
     <content type="html"><![CDATA[<p>APISIX 是一个高性能的微服务API网关，之前在使用Kong的时候有了解过这个产品。如今这个项目已经进入了Apache开始孵化。这个网关的作者是编写了OpenResty的著名教程《OpenResty 最佳实践》的温铭和王院生。都是业界大牛，而且和kong一样都是基于 OpenResty。</p><ul><li>项目地址：<a href="https://github.com/apache/incubator-apisix" target="_blank" rel="external">https://github.com/apache/incubator-apisix</a></li><li>文档入口：<a href="https://github.com/apache/incubator-apisix/blob/master/doc/install-dependencies.md" target="_blank" rel="external">https://github.com/apache/incubator-apisix/blob/master/doc/install-dependencies.md</a></li><li>docker入口：<a href="https://github.com/apache/incubator-apisix-docker" target="_blank" rel="external">https://github.com/apache/incubator-apisix-docker</a></li></ul><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="数据库etcd安装并启动"><a href="#数据库etcd安装并启动" class="headerlink" title="数据库etcd安装并启动"></a>数据库etcd安装并启动</h2><p>etcd是一个基于Go语言实现的高可用的分布式键值(key-value)数据库，性能应该是很不错的。<br>直接安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install etcd</div></pre></td></tr></table></figure></p><p>然后启动数据库服务:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service etcd start</div></pre></td></tr></table></figure></p><h2 id="APISIX安装"><a href="#APISIX安装" class="headerlink" title="APISIX安装"></a>APISIX安装</h2><p>安装文档中有很多种方式安装，选择自己适合的安装方式即可，由于之前已经安装过kong了，所以openresty的环境已经有了，我们就使用最简便的luarocks来安装：</p><p>从luarocks网站中找到：</p><ul><li><a href="https://luarocks.org/modules/membphis/apisix" target="_blank" rel="external">https://luarocks.org/modules/membphis/apisix</a></li></ul><p>然后直接执行安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luarocks install apisix</div></pre></td></tr></table></figure></p><p>注意这里如果你的openresty没有添加到环境变量中，也有可能是不会成功的，记得添加一下。出现这句话安装成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apisix master-0 is now installed in /usr/local (license: Apache License 2.0)</div></pre></td></tr></table></figure></p><h2 id="APISIX启动"><a href="#APISIX启动" class="headerlink" title="APISIX启动"></a>APISIX启动</h2><p>上面都安排妥当之后，直接启动APISIX<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apisix start</div></pre></td></tr></table></figure></p>]]></content>
     
