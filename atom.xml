@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2020-03-29T13:03:03.961Z</updated>
+  <updated>2020-03-30T06:27:20.741Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Oracle iPaaS 产品介绍</title>
+    <link href="http://git.102no.com/2020/03/30/ipaas-oracle/"/>
+    <id>http://git.102no.com/2020/03/30/ipaas-oracle/</id>
+    <published>2020-03-29T16:00:00.000Z</published>
+    <updated>2020-03-30T06:27:20.741Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Oracle-iPaaS-产品介绍"><a href="#Oracle-iPaaS-产品介绍" class="headerlink" title="Oracle iPaaS 产品介绍"></a>Oracle iPaaS 产品介绍</h1><h2 id="api全管理产品"><a href="#api全管理产品" class="headerlink" title="api全管理产品"></a>api全管理产品</h2><p>Oracle的API管理产品是Oracle API Platform Cloud Service。它既可以作为运行在公共Oracle Cloud上的云解决方案来使用，也可以作为使用本地网关或其他云服务上运行的网关的云管理的混合体系结构来使用。网关组件基于Oracle Communications Services Gatekeeper产品。</p><p>2017年，甲骨文收购了Apiary，后者提供了Apiary API设计门户。这是Oracle API平台的一部分，可以作为SaaS使用。 Apiary API设计门户使团队可以在API设计上进行协作，创建模拟服务并执行API质量测试。云API网关（包括分析和身份服务）和基于云或本地的API开发人员门户完善了Oracle API Platform Cloud Service产品。</p><p>Oracle的API管理产品可在全球范围内使用。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Oracle在应用程序集成方面的长期记录（包括与Oracle Integration Cloud的集成）补充了其API管理产品。因此，对于需要在集成上下文中执行API管理的组织而言，Oracle代表了一个诱人的选择。</li><li>Oracle的定价对客户具有吸引力。它基于每小时的API流量，并且与部署的API网关的数量无关。这适合具有分布式体系结构和可变API流量的组织。</li><li>Oracle高度重视API安全性，包括与OAuth 2.0的Oracle身份云服务集成。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Oracle的API管理解决方案与Oracle Cloud捆绑在一起，这使其不适用于不需要任何云依赖性的组织。 Apiary API设计门户仅适用于云，并且管理服务在Oracle Cloud Infrastructure（或用于混合云架构的Oracle Cloud Machine）上运行。</li><li>Oracle的API管理产品仍在不断发展。它缺乏高级的部署和运行功能，并且开发人员门户的自定义要求API调用或API门户本身的源代码的编辑。没有提供视觉内容管理系统。 Oracle的产品策略以API设计为中心-它对API生命周期的后期阶段（例如报废）的支持需要功能上的增强。</li><li>Oracle API管理组最近发生了一些显着的管理更改。这些可能会在短期内影响Oracle的执行，但不太可能降低该产品的整体生存能力。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>Oracle成立于1977年，总部位于美国加利福尼亚州红木海岸。它提供了广泛的PaaS技术，这些技术与SaaS应用程序以及Oracle通过IaaS，PaaS，SaaS以及应用程序和数据集成技术提供的基础架构一起发展。</p><p>自从2015年4月Oracle首次提供Oracle Integration Cloud Service和Oracle Process Cloud Service以来，Oracle Integration Cloud一直在发展。此后，Oracle添加了Oracle SOA Cloud Service，Oracle托管文件传输云服务，Oracle API Platform Cloud Service，Oracle数据集成平台云和Oracle自助服务集成云服务。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li><p>平台的多功能性：正如人们所期望的那样，一家在集成技术领域具有悠久历史的公司以及邻近的PaaS，IaaS和SaaS技术领域的产品，Oracle提供了最具凝聚力和最通用的EiPaaS套件之一。</p></li><li><p>全球影响力：Oracle具有强大的全球影响力。尽管最终用户并不完全专注于集成技术，但最终用户可以从Oracle广泛的网络中受益，这意味着最终用户可以在全球几乎任何地方直接或通过Oracle SaaS和PaaS渠道在本地购买Oracle Integration Cloud。</p></li><li><p>定价：通过使用现有Oracle投资为客户提供基于批量，消费和“自带许可证”的定价，Oracle提供了广泛的定价模型。 Oracle的定价安排可在其网站上找到，以进行直接咨询，以及用于不同货币和定价模型的计算器。以SaaS为重点和以行业为重点的包装增加了客户使用Oracle EiPaaS服务的方式。</p></li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>市场重点：尽管Oracle品牌是众所周知的，但在整个市场上，甲骨文仍然普遍认为甲骨文是昂贵的集成软件的提供商。它的客户群主要由在Oracle产品上已有投资的大型组织组成。希望集成非Oracle应用程序的客户可能会发现他们需要依靠Oracle的合作伙伴网络，而不是Oracle的直接专业知识。</li><li>客户体验：Oracle的参考客户在客户体验，服务和支持方面的得分低于其大多数紧密竞争对手的得分。</li><li>创新：在新产品开发领域，Oracle更像是“快速追随者”而不是“先行者”。尽管甲骨文已经对其技术进行了投资，并且拥有了人们期望的所有创新功能，但是寻求“首先投放市场”创新的最终用户组织应该把目光投向其他地方。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Oracle-iPaaS-产品介绍&quot;&gt;&lt;a href=&quot;#Oracle-iPaaS-产品介绍&quot; class=&quot;headerlink&quot; title=&quot;Oracle iPaaS 产品介绍&quot;&gt;&lt;/a&gt;Oracle iPaaS 产品介绍&lt;/h1&gt;&lt;h2 id=&quot;api全管
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+    
+  </entry>
   
   <entry>
     <title>Google iPaaS 产品介绍</title>
@@ -582,35 +609,6 @@
       <category term="debian" scheme="http://git.102no.com/tags/debian/"/>
     
       <category term="PostgreSQL" scheme="http://git.102no.com/tags/PostgreSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微服务 API 网关 Kong Kubernetes Sidecar 注入插件中文文档</title>
-    <link href="http://git.102no.com/2019/07/22/kong-plugin-kubernetes-sidecar-injector/"/>
-    <id>http://git.102no.com/2019/07/22/kong-plugin-kubernetes-sidecar-injector/</id>
-    <published>2019-07-21T16:00:00.000Z</published>
-    <updated>2019-08-03T13:27:02.545Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文地址：<a href="https://docs.konghq.com/hub/kong-inc/kubernetes-sidecar-injector/" target="_blank" rel="external">https://docs.konghq.com/hub/kong-inc/kubernetes-sidecar-injector/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p><p>该插件将注入Kong数据平面节点并在Kubernetes之上形成服务网格</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Kong <code>0.15.0</code> / <code>1.0.0</code>增加了代理和路由原始<code>tcp</code>和<code>tls</code>流的能力，并使用服务网格Sidecar模式和Kong节点之间的相互<code>tls</code>来部署Kong。本教程将引导您使用我们的 <a href="https://github.com/Kong/kubernetes-sidecar-injector" target="_blank" rel="external">Kubernetes Sidecar 注入插件</a>在Kubernetes上设置Kong服务网格。</p><h2 id="准备条件"><a href="#准备条件" class="headerlink" title="准备条件"></a>准备条件</h2><p>您需要在Kubernetes上运行Kong 1.0.0或更高版本，包括存储为可用于Kong控制平面的机密的SSL证书。来自<a href="https://github.com/Kong/kong-dist-kubernetes" target="_blank" rel="external">Kong Kubernetes Repository</a>的Make任务<code>run_cassandra</code>和<code>run_postgres</code>将完全配置必备数据存储，Kong控制平面，Kong数据平面和SSL机密。</p><p>或者，按照<a href="https://docs.konghq.com/install/kubernetes/" target="_blank" rel="external">Kong Kubernetes Install Instructions</a>页面中的任何设置说明进行操作，然后设置SSL证书/密码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">cd $(mktemp -d)</div><div class="line"></div><div class="line">### Create a key+certificate for the control plane</div><div class="line">cat &lt;&lt;EOF | kubectl create -f -</div><div class="line">apiVersion: certificates.k8s.io/v1beta1</div><div class="line">kind: CertificateSigningRequest</div><div class="line">metadata:</div><div class="line">  name: kong-control-plane.kong.svc</div><div class="line">spec:</div><div class="line">  request: $(openssl req -new -nodes -batch -keyout privkey.pem -subj /CN=kong-control-plane.kong.svc | base64 | tr -d &apos;\n&apos;)</div><div class="line">  usages:</div><div class="line">  - digital signature</div><div class="line">  - key encipherment</div><div class="line">  - server auth</div><div class="line">EOF</div><div class="line">kubectl certificate approve kong-control-plane.kong.svc</div><div class="line">kubectl -n kong create secret tls kong-control-plane.kong.svc --key=privkey.pem --cert=&lt;(kubectl get csr kong-control-plane.kong.svc -o jsonpath=&apos;&#123;.status.certificate&#125;&apos; | base64 --decode)</div><div class="line">kubectl delete csr kong-control-plane.kong.svc</div><div class="line">rm privkey.pem</div></pre></td></tr></table></figure></p><p>或使用以下简便脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -fsSL https://raw.githubusercontent.com/Kong/kong-dist-kubernetes/master/setup_certificate.sh | bash</div></pre></td></tr></table></figure></p><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>导出一些变量以访问Kong Admin API和Proxy：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ export HOST=$(kubectl get nodes --namespace default -o jsonpath=&apos;&#123;.items[0].status.addresses[0].address&#125;&apos;)</div><div class="line">$ export ADMIN_PORT=$(kubectl get svc --namespace kong kong-control-plane  -o jsonpath=&apos;&#123;.spec.ports[0].nodePort&#125;&apos;)</div></pre></td></tr></table></figure></p><p>通过Kong Admin API启用Sidecar Injector插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl $HOST:$ADMIN_PORT/plugins -d name=kubernetes-sidecar-injector -d config.image=kong</div></pre></td></tr></table></figure></p><p>打开Kubernets Sidecar Injection：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">cat &lt;&lt;EOF | kubectl create -f -</div><div class="line">apiVersion: admissionregistration.k8s.io/v1beta1</div><div class="line">kind: MutatingWebhookConfiguration</div><div class="line">metadata:</div><div class="line">  name: kong-sidecar-injector</div><div class="line">webhooks:</div><div class="line">- name: kong.sidecar.injector</div><div class="line">  rules:</div><div class="line">  - apiGroups: [&quot;&quot;]</div><div class="line">    apiVersions: [&quot;v1&quot;]</div><div class="line">    resources: [&quot;pods&quot;]</div><div class="line">    operations: [ &quot;CREATE&quot; ]</div><div class="line">  failurePolicy: Fail</div><div class="line">  namespaceSelector:</div><div class="line">    matchExpressions:</div><div class="line">    - key: kong-sidecar-injection</div><div class="line">      operator: NotIn</div><div class="line">      values:</div><div class="line">      - disabled</div><div class="line">  clientConfig:</div><div class="line">    service:</div><div class="line">      namespace: kong</div><div class="line">      name: kong-control-plane</div><div class="line">      path: /kubernetes-sidecar-injector</div><div class="line">    caBundle: $(kubectl config view --raw --minify --flatten -o jsonpath=&apos;&#123;.clusters[].cluster.certificate-authority-data&#125;&apos;)</div><div class="line">EOF</div></pre></td></tr></table></figure></p><p>或使用以下简便脚本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -fsSL https://raw.githubusercontent.com/Kong/kong-dist-kubernetes/master/setup_sidecar_injector.sh | bash</div></pre></td></tr></table></figure></p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>接下来，任何开始使用Kong Sidecar的pods都会自动注入，而来自该pods容器的所有数据都将通过Kong Sidecar。<br>例如，如果我们使用Istio中的bookinfo.yaml示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.1/samples/bookinfo/platform/kube/bookinfo.yaml</div></pre></td></tr></table></figure></p><p>我们看到所有pods都收到了Kong Sidecar：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">kubectl get all</div><div class="line">NAME                 READY   STATUS</div><div class="line">pod/details-v1       2/2     Running</div><div class="line">pod/productpage      2/2     Running</div><div class="line">pod/ratings-v1       2/2     Running</div><div class="line">pod/reviews-v1       2/2     Running</div><div class="line">pod/reviews-v2       2/2     Running</div><div class="line">pod/reviews-v3       2/2     Running</div></pre></td></tr></table></figure></p><p>继续配置服务。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文地址：&lt;a href=&quot;https://docs.konghq.com/hub/kong-inc/kubernetes-sidecar-injector/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.com/h
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong教程" scheme="http://git.102no.com/tags/Kong%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="Kong插件" scheme="http://git.102no.com/tags/Kong%E6%8F%92%E4%BB%B6/"/>
     
   </entry>
   
