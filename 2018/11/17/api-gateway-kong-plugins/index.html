@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Kong初探 (插件开发以及使用) | 九又四分之三字节</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/6.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.2/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');ga('set', 'forceSSL', true);</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Kong初探 (插件开发以及使用)</h1><a id="logo" href="/.">九又四分之三字节</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="http://www.102no.com/about-me/"><i class="fa fa-user"> 关于作者</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Kong初探 (插件开发以及使用)</h1><div class="post-meta">Nov 17, 2018<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div id="toc" class="toc-article"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kong已有插件介绍"><span class="toc-number">1.</span> <span class="toc-text">Kong已有插件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发一个自己的插件"><span class="toc-number">2.</span> <span class="toc-text">开发一个自己的插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插件配置"><span class="toc-number">2.1.</span> <span class="toc-text">插件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑实现"><span class="toc-number">2.2.</span> <span class="toc-text">逻辑实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志"><span class="toc-number">2.3.</span> <span class="toc-text">日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="post-content"><h2 id="Kong已有插件介绍"><a href="#Kong已有插件介绍" class="headerlink" title="Kong已有插件介绍"></a>Kong已有插件介绍</h2><p>Kong Plugins中列出了已有的所有插件，有些插件只能在企业版使用，有些插件是社区成员开发的，大部分是Kong公司开发，并集成到社区版中。下面是社区版集成的、Kong公司维护的插件(2018-09-30 14:33:03)：</p>
+<p><strong>认证插件：</strong></p>
+<ul>
+<li>Basic Auth</li>
+<li>HMAC Auth</li>
+<li>JWT Auth</li>
+<li>Key Auth</li>
+<li>LDAP Auth</li>
+<li>OAuth 2.0 Auth</li>
+</ul>
+<p><strong>安全插件：</strong></p>
+<ul>
+<li>Bot Detection (机器人爬虫检测)</li>
+<li>CORS (跨域请求)</li>
+<li>IP Restriction (IP限制)</li>
+</ul>
+<p><strong>流控插件：</strong></p>
+<ul>
+<li>ACL (访问控制）</li>
+<li>Rate Limiting （请求速率限制）</li>
+<li>Request Size Limiting（返请求大小限制）</li>
+<li>Request Termination （请求终止）</li>
+<li>Response Rate Limiting (返回限速)</li>
+</ul>
+<p><strong>微服务插件：</strong></p>
+<ul>
+<li>AWS Lambda（无服务器计算平台）</li>
+<li>Azure Functions（一个无服务器计算服务，使用它可以按需运行代码，而无需显式预配或管理基础结构。）</li>
+<li>Apache OpenWhisk（开源的、事件驱动的计算平台）</li>
+<li>Serverless Functions（无服务器架构）</li>
+</ul>
+<p><strong>分析和监控插件：</strong></p>
+<ul>
+<li>Datadog（记录API Metric如请求次数、请求大小、响应状态和延迟，可视化API Metric）</li>
+<li>Prometheus（监控报警平台）</li>
+<li>Zipkin（一款开源的分布式实时数据追踪系统。其主要功能是聚集来自各个异构系统的实时监控数据，用来追踪微服务架构下的系统延时问题）</li>
+</ul>
+<p><strong>内容修改插件：</strong></p>
+<ul>
+<li>Correlation ID(使用http头的唯一id传输来关联请求和返回）</li>
+<li>Request Transformer（在转发到upstream之前修改请求）</li>
+<li>Response Transformer（在upstream响应返回给客户端之前修改响应）</li>
+</ul>
+<p><strong>日志插件：</strong></p>
+<ul>
+<li>File Log</li>
+<li>HTTP Log</li>
+<li>Loggly</li>
+<li>StatsD</li>
+<li>Syslog</li>
+<li>TCP Log</li>
+<li>UDP Log</li>
+</ul>
+<h2 id="开发一个自己的插件"><a href="#开发一个自己的插件" class="headerlink" title="开发一个自己的插件"></a>开发一个自己的插件</h2><p><strong>官方插件开发指南 </strong></p>
+<p>文档：<a href="https://docs.konghq.com/0.14.x/plugin-development/" target="_blank" rel="external">https://docs.konghq.com/0.14.x/plugin-development/</a></p>
+<p>首先查看第一篇文章，保证你已经成功的安装以及启动了kong的服务，接下来第一件事情，就是要找到你的kong插件所在的位置<br>一般会在如下文件中，此文件夹就存放的是所有kong的插件位置，当然，你要写的插件也在这里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/share/lua/5.1/kong/plugins/</div></pre></td></tr></table></figure></p>
+<p>在此文件下新建你的插件文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch /usr/local/share/lua/5.1/kong/plugins/testplugin</div></pre></td></tr></table></figure></p>
+<p>然后新建两个必须的文件，这两个文件是一个插件最基本的组成部分，其中，handler.lua 是插件核心，它是一个接口实现，其中每个函数将在请求生命周期中的期望时刻运行。schema.lua 用于定义插件配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">handler.lua  schema.lua</div></pre></td></tr></table></figure></p>
+<h3 id="插件配置"><a href="#插件配置" class="headerlink" title="插件配置"></a>插件配置</h3><p>Kong 插件通过schema.lua文件定义配置。schema.lua 返回一个Table类型，包含no_consumer、fields、self_check三个属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>Lua 类型</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no_consumer</td>
+<td>Boolean</td>
+<td>false</td>
+<td>如果为true将不能应用此插件至指定消费者，只能被应用到 Services 或者 Routes, 例如：认证插件</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Table</td>
+<td>{}</td>
+<td>插件的 schema，使用一个键值对定义可用属性和他们的规则</td>
+</tr>
+<tr>
+<td>self_check</td>
+<td>Function</td>
+<td>nil</td>
+<td>如果在接受插件配置之前需要进行自定义验证，需要实现此函数</td>
+</tr>
+</tbody>
+</table>
+<p>schema.lua 文件样本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">return &#123;</div><div class="line">  no_consumer = true, -- this plugin will only be applied to Services or Routes, 此插件是否用于所有用户</div><div class="line">  fields = &#123;</div><div class="line">    -- Describe your plugin&apos;s configuration&apos;s schema here. 描述你的配置文件</div><div class="line">  &#125;,</div><div class="line">  self_check = function(schema, plugin_t, dao, is_updating)</div><div class="line">    -- perform any custom verification 执行任何自定义的验证</div><div class="line">    return true</div><div class="line">  end</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="逻辑实现"><a href="#逻辑实现" class="headerlink" title="逻辑实现"></a>逻辑实现</h3><p>Kong 插件可以在请求/响应生命周期中的几个入口点注入自定义逻辑，插件实现者必须在 handler.lua 中实现 base_plugin.lua 文件中的一个或多个接口。 base_plugin.lua 文件中的几个方法如下：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>LUA-NGINX-MODULE Context</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:init_worker()</td>
+<td>init_worker_by_lua</td>
+<td>在每个 Nginx 工作进程启动时执行</td>
+</tr>
+<tr>
+<td>:certificate()</td>
+<td>ssl_certificate_by_lua</td>
+<td>在SSL握手阶段的SSL证书服务阶段执行</td>
+</tr>
+<tr>
+<td>:rewrite()</td>
+<td>rewrite_by_lua</td>
+<td>从客户端接收作为重写阶段处理程序的每个请求执行。在这个阶段，无论是API还是消费者都没有被识别，因此这个处理器只在插件被配置为全局插件时执行</td>
+</tr>
+<tr>
+<td>:access()</td>
+<td>access_by_lua</td>
+<td>为客户的每一个请求而执行，并在它被代理到上游服务之前执行</td>
+</tr>
+<tr>
+<td>:header_filter()</td>
+<td>header_filter_by_lua</td>
+<td>从上游服务接收到所有响应头字节时执行</td>
+</tr>
+<tr>
+<td>:body_filter()</td>
+<td>body_filter_by_lua</td>
+<td>从上游服务接收的响应体的每个块时执行。由于响应流回客户端，它可以超过缓冲区大小，因此，如果响应较大，该方法可以被多次调用</td>
+</tr>
+<tr>
+<td>:log()</td>
+<td>log_by_lua</td>
+<td>当最后一个响应字节已经发送到客户端时执行</td>
+</tr>
+</tbody>
+</table>
+<p>接下来找到你的conf文件<a href="https://docs.konghq.com/0.14.x/plugin-development/" target="_blank" rel="external">https://docs.konghq.com/0.14.x/plugin-development/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/kong/kong.conf</div></pre></td></tr></table></figure></p>
+<p>找到其中这一行，去掉开头的注释并修改如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plugins = bundled, testplugin</div></pre></td></tr></table></figure></p>
+<p>在testplugin目录执行如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">luarocks write_rockspec</div></pre></td></tr></table></figure></p>
+<p>会在本目录下生成一个 <code>testplugin-scm-1.rockspec</code> 文件  </p>
+<p>所以，一个最基本款的插件的结构将会是这样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">testplugin/</div><div class="line">├── handler.lua</div><div class="line">├── schema.lua</div><div class="line">└── testplugin-scm-1.rockspec</div></pre></td></tr></table></figure></p>
+<p>接着重启kong<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">kong stop</div><div class="line">kong start -c /etc/kong/kong.conf</div></pre></td></tr></table></figure></p>
+<p>再到 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> 控制面板的插件列表中就能看到你的插件了。</p>
+<h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><p>日志路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/kong/logs/error.log</div></pre></td></tr></table></figure>
+<p>当然也可以在 /etc/kong/kong.conf  中找到配置日志路径修改即可</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://ms2008.github.io/2018/06/19/kong-plugin-development/" target="_blank" rel="external">Kong 插件开发指南</a></li>
+<li><a href="https://www.lijiaocn.com/tags/class.html" target="_blank" rel="external">Kong 系列教程</a></li>
+<li><a href="https://www.jianshu.com/p/a68e45bcadb6" target="_blank" rel="external">开源API网关系统（Kong教程）入门到精通</a></li>
+<li><a href="http://www.yuxiumin.com/2018/07/09/kong-api-gateway-plugin/" target="_blank" rel="external">Kong Api网关简介(二) 插件</a></li>
+<li><a href="https://www.jerney.io/header-echo-kong-plugin/" target="_blank" rel="external">Writing a Plugin for Kong API Gateway 0.14.x</a></li>
+<li><a href="http://cyukang.com/2017/07/02/kong-intro.html" target="_blank" rel="external">Kong源码分析</a></li>
+<li><a href="http://techblog.ppdai.com/2018/04/16/20180416/" target="_blank" rel="external">Kong源码解读</a></li>
+</ul>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://git.102no.com/2018/11/17/api-gateway-kong-plugins/" data-id="ck8fmdeyi00013t7393ehea4k" class="article-share-link">分享</a><div class="tags"><a href="/tags/Apigateway/">Apigateway</a><a href="/tags/api网关/">api网关</a><a href="/tags/Kong/">Kong</a><a href="/tags/Kong教程/">Kong教程</a><a href="/tags/代码/">代码</a></div><div class="post-nav"><a href="/2018/12/05/session-and-jwt/" class="pre">有状态（SESSION）和无状态（JWT）登录验证</a><a href="/2018/11/16/api-gateway-kong-install-and-start/" class="next">Kong初探 (成功安装以及启动)</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://git.102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/与理财/">与理财</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/OpenResty/" style="font-size: 15px;">OpenResty</a> <a href="/tags/Apigateway/" style="font-size: 15px;">Apigateway</a> <a href="/tags/Kong/" style="font-size: 15px;">Kong</a> <a href="/tags/Kong教程/" style="font-size: 15px;">Kong教程</a> <a href="/tags/代码/" style="font-size: 15px;">代码</a> <a href="/tags/Tyk/" style="font-size: 15px;">Tyk</a> <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/免费/" style="font-size: 15px;">免费</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/虚拟货币/" style="font-size: 15px;">虚拟货币</a> <a href="/tags/Kong中文教程/" style="font-size: 15px;">Kong中文教程</a> <a href="/tags/APISIX/" style="font-size: 15px;">APISIX</a> <a href="/tags/Kong中文文档/" style="font-size: 15px;">Kong中文文档</a> <a href="/tags/Go语言/" style="font-size: 15px;">Go语言</a> <a href="/tags/Go语言web框架/" style="font-size: 15px;">Go语言web框架</a> <a href="/tags/Revel/" style="font-size: 15px;">Revel</a> <a href="/tags/MySql/" style="font-size: 15px;">MySql</a> <a href="/tags/GROM/" style="font-size: 15px;">GROM</a> <a href="/tags/debian/" style="font-size: 15px;">debian</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/iPaaS/" style="font-size: 15px;">iPaaS</a> <a href="/tags/kong1-0/" style="font-size: 15px;">kong1.0</a> <a href="/tags/Kong升级指南/" style="font-size: 15px;">Kong升级指南</a> <a href="/tags/Kong新版本发布/" style="font-size: 15px;">Kong新版本发布</a> <a href="/tags/Kong插件/" style="font-size: 15px;">Kong插件</a> <a href="/tags/Kong命令行/" style="font-size: 15px;">Kong命令行</a> <a href="/tags/Lua-openssl/" style="font-size: 15px;">Lua-openssl</a> <a href="/tags/luaoss/" style="font-size: 15px;">luaoss</a> <a href="/tags/Kong插件开发/" style="font-size: 15px;">Kong插件开发</a> <a href="/tags/api网关/" style="font-size: 15px;">api网关</a> <a href="/tags/os-getenv/" style="font-size: 15px;">os.getenv()</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Kong配置文件/" style="font-size: 15px;">Kong配置文件</a> <a href="/tags/Kong安装/" style="font-size: 15px;">Kong安装</a> <a href="/tags/kong插件/" style="font-size: 15px;">kong插件</a> <a href="/tags/Konga/" style="font-size: 15px;">Konga</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/protobuf/" style="font-size: 15px;">protobuf</a> <a href="/tags/rabbitmq/" style="font-size: 15px;">rabbitmq</a> <a href="/tags/amqp/" style="font-size: 15px;">amqp</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL优化/" style="font-size: 15px;">MySQL优化</a> <a href="/tags/MySQL注意事项/" style="font-size: 15px;">MySQL注意事项</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/faketime/" style="font-size: 15px;">faketime</a> <a href="/tags/RabbitMQ/" style="font-size: 15px;">RabbitMQ</a> <a href="/tags/消息队列/" style="font-size: 15px;">消息队列</a> <a href="/tags/Lua-resty-http/" style="font-size: 15px;">Lua-resty-http</a> <a href="/tags/protocolbuffer/" style="font-size: 15px;">protocolbuffer</a> <a href="/tags/lua-protobuf/" style="font-size: 15px;">lua-protobuf</a> <a href="/tags/Lor/" style="font-size: 15px;">Lor</a> <a href="/tags/Protobuf/" style="font-size: 15px;">Protobuf</a> <a href="/tags/php-protobuf/" style="font-size: 15px;">php-protobuf</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/JWT/" style="font-size: 15px;">JWT</a> <a href="/tags/MySQL避免重复/" style="font-size: 15px;">MySQL避免重复</a> <a href="/tags/openSSL/" style="font-size: 15px;">openSSL</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/ipaas-mulesoft/">MuleSoft iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/ipaas-oracle/">Oracle iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/ipaas-google/">Google iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/ipaas-software-ag/">Software AG iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/kong-2.0/">Kong 2.0 正式发布!</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/08/gateway-apisix/">微服务网关 APISIX 初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/28/libfaketime-docker-change/">使用 libfaketime 修改 docker 容器时间</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/26/libfaketime-use/">时间测试神器libfaketime的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/15/php-protobuf-err/">解决 protobuf 3 PHP 中枚举值报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/29/kong-1.4/">Kong 1.4 发布！自动检测Cassandra Topology 更改，自定义Host Header以及更多功能！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://www.saveig.com/" title="saveig.com" target="_blank">saveig.com</a><ul></ul><a href="https://chengfeng.site/" title="chengfeng.site" target="_blank">chengfeng.site</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">九又四分之三字节.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.0.47/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
