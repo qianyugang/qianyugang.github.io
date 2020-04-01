@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://git.102no.com/"/>
-  <updated>2020-03-31T06:04:31.653Z</updated>
+  <updated>2020-04-01T09:46:17.806Z</updated>
   <id>http://git.102no.com/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微软 iPaaS 产品介绍</title>
+    <link href="http://git.102no.com/2020/04/02/ipaas-microsoft/"/>
+    <id>http://git.102no.com/2020/04/02/ipaas-microsoft/</id>
+    <published>2020-04-01T16:00:00.000Z</published>
+    <updated>2020-04-01T09:46:17.806Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>微软Azure API Management 最开始是 Apiphany 开发的, 2013年被微软收购,然后集成到Azure平台。Azure API Management全面上市于2014年9月。</p><p>Azure API Management 是一个纯云平台的产品。它可以让组织能够安全，可靠且大规模地发布API。它旨在增加内部团队，合作伙伴和开发人员的API使用量。管理员门户使客户能够设置用户角色，创建使用计划和配额，应用策略来转换有效负载和限制以及使用分析，监视和警报。Azure API Management分为四个主要层，分别是Developer，Basic，Standard和Premium（允许进行多区域部署），为此，根据分配的资源和功能集，向用户收取固定的小时费用。附加的消费层将支持基于API调用的定价，但在撰写本文时仍处于有限的地理范围内。</p><p>Azure API Management在美洲，欧洲，亚洲，非洲和澳大利亚的40个公共云区域以及六个美国政府和国防部区域中可用。它的大多数客户位于美国和欧洲。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Azure API Management是低成本的–您为使用的API量付费，如果不使用，则无需付费。它还在全球范围内广泛使用，并支持9种语言。对于使用Azure云服务的任何组织来说，这都是立即选择，并且与Azure平台很好地集成在一起。</li><li>Azure API Management易于使用且易于启动API程序。其管理功能是Azure门户的一部分。该产品背后的设计概念贯穿到使用它的所有服务中，并基于广泛的设计，可用性和可访问性测试。</li><li>作为Azure云服务系列的一部分，Azure API管理可从立即接触广泛的用户群中受益。它与一系列Azure服务集成在一起，包括Azure应用服务，Azure功能，Azure IoT中心，Azure Logic应用，Azure事件中心，Azure应用程序见解，Azure Monitor，Azure Active Directory和Azure服务总线。尽管Microsoft在其国际市场营销和销售方面投入的资金很少，但API管理用户社区还是众所周知的。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Azure API Management包括43常用操作政策和开发人员门户,但缺乏能力为以后API——例如生命周期阶段,许多先进的部署和运行特性和API退休/弃用支持。随着提供一般可用早在2014年,Gartner担心微软承诺的资源来管理市场在快速发展的API。</li><li>Azure API Management支持用于访问本地资源的虚拟网络连接，但是缺少可以在本地或Azure外部托管的客户管理的部署选项。微软最近宣布，该选项将在2020年中期普遍可用。</li><li>Azure API Management是一项Azure云服务，将继续关注开发人员和IT专业人员通过Microsoft的全球云构建，部署和管理应用程序的优先级。与该市场上的大多数其他产品相比，它不可能响应数字化转型的主要业务驱动因素而发展。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>微软（Microsoft）成立于1975年，总部位于美国华盛顿州雷德蒙德（Redmond），随着Azure Logic Apps的推出，于2016年7月进入EiPaaS 市场。当前，其主要的EiPaaS产品是Azure Integration Services（AIS），它将Azure Logic Apps 与Azure API Management，Azure Service Bus（消息队列和发布-订阅服务）和Azure Event Grid（海量事件提取服务）结合在一起。其他与集成相关的服务包括数据集成工具Azure Data Factory和基于Azure Logic Apps构建的持续集成工具Microsoft Flow。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>快速增长的是用来：尽管在市场上投放了不到三年的时间，Azure Logic Apps（AIS的主要组件）已经是为数不多的，拥有10,000多个客户的EiPaaS产品之一。这项卓越的成就源于Microsoft Azure的市场势头，Microsoft客户的忠诚度以及Microsoft作为可靠，有远见和创新的IT提供者的声誉，可以被视为战略业务合作伙伴。</li><li>全球：AIS在全球范围内可用，得到了全球Microsoft组织和约1,000个启用AIS的合作伙伴的支持。分布在世界每个主要地区的26个Azure数据中心（计划在2019年中期之前计划30个）中提供大多数AIS组件。加上Azure对一系列国际，地区和行业标准的支持，AIS成为了为数不多的真正全球EiPaaS产品之一。</li><li>技术愿景：AIS，Azure Data Factory,，Microsoft Flow和丰富的Azure服务使客户能够解决各种主流用例。 AIS的计划投资包括与Microsoft的AI / ML平台，区块链，IoT，边缘计算，函数即服务的集成，以及Azure Stack在本地部署上的可用性（预计在未来12到18个月内）。这些增强功能将把Microsoft EiPaaS的适用性扩展到几个关键的新兴集成方案中。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>功能成熟度：尽管Microsoft一直在努力改进其EiPaaS产品，但一些参考客户认为仍有改进AIS功能的余地。他们确定需要更大成熟度的领域包括数据转换和映射，EDI支持，集成工件的生命周期管理，自动测试和元数据发现。一些参考客户还对AIS的可管理性，可伸缩性和吞吐量感到担忧。</li><li>定价的复杂性和成本：尽管AIS的定价具有高度的灵活性和透明度，但参考客户也发现它的处理相当复杂，因为它需要详细了解其方案以得出成本。微软正在开发一个更简单，更可预测的定价模型，但是参考客户也对服务的实际成本以及微软在谈判中缺乏灵活性表示担忧。</li><li>以微软为中心的销售和营销策略：可以理解，微软的销售和营销主要利用Azure云平台的普及，并在较小程度上利用其SaaS应用程序（Office 365和Dynamics 365）的日益增长的成功来促进AIS的采用。因此，许多潜在客户认为AIS仅适用于“会员”，而对于寻求具备多云功能的EiPaaS的组织则没有特别的吸引力。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;微软Azure API Management 最开始是 Apiphany 开发的, 2013
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IBM iPaaS 产品介绍</title>
+    <link href="http://git.102no.com/2020/04/01/ipaas-ibm/"/>
+    <id>http://git.102no.com/2020/04/01/ipaas-ibm/</id>
+    <published>2020-03-31T16:00:00.000Z</published>
+    <updated>2020-03-31T09:52:07.938Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="api全管理产品"><a href="#api全管理产品" class="headerlink" title="api全管理产品"></a>api全管理产品</h2><p>IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注于API管理，并且要求使用传统的IBM DataPower Multi-Protocol Gateway服务来实现API安全。关于当前API管理产品API Connect的重大新闻是，IBM在2018年构建了新的基于OpenAPI的API网关服务，该服务旨在实现更高的性能和多云规模（这意味着它可以在客户选择的云上运行）。 IBM DataPower Gateway既可以独立运行，也可以作为API Connect的一部分，在单个产品中同时提供DataPower多协议网关服务和新的API Gateway服务。</p><p>API Connect在本地和作为云SaaS均可使用。它销往世界各地。</p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul><li>IBM在这个市场上已经建立了强大的地位，在多个行业拥有稳固的客户基础。它具有全球支持能力和多元化的地理策略。</li><li>在2018年，IBM重新构建了适用于多云部署的API Connect。初始支持包括在AWS，Google Cloud Platform，Microsoft（Azure）和本地上的托管SaaS。管理层（包括API Manager和Developer Portal）在IBM Cloud上作为托管服务运行。在2019年，API Connect将与客户选择的第三方云更紧密地集成。</li><li>API Connect通过其自己的本地员工和合作伙伴在IBM在170多个国家/地区的全球业务中受益。该产品支持以下语言：英语，中文（简体汉字和繁体汉字），捷克语，荷兰语，法语，德语，意大利语，日语，韩语，波兰语，葡萄牙语（巴西），俄语，西班牙语和土耳其语。</li></ul><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul><li>IBM对API管理市场的理解以及其营销策略，都是针对集成架构和高度基于产品的。但是，在当今的市场中，组织需要进行数字化转型并建立生态系统，这意味着专注于产品提供的营销信息可能无法引起客户的关注。</li><li>尽管IBM一直是数字转换的领先支持者，但API Connect尚未为希望量化API使用价值而非使用价值的客户提供灵活的，面向业务的价值评估功能。此外，IBM API货币化合作伙伴Stripe仅部分涵盖了北美以外的地区和业务实践。</li><li>IBM的新API网关服务代表着已建立的DataPower多协议网关服务的一代代变化。根据使用的产品版本和网关策略，将API卷从后者迁移到前者可能不是完全自动的。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>IBM成立于1911年，总部位于美国纽约的Armonk。其EiPaaS产品是名为IBM Cloud Integration的套件。该套件提供了一组功能：IBM API Connect，IBM App Connect，IBM MQ，IBM Event Streams，IBM Aspera，IBM Secure Gateway Service，IBM InfoSphere Information Server和IBM DataPower Gateway。这些功能可以作为套件使用，也可以单独购买。</p><h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul><li>广泛的视野和广泛的功能，作为IBM Cloud Integration的广泛视野的一部分，IBM为其EiPaaS解决方案执行了基于混合集成平台（HIP）的战略，在整个2018年继续取得稳步进展。IBM的EiPaaS技术用于多种用例和角色结合IBM的更广泛的产品组合，以简化集成。他们提供了一组不断增长的功能和全面的路线图，其中包括基于API，事件和AI的集成，并借助IBM Watson的认知功能。</li><li>打包模式：IBM的包装策略灵活，大胆，并根据需求趋势建模。通过采用面向混合的打包方法（包括免费试用版选件和新的Flex Bundle），IBM可以让客户在广泛的范围内选择任何定价模型（基于资本支出或运营支出）和部署方式（本地，云或混合）用例。由于客户还可以购买不同级别的特定功能，因此这种高度的灵活性使现有的客户和新手都能从小规模做起，并随着时间的推移扩展其用途。 IBM Cloud Integration Suite客户可以选择使用哪些功能并更改其使用的功能，而不会产生额外的费用。</li><li>全球影响力：IBM的EiPaaS客户数量增长快于2018年的市场平均水平，因此，它现在在全球拥有数千名直接和间接的IBM Cloud Integration客户。这种增长得益于更具凝聚力的“进入市场”战略，包括更有针对性的营销和消息传递，以及广泛的全球合作伙伴网络提供的覆盖范围。</li></ul><h2 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h2><ul><li>客户满意度和经验：IBM的参考客户将客户满意度和客户体验视为关注点。除其他事项外，这些关注通常与部署的便利性，服务和支持，性能和可伸缩性，文档质量以及最终用户培训有关。客户对IBM EiPaaS功能的反馈并不像大多数竞争对手那样积极。</li><li>市场共鸣：尽管IBM的EiPaaS客户数量在2018年增长超过了市场平均水平，但Gartner估计其EiPaaS收入增长低于市场平均水平。 IBM尚未充分利用其庞大的安装基础，除非冒着远远超过快速增长的竞争对手的风险，否则IBM可能会失去在这一市场上的份额，其中一些竞争对手的EiPaaS客户数量和收入都大得多。</li><li>买家范围：与其他竞争对手相比，大型企业客户对IBM的EiPaaS吸引力更大。因此，小型组织和LOB应该确保他们对IBM可以直接提供或越来越多地通过合作伙伴提供的参与支持水平感到满意。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;api全管理产品&quot;&gt;&lt;a href=&quot;#api全管理产品&quot; class=&quot;headerlink&quot; title=&quot;api全管理产品&quot;&gt;&lt;/a&gt;api全管理产品&lt;/h2&gt;&lt;p&gt;IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+    
+  </entry>
   
   <entry>
     <title>MuleSoft iPaaS 产品介绍</title>
@@ -202,9 +256,9 @@
       <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="docker" scheme="http://git.102no.com/tags/docker/"/>
-    
       <category term="faketime" scheme="http://git.102no.com/tags/faketime/"/>
+    
+      <category term="docker" scheme="http://git.102no.com/tags/docker/"/>
     
   </entry>
   
@@ -545,70 +599,6 @@
       <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong安装" scheme="http://git.102no.com/tags/Kong%E5%AE%89%E8%A3%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong 1.3发布！支持原生gRPC代理，上游双向TLS认证，以及更多功</title>
-    <link href="http://git.102no.com/2019/08/27/kong-1.3/"/>
-    <id>http://git.102no.com/2019/08/27/kong-1.3/</id>
-    <published>2019-08-26T16:00:00.000Z</published>
-    <updated>2019-11-03T16:00:42.757Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文地址：<a href="https://konghq.com/blog/kong-1-3-released/" target="_blank" rel="external">https://konghq.com/blog/kong-1-3-released/</a></p><p>今天，我们很高兴地宣布推出Kong 1.3！我们的工程团队和出色的社区为此版本提供了许多功能和改进。基于1.2版本的成功，Kong 1.3是Kong的第一个版本，它本身支持gRPC代理，上游相互TLS身份验证，以及一系列新功能和性能改进。</p><p>请阅读以下内容，了解有关Kong 1.3的新功能，改进和修复的更多信息，以及如何利用这些令人兴奋的变化。<br>请花几分钟时间阅读我们的<a href="https://github.com/Kong/kong/blob/1.3.0/CHANGELOG.md#130" target="_blank" rel="external">更新日志</a>以及<a href="https://github.com/Kong/kong/blob/1.3.0/UPGRADE.md#upgrade-to-13" target="_blank" rel="external">升级路径</a>以获取更多详细信息。</p><h2 id="原生gRPC代理"><a href="#原生gRPC代理" class="headerlink" title="原生gRPC代理"></a>原生gRPC代理</h2><p>我们观察到越来越多的用户转向微服务架构，并听到用户表达他们对本机gRPC代理支持的兴趣。Kong 1.3通过支持gRPC本地代理来解决这个问题，为支持gRPC的基础架构带来更多控制和可见性。</p><h3 id="主要优点："><a href="#主要优点：" class="headerlink" title="主要优点："></a>主要优点：</h3><ul><li>简化运营流程。</li><li>为gRPC服务添加A / B测试，自动重试和断路，以提高可靠性和正常运行时间。</li><li>更多的可观测性</li><li>针对gRPC服务的日志记录，分析或Prometheus集成？Kong让你满意。</li></ul><h3 id="主要功能："><a href="#主要功能：" class="headerlink" title="主要功能："></a>主要功能：</h3><ul><li>新协议：Route和Service实体的<code>protocol</code>属性现在可以设置为<code>grpc</code>或<code>grpcs</code>，这对应于通过明文HTTP/2(h2c)的gRPC和通过TLS HTTP/ 2(h2)的gRPC。</li></ul><h2 id="上游双向TLS认证"><a href="#上游双向TLS认证" class="headerlink" title="上游双向TLS认证"></a>上游双向TLS认证</h2><p>Kong长期以来一直支持与上游服务的TLS连接。<br>在1.3中，我们添加了对Kong的支持，以提供特定证书，同时与上游握手以提高安全性。</p><h3 id="主要优点：-1"><a href="#主要优点：-1" class="headerlink" title="主要优点："></a>主要优点：</h3><ul><li>能够使用证书与上游服务握手使得Kong在需要强大的身份验证保证的行业中更加出色，例如金融和医疗保健服务。</li><li>安全性更好</li><li>通过提供可信证书，上游服务将确定传入请求是由Kong转发的，而不是恶意客户端。</li><li>对开发人员更友好</li><li>您可以使用Kong将需要相互TLS身份验证的服务转换为与开发人员无关的方法(例如OAuth)。</li></ul><h3 id="主要功能：-1"><a href="#主要功能：-1" class="headerlink" title="主要功能："></a>主要功能：</h3><ul><li>新配置属性：<code>Service</code>实体具有新字段<code>client_certificate</code>。如果设置，当Kong尝试与服务握手时将使用相应的证书。</li></ul><h2 id="Sessions-插件"><a href="#Sessions-插件" class="headerlink" title="Sessions 插件"></a>Sessions 插件</h2><p>在Kong 1.3中，我们开放了<a href="https://github.com/Kong/kong-plugin-session" target="_blank" rel="external">Sessions插件</a>（之前仅在<a href="https://konghq.com/kong-enterprise/" target="_blank" rel="external">Kong Enterprise</a>中提供）供所有用户使用。<br>结合其他身份验证插件，它允许Kong记住之前已经过身份验证的浏览器用户。<br>您可以在<a href="https://docs.konghq.com/hub/kong-inc/session/" target="_blank" rel="external">此处阅读详细的文档</a>。</p><h2 id="NGINX-CVE修复"><a href="#NGINX-CVE修复" class="headerlink" title="NGINX CVE修复"></a>NGINX CVE修复</h2><p>Kong 1.3附带NGINX HTTP/2模块（<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9511" target="_blank" rel="external">CVE-2019-9511</a>，<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9513" target="_blank" rel="external">CVE-2019-9513</a>，<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9516" target="_blank" rel="external">CVE-2019-9516</a>）的修复程序。<br>我们还发布了Kong 1.0.4,1.1.3,1.2.2来修补旧版Kong中的漏洞，以防不能立即升级到1.3。</p><h2 id="OpenResty-Version-Bump"><a href="#OpenResty-Version-Bump" class="headerlink" title="OpenResty Version Bump"></a>OpenResty Version Bump</h2><p>OpenResty的版本已经发布到最新的OpenResty版本 - <a href="https://openresty.org/en/ann-1015008001.html" target="_blank" rel="external">1.15.8.1</a>，该版本基于Nginx 1.15.8。<br>此版本的OpenResty在关闭上游keepalive连接，ARM64架构支持和LuaJIT GC64模式时带来了更好的性能。<br>最引人注目的变化是，由于LuaJIT编译器生成更多本机代码，OpenResty更有效地存储请求上下文数据，因此使用密钥身份验证在基线代理基准测试中，Kong现在运行速度提高约10％。<br><img src="https://quip.com/blob/SHPAAAnUJ6J/u3CLa2gdWXVrKGn86hZdhw?a=ciuW3AoK5D202gwY9eqIe2YhcYMEqafpa8ufn3rQeoYa" alt=""></p><h2 id="Kong-1-3的其他新功能"><a href="#Kong-1-3的其他新功能" class="headerlink" title="Kong 1.3的其他新功能"></a>Kong 1.3的其他新功能</h2><h3 id="按任何请求-header-路由"><a href="#按任何请求-header-路由" class="headerlink" title="按任何请求 header 路由"></a>按任何请求 header 路由</h3><ul><li>Kong的路由器现在能够通过任何请求头（不仅是<code>Host</code>）匹配路由。</li><li>这允许对服务之间路由传入流量的方式进行精细控制。</li><li>请<a href="https://docs.konghq.com/1.3.x/proxy/#request-header" target="_blank" rel="external">参阅此处的文档</a></li></ul><h3 id="最少连接负载平衡"><a href="#最少连接负载平衡" class="headerlink" title="最少连接负载平衡"></a>最少连接负载平衡</h3><ul><li>Kong现在可以将流量发送到连接数最少的上游服务。</li><li>在某些用例中改善上游负载分配。</li><li>请<a href="https://docs.konghq.com/1.3.x/admin-api/#update-or-create-upstream" target="_blank" rel="external">参阅此处的文档</a></li></ul><h3 id="数据库导出"><a href="#数据库导出" class="headerlink" title="数据库导出"></a>数据库导出</h3><ul><li>新添加的<code>kong config db_export</code> CLI命令可用于创建数据库内容转储到YAML文件中，该文件适用于声明性配置或稍后导回数据库。</li><li>这样可以更轻松地创建声明性配置文件。</li><li>这使得Kong配置的备份和版本控制变得更加容易</li><li>请<a href="https://docs.konghq.com/1.3.x/cli/#kong-config" target="_blank" rel="external">参阅此处的文档</a></li></ul><h3 id="主动关闭上游keepalive连接"><a href="#主动关闭上游keepalive连接" class="headerlink" title="主动关闭上游keepalive连接"></a>主动关闭上游keepalive连接</h3><ul><li>在旧版本的Kong中，上游连接永远不会被Kong关闭。这可能导致竞争条件，因为Kong可能会尝试重新使用keepalived连接，而上游尝试关闭它。</li><li>如果您在Kong <code>error.log</code>中看到“upstream prematurely closed connection”错误，则此版本应显着减少甚至消除部署中的此错误。</li><li>添加了新的配置指令来控制此行为，请阅读完整的<a href="https://github.com/Kong/kong/blob/1.3.0/CHANGELOG.md#130" target="_blank" rel="external">更新日志</a>以了解更多信息。</li></ul><h3 id="更多的监听标志支持"><a href="#更多的监听标志支持" class="headerlink" title="更多的监听标志支持"></a>更多的监听标志支持</h3><ul><li>特别是<code>reuseport</code>标志，如果Kong worker数量很大，可用于改善负载分配和延迟抖动。</li><li>还添加了<code>deferred</code>和<code>bind</code>标志支持。您可以查看NGINX listen指令文档以了解使用它们的效果。</li></ul><h2 id="其他改进和错误修复"><a href="#其他改进和错误修复" class="headerlink" title="其他改进和错误修复"></a>其他改进和错误修复</h2><p>Kong 1.3还包含有关存储CA证书（没有私钥的证书），Admin API接口和更多PDK功能的新实体的改进。<br>我们还修复了很多错误。由于此版本中有大量新功能，因此我们无法在此博客文章中介绍所有这些内容，而是鼓励您在此处阅读完整的<a href="https://github.com/Kong/kong/blob/1.3.0/CHANGELOG.md#130" target="_blank" rel="external">更新日志</a>。</p><p>我们还在<code>kong.conf</code>模板中添加了一个新的部分，以更好地解释注入NGINX指令的功能。<br>对于具有仅添加几个NGINX指令的自定义模板的用户，我们建议切换使用注入的NGINX指令，以获得更好的可升级性。</p><p>与往常一样，<a href="https://docs.konghq.com/" target="_blank" rel="external">Kong 1.3的文档可在此处获得</a>。<br>此外，如上所述，我们将在后续帖子和<a href="https://konghq.com/community-call/" target="_blank" rel="external">社区电话</a>中讨论1.3中的主要功能，敬请期待！</p><p>感谢我们的用户，贡献者和核心维护者社区，感谢您对Kong的开源平台的持续支持。<br>请试试Kong 1.3，一定要<a href="https://discuss.konghq.com/" target="_blank" rel="external">告诉我们您的想法</a>！</p><h2 id="Kong社区"><a href="#Kong社区" class="headerlink" title="Kong社区"></a>Kong社区</h2><p>像往常一样，随时可以就我们的社区论坛<a href="https://discuss.konghq.com/" target="_blank" rel="external">Kong Nation</a>提出任何问题。<br>从您的反馈中学习将使我们能够更好地理解任务关键用例并不断改进Kong。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文地址：&lt;a href=&quot;https://konghq.com/blog/kong-1-3-released/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog/kong-1-3-released/&lt;/a&gt;&lt;/
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
-    
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="Kong新版本发布" scheme="http://git.102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go 语言 Web 框架 Revel 安装以及使用 GORM 操作 MySQL</title>
-    <link href="http://git.102no.com/2019/08/05/go-revel-gorm-mysql/"/>
-    <id>http://git.102no.com/2019/08/05/go-revel-gorm-mysql/</id>
-    <published>2019-08-04T16:00:00.000Z</published>
-    <updated>2019-08-05T14:29:26.590Z</updated>
-    
-    <content type="html"><![CDATA[<p>Revel是一个高生产力的 Go 语言 Web 框架。框架源于java的 Play，文件结构是经典的MVC结构，比较清晰，是现在go语言中比较流行的web框架之一。</p><ul><li>官方网站：<a href="http://revel.github.io/" target="_blank" rel="external">http://revel.github.io/</a></li><li>项目地址：<a href="https://github.com/revel/revel" target="_blank" rel="external">https://github.com/revel/revel</a></li><li>中文社区：<a href="https://gorevel.cn/" target="_blank" rel="external">https://gorevel.cn/</a></li><li>中文手册：<a href="https://gorevel.cn/docs/manual/index.html" target="_blank" rel="external">https://gorevel.cn/docs/manual/index.html</a></li></ul><p>GORM 是一个Golang写的，开发人员友好的ORM库。可以简单直观的对 Mysql，Redis等等一些流行的数据库进行操作。</p><ul><li>官方网站：<a href="https://gorm.io/" target="_blank" rel="external">https://gorm.io/</a></li><li>项目地址：<a href="https://github.com/jinzhu/gorm" target="_blank" rel="external">https://github.com/jinzhu/gorm</a></li><li>中文手册：<a href="https://jasperxu.github.io/gorm-zh/" target="_blank" rel="external">https://jasperxu.github.io/gorm-zh/</a></li></ul><p>最近项目中需要一个集中处理id的功能，刚好准备尝试一下使用go，架构师推荐了这个框架，那么就来结合一下GORM做一个小小的使用入门。当然在revel的官方项目中，也给了一个例子：<a href="https://github.com/revel/examples/tree/master/orm/gorm" target="_blank" rel="external">https://github.com/revel/examples/tree/master/orm/gorm</a></p><h2 id="安装revel"><a href="#安装revel" class="headerlink" title="安装revel"></a>安装revel</h2><p>假定这里你已经成功安装了go，并且已经配置好了 GOROOT 和 GOPATH，GOROOT是go语言编译、工具、标准库等的安装路径，GOPATH是go的工作目录，你的项目都是在这个目录下面。</p><h3 id="安装框架"><a href="#安装框架" class="headerlink" title="安装框架"></a>安装框架</h3><p><strong>执行如下命令安装revel框架：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ go get -u -v github.com/revel/cmd/revel</div></pre></td></tr></table></figure></p><p><strong>然后可以新建一个revel项目看看是否安装成功：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ revel new myapp</div></pre></td></tr></table></figure></p><p>如果提示revel命令找不到，可以找到revel的安装目录放到环境变量中再执行。</p><p><strong>运行项目：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel run myapp</div></pre></td></tr></table></figure></p><p><strong>打开浏览器访问</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:9000</div></pre></td></tr></table></figure></p><p>it works，代表安装运行成功。</p><p><code>revel new myapp</code> 命令生成的目录结构如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">myapp                 项目根目录</div><div class="line">├── app               MVC框架目录</div><div class="line">│   ├── controllers   控制器目录</div><div class="line">│   ├── init.go</div><div class="line">│   ├── models        模型目录</div><div class="line">│   ├── routes</div><div class="line">│   ├── tmp</div><div class="line">│   └── views         视图目录</div><div class="line">├── conf</div><div class="line">│   ├── app.conf      配置文件</div><div class="line">│   └── routes        路由文件</div><div class="line">├── messages          国际化目录</div><div class="line">├── public            静态文件目录</div><div class="line">└── tests</div></pre></td></tr></table></figure><h2 id="安装GROM"><a href="#安装GROM" class="headerlink" title="安装GROM"></a>安装GROM</h2><h3 id="安装相关包"><a href="#安装相关包" class="headerlink" title="安装相关包"></a>安装相关包</h3><p>安装gorm包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get -u -v github.com/jinzhu/gorm</div></pre></td></tr></table></figure></p><p>安装mysql驱动包：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get -u -v github.com/go-sql-driver/mysql</div></pre></td></tr></table></figure></p><p>安装</p><h2 id="在revel中使用GROM"><a href="#在revel中使用GROM" class="headerlink" title="在revel中使用GROM"></a>在revel中使用GROM</h2><p>这里我们使用 <a href="https://github.com/revel/examples/tree/master/orm/gorm" target="_blank" rel="external">https://github.com/revel/examples/tree/master/orm/gorm</a> 官方例子来说明：首先把这个gorm代码拉到工作目录下</p><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>打开<code>config/app.conf</code>文件，然后修改其中数据库配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">db.driver=mysql # 数据库类型 ： mysql, postgres, sqlite3</div><div class="line">db.host=localhost  # Use dbhost  /tmp/gorm.db is your driver is sqlite</div><div class="line">db.name=test #数据库名</div><div class="line">db.password=root</div><div class="line">db.user=root</div></pre></td></tr></table></figure></p><h3 id="model-文件说明"><a href="#model-文件说明" class="headerlink" title="model 文件说明"></a>model 文件说明</h3><p>在model文件中添加一个<code>user.go</code>文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">package models</div><div class="line"></div><div class="line">import (</div><div class="line">&quot;github.com/jinzhu/gorm&quot;</div><div class="line">&quot;golang.org/x/crypto/bcrypt&quot;</div><div class="line">)</div><div class="line"></div><div class="line">// User model</div><div class="line">type User `struct` &#123;</div><div class="line">gorm.Model</div><div class="line">Name           string `gorm:&quot;size:255&quot;`</div><div class="line">Email          string `gorm:&quot;type:varchar(100);unique_index&quot;`</div><div class="line">HashedPassword []byte</div><div class="line">Active         bool</div><div class="line">FileName       string `gorm:&quot;size:255&quot;`</div><div class="line">&#125;</div><div class="line"></div><div class="line">// SetNewPassword set a new hashsed password to user</div><div class="line">func (user *User) SetNewPassword(passwordString string) &#123;</div><div class="line">bcryptPassword, _ := bcrypt.GenerateFromPassword([]byte(passwordString), bcrypt.DefaultCost)</div><div class="line">user.HashedPassword = bcryptPassword</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>此文件是用来定义表的model，<code>struct</code>结构体中和你的数据表是一一对应的。注意到此model用到了另一个包，需要安装一下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">go get -u -v golang.org/x/crypto</div></pre></td></tr></table></figure></p><h3 id="controller-文件说明"><a href="#controller-文件说明" class="headerlink" title="controller 文件说明"></a>controller 文件说明</h3><p>在controllers 中添加一个<code>init.go</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">package controllers</div><div class="line"></div><div class="line">import (</div><div class="line">&quot;github.com/revel/examples/orm/gorm/app/models&quot;</div><div class="line">gorm &quot;github.com/revel/modules/orm/gorm/app&quot;</div><div class="line">&quot;github.com/revel/revel&quot;</div><div class="line">)</div><div class="line"></div><div class="line">func initializeDB() &#123;</div><div class="line">gorm.DB.AutoMigrate(&amp;models.User&#123;&#125;)</div><div class="line">var firstUser = models.User&#123;Name: &quot;Demo&quot;, Email: &quot;demo@demo1.com&quot;&#125;</div><div class="line">firstUser.SetNewPassword(&quot;demo&quot;)</div><div class="line">firstUser.Active = true</div><div class="line">gorm.DB.Create(&amp;firstUser)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">func init() &#123;</div><div class="line">revel.OnAppStart(initializeDB)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>这个文件相当于初始化操作，在请求到controller的时候会执行一下，这里是使用的gorm的一个<code>gorm.DB.AutoMigrate</code>方法，如果没有就创建表。当然，如果不需要的话是可以去掉。</p><p>在controllers 中添加一个<code>app.go</code>文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">package controllers</div><div class="line"></div><div class="line">import (</div><div class="line">&quot;github.com/revel/examples/orm/gorm/app/models&quot;</div><div class="line">gormc &quot;github.com/revel/modules/orm/gorm/app/controllers&quot;</div><div class="line">&quot;github.com/revel/revel&quot;</div><div class="line">)</div><div class="line"></div><div class="line">type App struct &#123;</div><div class="line">gormc.TxnController</div><div class="line">&#125;</div><div class="line"></div><div class="line">func (c App) Index() revel.Result &#123;</div><div class="line">var users = []models.User&#123;&#125;</div><div class="line">c.Txn.Find(&amp;users)</div><div class="line">return c.RenderJSON(users)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>这里只是列了一个最基本的find操作，更多的操作可以查看 <a href="https://jasperxu.github.io/gorm-zh/" target="_blank" rel="external">https://jasperxu.github.io/gorm-zh/</a> grom中文手册。</p><h3 id="view-文件说明"><a href="#view-文件说明" class="headerlink" title="view 文件说明"></a>view 文件说明</h3><p>这里由于是演示，就不使用页面展示了，在 controller 中使用<code>RenderJSON</code>，直接以json展示。</p><p>运行项目：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">revel run gorm</div></pre></td></tr></table></figure></p><p>然后打开：<a href="http://localhost:9000/" target="_blank" rel="external">http://localhost:9000/</a> 查看数据正常展示，打完收工。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Revel是一个高生产力的 Go 语言 Web 框架。框架源于java的 Play，文件结构是经典的MVC结构，比较清晰，是现在go语言中比较流行的web框架之一。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站：&lt;a href=&quot;http://revel.github.io/&quot; ta
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Go语言" scheme="http://git.102no.com/tags/Go%E8%AF%AD%E8%A8%80/"/>
-    
-      <category term="Go语言web框架" scheme="http://git.102no.com/tags/Go%E8%AF%AD%E8%A8%80web%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="Revel" scheme="http://git.102no.com/tags/Revel/"/>
-    
-      <category term="MySql" scheme="http://git.102no.com/tags/MySql/"/>
-    
-      <category term="GROM" scheme="http://git.102no.com/tags/GROM/"/>
     
   </entry>
   
