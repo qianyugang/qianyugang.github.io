@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong Service 中文文档 | 九又四分之三字节</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong Service 中文文档</h1><a id="logo" href="/.">九又四分之三字节</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong Service 中文文档</h1><div class="post-meta">2018-12-27<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Service-服务"><span class="toc-number">1.</span> <span class="toc-text">Service 服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加一个-Service"><span class="toc-number">1.1.</span> <span class="toc-text">添加一个 Service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个service"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建一个service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体"><span class="toc-number">1.1.2.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应"><span class="toc-number">1.1.3.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Services-列表"><span class="toc-number">1.2.</span> <span class="toc-text">Services 列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询所有的-Services"><span class="toc-number">1.2.1.</span> <span class="toc-text">查询所有的 Services</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询-Services"><span class="toc-number">1.3.</span> <span class="toc-text">查询 Services</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-number">1.3.1.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询与特定路由关联的服务"><span class="toc-number">1.3.2.</span> <span class="toc-text">查询与特定路由关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询特定插件关联的服务"><span class="toc-number">1.3.3.</span> <span class="toc-text">查询特定插件关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-2"><span class="toc-number">1.3.4.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新-service"><span class="toc-number">1.4.</span> <span class="toc-text">更新 service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更新"><span class="toc-number">1.4.1.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新与特定路由关联的服务"><span class="toc-number">1.4.2.</span> <span class="toc-text">更新与特定路由关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新与特定插件关联的服务"><span class="toc-number">1.4.3.</span> <span class="toc-text">更新与特定插件关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体-1"><span class="toc-number">1.4.4.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-3"><span class="toc-number">1.4.5.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新或创建服务"><span class="toc-number">1.5.</span> <span class="toc-text">更新或创建服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建或更新"><span class="toc-number">1.5.1.</span> <span class="toc-text">创建或更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建或更新与特定路由关联的服务"><span class="toc-number">1.5.2.</span> <span class="toc-text">创建或更新与特定路由关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建或更新与特定插件关联的服务"><span class="toc-number">1.5.3.</span> <span class="toc-text">创建或更新与特定插件关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体-2"><span class="toc-number">1.5.4.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-4"><span class="toc-number">1.5.5.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除-service"><span class="toc-number">1.6.</span> <span class="toc-text">删除 service</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">1.6.1.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除与特定路由关联的服务"><span class="toc-number">1.6.2.</span> <span class="toc-text">删除与特定路由关联的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-5"><span class="toc-number">1.6.3.</span> <span class="toc-text">响应</span></a></li></ol></li></ol></li></ol></div></div><div class="post-content"><h1 id="Service-服务"><a href="#Service-服务" class="headerlink" title="Service 服务"></a>Service 服务</h1><p>顾名思义，服务实体是每个上游服务的抽象。举个例子，services 可以是一个数据转换微服务，一个计费api等等。<br>Service 的主要属性是其URL（Kong应该将流量代理到的地方），可以设置为单个字符串，也可以单独指定其<code>protocol</code>, <code>host</code>, <code>port</code> 和 <code>path</code>。<br>Service 与 router 相关联（一个 Service 可以有许多与之关联的 router）。router 是Kong的入口点，并定义匹配客户端请求的规则。一旦 router 匹配，Kong就会将请求代理到其关联的服务。有关Kong代理流量的详细说明，请参阅<a href="https://docs.konghq.com/1.0.x/proxy" target="_blank" rel="external">代理参考</a>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;id&quot;: &quot;0c61e164-6171-4837-8836-8f5298726d53&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/some_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;</div><div class="line"></div><div class="line">Permalink</div></pre></td></tr></table></figure>
+<h2 id="添加一个-Service"><a href="#添加一个-Service" class="headerlink" title="添加一个 Service"></a>添加一个 Service</h2><h3 id="创建一个service"><a href="#创建一个service" class="headerlink" title="创建一个service"></a>创建一个service</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">POST:/services</div></pre></td></tr></table></figure>
+<h3 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code><br> <em>optional</em></td>
+<td>Service 名称</td>
+</tr>
+<tr>
+<td><code>retries</code><br> <em>optional</em></td>
+<td>代理失败时要执行的重试次数。默认为 5</td>
+</tr>
+<tr>
+<td><code>protocol</code><br></td>
+<td>用于与上游通信的协议。它可以是<code>http</code>或<code>https</code>之一。默认为“<code>http</code>”。</td>
+</tr>
+<tr>
+<td><code>host</code><br></td>
+<td>上游服务的 host</td>
+</tr>
+<tr>
+<td><code>port</code><br></td>
+<td>上游服务端口。默认为80。</td>
+</tr>
+<tr>
+<td><code>path</code><br> <em>optional</em></td>
+<td>在上游服务器的请求中使用的路径。</td>
+</tr>
+<tr>
+<td><code>connect_timeout</code><br> <em>optional</em></td>
+<td>建立与上游服务器的连接的超时时间（以毫秒为单位）。默认为 <code>60000</code></td>
+</tr>
+<tr>
+<td><code>write_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续写操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>read_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续读取操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>url</code><br> <em>shorthand-attribute</em></td>
+<td>用于同时设置<code>protocol</code>，<code>host</code>，<code>port</code> 和 <code>path</code> 的速记属性。此属性是只写的（Admin API永远不会“返回”该URL）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 201 Created</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;id&quot;: &quot;0c61e164-6171-4837-8836-8f5298726d53&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/some_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Services-列表"><a href="#Services-列表" class="headerlink" title="Services 列表"></a>Services 列表</h2><h3 id="查询所有的-Services"><a href="#查询所有的-Services" class="headerlink" title="查询所有的 Services"></a>查询所有的 Services</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/services</div></pre></td></tr></table></figure>
+<h3 id="响应-1"><a href="#响应-1" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 200 OK</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&quot;data&quot;: [&#123;</div><div class="line">    &quot;id&quot;: &quot;f00c6da4-3679-4b44-b9fb-36a19bd3ae83&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/some_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;, &#123;</div><div class="line">    &quot;id&quot;: &quot;bdab0e47-4e37-4f0b-8fd0-87d95cc4addc&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/another_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;],</div><div class="line">    &quot;next&quot;: &quot;http://localhost:8001/services?offset=6378122c-a0a1-438d-a5c6-efabae9fb969&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="查询-Services"><a href="#查询-Services" class="headerlink" title="查询 Services"></a>查询 Services</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/services/&#123;name or id&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code><br><strong>required</strong></td>
+<td>要检索的服务的唯一标识符或名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查询与特定路由关联的服务"><a href="#查询与特定路由关联的服务" class="headerlink" title="查询与特定路由关联的服务"></a>查询与特定路由关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/routes/&#123;route name or id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route name or id</code><br><strong>required</strong></td>
+<td>与要检索的服务关联的唯一标识符或Route的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查询特定插件关联的服务"><a href="#查询特定插件关联的服务" class="headerlink" title="查询特定插件关联的服务"></a>查询特定插件关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/plugins/&#123;plugin id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code><br><strong>required</strong></td>
+<td>与要检索的服务关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-2"><a href="#响应-2" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 200 OK</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;id&quot;: &quot;0c61e164-6171-4837-8836-8f5298726d53&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/some_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="更新-service"><a href="#更新-service" class="headerlink" title="更新 service"></a>更新 service</h2><h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATCH:/services/&#123;name or id&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code><br><strong>required</strong></td>
+<td>要更新的服务的唯一标识符或名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="更新与特定路由关联的服务"><a href="#更新与特定路由关联的服务" class="headerlink" title="更新与特定路由关联的服务"></a>更新与特定路由关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATCH:/routes/&#123;route name or id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route name or id</code><br><strong>required</strong></td>
+<td>与要更新的服务关联的唯一标识符或Route的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="更新与特定插件关联的服务"><a href="#更新与特定插件关联的服务" class="headerlink" title="更新与特定插件关联的服务"></a>更新与特定插件关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATCH:/plugins/&#123;plugin id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code><br><strong>required</strong></td>
+<td>与要更新的服务关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="请求体-1"><a href="#请求体-1" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code><br> <em>optional</em></td>
+<td>Service 名称</td>
+</tr>
+<tr>
+<td><code>retries</code><br> <em>optional</em></td>
+<td>代理失败时要执行的重试次数。默认为 5</td>
+</tr>
+<tr>
+<td><code>protocol</code><br></td>
+<td>用于与上游通信的协议。它可以是<code>http</code>或<code>https</code>之一。默认为“<code>http</code>”。</td>
+</tr>
+<tr>
+<td><code>host</code><br></td>
+<td>上游服务的 host</td>
+</tr>
+<tr>
+<td><code>port</code><br></td>
+<td>上游服务端口。默认为80。</td>
+</tr>
+<tr>
+<td><code>path</code><br> <em>optional</em></td>
+<td>在上游服务器的请求中使用的路径。</td>
+</tr>
+<tr>
+<td><code>connect_timeout</code><br> <em>optional</em></td>
+<td>建立与上游服务器的连接的超时时间（以毫秒为单位）。默认为 <code>60000</code></td>
+</tr>
+<tr>
+<td><code>write_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续写操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>read_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续读取操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>url</code><br> <em>shorthand-attribute</em></td>
+<td>用于同时设置<code>protocol</code>，<code>host</code>，<code>port</code> 和 <code>path</code> 的速记属性。此属性是只写的（Admin API永远不会“返回”该URL）。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-3"><a href="#响应-3" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 200 OK</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;id&quot;: &quot;0c61e164-6171-4837-8836-8f5298726d53&quot;,</div><div class="line">    &quot;created_at&quot;: 1422386534,</div><div class="line">    &quot;updated_at&quot;: 1422386534,</div><div class="line">    &quot;name&quot;: &quot;my-service&quot;,</div><div class="line">    &quot;retries&quot;: 5,</div><div class="line">    &quot;protocol&quot;: &quot;http&quot;,</div><div class="line">    &quot;host&quot;: &quot;example.com&quot;,</div><div class="line">    &quot;port&quot;: 80,</div><div class="line">    &quot;path&quot;: &quot;/some_api&quot;,</div><div class="line">    &quot;connect_timeout&quot;: 60000,</div><div class="line">    &quot;write_timeout&quot;: 60000,</div><div class="line">    &quot;read_timeout&quot;: 60000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="更新或创建服务"><a href="#更新或创建服务" class="headerlink" title="更新或创建服务"></a>更新或创建服务</h2><h3 id="创建或更新"><a href="#创建或更新" class="headerlink" title="创建或更新"></a>创建或更新</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUT:/services/&#123;name or id&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route name or id</code><br><strong>required</strong></td>
+<td>与要更新或创建的服务关联的唯一标识符或Route的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="创建或更新与特定路由关联的服务"><a href="#创建或更新与特定路由关联的服务" class="headerlink" title="创建或更新与特定路由关联的服务"></a>创建或更新与特定路由关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUT:/routes/&#123;route name or id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route name or id</code><br><strong>required</strong></td>
+<td>与要更新或创建的服务关联的唯一标识符或Route的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="创建或更新与特定插件关联的服务"><a href="#创建或更新与特定插件关联的服务" class="headerlink" title="创建或更新与特定插件关联的服务"></a>创建或更新与特定插件关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUT:/plugins/&#123;plugin id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code><br><strong>required</strong></td>
+<td>与要更新或创建的服务关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="请求体-2"><a href="#请求体-2" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code><br> <em>optional</em></td>
+<td>Service 名称</td>
+</tr>
+<tr>
+<td><code>retries</code><br> <em>optional</em></td>
+<td>代理失败时要执行的重试次数。默认为 5</td>
+</tr>
+<tr>
+<td><code>protocol</code><br></td>
+<td>用于与上游通信的协议。它可以是<code>http</code>或<code>https</code>之一。默认为“<code>http</code>”。</td>
+</tr>
+<tr>
+<td><code>host</code><br></td>
+<td>上游服务的 host</td>
+</tr>
+<tr>
+<td><code>port</code><br></td>
+<td>上游服务端口。默认为80。</td>
+</tr>
+<tr>
+<td><code>path</code><br> <em>optional</em></td>
+<td>在上游服务器的请求中使用的路径。</td>
+</tr>
+<tr>
+<td><code>connect_timeout</code><br> <em>optional</em></td>
+<td>建立与上游服务器的连接的超时时间（以毫秒为单位）。默认为 <code>60000</code></td>
+</tr>
+<tr>
+<td><code>write_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续写操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>read_timeout</code><br> <em>optional</em></td>
+<td>用于向上游服务器发送请求的两次连续读取操作之间的超时（以毫秒为单位）。默认为<code>60000</code>。</td>
+</tr>
+<tr>
+<td><code>url</code><br> <em>shorthand-attribute</em></td>
+<td>用于同时设置<code>protocol</code>，<code>host</code>，<code>port</code> 和 <code>path</code> 的速记属性。此属性是只写的（Admin API永远不会“返回”该URL）。</td>
+</tr>
+</tbody>
+</table>
+<p>使用body中指定的参数在请求的资源下插入（或替换）服务。Service 将通过<code>name</code>或<code>id</code>属性标识。</p>
+<p>当name或id属性具有UUID的结构时，插入/替换 的服务将由其id标识。否则将通过其名称识别。</p>
+<p>在创建新服务而不指定id（既不在URL中也不在body中）时，它将自动生成。</p>
+<p>请注意，请注意，URL中的name和请求体中的name名称必须一样。</p>
+<h3 id="响应-4"><a href="#响应-4" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 201 Created or HTTP 200 OK</div></pre></td></tr></table></figure>
+<p>请参阅POST和PATCH响应</p>
+<h2 id="删除-service"><a href="#删除-service" class="headerlink" title="删除 service"></a>删除 service</h2><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DELETE:/services/&#123;name or id&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code><br><strong>required</strong></td>
+<td>要删除的服务的唯一标识符或名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="删除与特定路由关联的服务"><a href="#删除与特定路由关联的服务" class="headerlink" title="删除与特定路由关联的服务"></a>删除与特定路由关联的服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DELETE:/routes/&#123;route name or id&#125;/service</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>route name or id</code><br><strong>required</strong></td>
+<td>与要删除的服务关联的唯一标识符或Route的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-5"><a href="#响应-5" class="headerlink" title="响应"></a>响应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP 204 No Content</div></pre></td></tr></table></figure>
+</div><div class="tags"><a href="/tags/api网关/"><i class="fa fa-tag"></i>api网关</a><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a></div><div class="post-nav"><a class="pre" href="/2019/01/07/kong-route-doc/">微服务 API 网关 Kong Route 中文文档</a><a class="next" href="/2018/12/25/kong-1.0-update-log/">微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情)</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://git.102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/与理财/">与理财</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Apigateway/" style="font-size: 15px;">Apigateway</a> <a href="/tags/api网关/" style="font-size: 15px;">api网关</a> <a href="/tags/Kong/" style="font-size: 15px;">Kong</a> <a href="/tags/Kong教程/" style="font-size: 15px;">Kong教程</a> <a href="/tags/代码/" style="font-size: 15px;">代码</a> <a href="/tags/Kong中文教程/" style="font-size: 15px;">Kong中文教程</a> <a href="/tags/Tyk/" style="font-size: 15px;">Tyk</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/虚拟货币/" style="font-size: 15px;">虚拟货币</a> <a href="/tags/debian/" style="font-size: 15px;">debian</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/Kong中文文档/" style="font-size: 15px;">Kong中文文档</a> <a href="/tags/APISIX/" style="font-size: 15px;">APISIX</a> <a href="/tags/Go语言/" style="font-size: 15px;">Go语言</a> <a href="/tags/Go语言web框架/" style="font-size: 15px;">Go语言web框架</a> <a href="/tags/Revel/" style="font-size: 15px;">Revel</a> <a href="/tags/MySql/" style="font-size: 15px;">MySql</a> <a href="/tags/GROM/" style="font-size: 15px;">GROM</a> <a href="/tags/iPaaS/" style="font-size: 15px;">iPaaS</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/kong1-0/" style="font-size: 15px;">kong1.0</a> <a href="/tags/Kong升级指南/" style="font-size: 15px;">Kong升级指南</a> <a href="/tags/Kong新版本发布/" style="font-size: 15px;">Kong新版本发布</a> <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/免费/" style="font-size: 15px;">免费</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/Kong插件/" style="font-size: 15px;">Kong插件</a> <a href="/tags/Lua-openssl/" style="font-size: 15px;">Lua-openssl</a> <a href="/tags/luaoss/" style="font-size: 15px;">luaoss</a> <a href="/tags/Kong命令行/" style="font-size: 15px;">Kong命令行</a> <a href="/tags/Kong配置文件/" style="font-size: 15px;">Kong配置文件</a> <a href="/tags/OpenResty/" style="font-size: 15px;">OpenResty</a> <a href="/tags/Kong插件开发/" style="font-size: 15px;">Kong插件开发</a> <a href="/tags/os-getenv/" style="font-size: 15px;">os.getenv()</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Kong安装/" style="font-size: 15px;">Kong安装</a> <a href="/tags/kong插件/" style="font-size: 15px;">kong插件</a> <a href="/tags/Konga/" style="font-size: 15px;">Konga</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/faketime/" style="font-size: 15px;">faketime</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/protobuf/" style="font-size: 15px;">protobuf</a> <a href="/tags/rabbitmq/" style="font-size: 15px;">rabbitmq</a> <a href="/tags/amqp/" style="font-size: 15px;">amqp</a> <a href="/tags/RabbitMQ/" style="font-size: 15px;">RabbitMQ</a> <a href="/tags/消息队列/" style="font-size: 15px;">消息队列</a> <a href="/tags/MySQL/" style="font-size: 15px;">MySQL</a> <a href="/tags/MySQL优化/" style="font-size: 15px;">MySQL优化</a> <a href="/tags/MySQL注意事项/" style="font-size: 15px;">MySQL注意事项</a> <a href="/tags/Lua-resty-http/" style="font-size: 15px;">Lua-resty-http</a> <a href="/tags/protocolbuffer/" style="font-size: 15px;">protocolbuffer</a> <a href="/tags/lua-protobuf/" style="font-size: 15px;">lua-protobuf</a> <a href="/tags/MySQL避免重复/" style="font-size: 15px;">MySQL避免重复</a> <a href="/tags/Lor/" style="font-size: 15px;">Lor</a> <a href="/tags/Protobuf/" style="font-size: 15px;">Protobuf</a> <a href="/tags/php-protobuf/" style="font-size: 15px;">php-protobuf</a> <a href="/tags/php/" style="font-size: 15px;">php</a> <a href="/tags/session/" style="font-size: 15px;">session</a> <a href="/tags/JWT/" style="font-size: 15px;">JWT</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/openSSL/" style="font-size: 15px;">openSSL</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/02/ipaas-microsoft/">微软 iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ipaas-ibm/">IBM iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/ipaas-mulesoft/">MuleSoft iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/ipaas-oracle/">Oracle iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/ipaas-google/">Google iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/ipaas-software-ag/">Software AG iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/kong-2.0/">Kong 2.0 正式发布!</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/08/gateway-apisix/">微服务网关 APISIX 初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/28/libfaketime-docker-change/">使用 libfaketime 修改 docker 容器时间</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/26/libfaketime-use/">时间测试神器libfaketime的使用</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">九又四分之三字节.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
