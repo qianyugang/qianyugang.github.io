@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong 插件开发 - 安装/卸载插件 | 九又四分之三字节</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong 插件开发 - 安装/卸载插件</h1><a id="logo" href="/.">九又四分之三字节</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong 插件开发 - 安装/卸载插件</h1><div class="post-meta">2019-05-05<span> | </span><span class="category"><a href="/categories/我是修电脑的/">我是修电脑的</a></span></div><a class="disqus-comment-count" href="/2019/05/05/e5-be-ae-e6-9c-8d-e5-8a-a1-api-e7-bd-91-e5-85-b3-kong-e6-8f-92-e4-bb-b6-e5-bc-80-e5-8f-91-e5-ae-89-e8-a3-85-e5-8d-b8-e8-bd-bd-e6-8f-92-e4-bb-b6/#vcomment"><span class="valine-comment-count" data-xid="/2019/05/05/e5-be-ae-e6-9c-8d-e5-8a-a1-api-e7-bd-91-e5-85-b3-kong-e6-8f-92-e4-bb-b6-e5-bc-80-e5-8f-91-e5-ae-89-e8-a3-85-e5-8d-b8-e8-bd-bd-e6-8f-92-e4-bb-b6/"></span><span> 条评论</span></a><div class="post-content"><p>原文地址：<a href="https://docs.konghq.com/1.1.x/plugin-development/distribution/" target="_blank" rel="external">https://docs.konghq.com/1.1.x/plugin-development/distribution/</a>（不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Kong的自定义插件由Lua源文件组成，这些源文件需要位于每个Kong节点的文件系统中。本指南将为您提供逐步说明，使Kong节点了解您的自定义插件。这些步骤应该应用于Kong集群中的每个节点，以确保每个节点上都有自定义插件。</p>
+<h2 id="打包源"><a href="#打包源" class="headerlink" title="打包源"></a>打包源</h2><p>您可以使用常规打包策略（例如tar），也可以使用LuaRocks包管理器为您执行此操作。我们推荐使用LuaRocks，因为它在使用其中一个官方分发包时与Kong一起安装。 使用LuaRocks时，您必须创建一个<code>rockspec</code>文件，用来指定包的内容。有关示例，请参阅<a href="https://github.com/Kong/kong-plugin" target="_blank" rel="external">Kong插件模板</a>，有关该格式的更多信息，请参阅有关<a href="https://github.com/keplerproject/luarocks/wiki/Creating-a-rock" target="_blank" rel="external">rockspecs的LuaRocks文档</a>。 使用以下命令打包你的rock（来自插件仓库）：</p>
+<pre><code># install it locally (based on the `.rockspec` in the current directory)
+$ luarocks make
+
+# 打包已安装的rock
+$ luarocks pack &lt;plugin-name&gt; &lt;version&gt;
+</code></pre><p>假设你的插件rockspec的名字为<code>kong-plugin-myPlugin-0.1.0-1.rockspec</code>，上面就会变成：</p>
+<pre><code>$ luarocks pack kong-plugin-myPlugin 0.1.0-1
+</code></pre><p>LuaRocks<code>pack</code>命令现在已经创建了一个<code>.rock</code>文件（这只是一个包含安装rock所需内容的zip文件）。 如果您不使用或不能使用LuaRocks，则使用<code>tar</code>将插件所包含的<code>.lua</code>文件打包到<code>.tar.gz</code>存档中。 如果目标系统上有LuaRocks，也可以包含<code>.rockspec</code>文件。 该插件的内容应该接近以下内容：</p>
+<pre><code>$ tree &lt;plugin-name&gt;
+&lt;plugin-name&gt;
+├── INSTALL.txt
+├── README.md
+├── kong
+│   └── plugins
+│       └── &lt;plugin-name&gt;
+│           ├── handler.lua
+│           └── schema.lua
+└── &lt;plugin-name&gt;-&lt;version&gt;.rockspec
+</code></pre><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>要使Kong节点能够使用自定义插件，必须在主机的文件系统上安装自定义插件的Lua源。有多种方法：通过LuaRocks，或手动。 选择一个，然后跳转到第3部分。</p>
+<ol>
+<li><p>来自新建的’rock’的LuaRocks。 <code>.rock</code>文件是一个自包含的软件包，可以在本地安装，也可以从远程服务器安装。 如果您的系统中安装了<code>luarocks</code>实用程序（如果使用其中一个官方安装包，可能就是这种情况），您可以在LuaRocks树（LuaRocks安装Lua模块的目录）中安装“rock”。 它可以通过以下方式安装：</p>
+<pre><code>$ luarocks install &lt;rock-filename&gt;
+</code></pre></li>
+</ol>
+<pre><code>文件名可以是本地名称，或任何支持的方法。 例如：`http://myrepository.lan/rocks/myplugin-0.1.0-1.all.rock`
+</code></pre><ol>
+<li><p>从源档案中通过LuaRocks安装。 如果您的系统中安装了luarocks实用程序（如果使用其中一个官方安装包，可能就是这种情况），您可以在LuaRocks树（LuaRocks安装Lua模块的目录）中安装Lua源代码。 您可以通过将当前目录更改为提取的存档来实现，其中rockspec文件是：</p>
+<pre><code>$ cd &lt;plugin-name&gt;
+</code></pre></li>
+</ol>
+<pre><code>然后运行以下命令：
+
+     $ luarocks make
+
+
+这将在系统的LuaRocks树中的`kong/plugins/&lt;plugin-name&gt;`中安装Lua源代码，其中所有的Kong源都已存在。
+</code></pre><ol>
+<li><p>手动 安装插件源的一种更保守的方法是避免“污染”LuaRocks树，而是将Kong指向包含它们的目录。 这是通过调整Kong配置的<code>lua_package_path</code>属性来完成的。如果你熟悉它，那么这个属性是Lua VM的<code>LUA_PATH</code>变量的别名。 这些属性包含以分号分隔的目录列表，用于搜索Lua源。它应该在您的Kong配置文件中设置如下：</p>
+<pre><code>lua_package_path = /&lt;path-to-plugin-location&gt;/?.lua;
+</code></pre></li>
+</ol>
+<pre><code>继续: 4.`/&lt;path-to-plugin-location&gt;`是包含提取的存档的目录的路径。它应该是归档中`kong`目录的位置。 5.`?`是一个占位符，将被`kong.plugins`替换。`&lt;plugin-name&gt;`当Kong将尝试加载你的插件。 6.`;;`“默认Lua路径”的占位符。不要改变它。 例如: 插件位于文件系统上，使处理程序文件为：
+
+     /usr/local/custom/kong/plugins/&lt;something&gt;/handler.lua
+
+
+kong目录的位置是：`/usr/local/custom`，因此正确的路径设置将是：
+
+     lua_package_path = /usr/local/custom/?.lua;;
+
+
+多个插件： 如果您希望以这种方式安装两个或更多自定义插件，可以将变量设置为：
+
+      lua_package_path = /path/to/plugin1/?.lua;/path/to/plugin2/?.lua;;
+
+
+     7.`;`是目录之间的分隔符。
+     8.`;;`仍然意味着“默认的Lua路径”。
+
+
+注意：您还可以通过其等效的环境变量`KONG_LUA_PACKAGE_PATH`设置此属性。
+</code></pre><p>提醒：无论您使用哪种方法来安装插件的源，您仍必须为Kong群集中的每个节点执行此操作。</p>
+<h2 id="加载插件"><a href="#加载插件" class="headerlink" title="加载插件"></a>加载插件</h2><p>您现在必须将自定义插件的名称添加到Kong配置中的插件列表中（在每个Kong节点上）：</p>
+<pre><code>plugins = bundled,&lt;plugin-name&gt;
+</code></pre><p>或者，如果您不想包含默认捆绑的插件：</p>
+<pre><code>plugins = &lt;plugin-name&gt;
+</code></pre><p>或者</p>
+<pre><code>plugins = plugin1,plugin2
+</code></pre><p>注意：您还可以通过其等效的环境变量<code>KONG_PLUGINS</code>来设置此属性。 提醒：不要忘记更新Kong群集中每个节点的plugins指令。 提醒：插件重启后会生效：</p>
+<pre><code>kong restart
+</code></pre><p>但是，如果你想在kong永不停止时应用插件，你可以使用：</p>
+<pre><code>kong prepare
+kong reload
+</code></pre><h2 id="验证加载插件"><a href="#验证加载插件" class="headerlink" title="验证加载插件"></a>验证加载插件</h2><p>你现在应该能够毫无问题地启动Kong。 请参阅自定义插件有关如何在服务，路由或消费者实体上启用/配置插件的说明。 为确保您的插件由Kong加载，您可以使用调试日志级别启动Kong：</p>
+<pre><code>log_level = debug
+</code></pre><p>或者</p>
+<pre><code>KONG_LOG_LEVEL=debug
+</code></pre><p>然后，您应该看到正在加载的每个插件的以下日志：</p>
+<pre><code>[debug] Loading plugin &lt;plugin-name&gt;
+</code></pre><h2 id="删除插件"><a href="#删除插件" class="headerlink" title="删除插件"></a>删除插件</h2><p>完全删除插件有三个步骤。</p>
+<ol>
+<li>从您的Kong Service或Route配置中删除插件。确保它不再适用于全局，也不适用于任何服务，路由或使用者。对于整个Kong集群，只需执行一次，不需要重新启动/重新加载。此步骤本身将使插件不再使用。但它仍然可用，仍然可以重新应用插件。</li>
+<li>从<code>plugins</code>指令中删除插件（在每个Kong节点上）。确保在执行此操作之前已完成步骤1。在此步骤之后，任何人都无法将插件重新应用于任何Kong Service，Route，Consumer甚至全局。此步骤需要重新启动/重新加载Kong节点才能生效。</li>
+<li>要彻底删除插件，请从每个Kong节点中删除与插件相关的文件。在删除文件之前，请确保已完成步骤2，包括重新启动/重新加载Kong。如果你使用LuaRocks来安装插件，你可以使用<code>luarocks remove &lt;plugin-name&gt;</code>来删除它。</li>
+</ol>
+<h2 id="分发插件"><a href="#分发插件" class="headerlink" title="分发插件"></a>分发插件</h2><p>这样做的首选方法是使用<a href="https://luarocks.org/" target="_blank" rel="external">LuaRocks</a>，Lua模块的包管理器。它称这些模块为“rocks”。您的模块不必存在于Kong存储库中，但如果您希望维护Kong设置，则可能就是这样。 通过在<a href="https://github.com/keplerproject/luarocks/wiki/Creating-a-rock" target="_blank" rel="external">rockspec</a>文件中定义模块（及其最终依赖项），您可以通过LuaRocks在您的平台上安装这些模块。 您也可以在LuaRocks上传模块并将其提供给所有人！ 有关示例，请参阅<a href="https://github.com/Kong/kong-plugin" target="_blank" rel="external">Kong插件模板</a>，有关该格式的更多信息，请参阅有关<a href="https://github.com/keplerproject/luarocks/wiki/Creating-a-rock" target="_blank" rel="external">rockspecs的LuaRocks文档</a>。</p>
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><p>由于以下几个原因，配置错误的自定义插件可能无法启动：</p>
+<ul>
+<li>“plugin is in use but not enabled” -&gt; 您从另一个节点配置了一个自定义插件，并且该插件配置在数据库中，但您尝试启动的当前节点在其<code>plugins</code>指令中没有它。要解决此问题，请将插件的名称添加到节点的<code>plugins</code>指令中。</li>
+<li>“plugin is enabled but not installed” -&gt; 插件的名称出现在<code>plugins</code>指令中，但是Kong无法从文件系统加载<code>handler.lua</code>源文件。要解决此问题，请确保正确设置<a href="https://docs.konghq.com/1.1.x/configuration/#development-miscellaneous-section" target="_blank" rel="external">lua_package_path</a>指令以加载此插件的Lua源。</li>
+<li>“no configuration schema found for plugin” -&gt; 插件已在<code>plugins</code>指令中安装，但是Kong无法从文件系统加载<code>schema.lua</code>源文件。要解决此问题，请确保<code>schema.lua</code>文件与插件的<code>handler.lua</code>文件一起存在。</li>
+</ul>
+</div><div class="tags"><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Api网关/"><i class="fa fa-tag"></i>Api网关</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/Kong插件/"><i class="fa fa-tag"></i>Kong插件</a><a href="/tags/Kong插件开发/"><i class="fa fa-tag"></i>Kong插件开发</a><a href="/tags/Nginx/"><i class="fa fa-tag"></i>Nginx</a><a href="/tags/Lua/"><i class="fa fa-tag"></i>Lua</a></div><div class="post-nav"><a class="pre" href="/2019/05/15/kong-plugin-configuration/">微服务 API 网关 Kong 插件开发 – 插件配置</a><a class="next" href="/2019/05/05/kong-plugin-distribution/">微服务 API 网关 Kong 插件开发 - 安装/卸载插件</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://git.102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ecshop/">Ecshop</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Ecshop/我是修电脑的/">我是修电脑的</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/与理财/">与理财</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Xampp/" style="font-size: 15px;">Xampp</a> <a href="/tags/Zend-Optimizer/" style="font-size: 15px;">Zend Optimizer</a> <a href="/tags/思想汇报/" style="font-size: 15px;">思想汇报</a> <a href="/tags/岭南/" style="font-size: 15px;">岭南</a> <a href="/tags/美食/" style="font-size: 15px;">美食</a> <a href="/tags/襄樊/" style="font-size: 15px;">襄樊</a> <a href="/tags/襄阳牛肉面/" style="font-size: 15px;">襄阳牛肉面</a> <a href="/tags/鄂西北美食/" style="font-size: 15px;">鄂西北美食</a> <a href="/tags/食在广州/" style="font-size: 15px;">食在广州</a> <a href="/tags/格莱美音乐奖/" style="font-size: 15px;">格莱美音乐奖</a> <a href="/tags/影评/" style="font-size: 15px;">影评</a> <a href="/tags/霸王别姬/" style="font-size: 15px;">霸王别姬</a> <a href="/tags/拉萨/" style="font-size: 15px;">拉萨</a> <a href="/tags/藏记/" style="font-size: 15px;">藏记</a> <a href="/tags/西藏/" style="font-size: 15px;">西藏</a> <a href="/tags/九江/" style="font-size: 15px;">九江</a> <a href="/tags/庐山/" style="font-size: 15px;">庐山</a> <a href="/tags/江西/" style="font-size: 15px;">江西</a> <a href="/tags/第二十三年/" style="font-size: 15px;">第二十三年</a> <a href="/tags/AE粒子插件/" style="font-size: 15px;">AE粒子插件</a> <a href="/tags/Trapcode-Particular/" style="font-size: 15px;">Trapcode Particular</a> <a href="/tags/粒子特效/" style="font-size: 15px;">粒子特效</a> <a href="/tags/理财/" style="font-size: 15px;">理财</a> <a href="/tags/区块链/" style="font-size: 15px;">区块链</a> <a href="/tags/虚拟货币/" style="font-size: 15px;">虚拟货币</a> <a href="/tags/Apigateway/" style="font-size: 15px;">Apigateway</a> <a href="/tags/api网关/" style="font-size: 15px;">api网关</a> <a href="/tags/Kong/" style="font-size: 15px;">Kong</a> <a href="/tags/Kong中文教程/" style="font-size: 15px;">Kong中文教程</a> <a href="/tags/代码/" style="font-size: 15px;">代码</a> <a href="/tags/Kong教程/" style="font-size: 15px;">Kong教程</a> <a href="/tags/Tyk/" style="font-size: 15px;">Tyk</a> <a href="/tags/CI框架/" style="font-size: 15px;">CI框架</a> <a href="/tags/CodeIgniter/" style="font-size: 15px;">CodeIgniter</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Api网关/" style="font-size: 15px;">Api网关</a> <a href="/tags/杀死比尔/" style="font-size: 15px;">杀死比尔</a> <a href="/tags/背景音乐/" style="font-size: 15px;">背景音乐</a> <a href="/tags/一万年太久，我们只争朝夕/" style="font-size: 15px;">一万年太久，我们只争朝夕</a> <a href="/tags/大话西游/" style="font-size: 15px;">大话西游</a> <a href="/tags/AWS/" style="font-size: 15px;">AWS</a> <a href="/tags/免费/" style="font-size: 15px;">免费</a> <a href="/tags/Shadowsocks/" style="font-size: 15px;">Shadowsocks</a> <a href="/tags/Kong中文文档/" style="font-size: 15px;">Kong中文文档</a> <a href="/tags/APP/" style="font-size: 15px;">APP</a> <a href="/tags/一个App的诞生/" style="font-size: 15px;">一个App的诞生</a> <a href="/tags/debian/" style="font-size: 15px;">debian</a> <a href="/tags/PostgreSQL/" style="font-size: 15px;">PostgreSQL</a> <a href="/tags/面试/" style="font-size: 15px;">面试</a> <a href="/tags/中国内地十大优秀禁片/" style="font-size: 15px;">中国内地十大优秀禁片</a> <a href="/tags/互联网/" style="font-size: 15px;">互联网</a> <a href="/tags/浪潮之巅/" style="font-size: 15px;">浪潮之巅</a> <a href="/tags/互联网裁员自救指南/" style="font-size: 15px;">互联网裁员自救指南</a> <a href="/tags/裁员/" style="font-size: 15px;">裁员</a> <a href="/tags/临湖一赋/" style="font-size: 15px;">临湖一赋</a> <a href="/tags/人生若只如初见/" style="font-size: 15px;">人生若只如初见</a> <a href="/tags/春节/" style="font-size: 15px;">春节</a> <a href="/tags/你看，那个人好像一条狗/" style="font-size: 15px;">你看，那个人好像一条狗</a> <a href="/tags/Hello！树先生/" style="font-size: 15px;">Hello！树先生</a> <a href="/tags/王宝强/" style="font-size: 15px;">王宝强</a> <a href="/tags/巴氏刷牙法/" style="font-size: 15px;">巴氏刷牙法</a> <a href="/tags/牙齿/" style="font-size: 15px;">牙齿</a> <a href="/tags/牙齿健康/" style="font-size: 15px;">牙齿健康</a> <a href="/tags/牙齿矫正/" style="font-size: 15px;">牙齿矫正</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Kong安装/" style="font-size: 15px;">Kong安装</a> <a href="/tags/Kong插件/" style="font-size: 15px;">Kong插件</a> <a href="/tags/Kong插件开发/" style="font-size: 15px;">Kong插件开发</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/Openresty/" style="font-size: 15px;">Openresty</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/kong-dashboard/" style="font-size: 15px;">kong-dashboard</a> <a href="/tags/konga/" style="font-size: 15px;">konga</a> <a href="/tags/faketime/" style="font-size: 15px;">faketime</a> <a href="/tags/代码规范/" style="font-size: 15px;">代码规范</a> <a href="/tags/周杰伦/" style="font-size: 15px;">周杰伦</a> <a href="/tags/天台爱情/" style="font-size: 15px;">天台爱情</a> <a href="/tags/1942/" style="font-size: 15px;">1942</a> <a href="/tags/冯小刚/" style="font-size: 15px;">冯小刚</a> <a href="/tags/千里无人-饿殍遍野/" style="font-size: 15px;">千里无人 饿殍遍野</a> <a href="/tags/牡丹亭/" style="font-size: 15px;">牡丹亭</a> <a href="/tags/老屋子/" style="font-size: 15px;">老屋子</a> <a href="/tags/Kubernetes/" style="font-size: 15px;">Kubernetes</a> <a href="/tags/lua-protobuf/" style="font-size: 15px;">lua-protobuf</a> <a href="/tags/protobuf/" style="font-size: 15px;">protobuf</a> <a href="/tags/protobuffer/" style="font-size: 15px;">protobuffer</a> <a href="/tags/张家界/" style="font-size: 15px;">张家界</a> <a href="/tags/湖南/" style="font-size: 15px;">湖南</a> <a href="/tags/端午/" style="font-size: 15px;">端午</a> <a href="/tags/Lor/" style="font-size: 15px;">Lor</a> <a href="/tags/ecshop/" style="font-size: 15px;">ecshop</a> <a href="/tags/去除ecshop版权/" style="font-size: 15px;">去除ecshop版权</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/phpMyAdmin/" style="font-size: 15px;">phpMyAdmin</a> <a href="/tags/LEMP/" style="font-size: 15px;">LEMP</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/驾照/" style="font-size: 15px;">驾照</a> <a href="/tags/驾驶证/" style="font-size: 15px;">驾驶证</a> <a href="/tags/眼镜/" style="font-size: 15px;">眼镜</a> <a href="/tags/近视/" style="font-size: 15px;">近视</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/02/ipaas-microsoft/">微软 iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ipaas-ibm/">IBM iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/ipaas-mulesoft/">MuleSoft iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/ipaas-oracle/">Oracle iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/ipaas-google/">Google iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/ipaas-software-ag/">Software AG iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/kong-2.0/">Kong 2.0 正式发布!</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/08/gateway-apisix/">微服务网关 APISIX 初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/e4-ba-92-e8-81-94-e7-bd-91-e9-9d-9e-e6-b3-95-e8-a3-81-e5-91-98-e8-87-aa-e6-95-91-e6-8c-87-e5-8d-97/">互联网非法裁员自救指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/24/e6-b7-b1-e5-9c-b3-e5-ae-bd-e5-b8-a6-e5-85-89-e7-ba-a4-e7-bb-84-e7-bd-91-e8-ae-b0/">深圳宽带光纤组网记</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="Blog Of forecho" target="_blank">Blog Of forecho</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">九又四分之三字节.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
