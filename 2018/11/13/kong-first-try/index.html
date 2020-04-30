@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Kong初探 (安装以及启动) | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Kong初探 (安装以及启动)</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Kong初探 (安装以及启动)</h1><div class="post-meta">2018-11-13<span> | </span><span class="category"><a href="/categories/我是修电脑的/">我是修电脑的</a></span></div><a class="disqus-comment-count" href="/2018/11/13/kong-first-try/#vcomment"><span class="valine-comment-count" data-xid="/2018/11/13/kong-first-try/"></span><span> 条评论</span></a><div class="post-content"><p>Kong是由Mashape出品的一款开源的api gateway服务器,官方解释为API Gateway, or API Middleware,由lua语言编写. kong的主要功能:</p>
+<ul>
+<li>集中管理api,各个业务模块可以在kong上注册,集中访问</li>
+<li>权限控制,提供丰富的插件,包括Base Authentication, Oauth2, HMAC Authentication, LDAP, JWT等等</li>
+<li>安全管理</li>
+<li>访问监控</li>
+<li>数据分析</li>
+<li>过滤数据和转换</li>
+<li>日志集中收集和报告</li>
+<li>丰富的可插拔的插件</li>
+<li>自定义开发插件</li>
+</ul>
+<h2 id="安装PostgreSQL数据库"><a href="#安装PostgreSQL数据库" class="headerlink" title="安装PostgreSQL数据库"></a>安装PostgreSQL数据库</h2><p>Kong依赖于数据库PostgreSQL 或者Cassandra ，这里我们只说一下 PostgreSQL，注意安装的版本，官方建议PostgreSQL 9.5+，Cassandra 3.x.x。 PostgreSQL：世界上最先进的开源关系数据库 官网网站：<a href="https://www.postgresql.org/" target="_blank" rel="external">https://www.postgresql.org/</a></p>
+<h3 id="一、安装PostgreSQL"><a href="#一、安装PostgreSQL" class="headerlink" title="一、安装PostgreSQL"></a>一、安装PostgreSQL</h3><p>首先，安装PostgreSQL客户端。</p>
+<pre><code>sudo apt-get postgresql-client
+</code></pre><p>然后，安装PostgreSQL服务器。</p>
+<p>sudo apt-get install postgresql</p>
+<p>正常情况下，安装完成后，PostgreSQL服务器会自动在本机的5432端口开启。 如果还想安装图形管理界面，可以运行下面命令</p>
+<pre><code>sudo apt-get install pgadmin3
+</code></pre><h3 id="二、添加新用户和新数据库"><a href="#二、添加新用户和新数据库" class="headerlink" title="二、添加新用户和新数据库"></a>二、添加新用户和新数据库</h3><p>初次安装后，默认生成一个名为postgres 的数据库和一个名为postgres 的数据库用户。这里需要注意的是，同时还生成了一个名为postgres 的Linux系统用户。 首先，使用PostgreSQL控制台，新建一个Linux新用户，可以取你想要的名字，这里为dbuser。</p>
+<pre><code>sudo adduser dbuser
+</code></pre><p>然后，切换到postgres用户。</p>
+<pre><code>sudo su - postgres
+</code></pre><p>下一步，使用psql命令登录PostgreSQL控制台。</p>
+<pre><code>psql
+</code></pre><p>建立数据库给kong用,先创建用户</p>
+<pre><code>CREATE USER kong_user WITH PASSWORD &apos;kong_pass&apos;;
+</code></pre><p>创建数据库,并给用户授权</p>
+<p>create database “kong_db”;</p>
+<p>GRANT ALL PRIVILEGES ON DATABASE “kong_db” to kong_user;</p>
+<h2 id="安装kong"><a href="#安装kong" class="headerlink" title="安装kong"></a>安装kong</h2><p>到<a href="https://docs.konghq.com/install/ubuntu/?_ga=2.145684023.2090752991.1542082707-315260935.1541058156" target="_blank" rel="external">官网文档</a>下载kong对应的安装包 。 然后执行如下代码安装</p>
+<p>sudo apt-get update<br>sudo apt-get install openssl libpcre3 procps perl<br>sudo dpkg -i kong-community-edition-0.14.1.*.deb</p>
+<p>然后找到kong的配置文件，复制一份出来</p>
+<p>cp /etc/kong/kong.conf.default /etc/kong/kong.conf</p>
+<p>修改这个配置文件</p>
+<p>vim /etc/kong/kong.conf</p>
+<p>找到如下配置修改为上述的配置</p>
+<p>pg_host = 127.0.0.1             # The PostgreSQL host to connect to.<br>pg_port = 5432                  # The port to connect to.<br>pg_user = kong_user             # The username to authenticate if required.<br>pg_password = kong_pass         # The password to authenticate if required.<br>pg_database = kong_db           # The database name to connect to.</p>
+<p>启动kong，执行信息迁移数据</p>
+<p>kong migrations up -c /etc/kong/kong.conf</p>
+<p>出现以下信息即可算成功</p>
+<p>migrating core for database kong_db<br>core migrated up to: 2015-01-12-175310_skeleton<br>core migrated up to: 2015-01-12-175310_init_schema<br>core migrated up to: 2015-11-23-817313_nodes<br>core migrated up to: 2016-02-29-142793_ttls<br>core migrated up to: 2016-09-05-212515_retries<br>core migrated up to: 2016-09-16-141423_upstreams<br>core migrated up to: 2016-12-14-172100_move_ssl_certs_to_core<br>core migrated up to: 2016-11-11-151900_new_apis_router_1<br>core migrated up to: 2016-11-11-151900_new_apis_router_2</p>
+<p>…<br>…<br>…</p>
+<p>rate-limiting migrated up to: 2015-08-03-132400_init_ratelimiting<br>rate-limiting migrated up to: 2016-07-25-471385_ratelimiting_policies<br>rate-limiting migrated up to: 2017-11-30-120000_add_route_and_service_id<br>migrating oauth2 for database kong_db<br>oauth2 migrated up to: 2015-08-03-132400_init_oauth2<br>oauth2 migrated up to: 2016-07-15-oauth2_code_credential_id<br>oauth2 migrated up to: 2016-12-22-283949_serialize_redirect_uri<br>oauth2 migrated up to: 2016-09-19-oauth2_api_id<br>oauth2 migrated up to: 2016-12-15-set_global_credentials<br>oauth2 migrated up to: 2017-04-24-oauth2_client_secret_not_unique<br>oauth2 migrated up to: 2017-10-19-set_auth_header_name_default<br>oauth2 migrated up to: 2017-10-11-oauth2_new_refresh_token_ttl_config_value<br>oauth2 migrated up to: 2018-01-09-oauth2_pg_add_service_id<br>67 migrations ran</p>
+<p>然后执行启动kong</p>
+<p>sudo kong start -c /etc/kong/kong.conf</p>
+<p>验证kong是否安装成功,执行如下命令</p>
+<p>curl -i <a href="http://localhost:8001/" target="_blank" rel="external">http://localhost:8001/</a></p>
+<p>或者在浏览器直接访问<a href="http://localhost:8001/" target="_blank" rel="external">http://localhost:8001/</a>也可，出现相关信息即安装成功</p>
+<h2 id="Kong-UI管理工具"><a href="#Kong-UI管理工具" class="headerlink" title="Kong UI管理工具"></a>Kong UI管理工具</h2><p>kong的管理实际上是使用api进行管理的，但是也有很多ui控制面板可以使用，这里我们使用的是<a href="https://github.com/PGBI/kong-dashboard" target="_blank" rel="external">PGBI/kong-dashboard</a>，此工具以来nodejs 和npm ，所以先执行一下命令安装</p>
+<p>sudo apt update<br>sudo apt install npm<br>sudo apt install nodejs</p>
+<p>然后安装相关包</p>
+<p> npm install -g kong-dashboard</p>
+<p>安装完毕后可看到树状结构 然后启动，启动有很多种方式，这里只介绍最简单的一种，剩下方式可以去面板github查看</p>
+<p>kong-dashboard start –kong-url <a href="http://localhost:8001" target="_blank" rel="external">http://localhost:8001</a></p>
+<p>执行完毕看到如下返回代表启动成功</p>
+<p>Connecting to Kong on <a href="http://localhost:8001" target="_blank" rel="external">http://localhost:8001</a> …<br>Connected to Kong on <a href="http://localhost:8001" target="_blank" rel="external">http://localhost:8001</a>.<br>Kong version is 0.14.1<br>Starting Kong Dashboard on port 8080<br>Kong Dashboard has started on port 8080</p>
+<p>访问<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a>查看面板，大功告成 日志文件存放在如下路径中</p>
+<p>/usr/local/kong/logs</p>
+<p>nginx配置修改路径如下</p>
+<p>/usr/local/kong/nginx-kong.conf</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2013/12/getting_started_with_postgresql.html" target="_blank" rel="external">PostgreSQL新手入门</a></li>
+<li><a href="http://www.wantchalk.com/c/server/2016/06/22/ubuntu1404-kong-server.html" target="_blank" rel="external">ubuntu14.04 上kong服务器的搭建</a></li>
+<li><a href="https://blog.csdn.net/jiangyu1013/article/details/79894185" target="_blank" rel="external">Kong Api 初体验、Kong安装教程</a></li>
+<li><a href="https://docs.konghq.com/install/ubuntu/?_ga=2.145684023.2090752991.1542082707-315260935.1541058156" target="_blank" rel="external">官方文档 Ubuntu Installation</a></li>
+<li><a href="https://www.cnblogs.com/chenjinxi/p/8723558.html" target="_blank" rel="external">API gateway 之 kong 安装 （二）</a></li>
+<li><a href="https://www.lijiaocn.com/tags/class.html" target="_blank" rel="external">系列教程</a></li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>Kong初探 (安装以及启动)</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2018-11-13</p><p><span>最后更新：</span>2020-04-20</p><p><span>原始链接：</span><a href="/2018/11/13/kong-first-try/">http://git.102no.com/2018/11/13/kong-first-try/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://git.102no.com/2018/11/13/kong-first-try/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <b>欢迎关注我的微信公众号：CoderHome<b><br> <img src="http://qiniu.102no.com/102no-qrcode-g.png" width="65%"></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="http://git.102no.com/2018/11/13/kong-first-try/" data-id="ck9mic9ce00pmw1734oyqxsd1" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3ay2rDMBAF0Pz/T6fQVSGteu8oLVg+WhnjKD5eDPPQ4xGv5+d6vfP1/uv16/ppt/V/vW1hYGBclvFcroQxe36Nz98NAwPjPox14Pvxx8EO65fOkb/8IwYGBsZGWMzTSgwMDIy/CLhF6lYmiBgYGBizIrZtuiWAhPfmWhwDA+OCjHYw8J/XfzjfwMDAuAjjWa58nzzRbNPNb36LgYFxNGM9btxJ79rytW3tFedBMDAwjmDkx7/yV89fbv0Rk2cwMDDOZswa+vkwMgHMAndUxGJgYBzNWKdis6J3tk8UgjEwMG7AaNvxO+VrHu6L3TAwMI5mzFK3hL1zXGOrlMXAwDiOMQt5bZRrw3Fd6GJgYNyAkRe07fgzb8ZtDR4wMDBuzNgZcO7vXJSyGBgYN2DkyVk+NliH4Fn4LkaYGBgYBzFmxWo+Elgz2gBddA0xMDAOYsyORMzK16TFNjuChoGBcTZj1jjbIeXNtfaQGQYGxtmMrab8dkvuXYc2MDAwTmXkL9Ret422Ng19zL4rBgbGZRk7yNlhizYQRwEXAwPjUEZSoCYBcTYqyA+fRTtjYGAcyniWa3Z4ok0Z25YcBgbG2Yx85SPGPOy2pW9d3GJgYBzEaINsG1Lb1PANvUMMDIxDGW2QbV99P7GrD4RhYGDckpFT9wvXOuxiYGBgjA5bzJ4ffiwMDIwbMPLCMrkze74NzcNaHAMD44KMNuQlRWnb7p9Rt+YbGBgY12B8AIrDN/Vp5N7+AAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Api网关/"><i class="fa fa-tag"></i>Api网关</a></div><div class="post-nav"><a class="pre" href="/2018/11/14/api-gateway-kong/">初探Api Gateway Kong</a><a class="next" href="/2018/10/31/xian/">寒夜常梦见，你鹤发童颜（上）</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://git.102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">68</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/23/10-essential-books-for-famil-medicine/">10本家庭医疗必备书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/02/ipaas-microsoft/">微软 iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/01/ipaas-ibm/">IBM iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/31/ipaas-mulesoft/">MuleSoft iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/30/ipaas-oracle/">Oracle iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/29/ipaas-google/">Google iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/28/ipaas-software-ag/">Software AG iPaaS 产品介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/03/17/kong-2.0/">Kong 2.0 正式发布!</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/08/gateway-apisix/">微服务网关 APISIX 初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/02/internet-companies-illegally-cut-jobs-to-save-themselves/">互联网非法裁员自救指南</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="Blog Of forecho" target="_blank">Blog Of forecho</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2020 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
