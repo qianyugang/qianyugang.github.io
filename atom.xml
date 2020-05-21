@@ -5,9 +5,9 @@
   <subtitle>是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://git.102no.com/"/>
+  <link href="https://102no.com/"/>
   <updated>2020-05-21T09:20:14.720Z</updated>
-  <id>http://git.102no.com/</id>
+  <id>https://102no.com/</id>
   
   <author>
     <name>Qianyugang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>终于抛弃了使用8年的WordPress</title>
-    <link href="http://git.102no.com/2020/05/21/wordpress-migration-to-hexo/"/>
-    <id>http://git.102no.com/2020/05/21/wordpress-migration-to-hexo/</id>
+    <link href="https://102no.com/2020/05/21/wordpress-migration-to-hexo/"/>
+    <id>https://102no.com/2020/05/21/wordpress-migration-to-hexo/</id>
     <published>2020-05-20T16:00:00.000Z</published>
     <updated>2020-05-21T09:20:14.720Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="乱七八糟" scheme="http://git.102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
+      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
     
     
-      <category term="Hexo" scheme="http://git.102no.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
     
-      <category term="记录" scheme="http://git.102no.com/tags/%E8%AE%B0%E5%BD%95/"/>
+      <category term="记录" scheme="https://102no.com/tags/%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
   <entry>
     <title>10本家庭医疗必备书籍</title>
-    <link href="http://git.102no.com/2020/04/23/10-essential-books-for-famil-medicine/"/>
-    <id>http://git.102no.com/2020/04/23/10-essential-books-for-famil-medicine/</id>
+    <link href="https://102no.com/2020/04/23/10-essential-books-for-famil-medicine/"/>
+    <id>https://102no.com/2020/04/23/10-essential-books-for-famil-medicine/</id>
     <published>2020-04-22T16:00:00.000Z</published>
     <updated>2020-04-27T11:07:18.261Z</updated>
     
@@ -61,17 +61,17 @@
     
     </summary>
     
-      <category term="说过的话" scheme="http://git.102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
+      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
     
     
-      <category term="生活经验" scheme="http://git.102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
     <title>微软 iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/04/02/ipaas-microsoft/"/>
-    <id>http://git.102no.com/2020/04/02/ipaas-microsoft/</id>
+    <link href="https://102no.com/2020/04/02/ipaas-microsoft/"/>
+    <id>https://102no.com/2020/04/02/ipaas-microsoft/</id>
     <published>2020-04-01T16:00:00.000Z</published>
     <updated>2020-04-01T09:46:17.806Z</updated>
     
@@ -86,19 +86,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>IBM iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/04/01/ipaas-ibm/"/>
-    <id>http://git.102no.com/2020/04/01/ipaas-ibm/</id>
+    <link href="https://102no.com/2020/04/01/ipaas-ibm/"/>
+    <id>https://102no.com/2020/04/01/ipaas-ibm/</id>
     <published>2020-03-31T16:00:00.000Z</published>
     <updated>2020-04-01T09:47:37.381Z</updated>
     
@@ -113,19 +113,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>MuleSoft iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/03/31/ipaas-mulesoft/"/>
-    <id>http://git.102no.com/2020/03/31/ipaas-mulesoft/</id>
+    <link href="https://102no.com/2020/03/31/ipaas-mulesoft/"/>
+    <id>https://102no.com/2020/03/31/ipaas-mulesoft/</id>
     <published>2020-03-30T16:00:00.000Z</published>
     <updated>2020-03-31T06:04:31.653Z</updated>
     
@@ -140,19 +140,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>Oracle iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/03/30/ipaas-oracle/"/>
-    <id>http://git.102no.com/2020/03/30/ipaas-oracle/</id>
+    <link href="https://102no.com/2020/03/30/ipaas-oracle/"/>
+    <id>https://102no.com/2020/03/30/ipaas-oracle/</id>
     <published>2020-03-29T16:00:00.000Z</published>
     <updated>2020-03-30T06:27:49.127Z</updated>
     
@@ -167,19 +167,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>Google iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/03/29/ipaas-google/"/>
-    <id>http://git.102no.com/2020/03/29/ipaas-google/</id>
+    <link href="https://102no.com/2020/03/29/ipaas-google/"/>
+    <id>https://102no.com/2020/03/29/ipaas-google/</id>
     <published>2020-03-28T16:00:00.000Z</published>
     <updated>2020-03-31T06:22:50.224Z</updated>
     
@@ -194,19 +194,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>Software AG iPaaS 产品介绍</title>
-    <link href="http://git.102no.com/2020/03/28/ipaas-software-ag/"/>
-    <id>http://git.102no.com/2020/03/28/ipaas-software-ag/</id>
+    <link href="https://102no.com/2020/03/28/ipaas-software-ag/"/>
+    <id>https://102no.com/2020/03/28/ipaas-software-ag/</id>
     <published>2020-03-27T16:00:00.000Z</published>
     <updated>2020-03-28T14:44:03.720Z</updated>
     
@@ -221,19 +221,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="http://git.102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
+      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
-      <category term="iPaaS" scheme="http://git.102no.com/tags/iPaaS/"/>
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
   <entry>
     <title>Kong 2.0 正式发布!</title>
-    <link href="http://git.102no.com/2020/03/17/kong-2.0/"/>
-    <id>http://git.102no.com/2020/03/17/kong-2.0/</id>
+    <link href="https://102no.com/2020/03/17/kong-2.0/"/>
+    <id>https://102no.com/2020/03/17/kong-2.0/</id>
     <published>2020-03-16T16:00:00.000Z</published>
     <updated>2020-03-17T03:11:15.398Z</updated>
     
@@ -249,21 +249,21 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
     
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
-      <category term="Kong新版本发布" scheme="http://git.102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
+      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
   <entry>
     <title>微服务网关 APISIX 初探</title>
-    <link href="http://git.102no.com/2020/01/08/gateway-apisix/"/>
-    <id>http://git.102no.com/2020/01/08/gateway-apisix/</id>
+    <link href="https://102no.com/2020/01/08/gateway-apisix/"/>
+    <id>https://102no.com/2020/01/08/gateway-apisix/</id>
     <published>2020-01-07T16:00:00.000Z</published>
     <updated>2020-01-11T14:37:01.882Z</updated>
     
@@ -278,19 +278,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="api网关" scheme="http://git.102no.com/tags/api%E7%BD%91%E5%85%B3/"/>
+      <category term="api网关" scheme="https://102no.com/tags/api%E7%BD%91%E5%85%B3/"/>
     
-      <category term="APISIX" scheme="http://git.102no.com/tags/APISIX/"/>
+      <category term="APISIX" scheme="https://102no.com/tags/APISIX/"/>
     
   </entry>
   
   <entry>
     <title>互联网非法裁员自救指南</title>
-    <link href="http://git.102no.com/2020/01/02/internet-companies-illegally-cut-jobs-to-save-themselves/"/>
-    <id>http://git.102no.com/2020/01/02/internet-companies-illegally-cut-jobs-to-save-themselves/</id>
+    <link href="https://102no.com/2020/01/02/internet-companies-illegally-cut-jobs-to-save-themselves/"/>
+    <id>https://102no.com/2020/01/02/internet-companies-illegally-cut-jobs-to-save-themselves/</id>
     <published>2020-01-02T01:53:46.000Z</published>
     <updated>2020-04-26T14:40:00.966Z</updated>
     
@@ -305,17 +305,17 @@
     
     </summary>
     
-      <category term="乱七八糟" scheme="http://git.102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
+      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
     
     
-      <category term="互联网" scheme="http://git.102no.com/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
+      <category term="互联网" scheme="https://102no.com/tags/%E4%BA%92%E8%81%94%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>深圳联通王卡宽带宽带光纤组网记</title>
-    <link href="http://git.102no.com/2019/12/24/shenzhen-liantong-wangka-kuandai/"/>
-    <id>http://git.102no.com/2019/12/24/shenzhen-liantong-wangka-kuandai/</id>
+    <link href="https://102no.com/2019/12/24/shenzhen-liantong-wangka-kuandai/"/>
+    <id>https://102no.com/2019/12/24/shenzhen-liantong-wangka-kuandai/</id>
     <published>2019-12-24T03:54:19.000Z</published>
     <updated>2020-04-27T07:18:08.322Z</updated>
     
@@ -330,17 +330,17 @@
     
     </summary>
     
-      <category term="乱七八糟" scheme="http://git.102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
+      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
     
     
-      <category term="宽带" scheme="http://git.102no.com/tags/%E5%AE%BD%E5%B8%A6/"/>
+      <category term="宽带" scheme="https://102no.com/tags/%E5%AE%BD%E5%B8%A6/"/>
     
   </entry>
   
   <entry>
     <title>梦想让生活变得可以忍受</title>
-    <link href="http://git.102no.com/2019/12/18/rudy/"/>
-    <id>http://git.102no.com/2019/12/18/rudy/</id>
+    <link href="https://102no.com/2019/12/18/rudy/"/>
+    <id>https://102no.com/2019/12/18/rudy/</id>
     <published>2019-12-18T09:04:34.000Z</published>
     <updated>2020-05-20T07:38:16.165Z</updated>
     
@@ -358,19 +358,19 @@
     
     </summary>
     
-      <category term="说过的话" scheme="http://git.102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
+      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
     
     
-      <category term="电影" scheme="http://git.102no.com/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://102no.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
-      <category term="电影观后感" scheme="http://git.102no.com/tags/%E7%94%B5%E5%BD%B1%E8%A7%82%E5%90%8E%E6%84%9F/"/>
+      <category term="电影观后感" scheme="https://102no.com/tags/%E7%94%B5%E5%BD%B1%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
   <entry>
     <title>如何选择一副眼镜</title>
-    <link href="http://git.102no.com/2019/12/05/how-to-choose-a-pair-of-glasses/"/>
-    <id>http://git.102no.com/2019/12/05/how-to-choose-a-pair-of-glasses/</id>
+    <link href="https://102no.com/2019/12/05/how-to-choose-a-pair-of-glasses/"/>
+    <id>https://102no.com/2019/12/05/how-to-choose-a-pair-of-glasses/</id>
     <published>2019-12-05T02:51:42.000Z</published>
     <updated>2020-04-27T07:05:22.048Z</updated>
     
@@ -386,17 +386,17 @@
     
     </summary>
     
-      <category term="乱七八糟" scheme="http://git.102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
+      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
     
     
-      <category term="生活经验" scheme="http://git.102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
     <title>使用 libfaketime 修改 docker 容器时间</title>
-    <link href="http://git.102no.com/2019/11/28/libfaketime-docker-change/"/>
-    <id>http://git.102no.com/2019/11/28/libfaketime-docker-change/</id>
+    <link href="https://102no.com/2019/11/28/libfaketime-docker-change/"/>
+    <id>https://102no.com/2019/11/28/libfaketime-docker-change/</id>
     <published>2019-11-27T16:00:00.000Z</published>
     <updated>2019-12-23T04:17:56.614Z</updated>
     
@@ -411,19 +411,19 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="docker" scheme="http://git.102no.com/tags/docker/"/>
+      <category term="docker" scheme="https://102no.com/tags/docker/"/>
     
-      <category term="faketime" scheme="http://git.102no.com/tags/faketime/"/>
+      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
     
   </entry>
   
   <entry>
     <title>时间测试神器libfaketime的使用</title>
-    <link href="http://git.102no.com/2019/11/26/libfaketime-use/"/>
-    <id>http://git.102no.com/2019/11/26/libfaketime-use/</id>
+    <link href="https://102no.com/2019/11/26/libfaketime-use/"/>
+    <id>https://102no.com/2019/11/26/libfaketime-use/</id>
     <published>2019-11-25T16:00:00.000Z</published>
     <updated>2020-01-02T10:05:00.365Z</updated>
     
@@ -438,17 +438,17 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="faketime" scheme="http://git.102no.com/tags/faketime/"/>
+      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
     
   </entry>
   
   <entry>
     <title>数据迁移工具对比&amp;介绍</title>
-    <link href="http://git.102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/"/>
-    <id>http://git.102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/</id>
+    <link href="https://102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/"/>
+    <id>https://102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/</id>
     <published>2019-11-21T06:40:13.000Z</published>
     <updated>2020-04-26T14:36:42.787Z</updated>
     
@@ -463,17 +463,17 @@
     
     </summary>
     
-      <category term="我是修电脑的" scheme="http://git.102no.com/categories/%E6%88%91%E6%98%AF%E4%BF%AE%E7%94%B5%E8%84%91%E7%9A%84/"/>
+      <category term="我是修电脑的" scheme="https://102no.com/categories/%E6%88%91%E6%98%AF%E4%BF%AE%E7%94%B5%E8%84%91%E7%9A%84/"/>
     
     
-      <category term="数据迁移工具" scheme="http://git.102no.com/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/"/>
+      <category term="数据迁移工具" scheme="https://102no.com/tags/%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>解决 protobuf 3 PHP 中枚举值报错问题</title>
-    <link href="http://git.102no.com/2019/11/15/php-protobuf-err/"/>
-    <id>http://git.102no.com/2019/11/15/php-protobuf-err/</id>
+    <link href="https://102no.com/2019/11/15/php-protobuf-err/"/>
+    <id>https://102no.com/2019/11/15/php-protobuf-err/</id>
     <published>2019-11-14T16:00:00.000Z</published>
     <updated>2020-04-27T10:43:02.764Z</updated>
     
@@ -488,17 +488,17 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="PHP" scheme="http://git.102no.com/tags/PHP/"/>
+      <category term="PHP" scheme="https://102no.com/tags/PHP/"/>
     
   </entry>
   
   <entry>
     <title>Kong 1.4 发布！自动检测Cassandra Topology 更改，自定义Host Header以及更多功能！</title>
-    <link href="http://git.102no.com/2019/10/29/kong-1.4/"/>
-    <id>http://git.102no.com/2019/10/29/kong-1.4/</id>
+    <link href="https://102no.com/2019/10/29/kong-1.4/"/>
+    <id>https://102no.com/2019/10/29/kong-1.4/</id>
     <published>2019-10-28T16:00:00.000Z</published>
     <updated>2019-11-03T16:02:11.289Z</updated>
     
@@ -513,21 +513,21 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
     
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
-      <category term="Kong新版本发布" scheme="http://git.102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
+      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
   <entry>
     <title>从 在 CentOS 安装 Kong</title>
-    <link href="http://git.102no.com/2019/10/23/kong-install-centos/"/>
-    <id>http://git.102no.com/2019/10/23/kong-install-centos/</id>
+    <link href="https://102no.com/2019/10/23/kong-install-centos/"/>
+    <id>https://102no.com/2019/10/23/kong-install-centos/</id>
     <published>2019-10-22T16:00:00.000Z</published>
     <updated>2020-04-20T02:09:11.278Z</updated>
     
@@ -543,16 +543,16 @@
     
     </summary>
     
-      <category term="与代码" scheme="http://git.102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Kong" scheme="http://git.102no.com/tags/Kong/"/>
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
     
-      <category term="Kong中文教程" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/"/>
+      <category term="Kong中文教程" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B/"/>
     
-      <category term="Kong中文文档" scheme="http://git.102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
-      <category term="Kong安装" scheme="http://git.102no.com/tags/Kong%E5%AE%89%E8%A3%85/"/>
+      <category term="Kong安装" scheme="https://102no.com/tags/Kong%E5%AE%89%E8%A3%85/"/>
     
   </entry>
   
