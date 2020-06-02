@@ -73,7 +73,7 @@
     <link href="https://102no.com/2020/04/02/ipaas-microsoft/"/>
     <id>https://102no.com/2020/04/02/ipaas-microsoft/</id>
     <published>2020-04-01T16:00:00.000Z</published>
-    <updated>2020-04-01T09:46:17.806Z</updated>
+    <updated>2020-06-02T03:35:02.549Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>微软Azure API Management 最开始是 Apiphany 开发的, 2013年被微软收购,然后集成到Azure平台。Azure API Management全面上市于2014年9月。</p><p>Azure API Management 是一个纯云平台的产品。它可以让组织能够安全，可靠且大规模地发布API。它旨在增加内部团队，合作伙伴和开发人员的API使用量。管理员门户使客户能够设置用户角色，创建使用计划和配额，应用策略来转换有效负载和限制以及使用分析，监视和警报。Azure API Management分为四个主要层，分别是Developer，Basic，Standard和Premium（允许进行多区域部署），为此，根据分配的资源和功能集，向用户收取固定的小时费用。附加的消费层将支持基于API调用的定价，但在撰写本文时仍处于有限的地理范围内。</p><p>Azure API Management在美洲，欧洲，亚洲，非洲和澳大利亚的40个公共云区域以及六个美国政府和国防部区域中可用。它的大多数客户位于美国和欧洲。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Azure API Management是低成本的–您为使用的API量付费，如果不使用，则无需付费。它还在全球范围内广泛使用，并支持9种语言。对于使用Azure云服务的任何组织来说，这都是立即选择，并且与Azure平台很好地集成在一起。</li><li>Azure API Management易于使用且易于启动API程序。其管理功能是Azure门户的一部分。该产品背后的设计概念贯穿到使用它的所有服务中，并基于广泛的设计，可用性和可访问性测试。</li><li>作为Azure云服务系列的一部分，Azure API管理可从立即接触广泛的用户群中受益。它与一系列Azure服务集成在一起，包括Azure应用服务，Azure功能，Azure IoT中心，Azure Logic应用，Azure事件中心，Azure应用程序见解，Azure Monitor，Azure Active Directory和Azure服务总线。尽管Microsoft在其国际市场营销和销售方面投入的资金很少，但API管理用户社区还是众所周知的。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Azure API Management包括43常用操作政策和开发人员门户,但缺乏能力为以后API——例如生命周期阶段,许多先进的部署和运行特性和API退休/弃用支持。随着提供一般可用早在2014年,Gartner担心微软承诺的资源来管理市场在快速发展的API。</li><li>Azure API Management支持用于访问本地资源的虚拟网络连接，但是缺少可以在本地或Azure外部托管的客户管理的部署选项。微软最近宣布，该选项将在2020年中期普遍可用。</li><li>Azure API Management是一项Azure云服务，将继续关注开发人员和IT专业人员通过Microsoft的全球云构建，部署和管理应用程序的优先级。与该市场上的大多数其他产品相比，它不可能响应数字化转型的主要业务驱动因素而发展。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>微软（Microsoft）成立于1975年，总部位于美国华盛顿州雷德蒙德（Redmond），随着Azure Logic Apps的推出，于2016年7月进入EiPaaS 市场。当前，其主要的EiPaaS产品是Azure Integration Services（AIS），它将Azure Logic Apps 与Azure API Management，Azure Service Bus（消息队列和发布-订阅服务）和Azure Event Grid（海量事件提取服务）结合在一起。其他与集成相关的服务包括数据集成工具Azure Data Factory和基于Azure Logic Apps构建的持续集成工具Microsoft Flow。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>快速增长的是用来：尽管在市场上投放了不到三年的时间，Azure Logic Apps（AIS的主要组件）已经是为数不多的，拥有10,000多个客户的EiPaaS产品之一。这项卓越的成就源于Microsoft Azure的市场势头，Microsoft客户的忠诚度以及Microsoft作为可靠，有远见和创新的IT提供者的声誉，可以被视为战略业务合作伙伴。</li><li>全球：AIS在全球范围内可用，得到了全球Microsoft组织和约1,000个启用AIS的合作伙伴的支持。分布在世界每个主要地区的26个Azure数据中心（计划在2019年中期之前计划30个）中提供大多数AIS组件。加上Azure对一系列国际，地区和行业标准的支持，AIS成为了为数不多的真正全球EiPaaS产品之一。</li><li>技术愿景：AIS，Azure Data Factory,，Microsoft Flow和丰富的Azure服务使客户能够解决各种主流用例。 AIS的计划投资包括与Microsoft的AI / ML平台，区块链，IoT，边缘计算，函数即服务的集成，以及Azure Stack在本地部署上的可用性（预计在未来12到18个月内）。这些增强功能将把Microsoft EiPaaS的适用性扩展到几个关键的新兴集成方案中。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>功能成熟度：尽管Microsoft一直在努力改进其EiPaaS产品，但一些参考客户认为仍有改进AIS功能的余地。他们确定需要更大成熟度的领域包括数据转换和映射，EDI支持，集成工件的生命周期管理，自动测试和元数据发现。一些参考客户还对AIS的可管理性，可伸缩性和吞吐量感到担忧。</li><li>定价的复杂性和成本：尽管AIS的定价具有高度的灵活性和透明度，但参考客户也发现它的处理相当复杂，因为它需要详细了解其方案以得出成本。微软正在开发一个更简单，更可预测的定价模型，但是参考客户也对服务的实际成本以及微软在谈判中缺乏灵活性表示担忧。</li><li>以微软为中心的销售和营销策略：可以理解，微软的销售和营销主要利用Azure云平台的普及，并在较小程度上利用其SaaS应用程序（Office 365和Dynamics 365）的日益增长的成功来促进AIS的采用。因此，许多潜在客户认为AIS仅适用于“会员”，而对于寻求具备多云功能的EiPaaS的组织则没有特别的吸引力。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -89,8 +89,6 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
@@ -100,7 +98,7 @@
     <link href="https://102no.com/2020/04/01/ipaas-ibm/"/>
     <id>https://102no.com/2020/04/01/ipaas-ibm/</id>
     <published>2020-03-31T16:00:00.000Z</published>
-    <updated>2020-04-01T09:47:37.381Z</updated>
+    <updated>2020-06-02T03:33:42.068Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注于API管理，并且要求使用传统的IBM DataPower Multi-Protocol Gateway服务来实现API安全。关于当前API管理产品API Connect的重大新闻是，IBM在2018年构建了新的基于OpenAPI的API网关服务，该服务旨在实现更高的性能和多云规模（这意味着它可以在客户选择的云上运行）。 IBM DataPower Gateway既可以独立运行，也可以作为API Connect的一部分，在单个产品中同时提供DataPower多协议网关服务和新的API Gateway服务。</p><p>API Connect在本地和作为云SaaS均可使用。它销往世界各地。</p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul><li>IBM在这个市场上已经建立了强大的地位，在多个行业拥有稳固的客户基础。它具有全球支持能力和多元化的地理策略。</li><li>在2018年，IBM重新构建了适用于多云部署的API Connect。初始支持包括在AWS，Google Cloud Platform，Microsoft（Azure）和本地上的托管SaaS。管理层（包括API Manager和Developer Portal）在IBM Cloud上作为托管服务运行。在2019年，API Connect将与客户选择的第三方云更紧密地集成。</li><li>API Connect通过其自己的本地员工和合作伙伴在IBM在170多个国家/地区的全球业务中受益。该产品支持以下语言：英语，中文（简体汉字和繁体汉字），捷克语，荷兰语，法语，德语，意大利语，日语，韩语，波兰语，葡萄牙语（巴西），俄语，西班牙语和土耳其语。</li></ul><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul><li>IBM对API管理市场的理解以及其营销策略，都是针对集成架构和高度基于产品的。但是，在当今的市场中，组织需要进行数字化转型并建立生态系统，这意味着专注于产品提供的营销信息可能无法引起客户的关注。</li><li>尽管IBM一直是数字转换的领先支持者，但API Connect尚未为希望量化API使用价值而非使用价值的客户提供灵活的，面向业务的价值评估功能。此外，IBM API货币化合作伙伴Stripe仅部分涵盖了北美以外的地区和业务实践。</li><li>IBM的新API网关服务代表着已建立的DataPower多协议网关服务的一代代变化。根据使用的产品版本和网关策略，将API卷从后者迁移到前者可能不是完全自动的。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>IBM成立于1911年，总部位于美国纽约的Armonk。其EiPaaS产品是名为IBM Cloud Integration的套件。该套件提供了一组功能：IBM API Connect，IBM App Connect，IBM MQ，IBM Event Streams，IBM Aspera，IBM Secure Gateway Service，IBM InfoSphere Information Server和IBM DataPower Gateway。这些功能可以作为套件使用，也可以单独购买。</p><h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul><li>广泛的视野和广泛的功能，作为IBM Cloud Integration的广泛视野的一部分，IBM为其EiPaaS解决方案执行了基于混合集成平台（HIP）的战略，在整个2018年继续取得稳步进展。IBM的EiPaaS技术用于多种用例和角色结合IBM的更广泛的产品组合，以简化集成。他们提供了一组不断增长的功能和全面的路线图，其中包括基于API，事件和AI的集成，并借助IBM Watson的认知功能。</li><li>打包模式：IBM的包装策略灵活，大胆，并根据需求趋势建模。通过采用面向混合的打包方法（包括免费试用版选件和新的Flex Bundle），IBM可以让客户在广泛的范围内选择任何定价模型（基于资本支出或运营支出）和部署方式（本地，云或混合）用例。由于客户还可以购买不同级别的特定功能，因此这种高度的灵活性使现有的客户和新手都能从小规模做起，并随着时间的推移扩展其用途。 IBM Cloud Integration Suite客户可以选择使用哪些功能并更改其使用的功能，而不会产生额外的费用。</li><li>全球影响力：IBM的EiPaaS客户数量增长快于2018年的市场平均水平，因此，它现在在全球拥有数千名直接和间接的IBM Cloud Integration客户。这种增长得益于更具凝聚力的“进入市场”战略，包括更有针对性的营销和消息传递，以及广泛的全球合作伙伴网络提供的覆盖范围。</li></ul><h2 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h2><ul><li>客户满意度和经验：IBM的参考客户将客户满意度和客户体验视为关注点。除其他事项外，这些关注通常与部署的便利性，服务和支持，性能和可伸缩性，文档质量以及最终用户培训有关。客户对IBM EiPaaS功能的反馈并不像大多数竞争对手那样积极。</li><li>市场共鸣：尽管IBM的EiPaaS客户数量在2018年增长超过了市场平均水平，但Gartner估计其EiPaaS收入增长低于市场平均水平。 IBM尚未充分利用其庞大的安装基础，除非冒着远远超过快速增长的竞争对手的风险，否则IBM可能会失去在这一市场上的份额，其中一些竞争对手的EiPaaS客户数量和收入都大得多。</li><li>买家范围：与其他竞争对手相比，大型企业客户对IBM的EiPaaS吸引力更大。因此，小型组织和LOB应该确保他们对IBM可以直接提供或越来越多地通过合作伙伴提供的参与支持水平感到满意。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -116,8 +114,6 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
@@ -127,7 +123,7 @@
     <link href="https://102no.com/2020/03/31/ipaas-mulesoft/"/>
     <id>https://102no.com/2020/03/31/ipaas-mulesoft/</id>
     <published>2020-03-30T16:00:00.000Z</published>
-    <updated>2020-03-31T06:04:31.653Z</updated>
+    <updated>2020-06-02T03:34:17.120Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>MuleSoft在2013年推出Anypoint Platform时将其集成功能与API管理功能结合在一起。 2018年5月2日，Salesforce完成了对MuleSoft的收购，最初重点是定位集成和解锁数据的共同价值。但是，最近，MuleSoft更加注重作为API平台的提供者，该平台使组织能够创建可重复使用的数字资产和服务的敏捷层，以适应和变得敏捷。 MuleSoft和Salesforce共同致力于进入市场的努力，以加速客户的数字化转型。</p><p>Anypoint Platform可帮助客户一致地设计API。他们可以使用API​​片段，实现API并以图形方式转换数据。他们可以自动生成API和集成的单元测试和集成测试。他们可以在统一的管理中心内部署，管理和分析API和集成。 Anypoint Platform可以在本地，云和混合配置中运行。<br>MuleSoft直接或通过合作伙伴生态系统出售其平台。它的客户遍布全球。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>MuleSoft在API管理市场以及相关集成市场中继续表现出透彻的市场理解，有效的营销和思想领导力。它的增长策略已为它赢得了多个行业的全球客户，并带来了相应的收入显着增长（根据Gartner的估计，2018年为60％）。</li><li>MuleSoft提供了API管理功能和技术的组合，以实现混合集成。因此，它的产品对正在单个产品中寻求全套混合集成平台（HIP）功能的客户具有吸引力。</li><li>MuleSoft的用户受益于全面的客户服务实践。其中包括Catalyst，这是一套将客户成功，培训和其他服务结合在一起的端到端产品套件；全球API战略团队； ProgrammableWeb，具有API University的信息源；以及鼓励开发人员成长的大使计划。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>MuleSoft的产品将应用程序集成（本地和云中的集成）与API管理功能结合在一起，因此，可能比已经拥有集成平台的公司所需要的更多（尤其是考虑到成本）。但是，对于需要这两种功能的公司而言，这使其成为一种有吸引力的解决方案。对于只寻求API管理的用户，MuleSoft提供了独立的产品。</li><li>客户经常错误地认为MuleSoft的产品是完全开源的，而尽管它的一些与API相关的组件是完全开放的，但API网关和开发者门户却不是。这可能导致采购延迟。市场提供了功能齐全的开源产品的充足选择，这些产品已经出现了一段时间并且完全可行。</li><li>寻求微网关，对服务网格和微服务工具的​​支持的用户通常会报告说，MuleSoft的Anypoint平台缺乏创新，而且太以Java为中心，无法满足他们的需求。 MuleSoft计划在2019年晚些时候推出多云服务网格解决方案，以增强对微服务架构的支持。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>MuleSoft成立于2006年，总部位于美国加利福尼亚州旧金山，通过2018年5月的收购而成为Salesforce公司。MuleSoft最初是企业服务总线（ESB）开源软件的提供商，并且是其中之一EiPaaS市场上的第一批供应​​商。 2013年，它发布了Anypoint平台，该平台结合了iPaaS，API管理和ESB技术。从那时起，它增加了Anypoint Exchange，这是API和集成资产的市场，以促进协作和共享。 Anypoint MQ，一种云消息传递功能；以及Anypoint Design Center的流程设计器，这是一种针对临时集成商的基于云的集成工具。 MuleSoft的Anypoint平台结合了集成和完整的生命周期API管理功能。 Anypoint平台的托管公共云组件称为CloudHub。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>牵引力和推向市场的战略：MuleSoft在2018年将其客户增加了一倍。它正在投资对中端市场客户至关重要的功能，以实现完整的生命周期API管理，混合集成和易于使用。</li><li>通过创新来开发趋势：利用公司在集成技术方面的丰富经验，MuleSoft的与技术，生态系统无关的产品可支持广泛的应用程序和数据基础架构。应用程序网络图的引入是Anypoint平台下基于图的元数据层，它提高了MuleSoft丰富的元数据功能。与ML结合使用，它为获取，发现和协作API，集成流，连接器，数据存储和安全模式的可重用工件提供了一个通用环境。</li><li>功能和思想共享的广度：MuleSoft提供了广泛的功能，包括强大的完整生命周期API管理，安全支持，多云部署和开放核ESB。 MuleSoft是EiPaaS市场上非常知名的供应商，并且在Gartner看到的竞争情况中，它是最常被评估的供应商。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>角色的覆盖范围：由于集成专家已经确定了供应商的使用习惯，因此买方通常不将MuleSoft与非技术集成商角色相关联。 MuleSoft计划通过针对技术含量较低的用户角色的增强工具和其他解决方案来扩大其吸引力。</li><li>定价和谈判：现有客户和潜在客户越来越多地认为MuleSoft的定价和合同谈判灵活性需要改进。尽管许多MuleSoft客户看到其价格与所提供的价值之间存在合理的联系，但他们仍然经常对高价格表示担忧。</li><li>业务发展：Salesforce宣布收购MuleSoft的消息在潜在客户和现有客户中产生了一些不确定性，这些不确定因素是Salesforce对MuleSoft的EiPaaS路线图和持续产品投资的影响。但是，Salesforce表示，它打算保持MuleSoft的中立性并提供独立的集成产品。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -143,8 +139,6 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
@@ -154,7 +148,7 @@
     <link href="https://102no.com/2020/03/30/ipaas-oracle/"/>
     <id>https://102no.com/2020/03/30/ipaas-oracle/</id>
     <published>2020-03-29T16:00:00.000Z</published>
-    <updated>2020-03-30T06:27:49.127Z</updated>
+    <updated>2020-06-02T03:34:26.762Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>Oracle的API管理产品是Oracle API Platform Cloud Service。它既可以作为运行在公共Oracle Cloud上的云解决方案来使用，也可以作为使用本地网关或其他云服务上运行的网关的云管理的混合体系结构来使用。网关组件基于Oracle Communications Services Gatekeeper产品。</p><p>2017年，甲骨文收购了Apiary，后者提供了Apiary API设计门户。这是Oracle API平台的一部分，可以作为SaaS使用。 Apiary API设计门户使团队可以在API设计上进行协作，创建模拟服务并执行API质量测试。云API网关（包括分析和身份服务）和基于云或本地的API开发人员门户完善了Oracle API Platform Cloud Service产品。</p><p>Oracle的API管理产品可在全球范围内使用。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Oracle在应用程序集成方面的长期记录（包括与Oracle Integration Cloud的集成）补充了其API管理产品。因此，对于需要在集成上下文中执行API管理的组织而言，Oracle代表了一个诱人的选择。</li><li>Oracle的定价对客户具有吸引力。它基于每小时的API流量，并且与部署的API网关的数量无关。这适合具有分布式体系结构和可变API流量的组织。</li><li>Oracle高度重视API安全性，包括与OAuth 2.0的Oracle身份云服务集成。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Oracle的API管理解决方案与Oracle Cloud捆绑在一起，这使其不适用于不需要任何云依赖性的组织。 Apiary API设计门户仅适用于云，并且管理服务在Oracle Cloud Infrastructure（或用于混合云架构的Oracle Cloud Machine）上运行。</li><li>Oracle的API管理产品仍在不断发展。它缺乏高级的部署和运行功能，并且开发人员门户的自定义要求API调用或API门户本身的源代码的编辑。没有提供视觉内容管理系统。 Oracle的产品策略以API设计为中心-它对API生命周期的后期阶段（例如报废）的支持需要功能上的增强。</li><li>Oracle API管理组最近发生了一些显着的管理更改。这些可能会在短期内影响Oracle的执行，但不太可能降低该产品的整体生存能力。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>Oracle成立于1977年，总部位于美国加利福尼亚州红木海岸。它提供了广泛的PaaS技术，这些技术与SaaS应用程序以及Oracle通过IaaS，PaaS，SaaS以及应用程序和数据集成技术提供的基础架构一起发展。</p><p>自从2015年4月Oracle首次提供Oracle Integration Cloud Service和Oracle Process Cloud Service以来，Oracle Integration Cloud一直在发展。此后，Oracle添加了Oracle SOA Cloud Service，Oracle托管文件传输云服务，Oracle API Platform Cloud Service，Oracle数据集成平台云和Oracle自助服务集成云服务。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li><p>平台的多功能性：正如人们所期望的那样，一家在集成技术领域具有悠久历史的公司以及邻近的PaaS，IaaS和SaaS技术领域的产品，Oracle提供了最具凝聚力和最通用的EiPaaS套件之一。</p></li><li><p>全球影响力：Oracle具有强大的全球影响力。尽管最终用户并不完全专注于集成技术，但最终用户可以从Oracle广泛的网络中受益，这意味着最终用户可以在全球几乎任何地方直接或通过Oracle SaaS和PaaS渠道在本地购买Oracle Integration Cloud。</p></li><li><p>定价：通过使用现有Oracle投资为客户提供基于批量，消费和“自带许可证”的定价，Oracle提供了广泛的定价模型。 Oracle的定价安排可在其网站上找到，以进行直接咨询，以及用于不同货币和定价模型的计算器。以SaaS为重点和以行业为重点的包装增加了客户使用Oracle EiPaaS服务的方式。</p></li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>市场重点：尽管Oracle品牌是众所周知的，但在整个市场上，甲骨文仍然普遍认为甲骨文是昂贵的集成软件的提供商。它的客户群主要由在Oracle产品上已有投资的大型组织组成。希望集成非Oracle应用程序的客户可能会发现他们需要依靠Oracle的合作伙伴网络，而不是Oracle的直接专业知识。</li><li>客户体验：Oracle的参考客户在客户体验，服务和支持方面的得分低于其大多数紧密竞争对手的得分。</li><li>创新：在新产品开发领域，Oracle更像是“快速追随者”而不是“先行者”。尽管甲骨文已经对其技术进行了投资，并且拥有了人们期望的所有创新功能，但是寻求“首先投放市场”创新的最终用户组织应该把目光投向其他地方。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -170,8 +164,6 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
@@ -181,7 +173,7 @@
     <link href="https://102no.com/2020/03/29/ipaas-google/"/>
     <id>https://102no.com/2020/03/29/ipaas-google/</id>
     <published>2020-03-28T16:00:00.000Z</published>
-    <updated>2020-03-31T06:22:50.224Z</updated>
+    <updated>2020-06-02T03:34:38.927Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>Apigee是Google Cloud的一部分，并且是Google Cloud Platform的一部分，最近在其领导和管理方面发生了一些显着变化。自从上一个魔力象限以来，Apigee添加了新的集成功能，包括称为Apigee Extensions的适配器，其中之一是新的Salesforce适配器。</p><p>核心Apigee API管理平台Apigee Edge可在本地和云中使用，也可用于混合和多云场景。 Google Cloud还提供Apigee Compass，这是一种用于数字策略成熟度的自我评估工具。 Apigee Sense是一种API安全性的纯云层，可识别并提醒管理员注意可疑的API使用模式，并且具有API获利功能，从而完善了该产品。 Apigee Edge支持在Istio服务网格内部本地实施API管理策略的功能。这是通过使用Envoy Sidecar代理作为策略执行点来实现的。 Apigee还提供了基于Node.js的微网关。</p><p>Google Cloud Apigee团队将其产品推销为跨云API平台和数字业务平台。 Google（Apigee）的大多数客户位于美国，欧洲，澳大利亚和新西兰。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Google（Apigee）通过为追求数字策略的客户提供支持而继续与众不同。例如，它支持基于API的生态系统的构建。</li><li>Gartner客户咨询服务的用户通常会对Google Apigee团队持积极态度，认为其Apigee团队不仅是技术解决方案提供商，而且还是数字转型的战略合作伙伴。在这个市场中，扮演这样的合作伙伴的能力可以证明是巨大的竞争优势。</li><li>用户经常将易用性视为Apigee Edge平台的主要优势。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Google最近针对中间件用例的举措是进入集成市场的第一步。在这些方面如何与强大集成的API管理供应商竞争还有待观察。</li><li>Apigee平台的价格高于其他竞争性封闭或开源产品或其他云提供商的API管理解决方案的价格。但是，大多数这些解决方案的功能要少得多。</li><li>Google主要将API管理视为混合管理。将Apigee Edge用作云服务很简单，但是将其部署到本地则很复杂。同样，本地安装的成本可能会迅速上升。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -197,8 +189,6 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
@@ -208,7 +198,7 @@
     <link href="https://102no.com/2020/03/28/ipaas-software-ag/"/>
     <id>https://102no.com/2020/03/28/ipaas-software-ag/</id>
     <published>2020-03-27T16:00:00.000Z</published>
-    <updated>2020-03-28T14:44:03.720Z</updated>
+    <updated>2020-06-02T03:33:30.120Z</updated>
     
     <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>Software AG在本地和云中（以前称为webMethods API Cloud）提供其webMethods API管理平台。在2019年4月，Software AG将其多功能iPaaS商标为webMethods.io，并将云API管理组件重命名为webMethods.io API。 API管理平台产品包括网关，门户，目录和微网关。</p><p>在2019年2月，Software AG引入了新的公司口号“自由即服务”。这反映了该公司的观察结果，即客户正在使用API​​和集成功能来开发和提供创新的，变革性的数字产品和服务。 Software AG认为，如果组织要在当今的“颠覆经济”中脱颖而出，API可以提供“释放数据”的机制，并强调了提供数据和支持服务的重要性。</p><p>Software AG已在欧洲和北美建立了据点，总部位于德国和美国，并且在澳大利亚和日本等其他市场也有相对强势的据点（尽管在亚洲则少得多）。其API管理产品销往全球。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li><p>将Software AG的API管理解决方案与其更广泛的产品集结合使用的客户可以利用高度集成的应用程序基础架构产品组合，包括应用程序集成，iPaaS，流分析，物联网和内存计算应用程序。</p></li><li><p>Software AG在API管理用户的优先考虑方面对市场有透彻的了解。数字化转型是其主张的起点，Software AG将其有效地链接到诸如微网关和事件驱动的API之类的特定技术以及物联网（在最后一种情况下是通过2017年收购Cumulocity来实现的）。</p></li><li><p>新任首席执行官为Software AG的销售人员和市场执行工作注入了新的活力，并更加专注于API管理。</p></li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li><p>双重品牌（Software AG和webMethods）的维护，最近产品的重命名以及过去缺乏公司营销的情况可能会使潜在客户感到困惑。但是，新的首席营销官和广泛的品牌重塑工作正在解决这个问题。</p></li><li><p>退休的API，无论是因为它们陈旧且很少使用，还是因为它们对业务没有影响（或不利影响），都变得越来越频繁，而且绝非易事。 Software AG对这一复杂过程的支持是有限的。</p></li><li><p>就其API管理产品而言，Software AG在管理和向其产品工程团队提供增强功能方面拥有良好的实践，但缺乏用于培育和推进创新思想的结构化流程。</p></li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>Software AG成立于1969年，总部位于德国达姆施塔特。它存在于70多个国家/地区，在整合领域拥有悠久的历史。其数字业务平台部门占2018年公司收入的一半以上。</p><p>此分析中包含的产品是Software AG Cloud的一部分。它们包括webMethods集成，webMethods B2B，webMethods API和Cumulocity IoT。</p><p>2018年9月，Software AG收购了iPaaS公司Built.io，并将其合并到Software AG Cloud中。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>平台的多功能性：Software AG为webMethods Integration中的大多数集成方案提供功能，以及针对流程（ARIS），应用程序开发（Dynamic Apps），API（webMethods API）和B2B（webMethods B2B）集成的特定产品。还可以满足最新的使用案例，例如RPA和数字集成中心。</li><li>市场了解：Software AG具有数十年的经验，可以帮助客户应对集成挑战。尽管它于2013年进入iPaaS市场，但采用率受到限制，因为当时该公司并未将其视为战略市场。这主要是由于希望帮助其现有客户进行云计算并按照自己的节奏发展。   </li><li>开发人员经验范围：Software AG根据平台用户提供几种不同的开发人员经验。它们包括一个“无头”版本，可以将集成功能简单地嵌入到其他应用程序中。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li><p>地理策略：Software AG在北美和EMEA之间按客户位置划分大约60:40的比例，因此缺少一些较大竞争对手的全球业务；只有少数iPaaS客户位于其他地区。该公司通过在亚太地区开设数据中心并扩展其合作伙伴网络来解决此问题。</p></li><li><p>产品的演进：尽管Software AG的功能总体上具有竞争力，但最近在其产品组合中添加了Built.io意味着其EiPaaS产品代表了正在进行的工作，而不是一个整体。</p></li><li><p>客户体验：尽管Software AG引用的客户在总体体验以及服务和支持方面的得分都不错，但低于大多数竞争对手的得分。</p></li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
     
@@ -223,8 +213,6 @@
     
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
-    
-      <category term="代码" scheme="https://102no.com/tags/%E4%BB%A3%E7%A0%81/"/>
     
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
@@ -342,7 +330,7 @@
     <link href="https://102no.com/2019/12/18/rudy/"/>
     <id>https://102no.com/2019/12/18/rudy/</id>
     <published>2019-12-18T09:04:34.000Z</published>
-    <updated>2020-05-20T07:38:16.165Z</updated>
+    <updated>2020-06-02T03:38:55.916Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>Having dreams is what makes life tolerable</p></blockquote><p>突然发现好久都没有写电影观后感了，上一篇还是在2013年的时候，趁现在有点空闲时间，就写一写最近我给同事推荐的这部著名励志片《追梦赤子心》（又名《鲁迪传奇》，英文名《Rudy》）吧。同事也是学体育出身，看完告诉我还是触动蛮大的。本篇文章的标题就出自于电影中的经典台词。 </p><p>我记得第一次看这部电影的时候，那时候是刚来深圳，我自诩是一个泪点比较高的人，但是在看到这部电影的最后几分钟的时候，还是忍不住泪如雨下了，好像这部电影也不小心触动我心底的东西一样。后来想想发现，芸芸众生大部分都还是和鲁迪一样，天资平平，背景平平，除了自我努力，没有什么可以改变，毕竟天才和幸运，大部分这辈子都占不到一样。不过有时候也觉得，能坚持不懈的努力，也何尝不是一种天分，8年的坚持，从钢铁厂到进入想要的大学，从一个工人到一个可以上橄榄球场的大学生，这种转变是需要付出太多的代价才能成功。我们身边其实也不缺乏这样的例子，就好比前些日子的一则新闻，《从深圳流水线女工到纽约谷歌的开发工程师，10年完成逆袭》，跟电影中的故事如出一辙。 </p><p>其实每次说到梦想这玩意儿的时候，就会觉得特别空洞，感觉一直都没有什么具象化的东西可以直接了当的看到。小时候大人问我们你将来想做什么，我们就会就这自己知道的一些职业和词汇说出来科学家、飞行员、宇航员之类的，然后慢慢长大发现这些梦想离自己真的太遥远，再长大一些之后发现，其实好像也没什么具象的梦想，上一个好学校，找一份好工作，赚一份大钱，按部就班的来就可以了。后来发现其实每走一步路，就是一个小小的梦想，每次完成一个小小的梦想就是一个提升。可能大部分人都不是那种定下一个目标以后必须达到的线性奋斗的人，折线或者曲线可能才是更多人的路径。但有时候也需要一个那样抽象的梦想来支撑自己，不然对于现在的社会来说，真的有点难撑下去，梦想让生活变得可以忍受，排除人生中为别人的那部分，心底的那点梦想，就留给自己把。 </p><p>最有价值的并不是梦想本身，而是为梦想努力的一个过程，电影里面的鲁迪，在上完圣母大学之后肯定是也不用回去钢铁厂上班了，会有一个更好的人生。现实中电影的原型鲁迪·休廷杰后面也成了一个励志演说家。他本人也以一个路人的身份客串了这部电影，在电影的最后坐在看台上看着扮演自己的男主角在山呼海啸的“鲁迪”声音中被众人托起。所以对于鲁迪本人来说，最大的收获不仅仅是到自己喜欢的大学球队了上场了最后的27秒，而是今后人生的所有的事情，都会因为这27秒所改变。 梦想的确让生活变得可以忍受，你现在还在忍受着什么，你还记得你的梦想吗？</p>]]></content>
     
@@ -362,8 +350,6 @@
     
     
       <category term="电影" scheme="https://102no.com/tags/%E7%94%B5%E5%BD%B1/"/>
-    
-      <category term="电影观后感" scheme="https://102no.com/tags/%E7%94%B5%E5%BD%B1%E8%A7%82%E5%90%8E%E6%84%9F/"/>
     
   </entry>
   
@@ -414,9 +400,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
-    
       <category term="docker" scheme="https://102no.com/tags/docker/"/>
+    
+      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
     
   </entry>
   
