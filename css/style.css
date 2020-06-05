@@ -97,7 +97,8 @@ div {
         border-bottom-color: #444; }
       #header #nav-menu a.current {
         border: 1px solid #ddd;
-        border-bottom-color: #fff; }
+        border-bottom-color: #fff;
+        border-radius: 4px 4px 0 0; }
 
 #sidebar {
   border-left: 1px solid #ddd;
@@ -329,15 +330,16 @@ div {
   .page-navigator .page-number {
     display: inline-block;
     margin: 0 5px 5px 0; }
+  .page-navigator a {
+    background-color: #ececec; }
   .page-navigator a,
   .page-navigator span {
     display: inline-block;
     height: 25px;
     line-height: 25px;
-    padding: 5px 9px;
+    padding: 5px 12px;
     border: 1px solid #DDD;
     border-radius: 4px;
-    background-color: #ececec;
     text-align: center; }
     .page-navigator a:hover,
     .page-navigator span:hover {
