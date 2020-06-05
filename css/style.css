@@ -772,13 +772,18 @@ pre {
     right: 35px; } }
 
 /* read more*/
+.readmore {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 40px; }
+
 .readmore a {
   font-size: 14px;
   color: #444;
   margin: -10px 0;
   padding: 5px 10px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 4px;
+  background-color: #ececec;
   float: right; }
   .readmore a:after {
     font-family: "FontAwesome";
