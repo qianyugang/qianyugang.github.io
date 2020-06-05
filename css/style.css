@@ -172,7 +172,7 @@ div {
     margin: 0;
     color: #555;
     text-align: left;
-    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; }
+    font: bold 30px/1.1 "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei"; }
     .post .post-title a {
       color: #555; }
   .post .post-meta {
@@ -231,7 +231,7 @@ div {
     word-break: normal; }
     .post .post-content h2 {
       margin: 1.4em 0 1.1em;
-      border-bottom: 1px solid #eee;
+      /*border-bottom: 1px solid #eee;*/
       overflow: hidden; }
     .post .post-content h3 {
       margin: 1.4em 0 1.1em; }
@@ -245,7 +245,8 @@ div {
         display: inline-block;
         margin: 0 5px;
         padding: 0 5px;
-        background: #f7f8f8;
+        background: #ececec;
+        border-radius: 4px;
         font-family: Menlo, Consolas, monospace !important; }
       .post .post-content p a {
         color: #01579f;
@@ -282,7 +283,8 @@ div {
         display: inline-block;
         margin: 0 5px;
         padding: 0px 5px;
-        background: #f7f8f8;
+        background: #ececec;
+        border-radius: 4px;
         font-family: Menlo, Consolas, monospace !important; }
       .post .post-content ul a,
       .post .post-content ol a {
@@ -789,7 +791,8 @@ pre {
 /* syntax highlight*/
 figure.highlight,
 .codeblock {
-  background: #f7f8f8;
+  background: #ececec;
+  border-radius: 4px;
   margin: 10px 0;
   line-height: 1.1em;
   color: #333;
