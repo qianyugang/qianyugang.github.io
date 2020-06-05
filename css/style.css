@@ -300,9 +300,10 @@ div {
         padding: 0px 5px;
         margin: 3px;
         display: inline-block;
-        border: 1px solid #808080;
-        border-radius: 999em;
-        color: #aaa; }
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: #ececec;
+        color: #6E7173; }
         .post .post-content .tagcloud a:hover {
           color: #fff;
           border: 1px solid #808080;
@@ -319,7 +320,7 @@ div {
       padding-right: 0.3em; }
 
 .page-navigator {
-  border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
   list-style: none;
   margin-top: 25px;
   padding: 25px 0 0;
@@ -335,6 +336,8 @@ div {
     line-height: 25px;
     padding: 5px 9px;
     border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: #ececec;
     text-align: center; }
     .page-navigator a:hover,
     .page-navigator span:hover {
@@ -774,7 +777,7 @@ pre {
 /* read more*/
 .readmore {
   border-bottom: 1px solid #ddd;
-  padding-bottom: 40px; }
+  padding-bottom: 27px; }
 
 .readmore a {
   font-size: 14px;
