@@ -66,9 +66,9 @@
       <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
     
     
-      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
-    
       <category term="记录" scheme="https://102no.com/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
     
   </entry>
   
@@ -429,9 +429,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
-    
       <category term="docker" scheme="https://102no.com/tags/docker/"/>
+    
+      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
     
   </entry>
   
