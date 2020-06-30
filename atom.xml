@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-06-30T06:35:57.158Z</updated>
+  <updated>2020-06-30T06:37:22.641Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://102no.com/2020/06/30/how-to-quickly-locate-a-company/"/>
     <id>https://102no.com/2020/06/30/how-to-quickly-locate-a-company/</id>
     <published>2020-06-29T16:00:00.000Z</published>
-    <updated>2020-06-30T06:35:57.158Z</updated>
+    <updated>2020-06-30T06:37:22.641Z</updated>
     
     <content type="html"><![CDATA[<p>疫情在国内已经慢慢控制住了，找工作大军又要开始出动了，那么在找工作的时候，时常面临的一个问题就是，如何快速的知道一家公司是否靠谱。那么身为一个互联网工作者，得学会使用互联网的一切工具来定位公司的可靠性。这里主要是针对一些非大厂来说的，毕竟大厂的可靠性还是有目共睹的。</p><h2 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h2><p>首先，还是使用好搜索引擎，这种是作为第一步的筛选，对这个公司有一个比较大概的了解，做什么行业的，在行业是什么地位等等。那在使用搜索引擎的时候，在搜索的时候记得选择”新闻“选项卡，可以快速了解到这个公司在最近有没有什么新闻，如果负面新闻较多就要引起警觉。</p><h2 id="全国企业信用信息公示系统"><a href="#全国企业信用信息公示系统" class="headerlink" title="全国企业信用信息公示系统"></a>全国企业信用信息公示系统</h2><p>是不是一家正规的企业，就需要在全国企业信用信息公示系统官网查询，官网 <a href="http://gsxt.gdgs.gov.cn/" target="_blank" rel="external">http://gsxt.gdgs.gov.cn/</a> 里面查询</p><h2 id="天眼查，启信宝，红盾查询，企信查"><a href="#天眼查，启信宝，红盾查询，企信查" class="headerlink" title="天眼查，启信宝，红盾查询，企信查"></a>天眼查，启信宝，红盾查询，企信查</h2><p>除了上面的全国企业信用信息公示系统，还有一些第三方的网站可以查询。</p><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>看一些开源项目，尤其是做技术的，可以去github搜一搜相关公司的名称或者产品，也可能有意想不到的发现，比如上了一些程序员黑名单之类的。</p><h2 id="看准网"><a href="#看准网" class="headerlink" title="看准网"></a>看准网</h2><p>这个就比较常规了，上面都会有一些公司员工分享的公司经历，不过也有一些公司会再上面做一些公关，这个也需要自我判断一下。不过也可以作为一个考量的一环。</p><h2 id="v2ex-com"><a href="#v2ex-com" class="headerlink" title="v2ex.com"></a>v2ex.com</h2><p>v2ex是一个用户量很大的开发人员网站，里面会有一些公司的爆料之类的，亦可以在上面搜索查看有没有内部人员吐槽之类。</p>]]></content>
     
@@ -37,7 +37,7 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
