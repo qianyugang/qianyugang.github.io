@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-07-22T02:58:19.615Z</updated>
+  <updated>2020-07-24T07:02:38.942Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kong 2.1 正式发布！</title>
+    <link href="https://102no.com/2020/07/24/kong-2.1/"/>
+    <id>https://102no.com/2020/07/24/kong-2.1/</id>
+    <published>2020-07-23T16:00:00.000Z</published>
+    <updated>2020-07-24T07:02:38.942Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Kong-2-1-正式发布！"><a href="#Kong-2-1-正式发布！" class="headerlink" title="Kong 2.1 正式发布！"></a>Kong 2.1 正式发布！</h1><p>我们很高兴地宣布，我们的旗舰<a href="open source API gateway">开源API网关</a>2.1系列的第一个版本!</p><p>自从1月份Kong 2.0发布以来，我们已经发布了很多补丁，但我们也一直在忙着编写新特性!这个版本包含了很多新功能，从P99延迟的改进到gRPC的新特性，对您喜爱的插件的改进等等。以下是其中的亮点:</p><p>此外，<a href="https://konghq.com/products/kong-enterprise/" target="_blank" rel="external">Kong企业版</a>的发布时间与社区版保持一致，这一点我们非常努力。Kong Enterprise 2.1，包含了Kong Gateway 2.1的所有功能，今天也提供了<a href="Beta">测试版</a>!您可以<a href="http://docs.konghq.com/enterprise/2.1.x/release-notes/" target="_blank" rel="external">点击此处</a>这里了解更多关于Kong Enterprise及其附加功能。</p><h2 id="异步负载平衡器更新"><a href="#异步负载平衡器更新" class="headerlink" title="异步负载平衡器更新"></a>异步负载平衡器更新</h2><p>Kong 的主要目标之一不仅是提供高性能，而且是可预测的、稳定的性能。造成性能不稳定的一个常见原因是，当应用程序需要重新配置自身时，会出现延迟峰值。在之前的版本中，我们将所有对Kong内部内存结构的路由和服务的更新都异步进行，从而改善了我们观察到的P99延迟数。</p><p>从Kong Gateway 2.1开始，负载均衡器的重新配置异步进行。这意味着对上游和目标实体所做的配置更改将不会再导致明显的延迟峰值。</p><p>就像路由器和服务更新一样，您可以在严格(synchronous)模式和最终一致(asynchronous)模式之间进行配置——实际上，这些配置已经统一用于路由器和负载均衡器。</p><h2 id="新的-gRPC-插件"><a href="#新的-gRPC-插件" class="headerlink" title="新的 gRPC 插件"></a>新的 gRPC 插件</h2><p>Kong Gateway 2.1引入了两个专门针对gRPC流量的新插件，以扩展我们对gRPC的支持:</p><ul><li><a href="https://github.com/Kong/kong-plugin-grpc-web" target="_blank" rel="external">grpc-web</a>：这个插件允许通过<a href="https://github.com/grpc/grpc-web" target="_blank" rel="external">gRPC-web</a>协议访问gRPC服务。首先，这意味着使用<a href="https://github.com/grpc/grpc-web" target="_blank" rel="external">gRPC-Web</a>库的JS浏览器应用程序。</li><li><a href="https://github.com/Kong/kong-plugin-grpc-gateway" target="_blank" rel="external">grpc-gateway</a> ：这个插件允许您通过HTTP REST接口公开gRPC服务。它以JSON格式转换请求和响应，允许通过普通HTTP请求访问上游gRPC服务。</li></ul><h2 id="插件的全面改进"><a href="#插件的全面改进" class="headerlink" title="插件的全面改进"></a>插件的全面改进</h2><p>Kong Gateway 2.1的许多插件提供了新的功能:</p><ul><li>Zipkin：增加了可配置性和对跟踪标准的支持，增加了对B3和W3C头的支持。</li><li>Rate-Limiting：由自定义标题和Postgres自动清除的速率限制。</li><li>OAuth2：持久刷新token，PKCE和客户哈希秘钥。</li><li>AWS-Lambda：支持定制Lambda端点，这对于测试环境特别有用。</li><li>Prometheus：支持从上流跟踪运行状况检查信息，以及显著的性能改进</li><li>Serverless：能够在任何请求处理阶段注入用户定义的Lua函数，为您提供了极大的灵活性，可以编写各种“微插件”作为代码片段，并将它们注入到您的代理路径中，而无需部署自定义插件</li><li>LDAP：虚拟凭证现在可以用作速率限制标准</li><li>各种身份验证插件现在发出统一的X-Credential-Identifier 头，因此，无论使用何种身份验证方法，客户端服务都可以检查标识符。</li></ul><h2 id="Postgres只读副本支持"><a href="#Postgres只读副本支持" class="headerlink" title="Postgres只读副本支持"></a>Postgres只读副本支持</h2><p>如果将Kong与Postgres一起使用，那么现在还可以配置只读Postgres副本。配置完成后，Kong将通过只读副本执行读操作，而不是通过主读写连接执行读操作。这允许您将Kong集群的数据库负载分散到只读副本中，以获得更好的性能。</p><h2 id="Kong-Gateway-2-1的其他改进和修复"><a href="#Kong-Gateway-2-1的其他改进和修复" class="headerlink" title="Kong Gateway 2.1的其他改进和修复"></a>Kong Gateway 2.1的其他改进和修复</h2><ul><li>动态upstream keepalive 池：当Kong通过TLS将流量代理到虚拟服务(托管在同一个IP/端口上)时，这一改变绕过了NGINX的限制，并防止了虚拟主机的混乱。Keepalive池现在还考虑SNI和客户端证书，而不仅仅是IP和端口。此外，这个改变允许为上游保持活动的连接指定一个不确定的最大请求数量和空闲超时阈值，这个功能之前已经被NGINX 1.15.3删除了。</li><li>TLS验证参数的每个服务定制：这为安全服务的配置提供了更大的灵活性，使得使用相互TLS (mTLS)的服务特别方便。</li><li>混合模式和声明式配置的改进：2.0版本以来,Kong 支持混合模式,您可以有单独的Kong 节点专用控制平面节点和数据库访问和管理API(配置和无代理)或数据平面节点(只接受节点运行数据库,接受它的配置而不是从控制平面节点)。Kong Gateway 2.1包括改善混合模式体验的更新:<ul><li>支持PKI mtl混合模式</li><li>证书到期和CA为混合模式约束检查证书</li><li>以声明式配置格式进行更新，允许导入带有或不带散列密码的凭据——这对所有<a href="https://docs.konghq.com/latest/db-less-and-declarative-config/" target="_blank" rel="external">无db模式</a>用户也是一个受欢迎的添加!</li></ul></li><li>一些API添加到插件开发工具包：我们为插件开发人员提供的API——plugin Development Kit (PDK)不断得到增强，添加了新的模块和方法，包括更多用于TLS控制的函数、改进的L4支持等等。查看最新的<a href="https://docs.konghq.com/latest/pdk/" target="_blank" rel="external">PDK文档</a>了解详细信息!</li><li>bug 修复：除了2.0中已经包含的所有修复之外。在x系列中，Kong Gateway 2.1包括了一些需要引入额外功能的修复，因此，通过语义版本化，被包括在2.1.0中:<ul><li>通过引入摘要字段正确索引大型CA证书数据。</li><li>现在已将Authorization值从已记录的标题列表中删除</li><li>ACL插件现在返回HTTP状态401未经授权而不是403禁止。</li></ul></li></ul><h2 id="关注社区贡献"><a href="#关注社区贡献" class="headerlink" title="关注社区贡献"></a>关注社区贡献</h2><p>Kong Gateway 2.1的一些新功能是我们的GitHub开源社区贡献的代码(26k stars，还在不断增加中!)我们想通过大声疾呼来感谢这些贡献：</p><ul><li>@Abhishekvrshny：Cassandra读写操作的可配置一致性级别。</li><li>@ealogar：可配置的负TTL缓存对象。</li><li>@amberheilman：OAuth2的一些改进，包括PKCE支持、可选的客户端机密散列和持久刷新令牌的能力。</li><li>@carnei-ro：Prometheus运行状况指标和自定义标头的速率限制。</li></ul><p>有你们让我们的社区让这个项目变得更强更好。</p><h2 id="Kong-Nation"><a href="#Kong-Nation" class="headerlink" title="Kong Nation"></a>Kong Nation</h2><p>一如既往，请随时向我们的社区论坛<a href="https://discuss.konghq.com/" target="_blank" rel="external">Kong Nation</a>提出任何问题。您的反馈可以让我们更好地理解关键任务用例，并不断改进Kong。</p><p>Happy Kong!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Kong-2-1-正式发布！&quot;&gt;&lt;a href=&quot;#Kong-2-1-正式发布！&quot; class=&quot;headerlink&quot; title=&quot;Kong 2.1 正式发布！&quot;&gt;&lt;/a&gt;Kong 2.1 正式发布！&lt;/h1&gt;&lt;p&gt;我们很高兴地宣布，我们的旗舰&lt;a href=
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
+    
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
+    
+  </entry>
   
   <entry>
     <title>DataWeave 2.0 数组函数</title>
@@ -509,33 +538,6 @@
     
     
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 libfaketime 修改 docker 容器时间</title>
-    <link href="https://102no.com/2019/11/28/libfaketime-docker-change/"/>
-    <id>https://102no.com/2019/11/28/libfaketime-docker-change/</id>
-    <published>2019-11-27T16:00:00.000Z</published>
-    <updated>2019-12-23T04:17:56.614Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="容器的时间问题："><a href="#容器的时间问题：" class="headerlink" title="容器的时间问题："></a>容器的时间问题：</h2><p>如果想要直接进入容器，使用<code>date -s</code>修改日期，则会出现一个</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">date</span>: cannot <span class="keyword">set</span> <span class="built_in">date</span>: Operation <span class="keyword">not</span> permitted</div></pre></td></tr></table></figure><p>的错误，而且也不会成功。</p><p>这是由于docker容器的隔离是基于Linux的Capability机制实现的, Linux的Capability机制允许你将超级用户相关的高级权限划分成为不同的小单元。目前Docker容器默认只用到了以下的Capability.</p><ul><li>CHOWN,</li><li>DAC_OVERRIDE,</li><li>FSETID,</li><li>FOWNER,</li><li>MKNOD,</li><li>NET_RAW,</li><li>SETGID,</li><li>SETUID,</li><li>SETFCAP,</li><li>SETPCAP,</li><li>NET_BIND_SERVICE,</li><li>SYS_CHROOT,</li><li>KILL,</li><li>AUDIT_WRITE</li></ul><p>而要修改系统时间需要有SYS_TIME权限。使用 <code>--cap-add</code>, <code>--cap-drop</code> 可以添加或禁用特定的权限。<code>--privileged</code>参数也可以达到开放权限的作用, 与<code>--cap-add</code>的区别就是, <code>--privileged</code>是将所有权限给容器.</p><p>docker使用<code>--privileged</code>, <code>--cap-add</code>, <code>--cap-drop</code> 来对容器本身的能力进行开放或限制。</p><p>那么使用如下命令就可以直接改变时间了：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker <span class="builtin-name">run</span> -it --cap-<span class="builtin-name">add</span> SYS_TIME --name centos centos /bin/bash</div></pre></td></tr></table></figure></p><p>接着进入容器实行date命令修改时间，如果没有修改成功，，那么可能就是因为宿主机做了共享主机的localtime（比如laradock就做了）：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">docker run --name &lt;name&gt; -v <span class="regexp">/etc/</span><span class="string">localtime:</span><span class="regexp">/etc/</span><span class="string">localtime:</span>ro  .... </div><div class="line">docker cp <span class="regexp">/etc/</span><span class="string">localtime:</span>【容器ID或者NAME】<span class="regexp">/etc/</span>localtime</div></pre></td></tr></table></figure></p><p>如果修改成功一会就又恢复了，那么就可能要查看一下宿主机是否做了定时校准的任务。</p><p>但是如此执行之后，那就是容器时间变更为5月28日之后，宿主机的时间也跟着变更了，<br>因为上边操作的 <code>--cap-add SYS_TIME</code>是为了将宿主机的内核时间挂载进来与容器共享，因此容器时间更改了，宿主机时间也会跟着更改。</p><h2 id="使用-libfaketime"><a href="#使用-libfaketime" class="headerlink" title="使用 libfaketime"></a>使用 libfaketime</h2><p>由此可见，直接修改docker容器的时间是比较危险的，所以选择如下方案。</p><p>首先在宿主机上安装：libfaketime<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/wolfcw/libfaketime.git</div><div class="line"><span class="keyword">cd</span> libfaketime  &amp;&amp; <span class="keyword">make</span> install</div></pre></td></tr></table></figure></p><p>安装完成之后，把安装后的库文件拷贝到docker中：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker cp /usr/<span class="class"><span class="keyword">lib</span>/<span class="title">x86_64</span>-<span class="title">linux</span>-<span class="title">gnu</span>/<span class="title">faketime</span>/<span class="title">libfaketime</span>.<span class="title">so</span>.1 <span class="title">e6e239e5fba7</span>:/<span class="title">usr</span>/<span class="title">local</span>/<span class="title">lib</span>/</span></div></pre></td></tr></table></figure></p><p>然后再进入docker中执行命令改变环境变量：</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">export</span> <span class="attribute">LD_PRELOAD</span>=/usr/local/lib/libfaketime.so.1 <span class="attribute">FAKETIME</span>=<span class="string">"-5d"</span></div></pre></td></tr></table></figure><p>改变环境变量之后，再执行脚本会发现时间已经改变。若想要恢复，直接把环境变量修改为空即可：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">export</span> LD_PRELOAD=</div></pre></td></tr></table></figure></p><blockquote><p>LD_PRELOAD是Linux系统的一个环境变量，它可以影响程序的运行时的链接（Runtime linker），它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。一方面，我们可以以此功能来使用自己的或是更好的函数（无需别人的源码），而另一方面，我们也可以以向别人的程序注入程序，从而达到特定的目的。</p></blockquote><p>如果需要修改容器中的各种web服务的时间，只需要在改变环境变量之后，重启服务即可。但是注意，镜像必须使用比较基础的镜像，因为如果直接使用服务的镜像（例如php镜像），会在重启的时候，整个容器会退出，faketime就会修改无效。</p><p>例如：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pkill php-fpm ; <span class="regexp">/usr/</span>local<span class="regexp">/php/</span>sbin<span class="regexp">/php-fpm</span></div></pre></td></tr></table></figure></p><h2 id="修改-faketime-步骤"><a href="#修改-faketime-步骤" class="headerlink" title="修改 faketime 步骤"></a>修改 faketime 步骤</h2><p>第一步：需要通过dockerfile把libfaketime拷贝部分制作到基础镜像当中。<br>第二步：通过<code>uuid</code>来寻找要执行的pod。<br>第三步：修改pod的yaml文件（容器启动），把</p><p><code>export LD_PRELOAD=/usr/local/lib/libfaketime.so.1 FAKETIME=&quot;-5d&quot;</code></p><p>加入yaml，重启pod（会自动重启相应服务php、kong、nginx、go等），此时faketime生效。</p><p>参考：</p><ul><li><a href="https://www.jianshu.com/p/3cfd7e4d8c76" target="_blank" rel="external">https://www.jianshu.com/p/3cfd7e4d8c76</a></li><li><a href="http://www.eryajf.net/2888.html" target="_blank" rel="external">http://www.eryajf.net/2888.html</a></li><li><a href="https://blog.csdn.net/u012375924/article/details/100068898" target="_blank" rel="external">https://blog.csdn.net/u012375924/article/details/100068898</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;容器的时间问题：&quot;&gt;&lt;a href=&quot;#容器的时间问题：&quot; class=&quot;headerlink&quot; title=&quot;容器的时间问题：&quot;&gt;&lt;/a&gt;容器的时间问题：&lt;/h2&gt;&lt;p&gt;如果想要直接进入容器，使用&lt;code&gt;date -s&lt;/code&gt;修改日期，则会出现一个&lt;/
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="docker" scheme="https://102no.com/tags/docker/"/>
-    
-      <category term="faketime" scheme="https://102no.com/tags/faketime/"/>
     
   </entry>
   
