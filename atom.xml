@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-08-07T05:48:59.153Z</updated>
+  <updated>2020-08-12T03:14:00.401Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本MySQL必看书籍推荐</title>
+    <link href="https://102no.com/2020/08/12/10-mysql-books/"/>
+    <id>https://102no.com/2020/08/12/10-mysql-books/</id>
+    <published>2020-08-11T16:00:00.000Z</published>
+    <updated>2020-08-12T03:14:00.401Z</updated>
+    
+    <content type="html"><![CDATA[<p>MySQL是目前应用最广泛的关系型数据库，今天我们就推荐10本MySQL必看书籍，不论是在学习中还是已经工作使用的，看完这十本书都是大有裨益的。</p><p>当然，学习MySQL看书是一方面，MySQL的文档是最基础，最详实的一手资料，需要优先查看。</p><h1 id="《MySQL必知必会》"><a href="#《MySQL必知必会》" class="headerlink" title="《MySQL必知必会》"></a>《MySQL必知必会》</h1><p>书中从介绍简单的数据检索开始，逐步深入一些复杂的内容，包括联结的使用、子查询、正则表达式和基于全文本的搜索、存储过程、游标、触发器、表约束，等等。通过重点突出的章节，条理清晰、系统而扼要地讲述了读者应该掌握的知识，使他们不经意间立刻功力大增。<br>非常适合入门的一本书，跟着书中走慢慢掌握基础实践。作者Ben Forta是世界知名的技术作家，也是Adobe技术界最为知名的专家之一，目前担任Adobe公司的高级技术推广专家。</p><p><img src="http://qiniu.102no.com/mysql必知必会.png" alt=""></p><h1 id="《高性能MySQL》"><a href="#《高性能MySQL》" class="headerlink" title="《高性能MySQL》"></a>《高性能MySQL》</h1><p>MySQL 领域的经典之作，拥有广泛的影响力。第3 版更新了大量的内容，不但涵盖了最新mysql 5.5版本的新特性，也讲述了关于固态盘、高可扩展性设计和云计算环境下的数据库相关的新内容，原有的基准测试和性能优化部分也做了大量的扩展和补充。<br>作者Peter Zaitsev 曾经是MySQL AB 公司高性能组的经理；Baron Schwartz 是一位软件工程师；Vadim Tkachenko 曾经是MySQL AB 公司的性能工程师。</p><p><img src="http://qiniu.102no.com/高性能mysql.png" alt=""></p><h1 id="《MySQL技术内幕-InnoDB存储引擎》"><a href="#《MySQL技术内幕-InnoDB存储引擎》" class="headerlink" title="《MySQL技术内幕:InnoDB存储引擎》"></a>《MySQL技术内幕:InnoDB存储引擎》</h1><p>本书宏观地介绍了MySQL的体系结构和各种常见的存储引擎以及它们之间的比较；接着以InnoDB的内部实现为切入点，逐一详细讲解了InnoDB存储引擎内部的各个功能模块的实现原理，包括InnoDB存储引擎的体系结构、内存中的数据结构、基于InnoDB存储引擎的表和页的物理存储、索引与算法、文件、锁、事务、备份与恢复，以及InnoDB的性能调优等重要的知识；最后对InnoDB存储引擎源代码的编译和调试做了介绍，对大家阅读和理解InnoDB的源代码有重要的指导意义。</p><p><img src="http://qiniu.102no.com/mysql技术neimu.png" alt=""></p><h1 id="《MySQL排错指南》"><a href="#《MySQL排错指南》" class="headerlink" title="《MySQL排错指南》"></a>《MySQL排错指南》</h1><p>由Oracle公司的技术支持工程师编写，详细阐述了MySQL故障诊断及处理中的知识，教会读者如何深入浅出地定位、分析并解决各种MySQL数据库的故障。<br>共分为7章，其内容涵盖了解决MySQL问题的基本技巧、MySQL中的并发问题、服务配置的影响、MySQL硬件和运行环境相关的问题、复制备份中的故障排除、故障排除使用的技术和工具，以及一些MySQL故障排除的最佳实践。此外，本书的附录中还包含了可以帮助读者解决MySQL疑难问题的一些有用资源。适合MySQL数据库开发及运维人员阅读。<br>作者Sevta Smirnova是Oracle公司MySQL部门bug分析支持团队的首席技术支持工程师，每天的工作是处理棘手的支持问题和MysQL软件bug。Sveta是开源社区的一名积极参与者。</p><p><img src="http://qiniu.102no.com/mysql拍错指南.png" alt=""></p><h1 id="《数据库索引设计与优化》"><a href="#《数据库索引设计与优化》" class="headerlink" title="《数据库索引设计与优化》"></a>《数据库索引设计与优化》</h1><p>适用于已经具备了SQL 这一关系型语言相关知识，希望通过理解SQL 性能相关的内容，或者希望通过了解如何有效地设计表和索引而从中获益的人员。另外，《数据库索引设计与优化》也同样适用于希望对新硬件的引入所可能带来的变化做出更好判断的资深人士。<br>Tapio Lahdenmaki，数据库性能顾问，教授通用索引设计课程。他在IBM公司工作了三十多年，是公司全球课程中有关DB2 (for z/OS)性能相关课程的主要作者。Michael Leach，关系型数据库顾问，已从IBM公司退休，他拥有二十年的应用系统及数据库课程的教授经验。两位作者的文章均被翻译成了多国语言广为传播。他们有关索引设计的方法被成功应用于许多核心系统。</p><p><img src="http://qiniu.102no.com/数据库索引设计优化.png" alt=""></p><h1 id="《深入理解MySQL核心技术》"><a href="#《深入理解MySQL核心技术》" class="headerlink" title="《深入理解MySQL核心技术》"></a>《深入理解MySQL核心技术》</h1><p>MysQL开发团队的前成员Sasha Pachev通过《深入理解MySQL核心技术》给出了MySQL 5的全面指南，揭示了这一强大数据库的内部运作。您将直奔MySQL核心技术，了解各种数据结构和各种方便的功能的运作情况，了解如何添加新的存储引擎和配置选项等。</p><p><img src="http://qiniu.102no.com/深入理解MySQL核心技术.png" alt=""></p><h1 id="《MySQL性能调优与架构设计》"><a href="#《MySQL性能调优与架构设计》" class="headerlink" title="《MySQL性能调优与架构设计》"></a>《MySQL性能调优与架构设计》</h1><p>以 MySQL 数据库的基础及维护为切入点，重点介绍了 MySQL 数据库应用系统的性能调优，以及高可用可扩展的架构设计。本书包含了作者自身很多的实践经验，以实际的例子来说明。适合从入门到DBA都可以看。</p><p><img src="http://qiniu.102no.com/MySQL性能调优与架构设计.png" alt=""></p><h1 id="《深入浅出MySQL-数据库开发、优化与管理维护》"><a href="#《深入浅出MySQL-数据库开发、优化与管理维护》" class="headerlink" title="《深入浅出MySQL-数据库开发、优化与管理维护》"></a>《深入浅出MySQL-数据库开发、优化与管理维护》</h1><p>本书从数据库的基础、开发、优化、管理维护和架构5个方面对MySQL进行了详细的介绍，每一部分都独立成篇。基础篇主要适合于MySQL的初学者阅读，包括MySQL的安装与配置、SQL基础、MySQL支持的数据类型、MySQL中的运算符、常用函数、图形化工具的使用等内容。<br>作者都是网易大佬</p><ul><li>唐汉明，网易公司技术部副总监。</li><li>翟振兴，网易公司技术部高级DBA，具有Oracle OCP证书。</li><li>关宝军，网易技术部高级DBA。</li><li>王洪权，网易技术部DBA，具有Oracle 10g OCP，曾任职于某知名大型游戏公司。</li><li>黄潇，2005年大学毕业后先从事Java开发，后转向数据库管理，2008年获得Oracle 10g OCP证书。</li></ul><p><img src="http://qiniu.102no.com/深入浅出MySQL-数据库开发、优化与管理维护.png" alt=""></p><h1 id="《数据库系统实现》"><a href="#《数据库系统实现》" class="headerlink" title="《数据库系统实现》"></a>《数据库系统实现》</h1><p>本书是斯坦福大学计算机科学专业数据库系列课程第二门课的教科书。书中对数据库系统实现原理进行了深入阐述，并具体讨论了数据库管理系统的三个主要成分——存储管理器、查询处理器和事务管理器的实现技术。<br>本书适合作为高等院校计算机专业研究生的教材或本科生的教学参考书，也适合作为从事相关研究或开发工作的专业技术人员的高级参考资料。</p><p><img src="http://qiniu.102no.com/数据库系统实现.png" alt=""></p><h1 id="《事务处理》"><a href="#《事务处理》" class="headerlink" title="《事务处理》"></a>《事务处理》</h1><p>本书列举了大量成功的商业和研究系统的实例，此外，列出了许多事务处理算法的可编译的C代码片段。本书对于那些对实现分布式系统或客户-服务器结构感兴趣的人来说，是值得一读的。本书适合作为高校的教科书，也可作为计算机专业人员的参考书。</p><p><img src="http://qiniu.102no.com/事务处理.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MySQL是目前应用最广泛的关系型数据库，今天我们就推荐10本MySQL必看书籍，不论是在学习中还是已经工作使用的，看完这十本书都是大有裨益的。&lt;/p&gt;
+&lt;p&gt;当然，学习MySQL看书是一方面，MySQL的文档是最基础，最详实的一手资料，需要优先查看。&lt;/p&gt;
+&lt;h1 id
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>在 mulesoft 4 CE版本 使用 Spring Module</title>
@@ -511,34 +538,6 @@
     
     
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>梦想让生活变得可以忍受</title>
-    <link href="https://102no.com/2019/12/18/rudy/"/>
-    <id>https://102no.com/2019/12/18/rudy/</id>
-    <published>2019-12-18T09:04:34.000Z</published>
-    <updated>2020-06-02T03:38:55.916Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Having dreams is what makes life tolerable</p></blockquote><p>突然发现好久都没有写电影观后感了，上一篇还是在2013年的时候，趁现在有点空闲时间，就写一写最近我给同事推荐的这部著名励志片《追梦赤子心》（又名《鲁迪传奇》，英文名《Rudy》）吧。同事也是学体育出身，看完告诉我还是触动蛮大的。本篇文章的标题就出自于电影中的经典台词。 </p><p>我记得第一次看这部电影的时候，那时候是刚来深圳，我自诩是一个泪点比较高的人，但是在看到这部电影的最后几分钟的时候，还是忍不住泪如雨下了，好像这部电影也不小心触动我心底的东西一样。后来想想发现，芸芸众生大部分都还是和鲁迪一样，天资平平，背景平平，除了自我努力，没有什么可以改变，毕竟天才和幸运，大部分这辈子都占不到一样。不过有时候也觉得，能坚持不懈的努力，也何尝不是一种天分，8年的坚持，从钢铁厂到进入想要的大学，从一个工人到一个可以上橄榄球场的大学生，这种转变是需要付出太多的代价才能成功。我们身边其实也不缺乏这样的例子，就好比前些日子的一则新闻，《从深圳流水线女工到纽约谷歌的开发工程师，10年完成逆袭》，跟电影中的故事如出一辙。 </p><p>其实每次说到梦想这玩意儿的时候，就会觉得特别空洞，感觉一直都没有什么具象化的东西可以直接了当的看到。小时候大人问我们你将来想做什么，我们就会就这自己知道的一些职业和词汇说出来科学家、飞行员、宇航员之类的，然后慢慢长大发现这些梦想离自己真的太遥远，再长大一些之后发现，其实好像也没什么具象的梦想，上一个好学校，找一份好工作，赚一份大钱，按部就班的来就可以了。后来发现其实每走一步路，就是一个小小的梦想，每次完成一个小小的梦想就是一个提升。可能大部分人都不是那种定下一个目标以后必须达到的线性奋斗的人，折线或者曲线可能才是更多人的路径。但有时候也需要一个那样抽象的梦想来支撑自己，不然对于现在的社会来说，真的有点难撑下去，梦想让生活变得可以忍受，排除人生中为别人的那部分，心底的那点梦想，就留给自己把。 </p><p>最有价值的并不是梦想本身，而是为梦想努力的一个过程，电影里面的鲁迪，在上完圣母大学之后肯定是也不用回去钢铁厂上班了，会有一个更好的人生。现实中电影的原型鲁迪·休廷杰后面也成了一个励志演说家。他本人也以一个路人的身份客串了这部电影，在电影的最后坐在看台上看着扮演自己的男主角在山呼海啸的“鲁迪”声音中被众人托起。所以对于鲁迪本人来说，最大的收获不仅仅是到自己喜欢的大学球队了上场了最后的27秒，而是今后人生的所有的事情，都会因为这27秒所改变。 梦想的确让生活变得可以忍受，你现在还在忍受着什么，你还记得你的梦想吗？</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;Having dreams is what makes life tolerable&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;突然发现好久都没有写电影观后感了，上一篇还是在2013年的时候，趁现在有点空闲时间，就写一写最近我给同事推荐的这部著名励
-      
-    
-    </summary>
-    
-      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
-    
-    
-      <category term="电影" scheme="https://102no.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
