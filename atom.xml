@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-10-12T09:19:31.386Z</updated>
+  <updated>2020-10-13T08:52:10.699Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是API生命周期管理？</title>
+    <link href="https://102no.com/2020/10/13/api-lifecycle-management/"/>
+    <id>https://102no.com/2020/10/13/api-lifecycle-management/</id>
+    <published>2020-10-12T16:00:00.000Z</published>
+    <updated>2020-10-13T08:52:10.699Z</updated>
+    
+    <content type="html"><![CDATA[<p>API 生命周期管理是一个术语，是指需要管理的 API 整个生命周期中从创建到报废的所有步骤。<br>API数量正在激增当中，因为它们是数字业务的关键。公司面临的主要挑战是通过以下方式来应对日益增长的新API需求。</p><ul><li>迅速创建API</li><li>通过管理目录和执行强大的安全级别来控制它们。</li><li>直接或通过第三方开发者来消耗它们。</li></ul><p><strong>API 生命周期</strong>方法提供了一个整体的观点，即如何管理 API 生命中的不同阶段，从创建到废弃。</p><p>下面的API生命周期管理图代表了API生命周期中各个步骤的详细视图，下面我们将详细介绍。</p><p><img src="https://apifriends.com/wp-content/uploads/2017/06/api_lifecycle.png" alt=""></p><h2 id="API创建阶段"><a href="#API创建阶段" class="headerlink" title="API创建阶段"></a>API创建阶段</h2><ul><li>MODEL - 可视化或程序化地指定您的 API 端点所需的数据。<ul><li>假设您有一个现有的数据库，其中包含了您想用API公开的数据。多亏了连接器，你可以很容易地暴露数据模型并定义你自己的API格式。</li><li>这同样适用于SaaS应用，你可以用连接器连接到哪些API，把它们变成你自己的API格式。</li></ul></li><li>ORCHESTRATE - 对来自多个来源的数据进行组合和标准化。<ul><li>你可能想公开一个API，将不同底层API的信息结合起来。有了编排能力，你可以很容易地做到这一点，无论是同步还是异步的方式。</li></ul></li><li>TRANSFORM - 将传统格式（如XML）转换为现代可消费格式（如JSON）。<ul><li>当涉及到连接到内部系统（如ESB）时，仍有许多内部SOAP网络服务（XML）需要暴露为REST API（JSON），以便于数字应用程序的消费。一个允许在这两种格式之间进行简单和图形OB化转换的可视化映射器是一个重要的工具。</li></ul></li><li>DOCUMENT - 为模型和API操作自动生成文档和代码片段。<ul><li>API文档是开发人员轻松操作它们的关键。但这也是一项非常繁琐、枯燥和容易出错的工作。如果有一个能自动生成API文档的工具，就能大大减轻痛苦。</li></ul></li></ul><h2 id="API控制阶段"><a href="#API控制阶段" class="headerlink" title="API控制阶段"></a>API控制阶段</h2><ul><li>DEPLOY - 即时将API部署到目标环境中，无需任何设置工作。<ul><li>在数字世界中，代码交付和部署之间的时间需要尽可能的缩短。DevOps工具通过持续集成和持续交付来加速这一进程。为了管理你的API，你需要一个能很好地集成到你的DevOps策略中的解决方案。对于较小的项目，甚至需要一个带有弹性运行时的解决方案，只需点击一下就可以部署到。</li></ul></li><li>MANAGE - 管理对API的访问，并通过速率限制和SLA保护服务质量。<ul><li>拥有的API越多，它们就越难以管理。会很快感觉到需要一个API目录，可以直接浏览它，并且你可以管理API的发布状态（未发布/发布/废弃/销毁）和他们的版本。API 目录还应该包含速率限制设置（以保护您的内部系统免受来自 API 使用的高流量峰值的影响）和 SLA 执行。</li></ul></li><li>SECURE - 为API的安全和防火墙建立并执行企业政策。<ul><li>由于API是通往世界的一扇门，因此保护它们的安全是最重要的。您需要一个能够提供顶级API安全性的API管理解决方案。<br>此外，还强烈建议使用通用标准等安全认证。</li></ul></li><li>SCALE - 自动向上或向下扩展基础设施，以运行您的服务器端应用程序。<ul><li>网络流量是不可预测的，而且变化很大。您需要一个能够随着流量自动调整的基础设施，而无需人工干预。</li></ul></li></ul><h2 id="API消费阶段"><a href="#API消费阶段" class="headerlink" title="API消费阶段"></a>API消费阶段</h2><ul><li><p>PUBLISH - 通过中央API目录向内部团体、合作伙伴或公众销售。</p><pre><code>- API目录中的API被发布到API开发者门户中，以便开发者轻松使用。</code></pre><ul><li>有三种类型的API，需要为您的API门户进行不同的设置。<ul><li>Private API - 只供内部使用的API。</li><li>Partner API - 只针对一组特定的合作伙伴的API</li><li>Public API（也就是开放API）- 任何人都可以使用的API。</li></ul></li><li>这些API类型需要用不同的方式来管理，例如，合作伙伴的API必须要求你在解决方案中有一个合作伙伴入驻流程。</li><li>营销方面也不应该被忽视。一个开放的API门户需要一个有吸引力的品牌，也需要通过不同的营销渠道进行推广。</li></ul></li><li><p>DISCOVER - 开发人员浏览API、其属性和文档的自助服务访问。</p><ul><li>API门户的目标是在自助服务中提供。开发者应该能够24/7连接，并在需要帮助时体验到文档、问答和支持小工具的流畅导航。</li><li>在使用API之前，开发人员更喜欢先测试它，所以你的API门户应该提供一个简单的尝试功能。</li></ul></li><li>INVOKE - 从客户端应用中执行API操作或开箱即用的MBaaS服务。<ul><li>要使用API，开发人员从API开发者门户获得一个自动生成的，然后可以在他们最喜欢的开发语言的API SDK的帮助下将这些API集成到他们的代码中。</li><li>为了加速您的移动应用开发，开箱即用的MBaaS服务非常适合在您的API门户中使用。</li></ul></li><li>MONETIZE - 跟踪使用情况并应用费率计划政策以产生API收入。<ul><li>API商业化是一个复杂的话题。大多数时候，API是免费提供的，因为它们代表了一种新的商业方式，而且商业价值并不在于API本身，而是在于它所代表的更大的外延和新的市场份额。</li><li>但有时，公司可能会希望将API货币化，因为它们的基础数据是其业务的一部分。一个很好的例子是使用Axway API管理解决方案的数据即服务Dun &amp; Bradstreet项目。</li></ul></li></ul><h2 id="API-分析"><a href="#API-分析" class="headerlink" title="API 分析"></a>API 分析</h2><ul><li>你可以在API生命周期管理图上面看到，中间有一个圆圈，名字叫 “Analyze”。中间这个位置意味着在整个API生命周期管理中，API分析是最重要的。</li><li>为什么这么说呢？很简单，因为你无法控制也无法改善你无法衡量的东西。</li><li>当你想管理日益增多的API时，API管理的嵌入式分析是必须的。</li></ul><blockquote><p>原文链接：<a href="https://apifriends.com/api-management/api-lifecycle-management/" target="_blank" rel="external">What is API Lifecycle Management?</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;API 生命周期管理是一个术语，是指需要管理的 API 整个生命周期中从创建到报废的所有步骤。&lt;br&gt;API数量正在激增当中，因为它们是数字业务的关键。公司面临的主要挑战是通过以下方式来应对日益增长的新API需求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;迅速创建API&lt;/li&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong企业版的通用性功能 - 全生命周期服务管控平台</title>
@@ -139,9 +167,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -167,9 +195,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -195,9 +223,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -306,9 +334,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="DataWeave" scheme="https://102no.com/tags/DataWeave/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
+    
+      <category term="DataWeave" scheme="https://102no.com/tags/DataWeave/"/>
     
   </entry>
   
@@ -333,9 +361,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="DataWeave" scheme="https://102no.com/tags/DataWeave/"/>
-    
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
+    
+      <category term="DataWeave" scheme="https://102no.com/tags/DataWeave/"/>
     
   </entry>
   
@@ -468,9 +496,9 @@
       <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
     
     
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
@@ -513,31 +541,6 @@
       
       
         &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MuleSoft iPaaS 产品介绍</title>
-    <link href="https://102no.com/2020/03/31/ipaas-mulesoft/"/>
-    <id>https://102no.com/2020/03/31/ipaas-mulesoft/</id>
-    <published>2020-03-30T16:00:00.000Z</published>
-    <updated>2020-06-02T03:34:17.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>MuleSoft在2013年推出Anypoint Platform时将其集成功能与API管理功能结合在一起。 2018年5月2日，Salesforce完成了对MuleSoft的收购，最初重点是定位集成和解锁数据的共同价值。但是，最近，MuleSoft更加注重作为API平台的提供者，该平台使组织能够创建可重复使用的数字资产和服务的敏捷层，以适应和变得敏捷。 MuleSoft和Salesforce共同致力于进入市场的努力，以加速客户的数字化转型。</p><p>Anypoint Platform可帮助客户一致地设计API。他们可以使用API​​片段，实现API并以图形方式转换数据。他们可以自动生成API和集成的单元测试和集成测试。他们可以在统一的管理中心内部署，管理和分析API和集成。 Anypoint Platform可以在本地，云和混合配置中运行。<br>MuleSoft直接或通过合作伙伴生态系统出售其平台。它的客户遍布全球。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>MuleSoft在API管理市场以及相关集成市场中继续表现出透彻的市场理解，有效的营销和思想领导力。它的增长策略已为它赢得了多个行业的全球客户，并带来了相应的收入显着增长（根据Gartner的估计，2018年为60％）。</li><li>MuleSoft提供了API管理功能和技术的组合，以实现混合集成。因此，它的产品对正在单个产品中寻求全套混合集成平台（HIP）功能的客户具有吸引力。</li><li>MuleSoft的用户受益于全面的客户服务实践。其中包括Catalyst，这是一套将客户成功，培训和其他服务结合在一起的端到端产品套件；全球API战略团队； ProgrammableWeb，具有API University的信息源；以及鼓励开发人员成长的大使计划。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>MuleSoft的产品将应用程序集成（本地和云中的集成）与API管理功能结合在一起，因此，可能比已经拥有集成平台的公司所需要的更多（尤其是考虑到成本）。但是，对于需要这两种功能的公司而言，这使其成为一种有吸引力的解决方案。对于只寻求API管理的用户，MuleSoft提供了独立的产品。</li><li>客户经常错误地认为MuleSoft的产品是完全开源的，而尽管它的一些与API相关的组件是完全开放的，但API网关和开发者门户却不是。这可能导致采购延迟。市场提供了功能齐全的开源产品的充足选择，这些产品已经出现了一段时间并且完全可行。</li><li>寻求微网关，对服务网格和微服务工具的​​支持的用户通常会报告说，MuleSoft的Anypoint平台缺乏创新，而且太以Java为中心，无法满足他们的需求。 MuleSoft计划在2019年晚些时候推出多云服务网格解决方案，以增强对微服务架构的支持。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>MuleSoft成立于2006年，总部位于美国加利福尼亚州旧金山，通过2018年5月的收购而成为Salesforce公司。MuleSoft最初是企业服务总线（ESB）开源软件的提供商，并且是其中之一EiPaaS市场上的第一批供应​​商。 2013年，它发布了Anypoint平台，该平台结合了iPaaS，API管理和ESB技术。从那时起，它增加了Anypoint Exchange，这是API和集成资产的市场，以促进协作和共享。 Anypoint MQ，一种云消息传递功能；以及Anypoint Design Center的流程设计器，这是一种针对临时集成商的基于云的集成工具。 MuleSoft的Anypoint平台结合了集成和完整的生命周期API管理功能。 Anypoint平台的托管公共云组件称为CloudHub。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>牵引力和推向市场的战略：MuleSoft在2018年将其客户增加了一倍。它正在投资对中端市场客户至关重要的功能，以实现完整的生命周期API管理，混合集成和易于使用。</li><li>通过创新来开发趋势：利用公司在集成技术方面的丰富经验，MuleSoft的与技术，生态系统无关的产品可支持广泛的应用程序和数据基础架构。应用程序网络图的引入是Anypoint平台下基于图的元数据层，它提高了MuleSoft丰富的元数据功能。与ML结合使用，它为获取，发现和协作API，集成流，连接器，数据存储和安全模式的可重用工件提供了一个通用环境。</li><li>功能和思想共享的广度：MuleSoft提供了广泛的功能，包括强大的完整生命周期API管理，安全支持，多云部署和开放核ESB。 MuleSoft是EiPaaS市场上非常知名的供应商，并且在Gartner看到的竞争情况中，它是最常被评估的供应商。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>角色的覆盖范围：由于集成专家已经确定了供应商的使用习惯，因此买方通常不将MuleSoft与非技术集成商角色相关联。 MuleSoft计划通过针对技术含量较低的用户角色的增强工具和其他解决方案来扩大其吸引力。</li><li>定价和谈判：现有客户和潜在客户越来越多地认为MuleSoft的定价和合同谈判灵活性需要改进。尽管许多MuleSoft客户看到其价格与所提供的价值之间存在合理的联系，但他们仍然经常对高价格表示担忧。</li><li>业务发展：Salesforce宣布收购MuleSoft的消息在潜在客户和现有客户中产生了一些不确定性，这些不确定因素是Salesforce对MuleSoft的EiPaaS路线图和持续产品投资的影响。但是，Salesforce表示，它打算保持MuleSoft的中立性并提供独立的集成产品。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;MuleSoft在2013年推出Anypoint Platform时将其集成功能与API管理
       
     
     </summary>
