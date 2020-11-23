@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-10-13T08:55:38.528Z</updated>
+  <updated>2020-11-23T08:26:15.235Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kong 2.2 正式发布！</title>
+    <link href="https://102no.com/2020/11/23/kong-2.2/"/>
+    <id>https://102no.com/2020/11/23/kong-2.2/</id>
+    <published>2020-11-22T16:00:00.000Z</published>
+    <updated>2020-11-23T08:26:15.235Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>原文链接：</strong><a href="https://konghq.com/blog/kong-gateway-2-2-released/" target="_blank" rel="external">https://konghq.com/blog/kong-gateway-2-2-released/</a><br>我们很高兴地宣布，我们的旗舰级开源API网关2.2版本正式发布了</p><p>自Kong Gateway 2.1发布以来，这三个月可谓忙得不可开交! 我们在2.1系列中推送了<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md" target="_blank" rel="external">许多补丁版本</a>，我们举办了第一次全数字化的<a href="Kong Summit">Kong峰会</a>，当然，我们也一直在忙于构建新的功能，现在这些功能已经在Kong Gateway 2.2中发布了!</p><p>与我们在2.1系列中所做的类似，我们也发布了Kong Enterprise 2.2的Beta版本，包含了Kong Gateway 2.2的所有功能。你可以在这里了解更多关于Kong Enterprise和它的附加功能。</p><p>现在，让我们直接跳进Kong Gateway 2.2的亮点。</p><h1 id="支持UDP"><a href="#支持UDP" class="headerlink" title="支持UDP"></a>支持UDP</h1><p>长期以来，Kong不仅支持使用REST和gRPC API的HTTP/HTTPS 请求，还支持原始TCP流，以解决多种协议的网关用例。在2.2版本中，我们继续秉承Kong的使命，支持各种数据，现在我们的支持范围也扩展到了基于UDP的协议。UDP 的应用范围很广，从音频/视频流和游戏服务器到金融服务，因此这为 Kong 的使用提供了广泛的新可能性。</p><p>Kong Gateway 2.2对UDP的支持包括代理、负载均衡和运行插件，为用户提供了已有的类似于TCP的UDP功能。使用Kong进行UDP数据的负载均衡将会特别有趣，因为UDP中没有固有的连接，所以Kong可以确保传入的数据包在上游服务中保持一致的平衡，确保这些服务中缓存的最佳使用。</p><p>要想看到UDP支持的实际效果，请看这段由Kong工程师孙大同在Kong Online Meetup上介绍的演示视频。</p><p><strong><a href="https://youtu.be/POD2ag-Huj0" target="_blank" rel="external">https://youtu.be/POD2ag-Huj0</a></strong></p><h1 id="Go插件的扩展功能"><a href="#Go插件的扩展功能" class="headerlink" title="Go插件的扩展功能"></a>Go插件的扩展功能</h1><p>如果您正在使用 Go 为 Kong 构建自定义插件，我们有一个好消息要告诉您! 自从我们在 Kong 2.0 中添加了 Go 支持后，我们听取了您的反馈，并扩大了从 Go 代码中访问 Kong 功能的范围。</p><p>以前，Kong中的Go支持只涵盖读取请求数据。现在，当运行 Go 插件时，Kong 会读取上游响应，并通过一个新的响应回调将其呈现给 Go 插件。例如，这允许你从上游服务的响应中读取头信息，并根据这些数据执行自定义插件逻辑。</p><h1 id="配置请求和响应缓冲"><a href="#配置请求和响应缓冲" class="headerlink" title="配置请求和响应缓冲"></a>配置请求和响应缓冲</h1><p>在 Kong 2.2 中，您现在可以配置是否启用或禁用每个路由的请求和响应的缓冲。以前，这是一个静态配置，需要修改模板文件，是一个全有或全无的命题，现在可以通过简单地在路由中设置配置属性来动态完成。</p><p>这些新的属性允许你更好地调整Kong对每个端点的缓冲行为，以确保最佳的延迟，特别是对于处理大的有效载荷的端点。</p><p>关于这个功能的演示，<a href="https://youtu.be/E3HgOaenw5w?t=357" target="_blank" rel="external">请看Kong工程师Aapo Talvensaari在Kong Online Meetup上介绍这个功能</a>。</p><h1 id="支持自动加载OS证书"><a href="#支持自动加载OS证书" class="headerlink" title="支持自动加载OS证书"></a>支持自动加载OS证书</h1><p>另一个根据用户反馈建立的功能是一个新的选项，用于自动加载预装在操作系统中的证书，现在，用于设置证书文件的配置选项可以接受多条，而且还可以接受与操作系统捆绑的证书文件路径相匹配的特殊值。现在，设置要使用的证书文件的配置选项可以接受多个条目，也可以接受一个与操作系统捆绑的证书文件路径相匹配的<a href="https://docs.konghq.com/2.2.x/configuration/#lua_ssl_trusted_certificate" target="_blank" rel="external">特殊值</a>。</p><p>这样一来，在开放互联网中支持HTTPS服务的同时，还可以实现内部服务的自定义证书，在操作上就方便多了。<a href="https://youtu.be/E3HgOaenw5w?t=918" target="_blank" rel="external">下面是Kong工程师Enrique García Cota在我们最近的在线见面会上详细讨论这个功能的视频</a>。</p><h1 id="Kong-2-2中的其他改进和修复。"><a href="#Kong-2-2中的其他改进和修复。" class="headerlink" title="Kong 2.2中的其他改进和修复。"></a>Kong 2.2中的其他改进和修复。</h1><ul><li><strong>根据路径来限制速率</strong>：现在可以使用URL路径作为标准来维护单独的速率限制计数，而不必为每个路径创建单独的Route</li><li><strong>从数据库中删除了目标历史记录</strong>：在进行负载均衡时，Kong不再需要维护上游目标过去的变化历史，以保持一致的哈希。这消除了定期清理目标数据库的需求，改善了无 DB 场景下的一致散列行为，也意味着 Targets 的 Admin API 现在的行为更接近于其他实体的行为，例如，像往常一样支持 PATCH 和 DELETE 方法。</li><li><strong>用于代理每个上游的客户端证书</strong>：在Kong 2.1中，上游中设置的客户端证书仅用于活动的健康检查。现在，如果一个服务中没有设置客户证书，它也可以用于代理。这允许共享同一上游的多个服务只在上游中设置一次客户端证书，简化了配置。</li><li><strong>Admin API和PDK现在会遵守header文件的设置</strong>：Kong在其配置中包含一个头文件设置，允许您控制代理时Kong添加哪些头文件。现在，Admin API 和 PDK 生成的响应也会遵守此设置。</li><li><strong>对混合模式的各种改进：</strong>在Kong 2.2中，对混合模式做了一些改进，其中大部分对用户来说通常是透明的，但这些改进会使整体的场景更加流畅：控制平面和数据平面节点之间的通信现在更加高效，故障场景下节点的优雅退出得到了改进，等等。</li><li><strong>修正日志插件中的TCP和UDP支持：</strong>各种日志插件得到调整，更好地支持使用TCP和UDP服务的流媒体模式。</li><li><strong>OpenResty 1.17.8.2</strong>：包括多个bug修复、功能和优化。</li></ul><h1 id="Kong-社区和线上见面会"><a href="#Kong-社区和线上见面会" class="headerlink" title="Kong 社区和线上见面会"></a>Kong 社区和线上见面会</h1><p>一如既往，欢迎在我们的社区论坛 <a href="https://discuss.konghq.com/" target="_blank" rel="external">Kong Nation</a> 上提出任何问题。您的反馈让我们能够更好地了解关键任务的使用案例，并不断改进Kong。</p><p>如果你想了解我们未来开发版本的一切情况，请加入我们每月的<a href="Online Meetups">线上见面会</a>，在那里，Konger们会介绍最新和最棒的东西，并经常提供即将推出的好东西的预览。</p><p>Happy Kong!</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;原文链接：&lt;/strong&gt;&lt;a href=&quot;https://konghq.com/blog/kong-gateway-2-2-released/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
+    
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
+    
+  </entry>
   
   <entry>
     <title>什么是API生命周期管理？</title>
@@ -167,9 +196,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -195,9 +224,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -223,9 +252,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
     
   </entry>
   
@@ -496,9 +525,9 @@
       <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
     
     
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
@@ -516,31 +545,6 @@
       
       
         &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;微软Azure API Management 最开始是 Apiphany 开发的, 2013
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IBM iPaaS 产品介绍</title>
-    <link href="https://102no.com/2020/04/01/ipaas-ibm/"/>
-    <id>https://102no.com/2020/04/01/ipaas-ibm/</id>
-    <published>2020-03-31T16:00:00.000Z</published>
-    <updated>2020-06-02T03:33:42.068Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注于API管理，并且要求使用传统的IBM DataPower Multi-Protocol Gateway服务来实现API安全。关于当前API管理产品API Connect的重大新闻是，IBM在2018年构建了新的基于OpenAPI的API网关服务，该服务旨在实现更高的性能和多云规模（这意味着它可以在客户选择的云上运行）。 IBM DataPower Gateway既可以独立运行，也可以作为API Connect的一部分，在单个产品中同时提供DataPower多协议网关服务和新的API Gateway服务。</p><p>API Connect在本地和作为云SaaS均可使用。它销往世界各地。</p><h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul><li>IBM在这个市场上已经建立了强大的地位，在多个行业拥有稳固的客户基础。它具有全球支持能力和多元化的地理策略。</li><li>在2018年，IBM重新构建了适用于多云部署的API Connect。初始支持包括在AWS，Google Cloud Platform，Microsoft（Azure）和本地上的托管SaaS。管理层（包括API Manager和Developer Portal）在IBM Cloud上作为托管服务运行。在2019年，API Connect将与客户选择的第三方云更紧密地集成。</li><li>API Connect通过其自己的本地员工和合作伙伴在IBM在170多个国家/地区的全球业务中受益。该产品支持以下语言：英语，中文（简体汉字和繁体汉字），捷克语，荷兰语，法语，德语，意大利语，日语，韩语，波兰语，葡萄牙语（巴西），俄语，西班牙语和土耳其语。</li></ul><h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><ul><li>IBM对API管理市场的理解以及其营销策略，都是针对集成架构和高度基于产品的。但是，在当今的市场中，组织需要进行数字化转型并建立生态系统，这意味着专注于产品提供的营销信息可能无法引起客户的关注。</li><li>尽管IBM一直是数字转换的领先支持者，但API Connect尚未为希望量化API使用价值而非使用价值的客户提供灵活的，面向业务的价值评估功能。此外，IBM API货币化合作伙伴Stripe仅部分涵盖了北美以外的地区和业务实践。</li><li>IBM的新API网关服务代表着已建立的DataPower多协议网关服务的一代代变化。根据使用的产品版本和网关策略，将API卷从后者迁移到前者可能不是完全自动的。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>IBM成立于1911年，总部位于美国纽约的Armonk。其EiPaaS产品是名为IBM Cloud Integration的套件。该套件提供了一组功能：IBM API Connect，IBM App Connect，IBM MQ，IBM Event Streams，IBM Aspera，IBM Secure Gateway Service，IBM InfoSphere Information Server和IBM DataPower Gateway。这些功能可以作为套件使用，也可以单独购买。</p><h2 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h2><ul><li>广泛的视野和广泛的功能，作为IBM Cloud Integration的广泛视野的一部分，IBM为其EiPaaS解决方案执行了基于混合集成平台（HIP）的战略，在整个2018年继续取得稳步进展。IBM的EiPaaS技术用于多种用例和角色结合IBM的更广泛的产品组合，以简化集成。他们提供了一组不断增长的功能和全面的路线图，其中包括基于API，事件和AI的集成，并借助IBM Watson的认知功能。</li><li>打包模式：IBM的包装策略灵活，大胆，并根据需求趋势建模。通过采用面向混合的打包方法（包括免费试用版选件和新的Flex Bundle），IBM可以让客户在广泛的范围内选择任何定价模型（基于资本支出或运营支出）和部署方式（本地，云或混合）用例。由于客户还可以购买不同级别的特定功能，因此这种高度的灵活性使现有的客户和新手都能从小规模做起，并随着时间的推移扩展其用途。 IBM Cloud Integration Suite客户可以选择使用哪些功能并更改其使用的功能，而不会产生额外的费用。</li><li>全球影响力：IBM的EiPaaS客户数量增长快于2018年的市场平均水平，因此，它现在在全球拥有数千名直接和间接的IBM Cloud Integration客户。这种增长得益于更具凝聚力的“进入市场”战略，包括更有针对性的营销和消息传递，以及广泛的全球合作伙伴网络提供的覆盖范围。</li></ul><h2 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h2><ul><li>客户满意度和经验：IBM的参考客户将客户满意度和客户体验视为关注点。除其他事项外，这些关注通常与部署的便利性，服务和支持，性能和可伸缩性，文档质量以及最终用户培训有关。客户对IBM EiPaaS功能的反馈并不像大多数竞争对手那样积极。</li><li>市场共鸣：尽管IBM的EiPaaS客户数量在2018年增长超过了市场平均水平，但Gartner估计其EiPaaS收入增长低于市场平均水平。 IBM尚未充分利用其庞大的安装基础，除非冒着远远超过快速增长的竞争对手的风险，否则IBM可能会失去在这一市场上的份额，其中一些竞争对手的EiPaaS客户数量和收入都大得多。</li><li>买家范围：与其他竞争对手相比，大型企业客户对IBM的EiPaaS吸引力更大。因此，小型组织和LOB应该确保他们对IBM可以直接提供或越来越多地通过合作伙伴提供的参与支持水平感到满意。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;IBM于2012年推出了针对该市场的首个产品IBM API Management。该产品专注
       
     
     </summary>
