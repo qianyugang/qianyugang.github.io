@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2020-11-23T08:27:49.955Z</updated>
+  <updated>2020-12-03T08:00:44.820Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本算法入门书籍推荐</title>
+    <link href="https://102no.com/2020/12/03/10-algorithm-books/"/>
+    <id>https://102no.com/2020/12/03/10-algorithm-books/</id>
+    <published>2020-12-02T16:00:00.000Z</published>
+    <updated>2020-12-03T08:00:44.820Z</updated>
+    
+    <content type="html"><![CDATA[<p>算法和数据结构是做计算机开发需要掌握的必不可少的基础知识，但是一上来就直接学习难免会遇到一些比较难啃的问题，所以今天就推荐10本算法入门书籍，适合刚开始学习的新手以及想要了解算法基础的同学。后续会有更深入的算法学习书籍推荐。</p><h2 id="《算法图解》"><a href="#《算法图解》" class="headerlink" title="《算法图解》"></a>《算法图解》</h2><p><img src="https://i.loli.net/2020/12/03/czT2nw8ObVuxCPG.png" alt="算法图解.png"></p><p>本书示例丰富，图文并茂，以让人容易理解的方式阐释了算法，旨在帮助程序员在日常项目中更好地发挥算法的能量。对于初学者十分友好，概念拆解清晰。</p><h2 id="《啊哈-算法》"><a href="#《啊哈-算法》" class="headerlink" title="《啊哈!算法》"></a>《啊哈!算法》</h2><p><img src="https://i.loli.net/2020/12/03/QbBNyeoVKuhZXGw.png" alt="啊哈!算法.png"></p><p>这是一本充满智慧和趣味的算法入门书。没有枯燥的描述，没有难懂的公式，一切以实际应用为出发点，通过幽默的语言配以可爱的插图来讲解算法。你更像是在阅读一个个轻松的小故事或是在玩一把趣味解谜游戏，在轻松愉悦中便掌握算法精髓，感受算法之美。</p><h2 id="《算法神探》"><a href="#《算法神探》" class="headerlink" title="《算法神探》"></a>《算法神探》</h2><p><img src="https://i.loli.net/2020/12/03/o1ajNycw4vtsudY.png" alt="算法神探.png"></p><p>本书围绕程序设计典型算法，精心编织了一个扣人心弦又趣味横生的侦探缉凶故事。小说主人公运用高超的搜索技巧和精深的算法知识，最终识破阴谋、缉拿元凶。适合开发人员、编程爱好者和相关专业学生阅读，也是少儿计算机科学启蒙的绝佳读物。</p><h2 id="《趣学算法》"><a href="#《趣学算法》" class="headerlink" title="《趣学算法》"></a>《趣学算法》</h2><p><img src="https://i.loli.net/2020/12/03/IHehSkoPy6NmGra.png" alt="趣学算法.png"></p><p>本书可作为程序员的学习用书，也适合从未有过编程经验但又对算法有强烈兴趣的初学者使用，同时也可作为高等院校计算机、数学及相关专业的师生用书和培训学校的教材。</p><p>作者：陈小玉，副教授，硕士，高级程序员，研究方向：智能计算、机器学习与数据挖掘。主讲《数据结构》、《算法设计与分析》、《人工智能》等专业课程，并发表过多篇计算机专业论文和项目。</p><h2 id="《漫画算法：小灰的算法之旅》"><a href="#《漫画算法：小灰的算法之旅》" class="headerlink" title="《漫画算法：小灰的算法之旅》"></a>《漫画算法：小灰的算法之旅》</h2><p><img src="https://i.loli.net/2020/12/03/VQlrMnwbszA4vEK.png" alt="漫画算法：小灰的算法之旅.png"></p><p>本书通过虚拟的主人公小灰的心路历程，用漫画的形式讲述了算法和数据结构的基础知识、复杂多变的算法面试题目及算法的实际应用场景。</p><p>作者：魏梦舒（@程序员小灰）：微信公众号“程序员小灰”的作者，多年的软件行业从业经验，先后在京东金融和摩拜科技从事研发工作，对算法有一定的兴趣和经验。</p><h2 id="《我的第一本算法书》"><a href="#《我的第一本算法书》" class="headerlink" title="《我的第一本算法书》"></a>《我的第一本算法书》</h2><p><img src="https://i.loli.net/2020/12/03/VPkMTyJe9tcLQ8W.png" alt="我的第一本算法书.png"></p><p>本书采用大量图片，通过详细的分步讲解，以直观、易懂的方式展现了7个数据结构和26个基础算法的基本原理。本书没有枯燥的理论和复杂的公式，而是通过大量的步骤图帮助读者加深对数据结构原理和算法执行过程的理解，便于学习和记忆。将本书作为算法入门的第一步，是非常不错的选择。</p><p>作者：</p><ul><li>石田保辉，自由职业工程师，现居日本东京。2011年毕业于日本京都大学研究生院。</li><li>宫崎修一，日本京都大学学术信息媒体中心副教授。</li></ul><h2 id="《算法新解》"><a href="#《算法新解》" class="headerlink" title="《算法新解》"></a>《算法新解》</h2><p><img src="https://i.loli.net/2020/12/03/bXwGTykVJjosr6A.png" alt="算法新解.png"></p><p>本书分4 部分，同时用函数式和传统方法介绍主要的基本算法和数据结构。本书适合软件开发人员、编程和算法爱好者，以及高校学生阅读参考。</p><h2 id="《算法之道》"><a href="#《算法之道》" class="headerlink" title="《算法之道》"></a>《算法之道》</h2><p><img src="https://i.loli.net/2020/12/03/ENTOuHhIVDm954K.png" alt="算法之道.png"></p><p>本书追求的目标是算法背后的逻辑，是一本启示书，而不是一本包罗万象的算法大全。因此，《算法之道》甄选了那些最能够展现算法思想、战略和精华，并能够有效训练算法思维的内容。本书既可以作为大学本科或研究生的算法教材或参考书，也可以作为对算法有兴趣的读者提升认知深度的读物。</p><h2 id="《算法基础》"><a href="#《算法基础》" class="headerlink" title="《算法基础》"></a>《算法基础》</h2><p><img src="https://i.loli.net/2020/12/03/BSJcQfo3s9CI7Ai.png" alt="算法基础.png"></p><p>本书介绍了什么是计算机算法，如何描述它们，以及如何来评估它们。本书适合作为计算机专业本科生“算法设计与分析”课程的教材，也适合相关专业人员阅读。</p><h2 id="《算法》"><a href="#《算法》" class="headerlink" title="《算法》"></a>《算法》</h2><p><img src="https://i.loli.net/2020/12/03/r14eTGPUiNh8WBa.png" alt="算法.png"></p><p>本书全面讲述算法和数据结构的必备知识，具有以下几大特色。</p><ul><li>算法领域的经典参考书</li><li>内容全面</li><li>全新修订的代码</li><li>与实际应用相结合</li><li>富于智力趣味性</li><li>科学的方法</li><li>与网络相结合</li></ul><p>作者：</p><ul><li><p>Robert Sedgewick 斯坦福大学博士，导师为Donald E. Knuth，从1985年开始一直担任普林斯顿大学计算机科学系教授，曾任该系主任，也是Adobe Systems公司董事会成员，曾在Xerox PARC、国防分析研究所（Institute for Defense Analyses）和法国国家信息与自动化研究所（INRIA）从事研究工作。他的研究方向包括解析组合学、数据结构和算法的分析与设计、程序可视化等。</p></li><li><p>Kevin Wayne 康奈尔大学博士，普林斯顿大学计算机科学系高级讲师，研究方向包括算法的设计、分析和实现，特别是图和离散优化。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;算法和数据结构是做计算机开发需要掌握的必不可少的基础知识，但是一上来就直接学习难免会遇到一些比较难啃的问题，所以今天就推荐10本算法入门书籍，适合刚开始学习的新手以及想要了解算法基础的同学。后续会有更深入的算法学习书籍推荐。&lt;/p&gt;
+&lt;h2 id=&quot;《算法图解》&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong 2.2 正式发布！</title>
@@ -525,34 +551,9 @@
       <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
     
     
-      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
-    
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
-  </entry>
-  
-  <entry>
-    <title>微软 iPaaS 产品介绍</title>
-    <link href="https://102no.com/2020/04/02/ipaas-microsoft/"/>
-    <id>https://102no.com/2020/04/02/ipaas-microsoft/</id>
-    <published>2020-04-01T16:00:00.000Z</published>
-    <updated>2020-06-02T03:35:02.549Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="API全管理产品"><a href="#API全管理产品" class="headerlink" title="API全管理产品"></a>API全管理产品</h2><p>微软Azure API Management 最开始是 Apiphany 开发的, 2013年被微软收购,然后集成到Azure平台。Azure API Management全面上市于2014年9月。</p><p>Azure API Management 是一个纯云平台的产品。它可以让组织能够安全，可靠且大规模地发布API。它旨在增加内部团队，合作伙伴和开发人员的API使用量。管理员门户使客户能够设置用户角色，创建使用计划和配额，应用策略来转换有效负载和限制以及使用分析，监视和警报。Azure API Management分为四个主要层，分别是Developer，Basic，Standard和Premium（允许进行多区域部署），为此，根据分配的资源和功能集，向用户收取固定的小时费用。附加的消费层将支持基于API调用的定价，但在撰写本文时仍处于有限的地理范围内。</p><p>Azure API Management在美洲，欧洲，亚洲，非洲和澳大利亚的40个公共云区域以及六个美国政府和国防部区域中可用。它的大多数客户位于美国和欧洲。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul><li>Azure API Management是低成本的–您为使用的API量付费，如果不使用，则无需付费。它还在全球范围内广泛使用，并支持9种语言。对于使用Azure云服务的任何组织来说，这都是立即选择，并且与Azure平台很好地集成在一起。</li><li>Azure API Management易于使用且易于启动API程序。其管理功能是Azure门户的一部分。该产品背后的设计概念贯穿到使用它的所有服务中，并基于广泛的设计，可用性和可访问性测试。</li><li>作为Azure云服务系列的一部分，Azure API管理可从立即接触广泛的用户群中受益。它与一系列Azure服务集成在一起，包括Azure应用服务，Azure功能，Azure IoT中心，Azure Logic应用，Azure事件中心，Azure应用程序见解，Azure Monitor，Azure Active Directory和Azure服务总线。尽管Microsoft在其国际市场营销和销售方面投入的资金很少，但API管理用户社区还是众所周知的。</li></ul><h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><ul><li>Azure API Management包括43常用操作政策和开发人员门户,但缺乏能力为以后API——例如生命周期阶段,许多先进的部署和运行特性和API退休/弃用支持。随着提供一般可用早在2014年,Gartner担心微软承诺的资源来管理市场在快速发展的API。</li><li>Azure API Management支持用于访问本地资源的虚拟网络连接，但是缺少可以在本地或Azure外部托管的客户管理的部署选项。微软最近宣布，该选项将在2020年中期普遍可用。</li><li>Azure API Management是一项Azure云服务，将继续关注开发人员和IT专业人员通过Microsoft的全球云构建，部署和管理应用程序的优先级。与该市场上的大多数其他产品相比，它不可能响应数字化转型的主要业务驱动因素而发展。</li></ul><h2 id="集成平台产品"><a href="#集成平台产品" class="headerlink" title="集成平台产品"></a>集成平台产品</h2><p>微软（Microsoft）成立于1975年，总部位于美国华盛顿州雷德蒙德（Redmond），随着Azure Logic Apps的推出，于2016年7月进入EiPaaS 市场。当前，其主要的EiPaaS产品是Azure Integration Services（AIS），它将Azure Logic Apps 与Azure API Management，Azure Service Bus（消息队列和发布-订阅服务）和Azure Event Grid（海量事件提取服务）结合在一起。其他与集成相关的服务包括数据集成工具Azure Data Factory和基于Azure Logic Apps构建的持续集成工具Microsoft Flow。</p><h3 id="优势-1"><a href="#优势-1" class="headerlink" title="优势"></a>优势</h3><ul><li>快速增长的是用来：尽管在市场上投放了不到三年的时间，Azure Logic Apps（AIS的主要组件）已经是为数不多的，拥有10,000多个客户的EiPaaS产品之一。这项卓越的成就源于Microsoft Azure的市场势头，Microsoft客户的忠诚度以及Microsoft作为可靠，有远见和创新的IT提供者的声誉，可以被视为战略业务合作伙伴。</li><li>全球：AIS在全球范围内可用，得到了全球Microsoft组织和约1,000个启用AIS的合作伙伴的支持。分布在世界每个主要地区的26个Azure数据中心（计划在2019年中期之前计划30个）中提供大多数AIS组件。加上Azure对一系列国际，地区和行业标准的支持，AIS成为了为数不多的真正全球EiPaaS产品之一。</li><li>技术愿景：AIS，Azure Data Factory,，Microsoft Flow和丰富的Azure服务使客户能够解决各种主流用例。 AIS的计划投资包括与Microsoft的AI / ML平台，区块链，IoT，边缘计算，函数即服务的集成，以及Azure Stack在本地部署上的可用性（预计在未来12到18个月内）。这些增强功能将把Microsoft EiPaaS的适用性扩展到几个关键的新兴集成方案中。</li></ul><h3 id="不足-1"><a href="#不足-1" class="headerlink" title="不足"></a>不足</h3><ul><li>功能成熟度：尽管Microsoft一直在努力改进其EiPaaS产品，但一些参考客户认为仍有改进AIS功能的余地。他们确定需要更大成熟度的领域包括数据转换和映射，EDI支持，集成工件的生命周期管理，自动测试和元数据发现。一些参考客户还对AIS的可管理性，可伸缩性和吞吐量感到担忧。</li><li>定价的复杂性和成本：尽管AIS的定价具有高度的灵活性和透明度，但参考客户也发现它的处理相当复杂，因为它需要详细了解其方案以得出成本。微软正在开发一个更简单，更可预测的定价模型，但是参考客户也对服务的实际成本以及微软在谈判中缺乏灵活性表示担忧。</li><li>以微软为中心的销售和营销策略：可以理解，微软的销售和营销主要利用Azure云平台的普及，并在较小程度上利用其SaaS应用程序（Office 365和Dynamics 365）的日益增长的成功来促进AIS的采用。因此，许多潜在客户认为AIS仅适用于“会员”，而对于寻求具备多云功能的EiPaaS的组织则没有特别的吸引力。</li></ul><blockquote><p>来源：</p><ul><li><a href="https://www.gartner.com/doc/reprints?id=1-1S7GFML6&amp;ct=191011&amp;st=sb" target="_blank" rel="external">Magic Quadrant for Full Life Cycle API Management</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-6DKO9VM&amp;ct=190315&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Enterprise Integration Platform as a Service</a></li><li><a href="https://www.gartner.com/doc/reprints?id=1-1OCUQYNJ&amp;ct=190805&amp;st=sb?" target="_blank" rel="external">Magic Quadrant for Data Integration Tools</a></li></ul></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;API全管理产品&quot;&gt;&lt;a href=&quot;#API全管理产品&quot; class=&quot;headerlink&quot; title=&quot;API全管理产品&quot;&gt;&lt;/a&gt;API全管理产品&lt;/h2&gt;&lt;p&gt;微软Azure API Management 最开始是 Apiphany 开发的, 2013
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
