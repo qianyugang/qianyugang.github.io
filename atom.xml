@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-01-11T06:37:44.670Z</updated>
+  <updated>2021-01-20T09:33:08.349Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个把 url query 查询参数修改为 json 参数的简单 kong 插件</title>
+    <link href="https://102no.com/2021/01/20/kong-query-string-to-json-plugin/"/>
+    <id>https://102no.com/2021/01/20/kong-query-string-to-json-plugin/</id>
+    <published>2021-01-19T16:00:00.000Z</published>
+    <updated>2021-01-20T09:33:08.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>A plugin that converts parameters to json.</p><h2 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h2><ul><li><a href="https://github.com/qianyugang/kong-query-string-to-json" target="_blank" rel="external">https://github.com/qianyugang/kong-query-string-to-json</a></li></ul><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul><li><strong>名称</strong>：query-string-to-json</li><li><strong>说明</strong>：本插件主要作用是把url中的查询参数转换为特定参数的json字符串<code>params={}</code>并替换到原url中。</li><li><p><strong>例如</strong>：原有url为</p>  <figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//service-host.com?minitest?appkey=xxx&amp;size=10&amp;qq=11&amp;ww=22</span></div></pre></td></tr></table></figure><p>  经过kong代理，并使用本插件之后，请求会变为</p>  <figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">http</span>://kong.com:8000?appkey=xxx&amp;size=10&amp;params=<span class="number">%7</span>B<span class="number">%22</span>qq<span class="number">%22</span><span class="number">%3</span>A<span class="number">%2211</span><span class="number">%22</span><span class="number">%2</span>C<span class="number">%22</span>ww<span class="number">%22</span><span class="number">%3</span>A<span class="number">%2222</span><span class="number">%22</span><span class="number">%7</span>D</div></pre></td></tr></table></figure></li><li><p><strong>参数</strong>：配置参数中<code>exclude_params_names</code>为不需要转换为json的参数。例如上例中的<code>appkey</code>和<code>size</code>参数，就没有转换为json。</p></li></ul><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在配置完成 service 以及 route代理之后，可以添加本插件到需要的 service 或者 route上，例如：</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">curl</span> -X POST http://<span class="number">192</span>.<span class="number">168</span>.<span class="number">1</span>.<span class="number">5</span>:<span class="number">8001</span>/routes/<span class="number">1</span>ed4443c-e677-<span class="number">4</span>af4-<span class="keyword">b551-ad6fd99a55e1/plugins\</span></div><div class="line"><span class="keyword"> </span>   --<span class="meta">data</span> <span class="string">"name=query-string-to-json"</span>  \</div><div class="line">    --<span class="meta">data</span> <span class="string">"config.exclude_params_names[]=size&amp;config.exclude_params_names[]=appkey"</span></div></pre></td></tr></table></figure><h2 id="版本兼容"><a href="#版本兼容" class="headerlink" title="版本兼容"></a>版本兼容</h2><p>kong &gt;= 2.0.0</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;A plugin that converts parameters to json.&lt;/p&gt;
+&lt;h2 id=&quot;项目地址：&quot;&gt;&lt;a href=&quot;#项目地址：&quot; class=&quot;headerlink&quot; title=&quot;项目地址：&quot;&gt;&lt;/a&gt;项目地址：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
+    
+      <category term="Kong插件" scheme="https://102no.com/tags/Kong%E6%8F%92%E4%BB%B6/"/>
+    
+      <category term="Kong插件开发" scheme="https://102no.com/tags/Kong%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>可能是最详细的买房注意事项</title>
@@ -524,33 +555,6 @@
       <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong升级指南" scheme="https://102no.com/tags/Kong%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>终于抛弃了使用8年的WordPress</title>
-    <link href="https://102no.com/2020/05/21/wordpress-migration-to-hexo/"/>
-    <id>https://102no.com/2020/05/21/wordpress-migration-to-hexo/</id>
-    <published>2020-05-20T16:00:00.000Z</published>
-    <updated>2020-05-21T09:20:14.720Z</updated>
-    
-    <content type="html"><![CDATA[<p>从2012年开始写博客，一直到现在都使用的是WordPress，那时候刚进入互联网行业，就直接使用了最流行的WordPress，搭建起来很简单，申请一个域名，再购买一个虚拟空间、数据库，下载好代码，ftp上传，指向一下域名，域名解析一下到空间，按照步骤安装好，就可以直接使用WordPress了，就这样就搭建了自己的第一版博客。写了一段时间的博客之后，突然有一天无法访问了，发现虚拟空间运营商跑路了，买了一年的我，只用了几个月。上面的数据也都没有了，写了十几篇博客也都没了，当时也没有备份数据的习惯，于是丢了就丢了，好在百度收录了我几乎大部分文章，使用百度快照总算是找回来我的文字。</p><p>之后刚好基友在做新一代空间的代理，我就直接从他那持续买了虚拟空间，一年也就一百来块，2015年的时候还买三年送两年，还算是相当划算了，毕竟自己的博客流量也不大。由于空间是在国内的，还配合空间商做了备案，就是那种在蓝布景下面拍照的备案。于是乎，这个博客就一直持续到今年。</p><p>其实我的一贯想法是文字比形式重要，重要的是坚持书写，而不是来来回回折腾博客，所以我基本上就试用的是最简单的WordPress主题，然后把它改成自己喜欢的样式和风格，坚持写博客（这一点中间中断了很久），用文字记录。迁移博客的想法去年就有了，因为想着今年博客空间也到期了，也不打算使用WordPress了，使用比较流行的静态博客，再搭配git page使用，也省了服务器钱，只要GitHub不倒闭，就可以一直持续免费使用，数据也都基本不会丢失。而且WordPress的编辑器说实话也不怎么好用，直接使用Markdown生成静态页面更为直观。</p><p>于是乎在去年的时候就把自己一些新写的博客弄到hexo上面去。市面上Markdown生成静态文件的工具有很多，诸如Hexo（Node.js），Hugo（Go），Octopress（基于Jekyll）,Jekyll（Ruby）等等很多。为什么选择了Hexo，大概率是Hexo是比较简单的，社区比较丰满，部署简单吧，插件生态也不少，于是乎在2019年的时候就开始持续使用Hexo写博客，选用了一个很简洁大气的<a href="https://www.haomwei.com/technology/maupassant-hexo.html" target="_blank" rel="external">maupassant</a>作为我的博客主题。</p><p>迁移博客比较麻烦的应该就是数据了，从带数据库的WordPress转到纯静态的Hexo肯定也没那么简单，不过好在有前人踩了坑，有现成的插件可以使用，只需要安装一个<code>hexo-migrator-wordpress</code>插件，然后执行命令迁移即可。不过这个迁移有时候也会有一些偏差，毕竟期间有8年时间，我的文章是用过好多种编辑器，有些解析的不是那么好，我就手动修改了一下，老文章基本不影响观感即可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo migrate wordpress &lt;<span class="built_in">source</span>&gt; <span class="comment"># source是导出的文件地址</span></div></pre></td></tr></table></figure><p>比较麻烦一点的是评论，这个迁移只是迁移文章，而不是迁移评论，而且现在使用了Hexo之后，评论功能被我挪到了<a href="https://valine.js.org/" target="_blank" rel="external">valine</a>上去了，不过本身也没多少评论，之前的数据我就备份着，先不放到博客上去吧。</p><p>整个博客迁移完成了之后，再配合上gitpage效果还算是相当不错的，之后应该有一长段时间不会去折腾博客了，多写点文字才是博客最重要的意义。</p><ul><li>参考：<a href="https://juejin.im/entry/5a67d9475188257340266627" target="_blank" rel="external">WordPress 迁移到 Hexo</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;从2012年开始写博客，一直到现在都使用的是WordPress，那时候刚进入互联网行业，就直接使用了最流行的WordPress，搭建起来很简单，申请一个域名，再购买一个虚拟空间、数据库，下载好代码，ftp上传，指向一下域名，域名解析一下到空间，按照步骤安装好，就可以直接使用
-      
-    
-    </summary>
-    
-      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
-    
-    
-      <category term="记录" scheme="https://102no.com/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
     
   </entry>
   
