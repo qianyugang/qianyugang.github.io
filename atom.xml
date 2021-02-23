@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-02-22T03:10:35.994Z</updated>
+  <updated>2021-02-23T03:12:50.848Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深圳联通5G冰淇淋融合套餐宽带办理记</title>
+    <link href="https://102no.com/2021/02/23/shenzhen-liantong-bingjiling/"/>
+    <id>https://102no.com/2021/02/23/shenzhen-liantong-bingjiling/</id>
+    <published>2021-02-22T16:00:00.000Z</published>
+    <updated>2021-02-23T03:12:50.848Z</updated>
+    
+    <content type="html"><![CDATA[<p>在去年也差不多是这个时候办理了联通王卡宽带融合套餐（详情可见这篇文章<a href="https://v2ex.com/t/648621#reply15" target="_blank" rel="external">《深圳联通王卡宽带光纤组网记》</a>），之后就一直使用了一年，期间基本没有什么大问题，就是偶尔联通升级服务器或者交割光缆会有断联情况发生，剩下的一直都很稳定，上传下载也都基本和刚安装时候一样，没有变化，刚好今年换了个5G手机，想着准备换个5G套餐，本身的王卡宽带融合套餐的流量都是4G的，所以就开始寻找一下联通的5G套餐，想着今年的5G套餐应该比去年的便宜一些了吧。于是乎就找到了这个5G的冰淇淋融合套餐，套餐内容如下：</p><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> <span class="number">500</span>分钟国内语音</span></div><div class="line"><span class="ruby">- <span class="number">30</span>GB国内<span class="number">5</span>G流量</span></div><div class="line"><span class="ruby">- <span class="number">200</span>M的光纤宽带</span></div><div class="line"><span class="ruby"></span></div><div class="line"><span class="ruby">售价：￥<span class="number">129</span>/月</span></div></pre></td></tr></table></figure><h2 id="套餐办理"><a href="#套餐办理" class="headerlink" title="套餐办理"></a>套餐办理</h2><p>首先打了10010电话人工咨询一下能不能直接修改套餐，得到的结果是由于我这个是融合套餐，和宽带有关联的都必须是本人拿着身份证到营业厅办理，我就找了个时间直奔公司附近高新园的营业厅，想着应该不会花多久的时间就能办理。</p><p>去了之后和营业厅的小哥整了好久，小哥告诉我说由于我之前的套餐是王卡宽带，这个王卡宽带是比较特殊的套餐。蛋疼的地方是，别的套餐是直接从他们内部系统修改就可以，而王卡宽带套餐必须是把之前的账户删掉，重新下单新的套餐，所以必须要工作人员上门操作才能修改带宽套餐。而且如果我此时此刻马上修改套餐，那么家里会立刻断网，直到联通工作人员上门之后，才会来网。刚好家里那几天不能断网，于是我想着到周末了，在家附近的营业厅办理就行了，虽然这次没办成功，不过我得知了一些更新之后的套餐信息：</p><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> <span class="number">500</span>分钟国内语音</span></div><div class="line"><span class="ruby">- <span class="number">30</span>GB国内<span class="number">5</span>G流量</span></div><div class="line"><span class="ruby">- <span class="number">200</span>M的光纤宽带 -&gt; 升级为<span class="number">300</span>M（营业员小哥下单修改即可）</span></div><div class="line"><span class="ruby">- + 免费送一年的IPTV</span></div><div class="line"><span class="ruby">- + 每月可领取一个互联网服务会员（爱奇艺/优酷/腾讯视频/网易云音乐/QQ音乐等等每月N选<span class="number">1</span>）</span></div><div class="line"><span class="ruby"></span></div><div class="line"><span class="ruby">售价：￥<span class="number">129</span>/月</span></div><div class="line"><span class="ruby"></span></div><div class="line"><span class="ruby">预存活动：预存￥<span class="number">109</span>话费，两年内返还￥<span class="number">30</span>/月</span></div></pre></td></tr></table></figure><p>由于我这个是王卡宽带更换为冰淇淋套餐，所以需要人工安装费￥100。如果之前不是王卡宽带就不需要人工上门，也就不需要这￥100。</p><h3 id="信息不畅"><a href="#信息不畅" class="headerlink" title="信息不畅"></a>信息不畅</h3><p>到了周末，我直奔家里附近的营业厅，说要办理这个套餐，营业厅小哥说「我们这里的129冰淇淋融合套餐送的宽带是 200M 的天威宽带，而且没有活动」。于是让他去系统查询了下，发现这个活动是一个试点活动，只有从南山区的一些试点营业厅开始办理，整个活动还没有铺开到全市，他们这里还暂未开始，不知道后续会不会是全市都可以办理。</p><p>于是我就又回到了公司附近的营业厅，然后重新做绑定，下单等等操作。（这里吐槽一下是，由于是周末，联通公司没有一个完整的值班通讯机制，导致中间营业厅小哥为了联系宽带所在地权限操作花了很长时间）之后就是等联通的工作人员上门。由于我这里上次已经办理过王卡宽带，所以光猫啥的都有，只需要他们内部登录更换注册就完成更换宽带。如果你是第一次办理，那么可能需要购买光猫或和IPTV电视盒子。</p><h3 id="意外惊喜"><a href="#意外惊喜" class="headerlink" title="意外惊喜"></a>意外惊喜</h3><p>联通工作人员来安装的时候，中间出了一些小插曲，就是我们小区的那个区域刚好在做机房服务器升级迁移，而且是刚升级完成，导致我的账户信息还在老机房，没有迁移到新机房，所以配置完成之后一直连不上网，联通小哥整了好久，最后才发现，刚好我办理套餐的时间节点正在升级机房，升级之后，新机房服务器居然把我的账户信息漏掉了，也真是神奇……升级的时候也不知道后端怎么做的数据……</p><p>后来他又经过一番联系，来来回回从下午一直整到晚上，基本就是一层一层的向上找人要权限一层一层开服务。最后他查询套餐信息的时候，突然发现我这里下发的套餐是500M的，当即我就跟小哥插着网线直连光猫试了一下，果然已经升级成500M了，小哥说，这次升级服务器估计就是升级的你要办理的这个线路，所以直接变成500M了，后面这里可能还会升级到1000M，让我多留意一下。</p><p>到此为止这次宽带升级算是完成了。之后我接上路由器之后无线测试大约在 450M 左右，可能是无线所有有些损耗，后面我可能得找找原因。不过总的来说这次升级还是相当不错的，虽然花了将近两天时间。月套餐价格没什么变化的情况下流量 4G -&gt; 5G 、宽带 200M -&gt; 500M。</p><p>总共套餐以及花费：</p><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> <span class="number">500</span>分钟国内语音</span></div><div class="line"><span class="ruby">- <span class="number">30</span>GB国内<span class="number">5</span>G流量</span></div><div class="line"><span class="ruby">- <span class="number">500</span>M宽带</span></div><div class="line"><span class="ruby">- 免费送一年的IPTV（一年后<span class="number">10</span>￥/月）</span></div><div class="line"><span class="ruby">- 每月可领取一个互联网服务会员（爱奇艺/优酷/腾讯视频/网易云音乐/QQ音乐等等每月N选<span class="number">1</span>）</span></div><div class="line"><span class="ruby"></span></div><div class="line"><span class="ruby">- 直接支出：￥<span class="number">100</span>安装费 + ￥<span class="number">109</span>预存话费（如果是第一次安装宽带，需要另外出光猫和IPTV设备费）</span></div><div class="line"><span class="ruby">- 两年内套餐支出：￥<span class="number">129</span> -￥<span class="number">30</span> = ￥<span class="number">99</span>/月</span></div><div class="line"><span class="ruby">- 一年后套餐支出：￥<span class="number">129</span> -￥<span class="number">30</span> + ￥<span class="number">10</span> = ￥<span class="number">109</span>/月</span></div><div class="line"><span class="ruby">- 两年后支出：￥<span class="number">129</span>/月</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在去年也差不多是这个时候办理了联通王卡宽带融合套餐（详情可见这篇文章&lt;a href=&quot;https://v2ex.com/t/648621#reply15&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《深圳联通王卡宽带光纤组网记》&lt;/a&gt;），之后就一直使用
+      
+    
+    </summary>
+    
+      <category term="乱七八糟" scheme="https://102no.com/categories/%E4%B9%B1%E4%B8%83%E5%85%AB%E7%B3%9F/"/>
+    
+    
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>10本计算机/互联网/科技发展历史书籍推荐</title>
@@ -380,9 +405,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
       <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
@@ -408,9 +433,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
       <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
@@ -436,9 +461,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
       <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
@@ -523,33 +548,6 @@
       <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DataWeave 2.0 数组函数</title>
-    <link href="https://102no.com/2020/07/21/dataweave-2-array-functions/"/>
-    <id>https://102no.com/2020/07/21/dataweave-2-array-functions/</id>
-    <published>2020-07-20T16:00:00.000Z</published>
-    <updated>2020-07-22T02:58:19.615Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文章中包含包含处理数组的辅助函数。<br>要使用这个模块，您必须先将它导入到您的 DataWeave 代码中。<br>例如，通过添加 <code>import * from dw::core::Arrays</code> 到DataWeave 脚本的头部。<br><strong>原文地址：</strong><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays" target="_blank" rel="external">https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays</a></p><h1 id="数组函数"><a href="#数组函数" class="headerlink" title="数组函数"></a>数组函数</h1><table><thead><tr><th>函数名</th><th>描述</th></tr></thead><tbody><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-countby" target="_blank" rel="external">countBy</a></td><td>计算数组中的元素匹配函数的结果。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-divideby" target="_blank" rel="external">divideBy</a></td><td>将数组分解为子数组，子数组包含指定数量的元素。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-drop" target="_blank" rel="external">drop</a></td><td>去掉前<code>n</code>个元素。当<code>n &lt;= 0</code>时返回原始数组，当<code>n &gt; sizeOf(array)</code>时返回空数组。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-dropwhile" target="_blank" rel="external">dropWhile</a></td><td>当满足条件时，删除数组中的元素，但当到达不满足条件的元素时，停止选择过程。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-every" target="_blank" rel="external">every</a></td><td>如果数组中的每个元素都与条件匹配，则返回<code>true</code>。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-firstwith" target="_blank" rel="external">firstWith</a></td><td>返回满足条件的第一个元素，如果没有元素满足条件，则返回<code>null</code>。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-indexof" target="_blank" rel="external">indexOf</a></td><td>返回数组中某个元素的第一个匹配项的索引。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-indexwhere" target="_blank" rel="external">indexWhere</a></td><td>返回与数组中条件匹配的元素的第一个匹配项的索引。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-join" target="_blank" rel="external">join</a></td><td>根据给定的ID条件连接两个对象数组。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-leftjoin" target="_blank" rel="external">leftJoin</a></td><td>根据给定的ID条件连接两个对象数组。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-outerjoin" target="_blank" rel="external">outerJoin</a></td><td>根据给定的ID条件连接两个对象数组。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-partition" target="_blank" rel="external">partition</a></td><td>将数组分隔为满足条件的元素和不满足条件的元素。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-slice" target="_blank" rel="external">slice</a></td><td>选择满足条件的元素的间隔:<code>from &lt;= indexOf(array) &lt; until</code></td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-some" target="_blank" rel="external">some</a></td><td>如果数组中至少有一个元素与指定条件匹配，则返回true。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-splitat" target="_blank" rel="external">splitAt</a></td><td>在给定位置将数组一分为二。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-splitwhere" target="_blank" rel="external">splitWhere</a></td><td>在满足条件的第一个位置将数组一分为二。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-sumby" target="_blank" rel="external">sumBy</a></td><td>返回数组中元素值的总和。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-take" target="_blank" rel="external">take</a></td><td>选择前<code>n</code>个元素。当<code>n &lt;= 0</code>时返回一个空数组，当<code>n &gt; sizeOf(array)</code>时返回原始数组。</td></tr><tr><td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-arrays-functions-takewhile" target="_blank" rel="external">takeWhile</a></td><td>当满足条件时从数组中选择元素，但当到达不满足条件的元素时停止选择过程。</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;本文章中包含包含处理数组的辅助函数。&lt;br&gt;要使用这个模块，您必须先将它导入到您的 DataWeave 代码中。&lt;br&gt;例如，通过添加 &lt;code&gt;import * from dw::core::Arrays&lt;/code&gt; 到DataWeave 脚本的头部。&lt;br&gt;&lt;str
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
-    
-      <category term="DataWeave" scheme="https://102no.com/tags/DataWeave/"/>
     
   </entry>
   
