@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-04-06T03:07:03.373Z</updated>
+  <updated>2021-04-08T03:11:22.969Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本 Python 入门学习书籍推荐</title>
+    <link href="https://102no.com/2021/04/07/10-python-learn-guide-books/"/>
+    <id>https://102no.com/2021/04/07/10-python-learn-guide-books/</id>
+    <published>2021-04-06T16:00:00.000Z</published>
+    <updated>2021-04-08T03:11:22.969Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇推荐了10本 Python 零基础入门学习书籍，今天推荐10本入门学习书籍推荐，本次推荐书籍和上次不一样之处是不是「零基础」。</p><p>Python 是一款解释型、面向对象、动态数据类型的高级程序设计语言。语法简捷清晰，具有丰富和强大的类库，因而在各种行业中得到广泛的应用。对于初学者来讲，Python 是一款既容易学又相当有用的编程语言。</p><p>Python 是一种被广泛用于网站开发、数据处理和机器学习等领域的高级编程语言，同时也是一种学习门槛较低的高级编程语言。是目前最流行的动态脚本语言之一。</p><p>值得注意的是Python的 2.X 版本和 3.X 版本有差别，注意自己需要学习的语言版本。</p><p>##《Python编程：从入门到实践》 </p><p>本书是一本针对所有层次的Python 读者而作的Python 入门书。第一部分介绍用Python编程所必须了解的基本概念，第二部分将理论付诸实践，讲解如何开发三个项目。</p><p>作者：</p><ul><li>埃里克·马瑟斯（Eric Matthes），高中科学和数学老师，现居住在阿拉斯加，在当地讲授Python入门课程。</li></ul><p>##《Python基础教程》</p><p>本书包括Python程序设计的方方面面：首先从Python的安装开始，随后介绍了Python的基础知识和基本概念，然后循序渐进地介绍了一些相对高级的主题，此后探讨了如何将Python与数据库、网络、C语言等工具结合使用，同时介绍了Python程序测试、打包、发布等知识，最后作者结合前面讲述的内容，按照实际项目开发的步骤向读者介绍了10个具有实际意义的Python项目的开发过程。</p><p>作者：</p><ul><li>Magnus Lie Hetland，挪威科技大学副教授，教授算法；黑客，喜欢钻研新锐编程语言，是Python语言的坚定支持者。写过很多Python方面的书和在线教程，比如深受读者欢迎的网上教程“Instant Python”。</li></ul><p>##《Python编程入门》</p><p>本书用通俗易懂的语言结合常见任务、屏幕图和详细的解释，循序渐进地介绍了Python的基础知识，助你轻松、迅速地学习Python。书中没有深奥的理论或者高级应用，非常适合用来自学。</p><p>作者：</p><ul><li>Toby Donaldson，加拿大温哥华西蒙弗雷泽大学计算机科学系高级讲师，教授编程和计算机课程十余年。</li></ul><p>##《Python编程入门经典》</p><p>本书涵盖了python的方方面面，通过学习本书，读者可以立即使用python编写程序。掌握本书内容后，将学会如何迅速而自信地创建健壮、可靠而又可重用的python应用程序。</p><p>作者：</p><ul><li>James Payne，佛罗里达州马盖特市，Developer Shed公司的主编，7岁起就开始写作和编程，精通多门语言。</li></ul><p>##《Python入门经典》</p><p>本书是面向Python初学者的学习指南，详细介绍了Python编程基础，以及一些高级概念，如面向对象编程。本书内容循序渐进，逐步深入，概念和知识点讲解清楚，而且每章最后配有练习，供读者检查和巩固所学知识。本书适合学习Python语言和应用的初中级用户阅读和自学，也可以作为相关培训的教材。</p><p>作者：</p><ul><li>Katie Cunningham，Cox Media Group的Python程序员，Python和开源软件的积极倡导者，并且热衷于教人们编程</li></ul><p>##《Python学习手册》</p><p>如果你想动手编写高效、高质量并且很容易与其他语言和工具集成的代码，本书将快速地帮助你利用Python提高效率。本书基于Python专家的流程培训课程编写，内容通俗易懂。本书包含很多注释的例子和插图，以帮助你开始使用Python2.7和3.3。</p><p>作者：</p><ul><li>Mark Lutz，Python最畅销书籍的作者，也是Python社区的先驱。拥有威斯康星大学计算机科学学士和硕士学位，在过去的25年中，他主要从事编译器、编程工具、脚本程序以及各种客户端/服务器系统方面的工作。</li></ul><p>##《Python语言入门》</p><p>书中描述了Python程序的基本构件：类型、操作符、语句、函数、模块、类以及异常，此外还介绍了更多高级主题，包括复杂的实例，最后讲述了如何使用Python定制库来创建大型程序。</p><p>##《跟老齐学Python：从入门到精通》</p><p>本书是面向编程零基础读者的Python入门教程，内容涵盖了Python的基础知识和初步应用。以比较轻快的风格，向零基础的学习者介绍一门时下比较流行、并且用途比较广泛的编程语言。本书是面向初学者的读物，不是为开发者提供的开发手册，所以，它不是“又适用于中高级读者”的读物。</p><p>##《Python语言程序设计基础》</p><p>本书提出了以理解和运用计算生态为目标的Python语言教学思想，不仅系统讲解了Python语言语法，同时介绍了从数据理解到图像处理的14个Python函数库，向初学Python语言的读者展示了全新的编程语言学习路径。本书适合初学Python语言的读者使用，也适合作为各类大专院校的教材，同时，也可作为对Python感兴趣读者的自学参考书。</p><p>##《Python cookbook 中文版》</p><p>本书介绍了Python应用在各个领域中的一些使用技巧和方法，书中的代码和方法具有很强的实用性，可以方便地应用到实际的项目中，并产生立竿见影的效果。本书适合具有一定Python基础的读者阅读参考。</p><p>作者：</p><ul><li>David Beazley，一位居住在芝加哥的独立软件开发者以及图书作者。</li><li>Brain K. Jones，普林斯顿大学计算机系的一位系统管理员。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上一篇推荐了10本 Python 零基础入门学习书籍，今天推荐10本入门学习书籍推荐，本次推荐书籍和上次不一样之处是不是「零基础」。&lt;/p&gt;
+&lt;p&gt;Python 是一款解释型、面向对象、动态数据类型的高级程序设计语言。语法简捷清晰，具有丰富和强大的类库，因而在各种行业中得到
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>10本 Python 零基础入门学习书籍推荐</title>
@@ -502,34 +528,6 @@
       
         &lt;p&gt;时至今日，Linux系统已经从一个个人作品发展为可以用于各种关键任务的成熟、高效和稳定的操作系统，因为具备跨平台、开源、支持众多应用软件和网络协议等优点，它得到了各大主流软硬件厂商的支持，也成为广大程序设计人员理想的开发平台。&lt;/p&gt;
 &lt;p&gt;Linux书籍推荐系列经来到了第
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-      <category term="Linux" scheme="https://102no.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本Linux进阶书籍推荐</title>
-    <link href="https://102no.com/2020/08/17/10-linux-advanced-books/"/>
-    <id>https://102no.com/2020/08/17/10-linux-advanced-books/</id>
-    <published>2020-08-16T16:00:00.000Z</published>
-    <updated>2021-02-07T07:06:28.855Z</updated>
-    
-    <content type="html"><![CDATA[<p>时至今日，Linux系统已经从一个个人作品发展为可以用于各种关键任务的成熟、高效和稳定的操作系统，因为具备跨平台、开源、支持众多应用软件和网络协议等优点，它得到了各大主流软硬件厂商的支持，也成为广大程序设计人员理想的开发平台。</p><p>在经过上一期的《10本 Linux 入门书籍推荐》之后，相信入门 Linux 已经没有什么大问题了，入门之后，这一期来做进阶版的书籍推荐。有一些 Linux 高级的应用以及底层开发，和一些底层原理的讲解，使得可以更加深入理解 Linux。这些书籍可能都有一些枯燥无味，需要花大量的时间去啃读，当然如果能啃完理解，对自己的能力提升绝对是有很大帮助的。</p><p>家庭读书系列可点击查看：</p><ul><li><a href="https://102no.com/2020/04/23/10-essential-books-for-famil-medicine/">10本家庭医疗必备书籍</a></li><li><a href="https://102no.com/2021/02/05/10-children-picture-book/">10本春节过年回家适合和小朋友一起看的绘本书推荐</a></li></ul><p>算法学习书籍推荐系列可点击查看：</p><ul><li><a href="https://102no.com/2020/12/03/10-algorithm-books/">10本算法入门书籍推荐</a></li><li><a href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/">10本算法深入学习书籍推荐</a></li></ul><p>Linux书籍推荐系列可点击查看:</p><ul><li><a href="https://102no.com/2020/08/13/10-linux-introduction-books/">10本Linux操作入门书籍推荐</a></li><li><a href="https://102no.com/2020/08/17/10-linux-advanced-books/">10本Linux进阶书籍推荐</a></li><li><a href="https://102no.com/2020/09/01/10-linux-kernel-books/">10本Linux内核书籍推荐</a></li></ul><h1 id="《UNIX环境高级编程》"><a href="#《UNIX环境高级编程》" class="headerlink" title="《UNIX环境高级编程》"></a>《UNIX环境高级编程》</h1><p><img src="http://qiniu.102no.com/UNIX环境高级编程.png" alt=""></p><p>本书被誉为UNIX编程「圣经」的Advanced Programming in the UNIX Environment一书的中文版本，本书内容权威，概念清晰，阐述精辟，对于所有层次UNIX程序员都是一本不可或缺的参考书。</p><p>作者为W.Richard Stevens，备受赞誉的技术作家，生前著有多种经典的传世之作，包括《UNIX网络编程》（两卷本）、《TCP/IP详解》（三卷本）和本书第1版。</p><h1 id="《UNIX网络编程》"><a href="#《UNIX网络编程》" class="headerlink" title="《UNIX网络编程》"></a>《UNIX网络编程》</h1><p><img src="http://qiniu.102no.com/UNIX网络编程卷1.png" alt=""><br><img src="http://qiniu.102no.com/UNIX网络编程卷2.png" alt=""></p><p>UNIX网络编程系列内容详尽且具权威性，几乎每章都提供精选的习题，并提供了部分习题的答案，是计算机和网络专业高年级本科生和研究生的首选教材，网络研究和开发人员理想的参考书。</p><h1 id="《UNIX操作系统设计》"><a href="#《UNIX操作系统设计》" class="headerlink" title="《UNIX操作系统设计》"></a>《UNIX操作系统设计》</h1><p><img src="http://qiniu.102no.com/UNIX操作系统设计.png" alt=""><br>本书内容包括 UNIX内核体系结构、磁盘高速缓冲机制、文件系统内部数据结构与算法、控制进程上下文的系统调用与进程调度、存储管理，包括对换和请求调页系统、通用驱动程序接口，包括磁盘驱动程序和终端驱动程序、进程间通信与网络，包括系统V消息、共享存储和信号量、紧密耦合的多处理机UNIX系统和松散耦合的分布式UNIX系统。</p><p>本书可作为大学计算机科学系高年级学生和研究生的教材或参考书，也为从事UNIX系统研究与实用程序开发人员提供了一本极有价值的参考资料。</p><h1 id="《Linux-UNIX系统编程手册》"><a href="#《Linux-UNIX系统编程手册》" class="headerlink" title="《Linux/UNIX系统编程手册》"></a>《Linux/UNIX系统编程手册》</h1><p><img src="http://qiniu.102no.com/Linux:UNIX系统编程手册.png" alt=""><br>本书是介绍linux与unix编程接口的权威著作，linux编程资深专家michael kerrisk在书中详细描述了linux/unix系统编程所涉及的系统调用和库函数，并辅之以全面而清晰的代码示例，涵盖了逾500个系统调用及库函数，并给出逾200个程序示例，另含88张表格和115幅示意图。</p><h1 id="《UNIX-Linux编程实践教程》"><a href="#《UNIX-Linux编程实践教程》" class="headerlink" title="《UNIX/Linux编程实践教程》"></a>《UNIX/Linux编程实践教程》</h1><p><img src="http://qiniu.102no.com/UNIX:Linux编程实践教程.png" alt=""><br>操作系统是计算机最重要的系统软件。Unix操作系统历经了几十年，至今仍是主流的操作系统。本书通过解释Unix的工作原理，循序渐进地讲解实现Unix中系统命令的方法，让读者理解并逐步精通Unix系统编程，进而具有编制Unix应用程序的能力。</p><p>本书适合作为高等院校计算机及相关专业的教材和教学参考书，亦可作为有一定系统编程基础的开发人员的自学教材和参考手册。</p><h1 id="《UNIX-Linux系统管理技术手册》"><a href="#《UNIX-Linux系统管理技术手册》" class="headerlink" title="《UNIX/Linux系统管理技术手册》"></a>《UNIX/Linux系统管理技术手册》</h1><p><img src="http://qiniu.102no.com/UNIX:Linux系统管理技术手册.png" alt=""><br>本书分为三大部分分析</p><ul><li>第一部分全面介绍了运行单机Linux系统涉及的各种管理知识和技术，如系统引导和关机、进程控制、文件系统管理、用户管理、设备管理、系统备份、软件配置以及cron和系统日志的管理使用等。</li><li>第二部分从详细讲解TCP/IP协议基本原理开始，深入讨论了网络的两大基本应用——域名系统和路由技术，然后逐章讲解Linux上的各种Internet关键应用，如电子邮件、NFS、文件共享、Web托管和Internet服务，在这部分里还有专门的章节介绍网络硬件、网络管理与调试以及系统安全。</li><li>第三部分包括了多种不容忽视的重要主题：X窗口系统、打印系统、系统维护与环境、性能分析、与Windows系统的协作、串行设备、操作系统驱动程序和内核、系统守护进程以及政策与行政管理方面的知识等。</li></ul><h1 id="《Linux程序设计》"><a href="#《Linux程序设计》" class="headerlink" title="《Linux程序设计》"></a>《Linux程序设计》</h1><p><img src="http://qiniu.102no.com/Linux程序设计.png" alt=""><br>本书是Linux程序设计领域的经典名著，以简单易懂、内容全面和示例丰富而受到广泛好评。对Linux所提供的功能全面而准确的阐述，以及贯穿全书的示例程序体验，使本书不仅成为初学者的最佳Linux程序设计指南，而且是中高级程序员不可或缺的参考书。</p><h1 id="《Linux系统编程》"><a href="#《Linux系统编程》" class="headerlink" title="《Linux系统编程》"></a>《Linux系统编程》</h1><p><img src="http://qiniu.102no.com/Linux系统编程.png" alt=""><br>本书同样也是一本内行人士编写灵活高效代码的学习指南。作为内核黑客和《LINUX系统编程》的作者，Robert Love不仅阐释了系统接口应该如何工作，还介绍了它们实际上是如何工作的，以及怎样安全有效地使用它们。《Linux系统编程》包含了帮助你在任何层面编写更佳代码的实用技巧。</p><h1 id="《Linux高级程序设计》"><a href="#《Linux高级程序设计》" class="headerlink" title="《Linux高级程序设计》"></a>《Linux高级程序设计》</h1><p><img src="http://qiniu.102no.com/Linux高级程序设计.png" alt=""><br>本书是Linux程序设计领域的一部力作，讲解了大量程序员需要掌握的关键知识点，包括Linux开发中的基本工具、Linux系统编程、Linux桌面开发以及Linux与Web开发。书中包括大量有益的经验之谈和富于启发的示例。</p><h1 id="《Linux高性能服务器编程》"><a href="#《Linux高性能服务器编程》" class="headerlink" title="《Linux高性能服务器编程》"></a>《Linux高性能服务器编程》</h1><p><img src="http://qiniu.102no.com/Linux高性能服务器编程.png" alt=""><br>本书是Linux服务器编程领域的经典著作，由资深Linux软件开发工程师撰写，从网络协议、服务器编程核心要素、原理机制、工具框架等多角度全面阐释了编写高性能Linux服务器应用的方法、技巧和思想。不仅理论全面、深入，抓住了重点和难点，还包含两个综合性案例，极具实战意义。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;时至今日，Linux系统已经从一个个人作品发展为可以用于各种关键任务的成熟、高效和稳定的操作系统，因为具备跨平台、开源、支持众多应用软件和网络协议等优点，它得到了各大主流软硬件厂商的支持，也成为广大程序设计人员理想的开发平台。&lt;/p&gt;
-&lt;p&gt;在经过上一期的《10本 Linu
       
     
     </summary>
