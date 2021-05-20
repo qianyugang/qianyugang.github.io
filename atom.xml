@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-05-08T07:47:33.049Z</updated>
+  <updated>2021-05-20T06:05:04.802Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本 PostgreSQL 学习书籍推荐</title>
+    <link href="https://102no.com/2021/05/20/10-postgresql-learn-books/"/>
+    <id>https://102no.com/2021/05/20/10-postgresql-learn-books/</id>
+    <published>2021-05-19T16:00:00.000Z</published>
+    <updated>2021-05-20T06:05:04.802Z</updated>
+    
+    <content type="html"><![CDATA[<p>PostgreSQL 是一种特性非常齐全、功能十分强大、源代码开放的自由软件的对象-关系型数据库管理系统。而且它的性能十分优秀，且支持多种例如 json 、 Hive 的复杂类型。今天就推荐10本PostgreSQL的学习书籍。<br>官网地址：<a href="https://www.postgresql.org/" target="_blank" rel="external">https://www.postgresql.org/</a></p><h2 id="《PostgreSQL-9从零开始学》"><a href="#《PostgreSQL-9从零开始学》" class="headerlink" title="《PostgreSQL 9从零开始学》"></a>《PostgreSQL 9从零开始学》</h2><p>本书循序渐进地介绍了PostgresQL9数据库应用与开发的相关基础知识，提供了大量具体操作PostgreSQL9数据库的示例，供读者实践。</p><p>本书适合PostgreSQL数据库初学者、数据库开发人员，也适合高等院校和培训学校相关专业的师生教学参考。</p><p>作者：</p><ul><li>刘增杰</li><li>张少军</li></ul><h2 id="《深入浅出-PostgreSQL》"><a href="#《深入浅出-PostgreSQL》" class="headerlink" title="《深入浅出 PostgreSQL》"></a>《深入浅出 PostgreSQL》</h2><p>本书采用“理论+实践”的形式编写，通过大量的实例，详细讲解了PostgreSQL的各种SQL特性、参数配置、备份恢复、性能调优、服务端编程、高可用方案等。</p><p>本书适合感兴趣的读者自学参考，也适合作为社会培训机构的培训教材，还可作为大中专院校相关专业的教学参考书。</p><p>作者：</p><ul><li>屠要峰，研究员、中兴通讯数据库技术专家委员会主任、研究院副院长、CCF信息存储委员会常委、中国开源软件联盟理事。</li><li>陈河堆，现任中兴通讯数据库平台首席专家，PostgreSQL中文社区核心组成员，拥有十几年数据库研发工作经验，曾参与公司自研高性能内存数据库、分布式数据库和分布式缓存等系统的设计和开发</li></ul><h2 id="《由浅入深-PostgreSQL》"><a href="#《由浅入深-PostgreSQL》" class="headerlink" title="《由浅入深 PostgreSQL》"></a>《由浅入深 PostgreSQL》</h2><p>本书是一本实用性很强的PostgreSQL 进阶指南，能帮助有一定PostgreSQL 知识的读者深入了解PostgreSQL 中更多更全面的高级特性。</p><p>本书适合数据库管理人员和开发人员了解和学习PostgreSQL。通过阅读本书，读者可以对PostgreSQL有一个全面透彻的了解。</p><p>作者：</p><ul><li>Hans-Jürgen Schönig</li></ul><p>##《PostgreSQL 实战》</p><p>本书基于PostgreSQL 10编写，重点介绍PostgreSQL的丰富特性以及生产实践运维技巧。</p><p>作者：</p><ul><li>谭峰，中国开源软件推进联盟PostgreSQL分会特聘专家。</li><li>张文升，中国开源软件推进联盟PostgreSQL分会核心成员之一。</li></ul><p>##《PostgreSQL 9.0性能调校》</p><p>本书是针对PostgreSQL 9.0的性能调校指南，能够帮助读者加速PostgreSQL系统，并且避免一些可能导致系统缓慢的常见缺陷。</p><p>作者：</p><ul><li>Gregory Smith</li></ul><p>##《PostgreSQL 修炼之道》</p><p>本书是目前有关PostgreSQL数据库领域比较全面和系统的中文著作，内容十分丰富。</p><p>作者：</p><ul><li>唐成，拥有十几年数据库、操作系统、存储领域的工作经验。目前任沃趣科技首席数据库架构师，从事数据库高可用、高性能以及数据库云化等方面的研究工作。</li></ul><p>##《PostgreSQL 即学即用》</p><p>本书将帮助你理解和使用PostgreSQL 这一开源数据库系统。通过示例展示了如何实现在其他数据库中难以或无法完成的任务。</p><p>作者：</p><ul><li>Regina Obe，数据库咨询公司Paragon的负责人之一，在编程语言和数据库系统方面有15年以上的专业经验。</li><li>Leo Hsu，Paragon公司的负责人之一，曾为大大小小的组织开发过数据库，有15年以上的专业经验。</li></ul><p>##《PostgreSQL 指南：内幕探索》</p><p>本书介绍了PostgreSQL 内部的工作原理，包括数据库对象的逻辑组织与物理实现，进程与内存的架构。为DBA 与系统开发者提供了一幅全景概念地图，有助于读者形成对数据库实现的整体认识，亦可作为深入学习PostgreSQL 源代码的导读手册，对于理解数据库原理与PostgreSQL 内部实现大有裨益。</p><p>本书适合数据库开发人员及相关领域的研究人员、数据库DBA 及高等院校相关专业的学生阅读。</p><p>作者：</p><ul><li>铃木启修，毕业于北海道大学信息工程研究生院，获得信息工程硕士学位，曾在多家公司担任软件开发人员和技术经理/技术主管。</li></ul><p>##《PostgreSQL 数据库内核分析》</p><p>本书从PostgreSQL数据库的源代码入手，深入分析了该数据库管理系统的底层实现细节，揭示了数据库运行的基本原理。</p><p>本书适合从事数据库领域相关研究的技术人员、高等院校相关专业高年级本科生或研究生阅读，有助于读者进行数据库的高级开发、基于PostgreSQL定制满足需求的数据库系统，或者在数据库内核中实现并验证数据库新技术。</p><p>作者：</p><ul><li>彭智勇，武汉大学计算机学院教授，博士生导师，日本京都大学博士，武汉大学珞珈特聘教授，中国计算机学会数据库专业委员会委员，长期从事数据库理论与技术的研究和教学工作。</li><li>彭煜玮，武汉大学计算机学院讲师、博士，长期从事数据库理论与技术研究以及教学工作，主要负责“数据库内核分析”等课程的实践教学工作。</li></ul><p>##《PostgreSQL技术内幕：查询优化深度探索》</p><p>本书揭示了PostgreSQL数据库中查询优化的实现技术细节，适合数据库内核开发人员及相关领域的研究人员、数据库DBA、高等院校相关专业的本科生或者研究生阅读。</p><p>作者：</p><ul><li>张树杰</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;PostgreSQL 是一种特性非常齐全、功能十分强大、源代码开放的自由软件的对象-关系型数据库管理系统。而且它的性能十分优秀，且支持多种例如 json 、 Hive 的复杂类型。今天就推荐10本PostgreSQL的学习书籍。&lt;br&gt;官网地址：&lt;a href=&quot;https
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="PostgreSQL" scheme="https://102no.com/tags/PostgreSQL/"/>
+    
+  </entry>
   
   <entry>
     <title>10本适合放在互联网公司开发办公室书籍</title>
@@ -516,31 +543,6 @@
     
     
       <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong企业版的通用性功能 - 全生命周期服务管控平台</title>
-    <link href="https://102no.com/2020/10/12/general-availability-of-kong-enterprise-2020/"/>
-    <id>https://102no.com/2020/10/12/general-availability-of-kong-enterprise-2020/</id>
-    <published>2020-10-11T16:00:00.000Z</published>
-    <updated>2020-10-12T09:19:31.386Z</updated>
-    
-    <content type="html"><![CDATA[<p>我们很自豪地宣布，我们的旗舰企业产品 - Kong Enterprise 2020的最新版本全面上市。在去年的Kong峰会上，我们宣布了服务控制平台作为企业智能信息中介的愿景。今天，我们自豪地宣布，我们已经将<a href="https://konghq.com/products/service-control-platform/" target="_blank" rel="external">服务控制平台</a>的愿景向前推进了一步，使全球的组织能够管理和优化整个服务生命周期。 随着Kong Enterprise 2020 (KE 2020)的发布，Kong是唯一一个通过智能自动化和设计治理来优化当今应用现代化需求的解决方案，贯穿API和服务的全生命周期。我们正在为客户提供从生产前到生产后的全面服务管理，跨越所有平台、协议和部署模式。KE 2020完成了我们愿景的第一阶段，即建立一个智能服务控制平台，以管理整个企业的信息流，并将我们的愿景扩展到纳入API或服务的整个生命周期。</p><p>KE 2020代表了我们迄今为止最雄心勃勃、功能最丰富的企业版本。我们创建KE 2020是因为今天的组织必须能够在保持治理的同时快速创新。传统的API管理平台由于无法支持分散式架构、跨平台工作和实现自动化而阻碍了这些努力，而有了KE 2020，组织可以通过拥抱分散式架构、自动化工作流和采用CI/CD实践来实现现代化。KE 2020扩展了我们的承诺，即为开发人员提供自由，以最佳方式进行构建，同时也为管理团队提供工具，以确保效率和治理。在KE 2020中，各种规模的组织都可以跨平台、部署模式和传输协议自动实现API和微服务的安全、通信和协调。</p><p><img src="https://2tjosk2rxzc21medji3nfn1g-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/KE-2020-Header-e1569997958497.png" alt=""></p><p>请继续阅读，以获得该版本中一些令人兴奋的新功能的预览。我们将详细介绍这些功能如何帮助您超越简单的API管理，智能控制整个服务生命周期。</p><h1 id="Kong-Studio-的集成服务设计和测试"><a href="#Kong-Studio-的集成服务设计和测试" class="headerlink" title="Kong Studio 的集成服务设计和测试"></a>Kong Studio 的集成服务设计和测试</h1><p>建立在新收购的Insomnia之上，Kong Studio提供了一套强大的工具来简化REST和GraphQL服务的设计和测试。Kong Studio简化了开发工作流程，通过提供多种语言生成代码片段的能力，通过OpenAPI linting自动测试，通过Git Sync集成到CI/CD工作流程中，并能检查JSON和XML以外的响应，从而消除了繁琐的任务。观看我们最近关于<a href="Watch our recent webinar on Kong Studio">Kong Studio的网络研讨会</a>，或<a href="Learn more about Studio here.">在此了解更多关于Studio的信息</a>。</p><h1 id="Multi-Protocol-支持-gRPC-GraphQL-和-Kafka"><a href="#Multi-Protocol-支持-gRPC-GraphQL-和-Kafka" class="headerlink" title="Multi-Protocol 支持 gRPC, GraphQL 和 Kafka"></a>Multi-Protocol 支持 gRPC, GraphQL 和 Kafka</h1><p>Kong的多协议支持可简化新兴服务平台的采用。通过统一REST、gRPC、GraphQL和数据流服务之间的通信能力，Kong的客户可以解锁新的服务平台、用例和架构范式，而没有孤岛的风险。 Kong对gRPC和REST的原生支持，加上与Apollo GraphQL服务器和Apache Kafka的无缝集成，使用户能够毫不费力地在所有服务中应用一致的策略，以最大限度地减少摩擦并最大限度地控制。点击这里了解更多<a href="Learn more about multi-protocol support here">关于多协议支持的信息。</a></p><h1 id="Visual-Service-Map-with-Kong-Brain"><a href="#Visual-Service-Map-with-Kong-Brain" class="headerlink" title="Visual Service Map with Kong Brain"></a>Visual Service Map with Kong Brain</h1><p>在去年推出的功能基础上进行扩展，最新版本的Kong Brain具有强大的服务地图，通过优雅的可视化界面帮助企业了解其整个服务架构。Kong Brain会自动生成和更新服务地图，以提供整个服务架构的实时视图。对于同时使用Kong Immunity的客户，服务地图还可以通过同一界面暴露实时异常警报和一键问题调查。 <a href="Learn more about Kong Brain here">点击这里了解更多关于 “Kong Brain”的信息</a>。</p><p><img src="https://2tjosk2rxzc21medji3nfn1g-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/Service-Map-2.gif" alt=""></p><h1 id="优化的Kong-Immunity-警报和用户界面"><a href="#优化的Kong-Immunity-警报和用户界面" class="headerlink" title="优化的Kong Immunity 警报和用户界面"></a>优化的Kong Immunity 警报和用户界面</h1><p>通过KE 2020，我们改进了Kong Immunity，提供了一个专门的用户界面来调查异常警报和跟踪解决状态。通过直观的过滤和排序功能，用户可以实时解析Immunity警报，将注意力集中在最严重的问题上。使用Kong Brain的客户还可以在服务地图中浮现Immunity警报，并轻松地深入了解显示异常行为的特定端点。<a href="Learn more about Kong Immunity here">点击这里了解更多关于Kong Immunity的信息</a>。</p><p><img src="https://2tjosk2rxzc21medji3nfn1g-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/Immunity-10.1.gif" alt=""></p><h1 id="改善与Kong团队的合作和加入"><a href="#改善与Kong团队的合作和加入" class="headerlink" title="改善与Kong团队的合作和加入"></a>改善与Kong团队的合作和加入</h1><p>Kong Teams提供了增强的协作、安全和入职功能，使KE用户能够轻松地在整个组织中扩展其部署。有了Kong Teams，KE用户可以轻松地将用户划分为工作小组，在整个环境中实施政策，并在确保合规性的同时，快速加入新用户。基于角色的访问控制和工作空间允许用户分配管理权限，并轻松授予或限制单个用户和消费者、整个团队、合作伙伴公司和整个 Kong 平台环境的访问权限。<a href="Learn more about Kong Teams here">点击这里了解更多关于Kong Teams的信息</a>。</p><h1 id="Kong-Manager和Kong-Developer-Portal的主要更新。"><a href="#Kong-Manager和Kong-Developer-Portal的主要更新。" class="headerlink" title="Kong Manager和Kong Developer Portal的主要更新。"></a>Kong Manager和Kong Developer Portal的主要更新。</h1><p>KE 2020对Kong Manager和开发者门户进行了重大改进，提供了显著升级的用户体验。这两款产品现在都提供了精简的权限、更简单的管理工作流程和更大的灵活性，使其更容易获得Kong的最大效益。最新版本的开发者门户使您更容易定制您的门户，并减少入职摩擦，为内部和外部提供最佳的开发者体验。要了解更多，请查看<a href="https://konghq.com/products/kong-manager" target="_blank" rel="external">管理</a>和<a href="https://konghq.com/products/kong-enterprise/dev-portal" target="_blank" rel="external">开发者门户</a>页面。</p><p>要了解更多关于如何升级到Kong Enterprise 2020的信息，<a href="https://docs.konghq.com/enterprise/" target="_blank" rel="external">请参阅我们的升级文档</a>。</p><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul><li><a href="https://www.gartner.com/reviews/market/full-life-cycle-api-management/vendor/kong" target="_blank" rel="external">gartner full-life-cycle-api-management - kong</a></li><li><a href="https://www.gartner.com/reviews/market/full-life-cycle-api-management" target="_blank" rel="external">Reviews for Full Life Cycle API Management Market</a></li><li><a href="https://www.gartner.com/reviews/market/full-life-cycle-api-management/compare/kong-vs-mulesoft" target="_blank" rel="external"> Full Life Cycle API Management Kong vs MuleSoft</a></li><li><a href="https://www.prnewswire.com/news-releases/kong-inc-positioned-as-a-leader-in-the-2020-gartner-magic-quadrant-for-full-lifecycle-api-management-market-301138565.html" target="_blank" rel="external">Kong Inc. Positioned as a Leader in the 2020 Gartner Magic Quadrant for Full Lifecycle API Management Market</a></li><li><a href="https://aithority.com/it-and-devops/cloud/kong-inc-positioned-as-a-leader-in-the-2020-gartner-magic-quadrant-for-full-lifecycle-api-management-market/" target="_blank" rel="external">Kong Inc. Positioned As A Leader In The 2020 Gartner Magic Quadrant For Full Lifecycle API Management Market</a></li></ul><blockquote><p>原文地址：<a href="https://konghq.com/blog/General-Availability-of-Kong-Enterprise-2020" target="_blank" rel="external">General Availability of Kong Enterprise 2020 – The Full Lifecycle Service Control Platform</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;我们很自豪地宣布，我们的旗舰企业产品 - Kong Enterprise 2020的最新版本全面上市。在去年的Kong峰会上，我们宣布了服务控制平台作为企业智能信息中介的愿景。今天，我们自豪地宣布，我们已经将&lt;a href=&quot;https://konghq.com/produ
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
     
   </entry>
   
