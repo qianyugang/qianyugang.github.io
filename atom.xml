@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-05-20T06:06:55.843Z</updated>
+  <updated>2021-05-25T06:35:31.792Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本 MongoDB 学习书籍推荐</title>
+    <link href="https://102no.com/2021/05/25/10-mongodb-learn-books/"/>
+    <id>https://102no.com/2021/05/25/10-mongodb-learn-books/</id>
+    <published>2021-05-24T16:00:00.000Z</published>
+    <updated>2021-05-25T06:35:31.792Z</updated>
+    
+    <content type="html"><![CDATA[<p>MongoDB 是由C++语言编写的，一个基于分布式文件存储的高性能开源数据库系统，是当前noSql数据库产品中最热门的一种，它在许多场景下用于替代传统的关系型数据库或键值对存储方式。旨在为WEB应用提供可扩展的高性能数据存储解决方案。</p><p>时至今日，MongoDB以其灵活的数据存储方式逐渐成为IT行业非常流行的一种非关系型数据库（NoSql）。今天这篇文章将推荐10本 MongoDB 学习书籍。</p><p>##《MongoDB 权威指南》8.0</p><p>数据库开发人员可将此书作为参考指南，系统管理员可以从本书中找到高级配置技巧，其他用户可以了解一些基本概念和用例。本书可也可作为系统管理人员的进阶指导，还可供项目中其他成员了解MongoDB使用。</p><p>作者：</p><ul><li>Kristina Chodorow，谷歌软件工程师，曾有5年是MongoDB项目的核心成员。她领导了MongoDB的副本集开发，并编写了PHP和Perl驱动程序。</li></ul><p>##《MongoDB 实战》8.1</p><p>本书基于MongoDB 2.0+，全面系统地讲解了设计、实现、安装和维护MongoDB的各方面内容。本书篇幅适中，内容深浅得当，文字通俗易懂，再配以直观形象的插图和贴近实战的代码示例，非常适合MongoDB学习者、开发人员及管理员学习参考。</p><p>作者：</p><ul><li>Kyle Banker ，软件工程师，曾工作于10gen公司，负责维护Ruby及C语言的官方MongoDB驱动、领导MongoDB文档项目并开发培训课程，且为客户提供咨询、商业支持和培训。</li></ul><p>##《深入学习 MongoDB》7.3</p><p>本书主要介绍从应用开发人员的角度讲解了MongoDB的使用，而且从运维方面介绍了集群的管理。以及从应用设计、实现、优化、数据安全和管理方面介绍了使用MongoDB构建应用的技巧。</p><p>作者：</p><ul><li>Kristina Chodorow，谷歌软件工程师，曾有5年是MongoDB项目的核心成员。她领导了MongoDB的副本集开发，并编写了PHP和Perl驱动程序。</li></ul><p>##《MongoDB应用设计模式》6.3</p><p>本书你将学到如何把MongoDB设计模式应用到许多挑战性领域，例如电子商务、内容管理系统和在线游戏。本书关注点在MongoDB在具体业务应用中如何使用，主要是实例讲解。</p><p>作者：</p><ul><li>Rick Copeland</li></ul><p>##《MongoDB大数据处理权威指南》6.4</p><p>MongoDB是最流行的“大数据”NoSQL数据库技术，并且正处于发展中。本书可以帮助你了解成为MongoDB专家所需的所有知识。</p><p>作者：</p><ul><li>David Hows，曾经担任过系统管理员、性能工程师、软件开发者、解决方案架构师和数据库工程师等职务。</li><li>PeterMembrey，特许IT研究员，他拥有15年使用Linux和开源解决方案解决现实中问题的经验。</li><li>EelcoPlugge，年轻的IET/BSC专家，利物浦大学的计算机安全硕士学位，并持有多项专业证书。他对Linux、网络安全和加密技术都抱有极大的热情。</li></ul><p>##《MongoDB管理与开发精要》7.0</p><p>本书全面介绍了MongoDB数据库，重在实战演练，学习思路也是作者亲身的学习经历。本书内容循序渐进、由浅入深，既可以引导初学者入门，又可以帮助具备一定基础的IT技术从业人员进一步提高技术水平，力求不同层次的读者都能从本书中受益。</p><p>作者：</p><ul><li>红丸，资深数据库专家，国内MongoDB领域的先驱之一，积累了丰富的实战经验。精通MySQL、SQL Server和DB2等大中型数据库的运维和管理，还擅长Java和C#等技术。此外，他对Redis和分布式计算技术也有一定的研究。</li></ul><p>##《大数据存储：MongoDB实战指南》5.5</p><p>本书从学习与实践者的视角出发，本着通俗精简、注重实践、突出精髓的原则，精准剖析了MongoDB的诸多概念和要点。本书适合有海量数据存储需求的人员、数据库管理开发人员、数据挖掘与分析人员以及各类基于数据库的应用开发人员。</p><p>作者：</p><ul><li>郭远威，高级软件工程师，现任职于华为公司，擅长大数据存储相关工作。</li></ul><p>##《MongoDB从入门到商业实战》</p><p>本书基于MongoDB 4.0版本编写，本书主要介绍MongoDB理论知识及环境架设，以及通过大量的实例深入地讲解MongoDB的具体操作。</p><p>本书内容丰富、条理清晰、通俗易懂，非常适合MongoDB的初学者和进阶读者阅读，同时也适合作为相关培训机构的教材。</p><p>作者：</p><ul><li>张雯杰，在富士康从事数据相关工作超过十年，主要负责RDB与NoSQL数据库集群的设计、搭建和应用，以及企业商业智能决策系统的搭建。</li><li>蔡佳玲，目前在富士康担任DBA，从事MongoDB管理及运帷多年，具有丰富的MongoDB、SQL Server的应用经验。曾运用MongoDB规划并搭建完整的跨区域数据平台。</li></ul><p>##《MongoDB入门经典》</p><p>本书采用直观、循序渐进的方法，讲解了如何设计、实施和优化NoSQL数据库，如何存储和管理数据，以及如何执行数据分片和复制等任务。全书共24章。适合对NoSQL以及MongoDB感兴趣的数据库开发，运维人员阅读。</p><p>作者</p><ul><li>Brad Dayley，资深软件工程师，拥有20多年企业级应用程序开发经验；设计并开发过大型商业应用程序，包括后端为NoSQL数据库、前端为Web的SAS应用程序。</li></ul><p>##《MongoDB 游记之轻松入门到进阶》</p><p>本书全面讲解MongoDB的相关知识，使读者对MongoDB有全面的认识，以直接、细致的方式指导读者轻松掌握MongoDB的安装、部署与使用。以实际工作框架为例子进行讲解，使读者真正能胜任MongoDB的开发管理工作。</p><p>作者：</p><ul><li>张泽泉，毕业于四川理工学院，数据工程师、中级职称软件设计师、CSDN博客专家。多年一线MongoDB数据库存储、部署、开发经验，以及将其应用于房地产数据分析、金融数据分析、基因数据分析等领域行业经验。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MongoDB 是由C++语言编写的，一个基于分布式文件存储的高性能开源数据库系统，是当前noSql数据库产品中最热门的一种，它在许多场景下用于替代传统的关系型数据库或键值对存储方式。旨在为WEB应用提供可扩展的高性能数据存储解决方案。&lt;/p&gt;
+&lt;p&gt;时至今日，MongoD
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="MongoDB" scheme="https://102no.com/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>10本 PostgreSQL 学习书籍推荐</title>
@@ -515,34 +543,6 @@
       <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是API生命周期管理？</title>
-    <link href="https://102no.com/2020/10/13/api-lifecycle-management/"/>
-    <id>https://102no.com/2020/10/13/api-lifecycle-management/</id>
-    <published>2020-10-12T16:00:00.000Z</published>
-    <updated>2020-10-13T08:55:38.528Z</updated>
-    
-    <content type="html"><![CDATA[<p>API 生命周期管理是一个术语，是指需要管理的 API 整个生命周期中从创建到报废的所有步骤。<br>API数量正在激增当中，因为它们是数字业务的关键。公司面临的主要挑战是通过以下方式来应对日益增长的新API需求。</p><ul><li>迅速创建API</li><li>通过管理目录和执行强大的安全级别来控制它们。</li><li>直接或通过第三方开发者来消耗它们。</li></ul><p><strong>API 生命周期</strong>方法提供了一个整体的观点，即如何管理 API 生命中的不同阶段，从创建到废弃。</p><p>下面的API生命周期管理图代表了API生命周期中各个步骤的详细视图，下面我们将详细介绍。</p><p><img src="https://apifriends.com/wp-content/uploads/2017/06/api_lifecycle.png" alt=""></p><h2 id="API创建阶段"><a href="#API创建阶段" class="headerlink" title="API创建阶段"></a>API创建阶段</h2><ul><li>MODEL - 可视化或程序化地指定您的 API 端点所需的数据。<ul><li>假设您有一个现有的数据库，其中包含了您想用API公开的数据。多亏了连接器，你可以很容易地暴露数据模型并定义你自己的API格式。</li><li>这同样适用于SaaS应用，你可以用连接器连接到哪些API，把它们变成你自己的API格式。</li></ul></li><li>ORCHESTRATE - 对来自多个来源的数据进行组合和标准化。<ul><li>你可能想公开一个API，将不同底层API的信息结合起来。有了编排能力，你可以很容易地做到这一点，无论是同步还是异步的方式。</li></ul></li><li>TRANSFORM - 将传统格式（如XML）转换为现代可消费格式（如JSON）。<ul><li>当涉及到连接到内部系统（如ESB）时，仍有许多内部SOAP网络服务（XML）需要暴露为REST API（JSON），以便于数字应用程序的消费。一个允许在这两种格式之间进行简单和图形OB化转换的可视化映射器是一个重要的工具。</li></ul></li><li>DOCUMENT - 为模型和API操作自动生成文档和代码片段。<ul><li>API文档是开发人员轻松操作它们的关键。但这也是一项非常繁琐、枯燥和容易出错的工作。如果有一个能自动生成API文档的工具，就能大大减轻痛苦。</li></ul></li></ul><h2 id="API控制阶段"><a href="#API控制阶段" class="headerlink" title="API控制阶段"></a>API控制阶段</h2><ul><li>DEPLOY - 即时将API部署到目标环境中，无需任何设置工作。<ul><li>在数字世界中，代码交付和部署之间的时间需要尽可能的缩短。DevOps工具通过持续集成和持续交付来加速这一进程。为了管理你的API，你需要一个能很好地集成到你的DevOps策略中的解决方案。对于较小的项目，甚至需要一个带有弹性运行时的解决方案，只需点击一下就可以部署到。</li></ul></li><li>MANAGE - 管理对API的访问，并通过速率限制和SLA保护服务质量。<ul><li>拥有的API越多，它们就越难以管理。会很快感觉到需要一个API目录，可以直接浏览它，并且你可以管理API的发布状态（未发布/发布/废弃/销毁）和他们的版本。API 目录还应该包含速率限制设置（以保护您的内部系统免受来自 API 使用的高流量峰值的影响）和 SLA 执行。</li></ul></li><li>SECURE - 为API的安全和防火墙建立并执行企业政策。<ul><li>由于API是通往世界的一扇门，因此保护它们的安全是最重要的。您需要一个能够提供顶级API安全性的API管理解决方案。<br>此外，还强烈建议使用通用标准等安全认证。</li></ul></li><li>SCALE - 自动向上或向下扩展基础设施，以运行您的服务器端应用程序。<ul><li>网络流量是不可预测的，而且变化很大。您需要一个能够随着流量自动调整的基础设施，而无需人工干预。</li></ul></li></ul><h2 id="API消费阶段"><a href="#API消费阶段" class="headerlink" title="API消费阶段"></a>API消费阶段</h2><ul><li>PUBLISH - 通过中央API目录向内部团体、合作伙伴或公众销售。<ul><li>API目录中的API被发布到API开发者门户中，以便开发者轻松使用。</li><li>有三种类型的API，需要为您的API门户进行不同的设置。<ul><li>Private API - 只供内部使用的API。</li><li>Partner API - 只针对一组特定的合作伙伴的API</li><li>Public API（也就是开放API）- 任何人都可以使用的API。</li></ul></li><li>这些API类型需要用不同的方式来管理，例如，合作伙伴的API必须要求你在解决方案中有一个合作伙伴入驻流程。</li><li>营销方面也不应该被忽视。一个开放的API门户需要一个有吸引力的品牌，也需要通过不同的营销渠道进行推广。</li></ul></li><li>DISCOVER - 开发人员浏览API、其属性和文档的自助服务访问。<ul><li>API门户的目标是在自助服务中提供。开发者应该能够24/7连接，并在需要帮助时体验到文档、问答和支持小工具的流畅导航。</li><li>在使用API之前，开发人员更喜欢先测试它，所以你的API门户应该提供一个简单的尝试功能。</li></ul></li><li>INVOKE - 从客户端应用中执行API操作或开箱即用的MBaaS服务。<ul><li>要使用API，开发人员从API开发者门户获得一个自动生成的，然后可以在他们最喜欢的开发语言的API SDK的帮助下将这些API集成到他们的代码中。</li><li>为了加速您的移动应用开发，开箱即用的MBaaS服务非常适合在您的API门户中使用。</li></ul></li><li>MONETIZE - 跟踪使用情况并应用费率计划政策以产生API收入。<ul><li>API商业化是一个复杂的话题。大多数时候，API是免费提供的，因为它们代表了一种新的商业方式，而且商业价值并不在于API本身，而是在于它所代表的更大的外延和新的市场份额。</li><li>但有时，公司可能会希望将API货币化，因为它们的基础数据是其业务的一部分。一个很好的例子是使用Axway API管理解决方案的数据即服务Dun &amp; Bradstreet项目。</li></ul></li></ul><h2 id="API-分析"><a href="#API-分析" class="headerlink" title="API 分析"></a>API 分析</h2><ul><li>你可以在API生命周期管理图上面看到，中间有一个圆圈，名字叫 “Analyze”。中间这个位置意味着在整个API生命周期管理中，API分析是最重要的。</li><li>为什么这么说呢？很简单，因为你无法控制也无法改善你无法衡量的东西。</li><li>当你想管理日益增多的API时，API管理的嵌入式分析是必须的。</li></ul><blockquote><p>原文链接：<a href="https://apifriends.com/api-management/api-lifecycle-management/" target="_blank" rel="external">What is API Lifecycle Management?</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;API 生命周期管理是一个术语，是指需要管理的 API 整个生命周期中从创建到报废的所有步骤。&lt;br&gt;API数量正在激增当中，因为它们是数字业务的关键。公司面临的主要挑战是通过以下方式来应对日益增长的新API需求。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;迅速创建API&lt;/li&gt;
-&lt;li
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
