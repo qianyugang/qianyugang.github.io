@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-05-25T06:39:17.913Z</updated>
+  <updated>2021-06-01T06:19:04.560Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本 Git 版本管理学习书籍推荐</title>
+    <link href="https://102no.com/2021/06/01/10-git-learn-books/"/>
+    <id>https://102no.com/2021/06/01/10-git-learn-books/</id>
+    <published>2021-05-31T16:00:00.000Z</published>
+    <updated>2021-06-01T06:19:04.560Z</updated>
+    
+    <content type="html"><![CDATA[<p>Git是一款免费、开源的分布式版本控制系统，早由LinilusTorvalds创建，用于管理Linux内核开发，现已成为分布式版本控制的主流工具。在众多的项目开发中普遍使用，得到程序员和工程师的欢迎和喜爱。</p><p>高效的版本控制是成功开发软件项目的关键。自2005年诞生以来，Git以其分布式特点和对非线性开发的强有力支持，成为了许多软件项目的版本控制系统。今天推荐10本 Git 版本管理学习书籍。</p><p>##《版本控制之道：使用Git》</p><p>本书概述了版本控制系统，特别是分布式版本控制系统，并展示分布方式，使您在移动性不断增加的环境中更有效地工作。</p><p>通过本书可以全面了解到如何充分利用Git的先进功能。本书还将为您打下坚实的基础，使您掌握个人和在团队中如何运用Git。</p><p>作者：</p><ul><li>Travis Swicegood</li></ul><p>##《Git权威指南》</p><p>本书是Git领域的集大成之作，是一本关于Git的百科全书，在广度、深度和实战性上让同类作品望尘莫及。</p><p>作者：</p><ul><li>蒋鑫，国内顶尖的版本控制专家和咨询顾问之一，对Subversion和Git等版本控制工具有十分深入的研究，参与了Git以及Gitosis、Gitolite、Repo、Topgit、Gistore等与Git相关的开源软件的开发或创建，在大量实践中积累了丰富的经验。</li></ul><p>##《Pro Git》</p><p>本书为英文版本，本书将教你如何像专业人员一样使用Git。</p><p>本书可在线免费查看中文版本：</p><ul><li>地址：<a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">http://git-scm.com/book/zh/v2</a></li></ul><p>作者：</p><ul><li>Scott Chacon，是GitHub的联合创始人和CIO，曾在全球数十次会议上发表关于Git、GitHub和未来工作的演讲。</li><li>Ben Straub，一名开发者，长期为Libgit2做贡献，拥有硕士学位，是一名国际演讲者和Git老师。</li></ul><p>##《Git 版本控制管理》</p><p>本书适合需要进行版本控制的开发团队成员阅读，对Git感兴趣的开发人员也可以从中获益。</p><p>作者：</p><ul><li>Jon Loeliger，是一位自由的软件开发工程师，对Linux、U-Boot和Git等开源项目颇有贡献。</li><li>Matthew McCullough，Github.com的培训副总裁，在企业软件开发领域有15年的从业经历，还是一名经常往返于世界各地的开源教育家，以及一家美国咨询公司的联合创始人。这</li></ul><p>##《精通 Git（第2版）》</p><p>本书内容由浅入深，展现了普通程序员和项目经理如何有效利用Git提高工作效率，掌握分支概念，灵活地将Git用于服务器和分布式工作流，如何将开发项目迁移到Git，以及如何高效利用GitHub。</p><p>本书不仅是Git日常操作指南，而且深入剖析了Git的内部原理，能有效帮助程序员提升软技能。</p><p>作者：</p><ul><li>Scott Chacon，GitHub联合创始人，曾任GitHub首xi信息官，现任在线教育创业公司Chatterbug的首xi执行官。</li><li>Ben Straub，软件开发者，曾就职于GitHub，参与开发了Libgit2开发包以及GitHub for Windows客户端。</li></ul><p>##《Git 团队协作》</p><p>本书内容主要介绍工作流的构建，从宏观视角陈述以不同方式组织工作流会如何影响团队协作方式；分别针对单人团队和多人团队，从实践角度阐述Git命令，提供上手练习以及介绍主流代码托管系统，为读者提供这些平台用法的入门指南。</p><p>作者</p><ul><li>Emma Jane Hogbin Westby，知名Web开发人员，并拥有丰富的团队管理经验，曾在全球举办过100多场会议演讲、课程和研讨会，内容涉及Web前端开发、无障碍标准、分布式版本控制、可视化和变更管理。</li></ul><p>##《Git 学习指南》</p><p>本书并不偏重理论介绍，也不面面俱到，而是一本学习Git 的实用指南。本书首先介绍了Git 的基础知识，然后关注于敏捷开发，并给出工作流展示了解决现实问题所需的命令和选项。</p><p>本书适合从事项目开发的专业人士阅读，想要学习Git的读者也可以选用。</p><p>作者：</p><ul><li>René Prei?el，Bj?rn Stachmann，德国杰出软件开发人员。</li></ul><p>##《Git Magic》</p><p>本书为英文书籍，以打游戏的方式学习Git，这是学习Git的好办法：新如果是新手的话，不妨忽略Git的内部机理，只当小把戏玩，借助Git其奇妙的能力，逗逗朋友，气气敌人。</p><p>本书可在线免费观看中文版本：</p><ul><li>地址：<a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/" target="_blank" rel="external">http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/</a></li></ul><p>作者：</p><ul><li>Ben Lynn：斯坦福大学毕业，2007年出品的Git Magic，如今已经有12国语言编译，包括中文、法语、德语、意大利语、韩语</li></ul><p>##《GitHub 入门》</p><p>本书将教你如何使用GitHub的Web接口浏览项目并与你的团队有效协作。学习如何使用以及为什么使用GitHub进行协作。</p><p>作者：</p><ul><li>Peter Bell，GitHub培训团队的合约成员,也是企业培训公司Pragmatic Learning的创始人，该公司负责帮助商人和开发者如何更好地构建软件。</li><li>Brent Beer，作为一名专业的Web开发人员以及对开源项目的贡献者，已使用Git和GitHub超过五年时间。</li></ul><p>##《GitHub 入门与实践》</p><p>本书旨在指导读者使用GitHub进行高效开发。内容全面，系统讲解GitHub的功能和实用技巧，一步步演示GitHub的使用方法；专门搭建实践仓库，邀请读者进行Pull Request 并共同维护，包含GitHub的开发流程和辅助工具，适合需要引入GitHub的公司或团队直接使用。</p><p>作者：</p><ul><li>大塚弘记，将敏捷软件开发导入开发现场的领军人物，以顾问身份就Web应用的开发及服务指导过多家企业和团队。曾为多家企业和团队导入GitHub，在建立一天之内多次部署的开发体制方面拥有丰富经验。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Git是一款免费、开源的分布式版本控制系统，早由LinilusTorvalds创建，用于管理Linux内核开发，现已成为分布式版本控制的主流工具。在众多的项目开发中普遍使用，得到程序员和工程师的欢迎和喜爱。&lt;/p&gt;
+&lt;p&gt;高效的版本控制是成功开发软件项目的关键。自2005年
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>10本 MongoDB 学习书籍推荐</title>
@@ -514,35 +540,6 @@
     
     
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong 2.2 正式发布！</title>
-    <link href="https://102no.com/2020/11/23/kong-2.2/"/>
-    <id>https://102no.com/2020/11/23/kong-2.2/</id>
-    <published>2020-11-22T16:00:00.000Z</published>
-    <updated>2020-11-23T08:27:49.955Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>原文链接：</strong><a href="https://konghq.com/blog/kong-gateway-2-2-released/" target="_blank" rel="external">https://konghq.com/blog/kong-gateway-2-2-released/</a><br>我们很高兴地宣布，我们的旗舰级开源API网关2.2版本正式发布了!<br>自Kong Gateway 2.1发布以来，这三个月可谓忙得不可开交! 我们在2.1系列中推送了<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md" target="_blank" rel="external">许多补丁版本</a>，我们举办了第一次全数字化的<a href="Kong Summit">Kong峰会</a>，当然，我们也一直在忙于构建新的功能，现在这些功能已经在Kong Gateway 2.2中发布了!</p><p>与我们在2.1系列中所做的类似，我们也发布了Kong Enterprise 2.2的Beta版本，包含了Kong Gateway 2.2的所有功能。你可以在这里了解更多关于Kong Enterprise和它的附加功能。</p><p>现在，让我们直接跳进Kong Gateway 2.2的亮点。</p><h1 id="支持UDP"><a href="#支持UDP" class="headerlink" title="支持UDP"></a>支持UDP</h1><p>长期以来，Kong不仅支持使用REST和gRPC API的HTTP/HTTPS 请求，还支持原始TCP流，以解决多种协议的网关用例。在2.2版本中，我们继续秉承Kong的使命，支持各种数据，现在我们的支持范围也扩展到了基于UDP的协议。UDP 的应用范围很广，从音频/视频流和游戏服务器到金融服务，因此这为 Kong 的使用提供了广泛的新可能性。</p><p>Kong Gateway 2.2对UDP的支持包括代理、负载均衡和运行插件，为用户提供了已有的类似于TCP的UDP功能。使用Kong进行UDP数据的负载均衡将会特别有趣，因为UDP中没有固有的连接，所以Kong可以确保传入的数据包在上游服务中保持一致的平衡，确保这些服务中缓存的最佳使用。</p><p>要想看到UDP支持的实际效果，请看这段由Kong工程师孙大同在Kong Online Meetup上介绍的演示视频。</p><p><strong><a href="https://youtu.be/POD2ag-Huj0" target="_blank" rel="external">https://youtu.be/POD2ag-Huj0</a></strong></p><h1 id="Go插件的扩展功能"><a href="#Go插件的扩展功能" class="headerlink" title="Go插件的扩展功能"></a>Go插件的扩展功能</h1><p>如果您正在使用 Go 为 Kong 构建自定义插件，我们有一个好消息要告诉您! 自从我们在 Kong 2.0 中添加了 Go 支持后，我们听取了您的反馈，并扩大了从 Go 代码中访问 Kong 功能的范围。</p><p>以前，Kong中的Go支持只涵盖读取请求数据。现在，当运行 Go 插件时，Kong 会读取上游响应，并通过一个新的响应回调将其呈现给 Go 插件。例如，这允许你从上游服务的响应中读取头信息，并根据这些数据执行自定义插件逻辑。</p><h1 id="配置请求和响应缓冲"><a href="#配置请求和响应缓冲" class="headerlink" title="配置请求和响应缓冲"></a>配置请求和响应缓冲</h1><p>在 Kong 2.2 中，您现在可以配置是否启用或禁用每个路由的请求和响应的缓冲。以前，这是一个静态配置，需要修改模板文件，是一个全有或全无的命题，现在可以通过简单地在路由中设置配置属性来动态完成。</p><p>这些新的属性允许你更好地调整Kong对每个端点的缓冲行为，以确保最佳的延迟，特别是对于处理大的有效载荷的端点。</p><p>关于这个功能的演示，<a href="https://youtu.be/E3HgOaenw5w?t=357" target="_blank" rel="external">请看Kong工程师Aapo Talvensaari在Kong Online Meetup上介绍这个功能</a>。</p><h1 id="支持自动加载OS证书"><a href="#支持自动加载OS证书" class="headerlink" title="支持自动加载OS证书"></a>支持自动加载OS证书</h1><p>另一个根据用户反馈建立的功能是一个新的选项，用于自动加载预装在操作系统中的证书，现在，用于设置证书文件的配置选项可以接受多条，而且还可以接受与操作系统捆绑的证书文件路径相匹配的特殊值。现在，设置要使用的证书文件的配置选项可以接受多个条目，也可以接受一个与操作系统捆绑的证书文件路径相匹配的<a href="https://docs.konghq.com/2.2.x/configuration/#lua_ssl_trusted_certificate" target="_blank" rel="external">特殊值</a>。</p><p>这样一来，在开放互联网中支持HTTPS服务的同时，还可以实现内部服务的自定义证书，在操作上就方便多了。<a href="https://youtu.be/E3HgOaenw5w?t=918" target="_blank" rel="external">下面是Kong工程师Enrique García Cota在我们最近的在线见面会上详细讨论这个功能的视频</a>。</p><h1 id="Kong-2-2中的其他改进和修复。"><a href="#Kong-2-2中的其他改进和修复。" class="headerlink" title="Kong 2.2中的其他改进和修复。"></a>Kong 2.2中的其他改进和修复。</h1><ul><li><strong>根据路径来限制速率</strong>：现在可以使用URL路径作为标准来维护单独的速率限制计数，而不必为每个路径创建单独的Route</li><li><strong>从数据库中删除了目标历史记录</strong>：在进行负载均衡时，Kong不再需要维护上游目标过去的变化历史，以保持一致的哈希。这消除了定期清理目标数据库的需求，改善了无 DB 场景下的一致散列行为，也意味着 Targets 的 Admin API 现在的行为更接近于其他实体的行为，例如，像往常一样支持 PATCH 和 DELETE 方法。</li><li><strong>用于代理每个上游的客户端证书</strong>：在Kong 2.1中，上游中设置的客户端证书仅用于活动的健康检查。现在，如果一个服务中没有设置客户证书，它也可以用于代理。这允许共享同一上游的多个服务只在上游中设置一次客户端证书，简化了配置。</li><li><strong>Admin API和PDK现在会遵守header文件的设置</strong>：Kong在其配置中包含一个头文件设置，允许您控制代理时Kong添加哪些头文件。现在，Admin API 和 PDK 生成的响应也会遵守此设置。</li><li><strong>对混合模式的各种改进：</strong>在Kong 2.2中，对混合模式做了一些改进，其中大部分对用户来说通常是透明的，但这些改进会使整体的场景更加流畅：控制平面和数据平面节点之间的通信现在更加高效，故障场景下节点的优雅退出得到了改进，等等。</li><li><strong>修正日志插件中的TCP和UDP支持：</strong>各种日志插件得到调整，更好地支持使用TCP和UDP服务的流媒体模式。</li><li><strong>OpenResty 1.17.8.2</strong>：包括多个bug修复、功能和优化。</li></ul><h1 id="Kong-社区和线上见面会"><a href="#Kong-社区和线上见面会" class="headerlink" title="Kong 社区和线上见面会"></a>Kong 社区和线上见面会</h1><p>一如既往，欢迎在我们的社区论坛 <a href="https://discuss.konghq.com/" target="_blank" rel="external">Kong Nation</a> 上提出任何问题。您的反馈让我们能够更好地了解关键任务的使用案例，并不断改进Kong。</p><p>如果你想了解我们未来开发版本的一切情况，请加入我们每月的<a href="Online Meetups">线上见面会</a>，在那里，Konger们会介绍最新和最棒的东西，并经常提供即将推出的好东西的预览。</p><p>Happy Kong!</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt;原文链接：&lt;/strong&gt;&lt;a href=&quot;https://konghq.com/blog/kong-gateway-2-2-released/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
-    
-      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
