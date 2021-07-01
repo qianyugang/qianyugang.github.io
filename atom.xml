@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-06-17T05:51:19.841Z</updated>
+  <updated>2021-07-01T05:47:19.845Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本前端框架 VUE 学习书籍推荐</title>
+    <link href="https://102no.com/2021/07/01/10-front-end-framework-vue-learning-books/"/>
+    <id>https://102no.com/2021/07/01/10-front-end-framework-vue-learning-books/</id>
+    <published>2021-06-30T16:00:00.000Z</published>
+    <updated>2021-07-01T05:47:19.845Z</updated>
+    
+    <content type="html"><![CDATA[<p>Vue 是一套用于构建用户界面的渐进式框架。旨在更好地组织与简化Web开发。Vue所关注的核心是MVC模式中的视图层，同时，它也能方便地获取数据更新，并通过组件内部特定的方法实现视图与模型的交互。今天推荐10本 VUE 学习书籍。</p><ul><li>官网地址：<a href="https://vuejs.org/" target="_blank" rel="external">https://vuejs.org/</a></li></ul><h2 id="《Vue-js-实战》7-4"><a href="#《Vue-js-实战》7-4" class="headerlink" title="《Vue.js 实战》7.4"></a>《Vue.js 实战》7.4</h2><p>本书以Vue.js 2为基础，以项目实战的方式来引导读者渐进式学习Vue.js。</p><p>本书示例丰富、侧重实战，适用于刚接触或即将接触Vue.js的开发者，也适用于对Vue.js有过开发经验，但需要进一步提升的开发者。</p><p>作者：</p><ul><li>梁灏，基于 Vue.js 的开源 UI 组件库 iView 的作者。</li></ul><h2 id="《深入浅出-Vue-js》7-9"><a href="#《深入浅出-Vue-js》7-9" class="headerlink" title="《深入浅出 Vue.js》7.9"></a>《深入浅出 Vue.js》7.9</h2><p>本书从源码层面分析了Vue.js。本书适合前端开发人员阅读。</p><p>作者：</p><ul><li>刘博文，从事Web前端工作5年，推动Vue.js成为部门内广泛使用的核心技术栈，独立研发相关开发工具与技术解决方案并使之成功落地。</li></ul><h2 id="《Vue-js项目实战》7-8"><a href="#《Vue-js项目实战》7-8" class="headerlink" title="《Vue.js项目实战》7.8"></a>《Vue.js项目实战》7.8</h2><p>本书基于6个项目来引导读者深入理解Vue.js。</p><p>作者：</p><ul><li>纪尧姆·周，Vue.js核心团队成员、Apollo GraphQL贡献者、Livestorm公司前端工程师。</li></ul><h2 id="《Vue2-实践揭秘》6-7"><a href="#《Vue2-实践揭秘》6-7" class="headerlink" title="《Vue2 实践揭秘》6.7"></a>《Vue2 实践揭秘》6.7</h2><p>本书以Vue2的实践应用为根基，从实际示例入手，详细讲解Vue2的基础理论应用及高级组件开发，通过简明易懂的实例代码，生动地让读者快速、全方位地掌握Vue2的各种入门技巧以及一些在实际项目中的宝贵经验。</p><p>作者：</p><ul><li>梁睿坤，十余年软件开发、项目管理、团队建设经验。长年致力于互联网技术应用与大数据应用方面的研究与开发工作。曾任多家软件公司的高级软件工程师、项目经理、首席架构师、技术总监等职。</li></ul><h2 id="《Vue-js快跑-构建触手可及的高性能Web应用》6-6"><a href="#《Vue-js快跑-构建触手可及的高性能Web应用》6-6" class="headerlink" title="《Vue.js快跑:构建触手可及的高性能Web应用》6.6"></a>《Vue.js快跑:构建触手可及的高性能Web应用》6.6</h2><p>本书是用Vue.js构建Web应用的全方位指南。作者运用细致入微的讲解方式带你领略Vue.js的独特魅力，致力于协助你从零开始基于Vue.js创建一个Web应用。</p><p>本书适合对HTML和JavaScript已有一定了解，正在准备或已经使用Vue.js进行Web应用开发的从业者，也适合希望通过学习框架使用来提升对其认识的开发人员，有React使用经验的读者同样可从中获得启发。</p><p>作者：</p><ul><li>Callum Macrae，</li></ul><h2 id="《Vue-js-前端开发：快速入门与专业应用》6-2"><a href="#《Vue-js-前端开发：快速入门与专业应用》6-2" class="headerlink" title="《Vue.js 前端开发：快速入门与专业应用》6.2"></a>《Vue.js 前端开发：快速入门与专业应用》6.2</h2><p>本书从简单的单个实例和基础语法，到工程实例，将系统地讲述Vue.js在项目中的适用场景和具体操作。本书的特点在于案例详实，使读者体会到框架的优点和便捷之处，提升开发效率，最后能将Vue.js运用到实际项目中，避免纸上谈兵的尴尬。</p><p>作者：</p><ul><li>陈陆扬，</li></ul><h2 id="《Vue-js-项目开发实战》5-3"><a href="#《Vue-js-项目开发实战》5-3" class="headerlink" title="《Vue.js 项目开发实战》5.3"></a>《Vue.js 项目开发实战》5.3</h2><p>本书以JavaScript语言为基础，以Vue.js项目开发过程为主线，介绍了一整套面向Vue.js的项目开发技术。从NoSQL数据库的搭建到Express项目API的编写，后再由Vue.js显示在前端的页面中，让读者可以非常迅速地掌握这些技术，提高项目开发的能力。</p><p>本书适合Vue.js初学者和进阶者阅读，也适合其他Web前端和后端开发爱好者阅读。对于一些产品经理，本书也同样适合阅读。另外，对于培训机构和各类开设Web开发课程的院校，本书是一本很好的项目开发教程。</p><p>作者：</p><ul><li>张帆，资深全栈“码农”。有多年的项目设计和Web开发经验，熟悉各种主流前端和后端开发工具，长期从事新技术的研究与项目实践。现专注于JavaScript全栈开发，以及微信小程序和小游戏的开发实践与探索。</li></ul><h2 id="《Vue-js-从入门到项目实战》5-1"><a href="#《Vue-js-从入门到项目实战》5-1" class="headerlink" title="《Vue.js 从入门到项目实战》5.1"></a>《Vue.js 从入门到项目实战》5.1</h2><p>本书从Vue框架的基础语法讲起，逐步深入Vue进阶实战，重点演示了Vue在项目开发重点一些应用。</p><p>本书适合Vue初学者和从业人员阅读，本书也适合作为相关培训机构教材。</p><p>作者：</p><ul><li>刘伟汉，一线软件工程师，丰富开发经验</li></ul><h2 id="《Vue-js-权威指南》4-5"><a href="#《Vue-js-权威指南》4-5" class="headerlink" title="《Vue.js 权威指南》4.5"></a>《Vue.js 权威指南》4.5</h2><p>本书由浅入深地讲解了Vue.js基本语 法及源码解析。本书内容全面，讲解细致，示 例丰富，适用于各层次的开发者。</p><p>作者：</p><ul><li>滴滴出行公共前端团队</li></ul><h2 id="《Vue-企业开发实战》"><a href="#《Vue-企业开发实战》" class="headerlink" title="《Vue 企业开发实战》"></a>《Vue 企业开发实战》</h2><p>本书以Vue.js 2为基础，以项目实战的方式引导读者渐进式学习Vue.js框架。</p><p>本书示例丰富，侧重实战，适用于刚接触或即将接触Vue.js的开发者，也适合有Vue.js开发经验但还需进一步提升的开发者。</p><p>作者：</p><ul><li>肖睿，任职于北大课工场。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Vue 是一套用于构建用户界面的渐进式框架。旨在更好地组织与简化Web开发。Vue所关注的核心是MVC模式中的视图层，同时，它也能方便地获取数据更新，并通过组件内部特定的方法实现视图与模型的交互。今天推荐10本 VUE 学习书籍。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官网地址：&lt;a 
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="VUE" scheme="https://102no.com/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>10本 Docker 进阶学习书籍推荐</title>
@@ -514,31 +543,6 @@
       <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本算法深入学习书籍推荐</title>
-    <link href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/"/>
-    <id>https://102no.com/2021/01/25/10-in-depth-algorithm-books/</id>
-    <published>2021-01-24T16:00:00.000Z</published>
-    <updated>2021-01-25T03:09:26.813Z</updated>
-    
-    <content type="html"><![CDATA[<p>算法和数据结构是做计算机开发需要掌握的必不可少的基础知识，是计算机科学领域最重要的基石之一，算法是程序的灵魂，只有掌握了算法，才能轻松地驾驭程序开发。但是一上来就直接学习难免会遇到一些比较难啃的问题，上次推荐的10本算法入门书籍，适合刚开始学习的新手以及想要了解算法基础的同学。本篇文章将推荐10本算法入门书籍，适合想要深入学习算法的同学。</p><p>算法学习书籍推荐系列可点击查看：</p><ul><li><a href="https://102no.com/2020/12/03/10-algorithm-books/">10本算法入门书籍推荐</a></li><li><a href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/">10本算法深入学习书籍推荐</a></li></ul><p>Linux书籍推荐系列可点击查看:</p><ul><li><a href="https://102no.com/2020/08/13/10-linux-introduction-books/">10本Linux操作入门书籍推荐</a></li><li><a href="https://102no.com/2020/08/17/10-linux-advanced-books/">10本Linux进阶书籍推荐</a></li><li><a href="https://102no.com/2020/09/01/10-linux-kernel-books/">10本Linux内核书籍推荐</a></li></ul><h2 id="01《算法导论》"><a href="#01《算法导论》" class="headerlink" title="01《算法导论》"></a>01《算法导论》</h2><p><img src="https://i.loli.net/2021/01/25/ESoyZGNQgHjd6Af.png" alt="算法导论.png"></p><p>这本书深入浅出，全面地介绍了计算机算法。对每一个算法的分析既易于理解又十分有趣，并保持了数学严谨性。本书的设计目标全面，适用于多种用途。涵盖的内容有：算法在计算中的作用，概率分析和随机算法的介绍。书中专门讨论了线性规划，介绍了动态规划的两个应用，随机化和线性规划技术的近似算法等，还有有关递归求解、快速排序中用到的划分方法与期望线性时间顺序统计算法，以及对贪心算法元素的讨论。此书还介绍了对强连通子图算法正确性的证明，对哈密顿回路和子集求和问题的NP完全性的证明等内容。全书提供了900多个练习题和思考题以及叙述较为详细的实例研究。</p><p>作者：</p><ul><li>Thomas H.Cormen：达特茅斯学院计算机科学系副教授</li><li>Charles E.Leiserson：麻省理工学院计算机科学与电气工程系教授</li><li>Ronald L.Rivest：麻省理工学院计算机科学系Andrew与Erna Viterbi具名教授</li><li>Clifford Stein：哥伦比亚大学工业工程与运筹学副教授</li></ul><h2 id="02《算法笔记》"><a href="#02《算法笔记》" class="headerlink" title="02《算法笔记》"></a>02《算法笔记》</h2><p><img src="https://i.loli.net/2021/01/25/bAlORoxJM1wyntj.png" alt="算法笔记.png"></p><p>这是一本零基础就能读懂的算法书籍，读者不需要因为自己没有语言基础而畏惧。本书已经覆盖了大部分基础经典算法，不仅可以作为考研机试和PAT的学习教材，对其他的一些算法考试（例如CCF的CSP考试）或者考研初试的数据结构科目的学习和理解也很有帮助，甚至仅仅想学习经典算法的读者也能从本书中学到许多知识，</p><h2 id="03《算法设计》"><a href="#03《算法设计》" class="headerlink" title="03《算法设计》"></a>03《算法设计》</h2><p><img src="https://i.loli.net/2021/01/25/VSyxkzEN8ThcCmF.png" alt="算法设计.png"></p><p>本书更侧重算法设计思路，不再赘述算法复杂度的分析。</p><h2 id="04《算法设计手册》"><a href="#04《算法设计手册》" class="headerlink" title="04《算法设计手册》"></a>04《算法设计手册》</h2><p><img src="https://i.loli.net/2021/01/25/iwNFYUv8sG5ZPV4.png" alt="算法设计手册.png"></p><p>本书揭密了算法的设计与分析，以简单易懂的写作风格，介绍了各种算法技术，着重强调了算法分析。</p><p>本书可以作为算法设计课程的主教材，也是程序人员、研究人员和学生的常备参考书。</p><h2 id="05《算法心得：高效算法的奥秘》"><a href="#05《算法心得：高效算法的奥秘》" class="headerlink" title="05《算法心得：高效算法的奥秘》"></a>05《算法心得：高效算法的奥秘》</h2><p><img src="https://i.loli.net/2021/01/25/Xgnp2E45JcCWPGz.png" alt="算法心得.png"></p><p>在本书中，作者给我们带来了一大批极为诱人的知识，其中包括各种节省程序运行时间的技巧、算法与窍门。学习了这些技术，程序员就可写出优雅高效的软件，同时还能洞悉其中原理。这些技术极为实用，而且其问题本身又非常有趣，有时甚至像猜谜解谜一般，需要奇思妙想才行。</p><p>作者：</p><ul><li>Henry S. Warren, Jr：计算机科学家，在IBM供职50余年，经历了IBM704时代、PowerPC时代及其后种种更迭。曾参与多个军事指挥与控制系统工程，并且参加了由Jack Schwarz领衔的“SET语言”项目。自1973年起，Hank就职于IBM研发部，努力探索编译器和计算机架构。当前正研究一种旨在每秒执行百亿亿次运算的超级计算机。Hank拥有纽约大学柯朗数学科学研究所计算机科学博士学位。</li></ul><h2 id="06《算法设计与分析基础》"><a href="#06《算法设计与分析基础》" class="headerlink" title="06《算法设计与分析基础》"></a>06《算法设计与分析基础》</h2><p><img src="https://i.loli.net/2021/01/25/hu8lwecUZVERKGY.png" alt="算法设计与分析基础.png"></p><p>作者基于丰富的教学经验，开发了一套全新的算法分类方法。该分类法站在通用问题求解策略的高度，对现有大多数算法准确分类，从而引领读者沿着一条清晰、一致、连贯的思路来探索算法设计与分析这一迷人领域。</p><p>本书十分适合用作算法设计和分析的基础教材，也适合任何有兴趣探究算法奥秘的读者使用，只要读者具备数据结构和离散数学的知识即可。</p><h2 id="07《算法设计与分析》"><a href="#07《算法设计与分析》" class="headerlink" title="07《算法设计与分析》"></a>07《算法设计与分析》</h2><p><img src="https://i.loli.net/2021/01/25/cx1nezPsplu9jUd.png" alt="算法设计与分析.png"></p><p>本书为计算机科学技术专业核心课程“算法设计与分析”教材.全书以算法设计技术和分析方法为主线来组织各知识单元，主要内容包括基础知识、分治策略、动态规划、贪心法、回溯与分支限界、算法分析与问题的计算复杂度、NP完全性、近似算法、随机算法、处理难解问题的策略等。书中突出对问题本身的分析和求解方法的阐述，从问题建模、算法设计与分析、改进措施等方面给出适当的建议，同时也简要介绍了计算复杂性理论的核心内容和处理难解问题的一些新技术。</p><p>本书可作为大学计算机科学与技术、软件工程、信息安全、信息与计算机科学等专业本科生和研究生教学用书，也可以作为从事实际问题求解的算法设计与分析工作的参考书。</p><p>作者</p><ul><li>屈婉玲，1969年毕业于北京大学物理系物理学专业，现任北京大学信息科学技术学院教授、博士生导师，中国人工智能学会离散数学专委会委员，</li><li>张立昂，1965年毕业于北京大学数学力学系数学专业，北京大学信息科学技术学院教授、博士生导师。</li></ul><h2 id="08《算法详解》"><a href="#08《算法详解》" class="headerlink" title="08《算法详解》"></a>08《算法详解》</h2><p><img src="https://i.loli.net/2021/01/25/iX9ts38dfxDAaWO.png" alt="算法详解.png"></p><p>本书为对算法感兴趣的广大读者提供了丰富而实用的资料，能够帮助读者提升算法思维能力。本书适合计算机专业的高校教师和学生，想要培养和训练算法思维和计算思维的IT专业人士，以及在准备面试的应聘者和面试官阅读参考。</p><p>作者：</p><ul><li>蒂姆·拉夫加登（Tim Roughgarden）是斯坦福大学计算机科学系的教授,也是该校管理科学和工程系的客座教授，</li></ul><h2 id="09-《算法竞赛入门经典》"><a href="#09-《算法竞赛入门经典》" class="headerlink" title="09 《算法竞赛入门经典》"></a>09 《算法竞赛入门经典》</h2><p><img src="https://i.loli.net/2021/01/25/BXaSCRMDbyeh6zI.png" alt="算法竞赛入门经典.png"></p><p>本书是一本算法竞赛的入门与提高教材，把C/C++语言、算法和解题有机地结合在一起，淡化理论，注重学习方法和实践技巧。</p><p>本书可作为全国青少年信息学奥林匹克联赛（NOIP）复赛教材、全国青少年信息学奥林匹克竞赛（NOI）和ACM国际大学生程序设计竞赛（ACM/ICPC）的训练资料。</p><h2 id="10《编程珠玑》"><a href="#10《编程珠玑》" class="headerlink" title="10《编程珠玑》"></a>10《编程珠玑》</h2><p><img src="https://i.loli.net/2021/01/25/odRyfFW1HQVUpu2.png" alt="编程珠玑.png"></p><p>本书是计算机科学方面的经典名著。书的内容围绕程序设计人员面对的一系列实际问题展开。在书中，作者选取许多具有典型意义的复杂编程和算法问题，生动描绘了历史上众大师们在探索解决方案中发生的轶事、走过的弯路和不断精益求精的历程，引导读者像真正的程序员和软件工程师那样富于创新性地思考，并透彻阐述和总结了许多独特而精妙的设计原则、思考和解决问题的方法以及实用程序设计技巧。</p><p>作者</p><ul><li>Jon Bentley 世界著名计算机科学家，被誉为影响算法发展的十位大师之一。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;算法和数据结构是做计算机开发需要掌握的必不可少的基础知识，是计算机科学领域最重要的基石之一，算法是程序的灵魂，只有掌握了算法，才能轻松地驾驭程序开发。但是一上来就直接学习难免会遇到一些比较难啃的问题，上次推荐的10本算法入门书籍，适合刚开始学习的新手以及想要了解算法基础的同
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
