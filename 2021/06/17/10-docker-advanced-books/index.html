@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>10本 Docker 进阶学习书籍推荐 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">10本 Docker 进阶学习书籍推荐</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">10本 Docker 进阶学习书籍推荐</h1><div class="post-meta">2021-06-17<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2021/06/17/10-docker-advanced-books/#vcomment"><span class="valine-comment-count" data-xid="/2021/06/17/10-docker-advanced-books/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker开发指南》"><span class="toc-number">1.</span> <span class="toc-text">《Docker开发指南》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker进阶与实战》"><span class="toc-number">2.</span> <span class="toc-text">《Docker进阶与实战》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker-容器与容器云》"><span class="toc-number">3.</span> <span class="toc-text">《Docker-容器与容器云》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《自己动手写Docker》"><span class="toc-number">4.</span> <span class="toc-text">《自己动手写Docker》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker生产环境实践指南》"><span class="toc-number">5.</span> <span class="toc-text">《Docker生产环境实践指南》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker经典实例》"><span class="toc-number">6.</span> <span class="toc-text">《Docker经典实例》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker实战》"><span class="toc-number">7.</span> <span class="toc-text">《Docker实战》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《高性能Docker》"><span class="toc-number">8.</span> <span class="toc-text">《高性能Docker》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker源码分析》"><span class="toc-number">9.</span> <span class="toc-text">《Docker源码分析》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Docker容器与虚拟化技术》"><span class="toc-number">10.</span> <span class="toc-text">《Docker容器与虚拟化技术》</span></a></li></ol></div></div><div class="post-content"><p>Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的是，它不依赖于任何语言、框架或包装系统。上一篇推荐了10本 Docker 入门学习书籍，本篇将推荐 10本 Docker 进阶学习书籍。</p>
+<p>Docker学习系列可查看:</p>
+<ul>
+<li><a href="https://102no.com/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li>
+<li><a href="https://102no.com/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li>
+</ul>
+<h2 id="《Docker开发指南》"><a href="#《Docker开发指南》" class="headerlink" title="《Docker开发指南》"></a>《Docker开发指南》</h2><p>本书对Docker进行了全面讲解，包括开发、生产以至维护的整个软件生命周期，并对其中可能出现的一些问题进行了探讨，如软件版本差异、开发环境与生产环境的差异、系统安全问题，等等。</p>
+<p>作者：</p>
+<ul>
+<li>Adrian Mouat，Container Solutions公司首席科学家。</li>
+</ul>
+<h2 id="《Docker进阶与实战》"><a href="#《Docker进阶与实战》" class="headerlink" title="《Docker进阶与实战》"></a>《Docker进阶与实战》</h2><p>本书由一个真正钻研容器技术的团队写作，他们不仅仅是在使用Docker，更多的是在探索容器的未来之路，希望把“代码与产品，理论与实践”完美结合。本书内容从Docker的来源、镜像、仓库、安全、网络、卷存储，到生态、测试及社区贡献都有涉猎。</p>
+<p>作者：</p>
+<ul>
+<li>华为Docker实践小组</li>
+</ul>
+<h2 id="《Docker-容器与容器云》"><a href="#《Docker-容器与容器云》" class="headerlink" title="《Docker-容器与容器云》"></a>《Docker-容器与容器云》</h2><p>本书从实践者的角度，在讲解Docker高级实践技巧的同时，深入到源代码层次，为读者梳理出Docker容器技术和基于Docker的容器云技术（如Kubernetes）的实现方法和设计思路，帮助读者理解如何在实际场景中利用Docker解决问题并启发新的思考。</p>
+<p>本书适用于有一定Docker基础的开发者、架构师、IT专业学生以及探索基于Docker构建云计算平台的技术人员，也非常适合作为高校教材或培训资料。</p>
+<p>作者：</p>
+<ul>
+<li>浙江大学SEL实验室</li>
+</ul>
+<h2 id="《自己动手写Docker》"><a href="#《自己动手写Docker》" class="headerlink" title="《自己动手写Docker》"></a>《自己动手写Docker》</h2><p>本书在详细分析Docker所依赖的技术栈的基础上，一步一步地通过代码实例，让读者可以自己循序渐进地用Go语言构建出一个容器的引擎。</p>
+<p>本书适合对容器技术已经使用过或有一些了解，希望更深层次掌握容器技术原理和最佳实践的读者。</p>
+<p>作者：</p>
+<ul>
+<li>陈显鹭，阿里云高级研发工程师，对Docker有深入研究，是Docker多个项目的Contributor，专注于容器技术的编排与基础环境研究。</li>
+<li>王炳燊，阿里云研发工程师，具有丰富的Linux开发经验，对Docker有深入研究，多次提交Docker Patch。</li>
+<li>秦妤嘉，阿里云高级研发工程师、DevOps工程师，有丰富的容器化持续集成和持续交付开发实战经验，进行过Jenkins源码分析改造和Jenkins插件开发。</li>
+</ul>
+<h2 id="《Docker生产环境实践指南》"><a href="#《Docker生产环境实践指南》" class="headerlink" title="《Docker生产环境实践指南》"></a>《Docker生产环境实践指南》</h2><p>本书围绕“Docker该如何应用到生产环境”这一核心问题展开。本书要求读者具备一定的容器管理和运维的基础知识，适合在生产环境中使用Docker的相关技术人员阅读，尤其适合具有中高级DevOps和运维背景的读者阅读。</p>
+<p>作者：</p>
+<ul>
+<li>Joe Johnston，全栈开发人员、企业家及服务于旧金山创业公司的顾问。</li>
+<li>Antoni Batchelli，PeerSpace公司 的工程副总裁和PalletOps公司（一家基础设施自动化咨询公司）的联合创始人。</li>
+<li>Justin Cormack，顾问，他对开源软件、云计算及分布式系统方面的创新机会尤其感兴趣</li>
+<li>John Fiedler，RelateIQ公司的工程运营总监。</li>
+<li>Milos Gajdos，Infrahackers有限公司的基础设施的负责人，他协助企业更好地理解Linux容器技术，并实现基于容器的基础设施。</li>
+</ul>
+<h2 id="《Docker经典实例》"><a href="#《Docker经典实例》" class="headerlink" title="《Docker经典实例》"></a>《Docker经典实例》</h2><p>本书全面介绍了Docker相关各种工具和平台，涵盖网络、镜像管理、配置以及包括Kubernetes和Mesos在内的编排和调度生态系统，对私有云和公有云上部署的应用程序都给出了丰富实用的解决方案和示例。本书适合运维人员、系统管理员和开发人员阅读。</p>
+<p>作者：</p>
+<ul>
+<li>Sébastien Goasguen，Citrix高级开源解决方案架构师，主要从事Apache CloudStack项目，帮助开发CloudStack生态系统</li>
+</ul>
+<h2 id="《Docker实战》"><a href="#《Docker实战》" class="headerlink" title="《Docker实战》"></a>《Docker实战》</h2><p>本书适用于互联网，云计算，企业级软件开发、架构、测试，以及运维人员快速上手的Docker 容器；同样适用于搭建以Docker 为核心的基础设施，并在生产环境中快速部署应用以及管理容器集群。</p>
+<p>作者：</p>
+<ul>
+<li>Jeff Nickoloff ，曾在Amazon.com、Limelight 网络和亚利桑那州立大学构建大型服务，撰写技术文章，并帮助人们实现产品目标。</li>
+</ul>
+<h2 id="《高性能Docker》"><a href="#《高性能Docker》" class="headerlink" title="《高性能Docker》"></a>《高性能Docker》</h2><p>本书旨在帮助读者改善其Docker 工作流，并保证应用在生产环境中顺利进行。</p>
+<p>如果你对于管理Docker 服务和Linux 文件系统有充分的理解，并希望优化你的Docker 容器，那本书将非常适合你。</p>
+<p>作者：</p>
+<ul>
+<li>Allan Espinosa，名生活在东京的DevOps 从业者，他是很多分布式系统工具的活跃的开源贡献者，比如Docker 和Chef。</li>
+</ul>
+<h2 id="《Docker源码分析》"><a href="#《Docker源码分析》" class="headerlink" title="《Docker源码分析》"></a>《Docker源码分析》</h2><p>本书是一本引导读者深入了解Docker实现原理的技术普及读物，主要目标是通过对Docker架构和源代码的详细讲解和解剖，帮助读者对Docker的底层实现有一个全面的理解。</p>
+<p>作者：</p>
+<ul>
+<li>孙宏亮，硕士，浙江大学毕业，现为DaoCloud软件工程师，主要负责企业级容器云平台的研发工作。数年来一直从事云计算、PaaS领域的研究与实践，是国内较早一批接触Docker的先行者，同时也是Docker技术的推广者。</li>
+</ul>
+<h2 id="《Docker容器与虚拟化技术》"><a href="#《Docker容器与虚拟化技术》" class="headerlink" title="《Docker容器与虚拟化技术》"></a>《Docker容器与虚拟化技术》</h2><p>本书针对具备Linux基础的人群，主要介绍了虚拟化、Docker企业级应用、监控的相关知识与应用，以企业级的实战项目案例，使读者能够掌握应用运维的工作内容。</p>
+<p>本书通过通俗易懂的原理及深入浅出的案例，并配以完善的学习资源和支持服务，为读者带来全方位的学习体验。</p>
+<p>作者：</p>
+<ul>
+<li>肖睿，北京大学教育学博士，课工场kgc.cn创始人，总经理。</li>
+<li>付伟</li>
+<li>田军</li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>10本 Docker 进阶学习书籍推荐</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2021-06-17</p><p><span>最后更新：</span>2021-07-02</p><p><span>原始链接：</span><a href="/2021/06/17/10-docker-advanced-books/">https://102no.com/2021/06/17/10-docker-advanced-books/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2021/06/17/10-docker-advanced-books/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2021/06/17/10-docker-advanced-books/" data-id="ckreodoj10008zg9ddjotjuiy" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNUlEQVR42u3a0WrDMAwF0P7/T2ewp8JIcq+djdU+fiqhdXwoCMnS6xWv43u9f35/cvb9n+tst7N3PbwwMDA+lnFcrpZx9tuzX10/Sc6GgYGxDyMPsmcvvgYkgTgJx6fPMTAwMOJEcH5PDAwMjGcDbhtqk0QTAwMDY6aIvSkj27Izvph7uBbHwMD4QMZYY+BvPv96fwMDA+PfM45ytQ2Ats05eCoMDIylGe24w1h6d934zBsJN+EYAwNjUcb8dX9+3ZYnmu1ABgYGxg6MNhTmo2NtsfpYSwADA2MhRpu6FdsFe7blcUTFwMBYjpFfx+flZf4keWOUVmJgYCzNaMcdZi7I8hZC25zAwMDYgdEebiaMjg1z5G0GDAyM9Rh5MdletOVNgjwxxcDA2JnRTmeMHTHfuf4mBgbGBoyx0JkE32SArLhQy3saGBgYCzHa17SBdX6woxgOw8DAWJTRvrgd8Borkus0FAMDY2nGWMvwN1qPbbp5859gYGAsx7gObfmVfdEvnR4jw8DA2IcxFuCeCql5GVwnhRgYGMsx2rbi2JhXPoSRtw0wMDB2YORhtz3KGDXvSw4miBgYGB/IOMqVD2TMHy6/8sPAwFibMRYc86ZCfqAkEBd3hxgYGMsxxoJsPnc21mCoL+YwMDA2YMxfmeWhc2zd7IaBgYFRjn+1sx4zpTIGBgZGMjyRDGG0wxl14oiBgbEBoz1E2wyYTxxvilsMDIylGWONgXa7ltomixgYGIsyvgBvzPAu8asxtAAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/书籍推荐/"><i class="fa fa-tag"></i>书籍推荐</a><a href="/tags/Docker/"><i class="fa fa-tag"></i>Docker</a></div><div class="post-nav"><a class="pre" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a><a class="next" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

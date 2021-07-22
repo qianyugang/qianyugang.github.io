@@ -1,0 +1,147 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情) | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情)</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情)</h1><div class="post-meta">2018-12-25<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2018/12/25/kong-1.0-update-log/#vcomment"><span class="valine-comment-count" data-xid="/2018/12/25/kong-1.0-update-log/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#重大更新"><span class="toc-number">1.</span> <span class="toc-text">重大更新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心："><span class="toc-number">1.1.</span> <span class="toc-text">核心：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">1.2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件"><span class="toc-number">1.3.</span> <span class="toc-text">插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附加"><span class="toc-number">2.</span> <span class="toc-text">附加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Service-Mesh-和-Stream-Routes"><span class="toc-number">2.1.</span> <span class="toc-text">Service Mesh 和 Stream Routes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核心"><span class="toc-number">2.2.</span> <span class="toc-text">核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置-1"><span class="toc-number">2.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件-1"><span class="toc-number">2.4.</span> <span class="toc-text">插件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修复项"><span class="toc-number">3.</span> <span class="toc-text">修复项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心-1"><span class="toc-number">3.1.</span> <span class="toc-text">核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件-2"><span class="toc-number">3.2.</span> <span class="toc-text">插件</span></a></li></ol></li></ol></div></div><div class="post-content"><p>原文地址:<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#100" target="_blank" rel="external">https://github.com/Kong/kong/blob/master/CHANGELOG.md#100</a> （如有翻译的不准确或错误之处，欢迎留言指出）。<br>这个是一个非常重要的版本，引入了对Service Mesh和Stream Routing支持的新功能，以及新的迁移框架，它还包括插件开发工具包（Plugin Development Kit）的1.0.0版本，它包含大量其他功能和修复，如下所示。此外，Kong 1.0中包含的所有插件都更新为使用PDK 1.0版。<br>像往常一样，主要版本升级需要数据库迁移和Nginx配置文件的更改（如果您自定义了默认模板），在计划升级Kong集群之前，请花几分钟时间阅读<a href="https://github.com/Kong/kong/blob/master/UPGRADE.md" target="_blank" rel="external">1.0升级指南</a>，了解有关更改和迁移的更多详细信息。<br>作为主要版本，在Kong 0.x中标记为已弃用的所有实体和概念现已在Kong 1.0中删除，已弃用的功能将保留在<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#0150" target="_blank" rel="external">Kong 0.15</a>中，Kong 0.x系列的最终版本，同时发布到Kong 1.0。</p>
+<h2 id="重大更新"><a href="#重大更新" class="headerlink" title="重大更新"></a>重大更新</h2><p>Kong 1.0包括0.15的所有重大更改，以及删除已弃用的概念：</p>
+<h3 id="核心："><a href="#核心：" class="headerlink" title="核心："></a>核心：</h3><ul>
+<li>API实体和相关概念（ 例如/apis ）将被删除（自0.13版本，2018年三月起不推荐使用）。请改用路由和服务。</li>
+<li>删除旧的DAO实现以及旧的schema 验证库（apis是使用它的最后一个实体），在自定义插件中使用新的 schema format。</li>
+<li>为了简化插件的转换，1.0中的 plugin loader 包含 best-effort 的模式自动翻译器，对于许多插件来说应该足够了。</li>
+<li>在0.14.x版本的Upstreams中，Targets 和 Plugins 仍然使用旧的 DAO 和Admin API实现。在0.15.0和1.0.0上，所有核心实体都使用新的<code>kong.db</code> DAO，并且他们的端点已升级到新的Admin API（有关详细信息，请参阅下文）。<a href="https://github.com/Kong/kong/pull/3689" target="_blank" rel="external">#3689</a>, <a href="https://github.com/Kong/kong/pull/3739" target="_blank" rel="external">#3739</a>, <a href="https://github.com/Kong/kong/pull/3778" target="_blank" rel="external">#3778</a></li>
+<li>新的迁移框架( migration framework),<a href="https://github.com/Kong/kong/pull/3802" target="_blank" rel="external">#3802</a></li>
+<li><code>luaossl</code> 版本跳提升到20181207<a href="https://github.com/Kong/kong/pull/4067" target="_blank" rel="external">#4067</a></li>
+<li>新 <code>kong.resty.getssl</code> 模块 <a href="https://github.com/Kong/kong/pull/3681" target="_blank" rel="external">#3681</a></li>
+<li>时间戳现在允许毫秒精度<a href="https://github.com/Kong/kong/pull/3660" target="_blank" rel="external">#3660</a></li>
+<li><code>OpenSSL</code> 已经提升到至 1.1.1a <a href="https://github.com/Kong/kong/pull/4005" target="_blank" rel="external">#4005</a></li>
+<li><code>luasec</code> 提升到 to 0.7</li>
+<li>PDK函数 <code>kong.request.get_body</code>  现在将返回<code>nil</code>，<code>err</code>，<code>mime</code>，当body是有效的JSON但是既不是对象也不是数组<a href="https://github.com/Kong/kong/pull/4063" target="_blank" rel="external">#4063</a></li>
+</ul>
+<p>New Admin API引入的更改摘要:</p>
+<ul>
+<li>分页已包含在所有“multi-record”端点中，分页控制字段与0.14.x中的不同。</li>
+<li>现在通过URL路径更改（<code>/consumers/x/plugins</code>）而不是querystring字段（<code>/plugins?consumer_id = x</code>）进行过滤。</li>
+<li>Array values不能与逗号分隔的字符串相交。它们必须是JSON请求上的“正确”JSON值，或者在form-url-encoded或multipart请求上使用新语法。</li>
+<li>错误消息已经从头开始重新设计，更加一致，准确和提供信息。</li>
+<li>PUT方法已经使用幂等行为重新实现，并且已添加到一些没有它的实体中。</li>
+</ul>
+<p>有关New Admin API的更多详细信息请访问官方文档<a href="https://docs.konghq.com/" target="_blank" rel="external">https://docs.konghq.com/</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>删除了<code>custom_plugins</code>指令（自2018年7月的0.14.0起不推荐使用）。请改用<code>plugins</code>。</li>
+</ul>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>删除了galileo插件（自0.13.0起不推荐使用）</li>
+<li>在0.14.0中引入插件开发工具包（PDK）之前，插件作者偶尔使用的一些内部模块现已被删除：<ul>
+<li><code>kong.tools.ip</code> 模块已被删除。请改用PDK中的<code>kong.ip</code>。</li>
+<li><code>kong.tools.public</code> 模块已被删除。请使用PDK中的各种等效功能。</li>
+<li><code>kong.tools.responses</code> 模块已被删除。请改用PDK中的 <code>kong.response.exit</code>。您可能还想使用<code>kong.log.err</code>来记录内部服务器错误。</li>
+<li><code>kong.api.crud_helpers</code>模块已删除（自0.13.0中引入新DAO以来已弃用）。如果需要自定义自动生成的端点，请使用<code>kong.api.endpoints</code>。</li>
+</ul>
+</li>
+<li>在插件模式中，<code>no_route</code>＆<code>no_service</code>＆<code>no_consumer</code>注释被制作为相应字段的#decection<a href="https://github.com/Kong/kong/pull/3739" target="_blank" rel="external">#3739</a>;在0.15中，它们在<code>schema.lua</code> table 中作为<code>ad-hoc</code>字段提供，作为旧的<code>no_consumer</code>选项。</li>
+<li>所有自带的插件模式和自定义实体都已更新为新的<code>kong.db</code>，并且他们的API已更新为New Admin API，因此得到了改进，但是仍有不同的行为，如上一节所述<a href="https://github.com/Kong/kong/pull/3766" target="_blank" rel="external">#3766</a>, <a href="https://github.com/Kong/kong/pull/3774" target="_blank" rel="external">#3774</a>, <a href="https://github.com/Kong/kong/pull/3778" target="_blank" rel="external">#3778</a>, <a href="https://github.com/Kong/kong/pull/3839" target="_blank" rel="external">#3839</a></li>
+<li>所有插件迁移都已转换为新的迁移框架。自定义插件需要使用0.15以上的新迁移框架。</li>
+</ul>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><h3 id="Service-Mesh-和-Stream-Routes"><a href="#Service-Mesh-和-Stream-Routes" class="headerlink" title="Service Mesh 和 Stream Routes"></a>Service Mesh 和 Stream Routes</h3><ul>
+<li>这些新功能需要修补版本的OpenResty，但Kong仍然可以在非修补的OpenResty for HTTP（S）API网关方案中正常工作</li>
+<li>通过<code>stream_listen</code>配置选项支持TCP和TLSStream Routes <a href="https://github.com/Kong/kong/pull/4009" target="_blank" rel="external">#4009</a></li>
+<li>新的<code>origins</code>配置属性允许覆盖来自kong的主机 <a href="https://github.com/Kong/kong/pull/3679" target="_blank" rel="external">#3679</a></li>
+<li>Kong实例现在可以创建共享内部Certificate Authority,，用于Service Mesh SSL流量  <a href="https://github.com/Kong/kong/pull/3906" target="_blank" rel="external">#3906</a>, <a href="https://github.com/Kong/kong/pull/3861" target="_blank" rel="external">#3861</a>,</li>
+<li><code>transparent</code> 监听允许使用 <code>iptables</code> 设置<code>Service Mesh</code> [#3884]</li>
+<li>插件的<code>run_on</code>字段用于控制它们在Service Mesh环境中的行为方式 <a href="https://github.com/Kong/kong/pull/3930" target="_blank" rel="external">#3930</a>, <a href="https://github.com/Kong/kong/pull/4066" target="_blank" rel="external">#4066</a>    </li>
+<li>这里新加一个叫做<code>preread</code>的新阶段。这是流量路由完成的地方。</li>
+</ul>
+<h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><ul>
+<li>路由现在有一个<code>name</code>字段 [#3764]</li>
+<li>在新的DAO和Admin API中实现了TTL支持。特别是，PostgreSQL获得了一种新的更高效的TTL实现 <a href="https://github.com/Kong/kong/pull/3603" target="_blank" rel="external">#3603</a>, <a href="https://github.com/Kong/kong/pull/3638" target="_blank" rel="external">#3638</a></li>
+<li>通过减少数据库访问量来提高路由器重建的性能 <a href="https://github.com/Kong/kong/pull/3782" target="_blank" rel="external">#3782</a></li>
+<li>Schema 改进：<ul>
+<li>Subschemas 子模式 <a href="https://github.com/Kong/kong/pull/3630" target="_blank" rel="external">#3630</a></li>
+<li>新的实体验证器：<code>distinct</code>，<code>ne</code>，<code>is_regex</code>，<code>contains</code>，<code>gt</code></li>
+<li>实体检查仅在必要时运行 <a href="https://github.com/Kong/kong/pull/3848" target="_blank" rel="external">#3848</a></li>
+<li>条件验证器可以根据需要标记字段 <a href="https://github.com/Kong/kong/commit/6d1707c4" target="_blank" rel="external">6d1707c4s</a></li>
+<li>记录字段的部分更新 <a href="https://github.com/Kong/kong/commit/05adc40f" target="_blank" rel="external">05adc40f</a></li>
+<li>向schema添加具有默认值的新字段不再需要迁移 <a href="https://github.com/Kong/kong/pull/3756" target="_blank" rel="external">#3756</a></li>
+</ul>
+</li>
+<li>PDK改进:<ul>
+<li>新的<code>kong.node</code>模块 <a href="https://github.com/Kong/kong/pulls/3826" target="_blank" rel="external">#3826</a></li>
+<li>新的 <code>kong.response.get_path_with_query</code> 模块 <a href="https://github.com/Kong/kong/pull/3842" target="_blank" rel="external">#3842</a></li>
+<li>PDK getters and setters for Service, Route, Consumer &amp; Credential <a href="https://github.com/Kong/kong/pull/3916" target="_blank" rel="external">#3916</a></li>
+<li><code>kong.response.get_source</code>返回<code>error</code>错误 <a href="https://github.com/Kong/kong/pull/4006" target="_blank" rel="external">#4006</a></li>
+<li><code>kong.response.exit</code>可以在<code>header_filter</code>阶段使用，但只能没有body <a href="https://github.com/Kong/kong/pull/4039" target="_blank" rel="external">#4039</a></li>
+</ul>
+</li>
+<li>Cluster-wide mutex 集群范围的互斥锁  <a href="https://github.com/Kong/kong/pull/3685" target="_blank" rel="external">#3685</a></li>
+<li>向Admin API添加多部分支持： <a href="https://github.com/Kong/kong/pull/3776" target="_blank" rel="external">#3776</a></li>
+<li>改进了插件迭代器的速度 <a href="https://github.com/Kong/kong/pull/3794" target="_blank" rel="external">#3794</a></li>
+<li>在活动运行状况检查中添加对HTTPS的支持 <a href="https://github.com/Kong/kong/pull/3815" target="_blank" rel="external">#3815</a></li>
+</ul>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><ul>
+<li>新字段 <code>dns_valid_ttl</code> <a href="https://github.com/Kong/kong/pull/3730" target="_blank" rel="external">#3730</a></li>
+<li>新字段 <code>pg_timeout</code> <a href="https://github.com/Kong/kong/pull/3808" target="_blank" rel="external">#3808</a></li>
+<li>设置为0时，可以禁用 <code>upstream_keepalive</code> (感谢 <a href="https://github.com/pryorda" target="_blank" rel="external">@pryorda</a>! ) <a href="https://github.com/Kong/kong/pull/3716" target="_blank" rel="external">#3716</a></li>
+<li>新的<code>transparent</code>后缀也适用于<code>proxy_listen</code>指令</li>
+</ul>
+<h3 id="插件-1"><a href="#插件-1" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>http-log插件现在接受缓冲日志记录 <a href="https://github.com/Kong/kong/pull/3604" target="_blank" rel="external">#3604</a></li>
+<li>大多数插件逻辑都是用PDK重写的，而不是使用内部kong函数或ngx调用 <a href="https://github.com/Kong/kong/pull/3845" target="_blank" rel="external">#3845</a></li>
+<li>新的run_on选项用于控制插件在Service Mesh环境中的执行位置 <a href="https://github.com/Kong/kong/pull/3930" target="_blank" rel="external">#3930</a>, <a href="https://github.com/Kong/kong/pull/4066" target="_blank" rel="external">#4066</a></li>
+<li>通常，插件对故障/意外输入更具弹性  <a href="https://github.com/Kong/kong/pull/4006" target="_blank" rel="external">#4006</a>, <a href="https://github.com/Kong/kong/pull/3947" target="_blank" rel="external">#3947</a>, <a href="https://github.com/Kong/kong/pull/4038" target="_blank" rel="external">#4038</a></li>
+<li>AWS现在支持使用<code>is_proxy_integration</code>进行Lambda代理集成<a href="https://github.com/Kong/kong/pull/3427/" target="_blank" rel="external">#3427</a>。感谢<a href="https://github.com/aloisbarreras" target="_blank" rel="external">@aloisbarreras</a> 的补丁。</li>
+</ul>
+<h2 id="修复项"><a href="#修复项" class="headerlink" title="修复项"></a>修复项</h2><h3 id="核心-1"><a href="#核心-1" class="headerlink" title="核心"></a>核心</h3><ul>
+<li>嵌套记录由metaschema验证</li>
+<li><code>kong.db.errors</code> 接收当前策略的名称</li>
+<li>新DAO具有正确的CRUD事件<a href="https://github.com/Kong/kong/pull/3659" target="_blank" rel="external">#3659</a>并且仅触发更新事件一次<a href="https://github.com/Kong/kong/pull/4095" target="_blank" rel="external">#4095</a></li>
+<li>SNI正确分页<a href="https://github.com/Kong/kong/pull/3722" target="_blank" rel="external">#3722</a></li>
+<li>null和默认值处理得更好 <a href="https://github.com/Kong/kong/pull/3772" target="_blank" rel="external">#3772</a>, <a href="https://github.com/Kong/kong/pull/3710" target="_blank" rel="external">#3710</a>, <a href="https://github.com/Kong/kong/pull/3910" target="_blank" rel="external">#3910</a></li>
+<li>使用<code>admin API</code>上的<code>application / x-www-form-urlencoded</code>推断参数效果更好 <a href="https://github.com/Kong/kong/pull/3770" target="_blank" rel="external">#3770</a></li>
+<li>现在正确处理 <code>$ request_uri</code> 为 <code>nil</code> <a href="https://github.com/Kong/kong/pull/3842" target="_blank" rel="external">#3842</a></li>
+<li>可以更准确地检测Cassandra中的主键冲突 <a href="https://github.com/Kong/kong/pull/3865" target="_blank" rel="external">#3865</a></li>
+<li>Datastax Enterprise 6.X不会抛出错误 , 感谢(<a href="https://github.com/gchristidis" target="_blank" rel="external">@gchristidis</a>) <a href="https://github.com/Kong/kong/pull/3873" target="_blank" rel="external">#3873</a></li>
+<li>Conditionals 可以在模式中正确处理结构化数据 <a href="https://github.com/Kong/kong/pull/3936" target="_blank" rel="external">#3936</a></li>
+<li>最近创建的上游为其初始目标列表返回 <code>[]</code>而不是<code>{}</code><a href="https://github.com/Kong/kong/pull/4058" target="_blank" rel="external">#4058</a></li>
+<li><code>postgres</code>策略正确创建数组索引表达式 <a href="https://github.com/Kong/kong/pull/4078" target="_blank" rel="external">#4078</a></li>
+<li>在某些情况下，路由器不再注入额外的<code>/</code> <a href="https://github.com/kong/kong/pull/3780" target="_blank" rel="external">#3780</a></li>
+<li>在我们的模板中打开TLSv1.3以解决OpenSSL中的错误 <a href="https://github.com/Kong/kong/pull/4046" target="_blank" rel="external">#4046</a></li>
+<li>几个错别字，风格和语法修复 by <a href="https://github.com/saideepd" target="_blank" rel="external">@saideepd</a>, <a href="https://github.com/gy741" target="_blank" rel="external">@gy741</a>, <a href="https://github.com/arpitpandey0209" target="_blank" rel="external">@arpitpandey0209</a>, <a href="https://github.com/joealvisroman" target="_blank" rel="external">@joelvisroman</a>, <a href="https://github.com/vkmrishad" target="_blank" rel="external">@vkmrishad</a>, <a href="https://github.com/mr-yamraj" target="_blank" rel="external">@mr-yamraj</a>, <a href="https://github.com/geekysrm" target="_blank" rel="external">@geekysrm</a>, <a href="https://github.com/Mehvix" target="_blank" rel="external">@Mehvix</a>, <a href="https://github.com/vyaspranjal33" target="_blank" rel="external">@vyaspranjal33</a>, <a href="https://github.com/iTechTR" target="_blank" rel="external">@iTechTR</a>, <a href="https://github.com/shyamjalan" target="_blank" rel="external">@shyamjalan</a>, and <a href="https://github.com/@steffinstanly" target="_blank" rel="external">@steffinstanly</a>.</li>
+</ul>
+<h3 id="插件-2"><a href="#插件-2" class="headerlink" title="插件"></a>插件</h3><ul>
+<li>记录字段在插件架构中不可为空 <a href="https://github.com/Kong/kong/pulls/3778" target="_blank" rel="external">#3778</a></li>
+<li>修复了一些问题，其中一些插件可能包含Lapis的默认HTML响应 <a href="https://github.com/Kong/kong/pull/4077" target="_blank" rel="external">#4077</a></li>
+<li>cors:<ul>
+<li>当 <code>Access-Control-Allow-Credentials</code> 启用的时候 set ‘Vary: Origin’（感谢<a href="https://github.com/marckhouzam" target="_blank" rel="external">@marckhouzam</a>） <a href="https://github.com/Kong/kong/pull/3765" target="_blank" rel="external">#3675</a></li>
+<li>对于预检请求，返回HTTP 200而不是204 (感谢 <a href="https://github.com/aslafy-z" target="_blank" rel="external">@aslafy-z</a>) <a href="https://github.com/Kong/kong/pull/4029" target="_blank" rel="external">#4029</a>)</li>
+<li>现在可以安全地验证 flat strings 。<a href="https://github.com/Kong/kong/commit/0eaa9acd" target="_blank" rel="external">0eaa9acd</a></li>
+</ul>
+</li>
+<li>acl:<ul>
+<li>编辑ACL时会重置缓存 <a href="https://github.com/Kong/kong/pull/3839" target="_blank" rel="external">#3839</a></li>
+<li>缓存正确用于 intermediary  <a href="https://github.com/Kong/kong/pull/4040" target="_blank" rel="external">#4040</a></li>
+</ul>
+</li>
+<li>correlation-id:当access阶段被跳过的时候会报错 <a href="https://github.com/Kong/kong/issues/3924" target="_blank" rel="external">#3924</a></li>
+<li>aws-lambda: HTTP / 2不允许去掉header <a href="https://github.com/Kong/kong/commit/f2ee98e2" target="_blank" rel="external"> #f2ee98e2</a></li>
+<li>ratelimiting &amp; response-ratelimiting:修复了不必要的redis调用问题：<code>redis:select</code> 可以关闭连接。(感谢 <a href="https://github.com/fffonion" target="_blank" rel="external">@fffonion</a> <a href="https://github.com/Kong/kong/pull/3973" target="_blank" rel="external">#3973</a></li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情)</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2018-12-25</p><p><span>最后更新：</span>2020-06-09</p><p><span>原始链接：</span><a href="/2018/12/25/kong-1.0-update-log/">https://102no.com/2018/12/25/kong-1.0-update-log/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2018/12/25/kong-1.0-update-log/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2018/12/25/kong-1.0-update-log/" data-id="ckreodom50097zg9df606zvjx" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aQQ7CMAxEUe5/6bJG0DLjSSvF/llVCFq/Lowd5/WS1/G19O9cf/J9t7P7L1gwYMDYlnFcLj0UJazkFfx5lTBgwBjAOLv1qms3ZeuxwYABA4YSVi1xu8+FAQMGDPd2ysOUZJqUkjBgwJjGUBJlsuulk27vxWHAgLEhQw/u+etb5hswYMDYinGY67pMrIV1xAsGDBi9GUkLWvvcTeJGPDBgwGjNyI8+KL9173+9uSaVjzBgwGjEuCXZyaEn5ebp/wYMGDAaMdzjFG6Rpw8ypfddqzFhwIDRgpEDkkKw1jZ/XMOAAWMM45mRwNrv27MFGDBgbM5QCr5VW2zJr35ECAMGjNYM92F5L1kbhdotLgwYMBox8sayNlRI3vTpZAMGDBitGXbTWGqDlaJQLwFhwIAxh+E2k3pidRvXBYfDYMCAMYDhNqLKI9cOL6WECwMGjNYMfWCpJ2I34dbKRBgwYExg1A5e6P2jG3rUWsOAAaMpI9kIyw9nJKWk1MTCgAGjEcNNlG7L6jal9gYcDBgwBjCURlEvDZODF25/CgMGjN6M2lEJt/XVD4S5Y87oxAcMGDA2YegrP4pRa03dQQUMGDC6MpJ0mZSGta264vASBgwYLRhuGtW3z9wxQC1aGDBgwHC39V2AO/6EAQMGjCThJuCkeIUBA8YERi0J6o93t/OURhoGDBhzGM/vZdWOty4YZMKAAWM/xhvgV9sZPn6ijAAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/Kong新版本发布/"><i class="fa fa-tag"></i>Kong新版本发布</a></div><div class="post-nav"><a class="pre" href="/2018/12/27/kong-service-doc/">微服务 API 网关 Kong Service 中文文档</a><a class="next" href="/2018/12/21/lua-resty-http/">Openresty 第三方库 Lua-resty-http 使用教程</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>10本 Go 语言进阶学习书籍推荐 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">10本 Go 语言进阶学习书籍推荐</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">10本 Go 语言进阶学习书籍推荐</h1><div class="post-meta">2021-03-10<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2021/03/10/10-golang-learn-advanced-books/#vcomment"><span class="valine-comment-count" data-xid="/2021/03/10/10-golang-learn-advanced-books/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#《The-Go-Programming-Language》-《Go-语言圣经》"><span class="toc-number">1.</span> <span class="toc-text">《The Go Programming Language》-《Go 语言圣经》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go专家编程》"><span class="toc-number">2.</span> <span class="toc-text">《Go专家编程》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go-语法树入门》"><span class="toc-number">3.</span> <span class="toc-text">《Go 语法树入门》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go语言编程之旅》"><span class="toc-number">4.</span> <span class="toc-text">《Go语言编程之旅》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go语言高级编程》"><span class="toc-number">5.</span> <span class="toc-text">《Go语言高级编程》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go语言核心编程》"><span class="toc-number">6.</span> <span class="toc-text">《Go语言核心编程》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go-语言设计与实现》"><span class="toc-number">7.</span> <span class="toc-text">《Go 语言设计与实现》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go语言高并发与微服务实战》"><span class="toc-number">8.</span> <span class="toc-text">《Go语言高并发与微服务实战》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go并发编程实战》"><span class="toc-number">9.</span> <span class="toc-text">《Go并发编程实战》</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《Go语言并发之道》"><span class="toc-number">10.</span> <span class="toc-text">《Go语言并发之道》</span></a></li></ol></div></div><div class="post-content"><p>Go 语言起源于 2007 年，并在 2009 年正式对外发布，由 Google 公司推出。它是一门非常年轻的语言，它的主要目标是「兼具 Python 等动态语言的开发速度和 C/C++ 等编译型语言的性能与安全性」。具有「部署简单、并发性好、语言设计良好、执行性能好」等优势。目前市面上有很多很多重要的开源项目都是使用Go语言开发的，诸如 Docker、 Kubernetes。今天主要推荐10本 Go语言进阶学习书籍。</p>
+<p>家庭读书系列可点击查看：</p>
+<ul>
+<li><a href="https://102no.com/2020/04/23/10-essential-books-for-famil-medicine/">10本家庭医疗必备书籍</a></li>
+<li><a href="https://102no.com/2021/02/05/10-children-picture-book/">10本春节过年回家适合和小朋友一起看的绘本书推荐</a></li>
+</ul>
+<p>算法学习书籍推荐系列可点击查看：</p>
+<ul>
+<li><a href="https://102no.com/2020/12/03/10-algorithm-books/">10本算法入门书籍推荐</a></li>
+<li><a href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/">10本算法深入学习书籍推荐</a></li>
+</ul>
+<p>Linux书籍推荐系列可点击查看:</p>
+<ul>
+<li><a href="https://102no.com/2020/08/13/10-linux-introduction-books/">10本Linux操作入门书籍推荐</a></li>
+<li><a href="https://102no.com/2020/08/17/10-linux-advanced-books/">10本Linux进阶书籍推荐</a></li>
+<li><a href="https://102no.com/2020/09/01/10-linux-kernel-books/">10本Linux内核书籍推荐</a></li>
+</ul>
+<p>Go 语言学习书籍推荐系列可点击查看：</p>
+<ul>
+<li><a href="https://102no.com/2021/03/02/10-golang-learn-books/">10本 Go 语言入门学习书籍推荐</a></li>
+<li><a href="https://102no.com/2021/03/10/10-golang-learn-advanced-books/">10本 Go 语言进阶学习书籍推荐</a></li>
+</ul>
+<h2 id="《The-Go-Programming-Language》-《Go-语言圣经》"><a href="#《The-Go-Programming-Language》-《Go-语言圣经》" class="headerlink" title="《The Go Programming Language》-《Go 语言圣经》"></a>《The Go Programming Language》-《Go 语言圣经》</h2><p><img src="https://i.loli.net/2021/03/10/qsbmRE9a3hG2CIc.png" alt="TheGoProgrammingLanguage.png"></p>
+<p><img src="https://i.loli.net/2021/03/10/s5cdA9oRuy1kp6O.png" alt="Go语言圣经.png"></p>
+<p>本书是一本开源图书。原版为英文图书《The Go Programming Language》，本书仅供学习交流之用。</p>
+<ul>
+<li><p>项目主页：<a href="http://github.com/golang-china/gopl-zh" target="_blank" rel="external">http://github.com/golang-china/gopl-zh</a></p>
+</li>
+<li><p>原版官网：<a href="http://gopl.io" target="_blank" rel="external">http://gopl.io</a></p>
+</li>
+<li><p>在线预览：</p>
+<ul>
+<li><a href="https://docs.hacknode.org/gopl-zh/" target="_blank" rel="external">https://docs.hacknode.org/gopl-zh/</a></li>
+<li><a href="https://books.studygolang.com/gopl-zh/" target="_blank" rel="external">https://books.studygolang.com/gopl-zh/</a></li>
+<li><a href="https://wizardforcel.gitbooks.io/gopl-zh/" target="_blank" rel="external">https://wizardforcel.gitbooks.io/gopl-zh/</a></li>
+<li><a href="https://docs.hundan.org/gopl-zh/" target="_blank" rel="external">https://docs.hundan.org/gopl-zh/</a></li>
+<li><a href="https://book.itsfun.top/gopl-zh/" target="_blank" rel="external">https://book.itsfun.top/gopl-zh/</a> #每夜自动构建</li>
+</ul>
+</li>
+</ul>
+<p>注意，在线预览不是最新版，最新以仓库里的内容为准。</p>
+<h2 id="《Go专家编程》"><a href="#《Go专家编程》" class="headerlink" title="《Go专家编程》"></a><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRNdEgMTDlEbXCUCEwZWGlsQAxsCURldEjJWWA1FBCVbV0IUWVALHEpCAUdETlcNVQtHRRUDEwRUG14UCxcDVx1cCltXWwgrD3Z3ewcGRw92W0ZPCWMYDwZFAwBHOxkOIgZlG1oUARADVxxZFDIiB1IrGnsHEw9SHmsUMhIAVR9TEQEbB1YZUhIyFQdcK4y8lsWhwcPpjNaaioOC8MGojjdlK1glMiIHZRhrV2wSAgASCUYFR1dVS1MQCxcDBRxdQAMXBAEZUhQHGgcCT2sXAxMDXA%3D%3D" target="_blank" rel="external">《Go专家编程》</a></h2><p><img src="https://i.loli.net/2021/03/10/1jVguDe9BmcCvs4.png" alt="Go专家编程.png"></p>
+<p>本书深入地讲解了Go语言常见特性的内部机制和实现方式，大部分内容源自对Go语言源码的分析，并从中提炼出实现原理。通过阅读本书，读者可以快速、轻松地了解Go语言的内部运作机制。</p>
+<p>作者：</p>
+<ul>
+<li>任洪彩，华为云原生团队核心成员，开源爱好者。</li>
+</ul>
+<p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRNdEgMTDlEbXCUCEwZWGlsQAxsCURldEjJWWA1FBCVbV0IUWVALHEpCAUdETlcNVQtHRRUDEwRUG14UCxcDVx1cCltXWwgrD3Z3ewcGRw92W0ZPCWMYDwZFAwBHOxkOIgZlG1oUARADVxxZFDIiB1IrGnsHEw9SHmsUMhIAVR9TEQEbB1YZUhIyFQdcK4y8lsWhwcPpjNaaioOC8MGojjdlK1glMiIHZRhrV2wSAgASCUYFR1dVS1MQCxcDBRxdQAMXBAEZUhQHGgcCT2sXAxMDXA%3D%3D" target="_blank" rel="external">【点击查看详情】</a></p>
+<h2 id="《Go-语法树入门》"><a href="#《Go-语法树入门》" class="headerlink" title="《Go 语法树入门》"></a>《Go 语法树入门》</h2><p>本书为开源一本开源图书。Go语法树入门 —— 开启自制编程语言和编译器之旅！</p>
+<ul>
+<li>在线阅读地址：<a href="https://github.com/chai2010/go-ast-book" target="_blank" rel="external">https://github.com/chai2010/go-ast-book</a></li>
+</ul>
+<p>作者：</p>
+<ul>
+<li>柴树杉</li>
+<li>史斌</li>
+<li>丁尔男</li>
+</ul>
+<h2 id="《Go语言编程之旅》"><a href="#《Go语言编程之旅》" class="headerlink" title="《Go语言编程之旅》"></a><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEVDlEYXh0yVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARUOURheHR1LQglGaxZ1a38sUB50YVIdClBddn0XRktiJFMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxICVitaJQIVB1ETXxYAEARRH1glBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsDF1IHE1sQVUBXXR5eFwURVFwYUxAKGwFWSA8UV0EPUitZFAMWDg%3D%3D" target="_blank" rel="external">《Go语言编程之旅》</a></h2><p><img src="https://i.loli.net/2021/03/10/uXsz3y9WBfl2cnP.png" alt="Go语言编程之旅.png"></p>
+<p>《Go语言编程之旅：一起用Go做项目》</p>
+<p>本书对项目开发、细节分析、运行时分析等核心内容进行了较为深入的剖析，提供了相对完整的项目实践经验。在项目迭代过程中，难免会遇到问题，因此本书针对Go语言的大杀器（分析工具）及常见问题进行了全面讲解，帮助读者对各类问题进行排查。本书适合有一定Go语言基础的读者以及相关开发人员阅读。</p>
+<p>作者：</p>
+<ul>
+<li>陈剑煜（网名：煎鱼），“Go夜读” SIG小组成员，对Go语言有一定的兴趣和经验。</li>
+<li>徐新华（网名：polaris），Go语言中文网站长，目前在北京一家创业公司担任CTO。8年来一直致力于推广Go语言在国内的发展，致力构建国内Go语言中文社区。</li>
+</ul>
+<p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEVDlEYXh0yVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARUOURheHR1LQglGaxZ1a38sUB50YVIdClBddn0XRktiJFMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxICVitaJQIVB1ETXxYAEARRH1glBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsDF1IHE1sQVUBXXR5eFwURVFwYUxAKGwFWSA8UV0EPUitZFAMWDg%3D%3D" target="_blank" rel="external">【点击查看详情】</a></p>
+<h2 id="《Go语言高级编程》"><a href="#《Go语言高级编程》" class="headerlink" title="《Go语言高级编程》"></a>《Go语言高级编程》</h2><p><img src="https://i.loli.net/2021/03/10/al3J7SyDrGR9wmP.png" alt="Go语言高级编程.png"></p>
+<p>本书从实践出发讲解Go语言编程的进阶知识。</p>
+<ul>
+<li>开源版本： <a href="https://github.com/feixiao/advanced-go-programming-book.git" target="_blank" rel="external">https://github.com/feixiao/advanced-go-programming-book.git</a></li>
+<li>在线阅读：<a href="https://chai2010.cn/advanced-go-programming-book/" target="_blank" rel="external">https://chai2010.cn/advanced-go-programming-book/</a></li>
+</ul>
+<p>作者：</p>
+<ul>
+<li>柴树杉，国内第一批的Go语言爱好者，Go语言代码贡献者，CGO资深用户。</li>
+<li>曹春晖，在Web领域工作多年，开源爱好者。对大型网站系统的架构和相关工具的实现很感兴趣，并且有一些研究成果。目前在滴滴平台技术部工作。</li>
+</ul>
+<h2 id="《Go语言核心编程》"><a href="#《Go语言核心编程》" class="headerlink" title="《Go语言核心编程》"></a>《Go语言核心编程》</h2><p><img src="https://i.loli.net/2021/03/10/wEygJ3nHoasMCLq.png" alt="Go语言核心编程.png"></p>
+<p>本书是一本系统介绍Go 语言编程的书籍。首先介绍Go 语言的基础知识，使读者对Go 语言有一个整体的认知。本书适合各个层次的Go 语言开发者阅读，初学者可以系统地从头学习，有一定的编程经验者可以选择性地阅读本书。</p>
+<p>作者：</p>
+<ul>
+<li>李文塔，现就职于腾讯，FiT（前身为财付通）支付账户核心DBA，高级工程师。</li>
+</ul>
+<h2 id="《Go-语言设计与实现》"><a href="#《Go-语言设计与实现》" class="headerlink" title="《Go 语言设计与实现》"></a>《Go 语言设计与实现》</h2><p>本书为一本开源图书。</p>
+<ul>
+<li>阅读地址：<a href="https://draveness.me/golang/" target="_blank" rel="external">https://draveness.me/golang/</a></li>
+</ul>
+<p>本书不建议没有任何编程经验的读者阅读，其目标读者包含以下几部分人群：</p>
+<ul>
+<li>学习过 Go 语言并且想要理解背后设计与实现的开发者；</li>
+<li>有过其他语言的开发经验，想要学习 Go 语言的开发者；</li>
+</ul>
+<h2 id="《Go语言高并发与微服务实战》"><a href="#《Go语言高并发与微服务实战》" class="headerlink" title="《Go语言高并发与微服务实战》"></a>《Go语言高并发与微服务实战》</h2><p><img src="https://i.loli.net/2021/03/10/vpV4b8u5EeqtIcT.png" alt="Go语言高并发与微服务实战.png"></p>
+<p>微服务作为开展云原生技术落地的核心，它将复杂的单体应用按照业务划分并进行有效地拆分，每个微服务都可以进行独立部署和开发，大大提升了应用开发效率。Go语言作为新生代的编译型编程语言，具备语法简单、高并发性能良好和编译速度快等特点，是微服务架构落地实践的绝妙利器。</p>
+<p>作者：</p>
+<ul>
+<li>朱荣鑫，微服务早期实践者，微服务方面技术专家，对高并发、分布式有多年深入的实践经验。</li>
+<li>黄迪璇</li>
+<li>张天，服务端技术专家，精耕于微服务、分布式、数据库和性能调优等后端开发领域。</li>
+</ul>
+<h2 id="《Go并发编程实战》"><a href="#《Go并发编程实战》" class="headerlink" title="《Go并发编程实战》"></a>《Go并发编程实战》</h2><p><img src="https://i.loli.net/2021/03/10/qHGm1MFLp8NnCZ2.png" alt="Go并发编程实战.png"></p>
+<p>本书首先介绍了Go语言的优秀特性、安装设置方法、工程结构、标准命令和工具、语法基础、数据类型以及流程控制方法，接着阐述了与多进程编程和多线程编程有关的知识，然后重点介绍了goroutine、channel以及Go提供的传统同步方法，最后通过一个完整实例——网络爬虫框架进一步阐述Go语言的哲学和理念，同时分享作者在多年编程生涯中的一些见解和感悟。</p>
+<p>本书适用于有一定计算机编程基础的从业者以及对Go语言编程感兴趣的爱好者，非常适合作为Go语言编程进阶教程。</p>
+<p>作者：</p>
+<ul>
+<li>郝林，从业12年有余的软件工匠，国内知名的Go语言技术布道者，Go语言北京用户组和GoHackers社群的发起人和组织者，多套免费在线Go语言教程的作者，深信Go语言在人工智能时代和机器人时代也能大放异彩的科技信徒。</li>
+</ul>
+<h2 id="《Go语言并发之道》"><a href="#《Go语言并发之道》" class="headerlink" title="《Go语言并发之道》"></a>《Go语言并发之道》</h2><p><img src="https://i.loli.net/2021/03/10/zGTPjpXek1uWwYO.png" alt="Go语言并发之道.png"></p>
+<p>本书原作为：《Concurrency in Go - Tools and Techniques for Developers》</p>
+<p>本书作者带你一步一步深入这些方法。你将理解 Go语言为何选定这些并发模型，这些模型又会带来什么问题，以及你如何组合利用这些模型中的原语去解决问题。学习那些让你在独立且自信的编写与实现任何规模并发系统时所需要用到的技巧和工具。</p>
+<p>作者：</p>
+<ul>
+<li>Katherine Cox-Buday，一名计算机科学家，目前工作于 Simple online banking。她的业余爱好包括软件工程、创作、Go 语言(igo、baduk、weiquei) 以及音乐，这些都是她长期的追求，并且有着不同层面的贡献。</li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>10本 Go 语言进阶学习书籍推荐</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2021-03-10</p><p><span>最后更新：</span>2021-04-25</p><p><span>原始链接：</span><a href="/2021/03/10/10-golang-learn-advanced-books/">https://102no.com/2021/03/10/10-golang-learn-advanced-books/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2021/03/10/10-golang-learn-advanced-books/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2021/03/10/10-golang-learn-advanced-books/" data-id="ckreodojb000mzg9duzt18f6e" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aW27DMAwFUe9/0+4CGrtzSaWAqPFX0DiRjgOwfOi68HWDi9z/9O7vz17fuGTIkLEtg2yOvJt+//s9fG8yZMg4h/G0/NM9ZEPvn30H873JkCFDBt/KU6AkgZWvK0OGDBnp15FwycOrDBkyZLwzOmVqbVv89eJaXIYMGRsyeNf9/19/Zb4hQ4aMrRh3eKVJYTqwvEuXDBkyZjPWpn21TaMClexHhgwZQxmrtlVrtKXjhMe/yJAhYzQjbbeRFn/aLOuMMz/8JjJkyBjNIOGPL1lr6/O1rk4UlyFDxrYMXl6SNJG30sjDRSFYhgwZQxnkaAUJwbw9Vwuyf6woQ4aMAxi8XKwdFyOJZppufgi4MmTIGMpIE7i06fYNPJrEypAhYxyDl5G1wxNpFpeOS2XIkDGbURs98pSuViTHD1SGDBmjGTzN4u3+TqrX+gcgQ4aMoYxVAXFtoz8eKsiQIWM0Iw1tpHHWSRZraaIMGTJOYCw+ZdYuTYuHaGXIkHEAg48qOxVz2uBr1eIyZMgYylhVUtbacHzdYJApQ4aMQYzaMKDYCGs08uIiVoYMGZszaocq0lQvHTak4woZMmTMZqSlKR8PkHBZC/StMluGDBnbMtIgy4vMWjmaHpCVIUPGOYzakLKfUKap3iNShgwZMsLmGk8BecCNj6vKkCHjYEanEVY7XYsSUxkyZBzAIIldWpqSVl3n+2XIkHEOg5eOabuNl77pgygOMmXIkLEf4wfE/eTzPLIWxAAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/书籍推荐/"><i class="fa fa-tag"></i>书籍推荐</a></div><div class="post-nav"><a class="pre" href="/2021/04/06/10-python-learn-from-scratch-books/">10本 Python 零基础入门学习书籍推荐</a><a class="next" href="/2021/03/05/what-is-ipaas/">什么是 iPaaS ？</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

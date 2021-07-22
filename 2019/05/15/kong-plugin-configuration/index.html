@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong 插件开发 – 插件配置 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong 插件开发 – 插件配置</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong 插件开发 – 插件配置</h1><div class="post-meta">2019-05-15<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2019/05/15/kong-plugin-configuration/#vcomment"><span class="valine-comment-count" data-xid="/2019/05/15/kong-plugin-configuration/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-number">2.</span> <span class="toc-text">模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#schema-lua规范"><span class="toc-number">3.</span> <span class="toc-text">schema.lua规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#描述您的配置schema"><span class="toc-number">4.</span> <span class="toc-text">描述您的配置schema</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子"><span class="toc-number">5.</span> <span class="toc-text">例子</span></a></li></ol></div></div><div class="post-content"><p>原文地址：<a href="https://docs.konghq.com/1.1.x/plugin-development/plugin-configuration/" target="_blank" rel="external">https://docs.konghq.com/1.1.x/plugin-development/plugin-configuration/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>大多数情况下，您的插件可以配置为满足您的所有用户需求。当插件被执行的时候，您的插件的配置存储在Kong的数据存储区中，以检索它并将其传递给<a href="https://docs.konghq.com/1.1.x/plugin-development/custom-logic/" target="_blank" rel="external">handler.lua</a>方法。</p>
+<p>配置由Kong中的Lua表组成，我们称之为 <strong>schema</strong>。它包含用户在通过<a href="https://docs.konghq.com/1.1.x/admin-api" target="_blank" rel="external">Admin API</a>启用插件时将设置的键/值属性。Kong为您提供了一种验证用户插件配置的方法。</p>
+<p>当用户向Admin API发出请求以启用或更新给定Service，Route和/或Consumer上的插件时，将根据您的架构schema插件的配置。</p>
+<p>例如，用户执行以下请求：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http:<span class="regexp">//</span>kong:<span class="number">8001</span><span class="regexp">/services/</span>&lt;service-name-or-id&gt;<span class="regexp">/plugins/</span> \</div><div class="line">    -d <span class="string">"name=my-custom-plugin"</span> \</div><div class="line">    -d <span class="string">"config.foo=bar"</span></div></pre></td></tr></table></figure></p>
+<p>如果配置对象的所有<code>config</code>都根据您的模式有效，则API将返回<code>201 Created</code>，并且插件将与其配置一起存储在数据库中（在这种情况下为<code>{foo =“bar”}</code>）。如果配置无效，Admin API将返回<code>400 Bad Request</code>和相应的错误消息。</p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">kong</span><span class="selector-class">.plugins</span>.&lt;<span class="selector-tag">plugin_name</span>&gt;<span class="selector-class">.schema</span></div></pre></td></tr></table></figure>
+<h2 id="schema-lua规范"><a href="#schema-lua规范" class="headerlink" title="schema.lua规范"></a>schema.lua规范</h2><p>此模块将返回一个Lua表，其中包含将定义用户以后如何配置插件的属性的属性。<br>可用的属性是：</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>Lua type</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>no_consumer</code></td>
+<td>Boolen</td>
+<td><code>false</code></td>
+<td>如果为true，则无法将此插件应用于特定的Consumer。此插件必须仅应用于服务和路由。例如：身份验证插件。</td>
+</tr>
+<tr>
+<td><code>fields</code></td>
+<td>Table</td>
+<td><code>{}</code></td>
+<td>你插件的schema，可用属性及其规则的键/值表。</td>
+</tr>
+<tr>
+<td><code>self_check</code></td>
+<td>Function</td>
+<td>nil</td>
+<td>如果要在接受插件配置之前执行任何自定义验证，则要实现的功能。</td>
+</tr>
+</tbody>
+</table>
+<p>self_check函数必须按如下方式实现：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby">- @param <span class="string">`schema`</span> 描述插件配置的架构（规则）的表。</span></div><div class="line"><span class="ruby">-- @param <span class="string">`config`</span> 当前插件配置的键/值表。</span></div><div class="line"><span class="ruby">-- @param <span class="string">`dao`</span> DAO的一个实例 (查看 DAO 章节).</span></div><div class="line"><span class="ruby">-- @param <span class="string">`is_updating`</span> 一个布尔值，指示是否在更新的上下文中执行此检查。</span></div><div class="line"><span class="ruby">-- @return <span class="string">`valid`</span> 一个布尔值，指示插件的配置是否有效。</span></div><div class="line"><span class="ruby">-- @return <span class="string">`error`</span> 一个 DAO 错误 (查看 DAO 章节)</span></div></pre></td></tr></table></figure></p>
+<p>以下是一个可能的schema.lua文件的示例：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> &#123;</div><div class="line">  no_consumer = <span class="literal">true</span>, <span class="comment">-- 此插件仅适用于服务或路由，</span></div><div class="line">  fields = &#123;</div><div class="line">    <span class="comment">-- 在此处描述您的插件配置架构。</span></div><div class="line">  &#125;,</div><div class="line">  self_check = <span class="function"><span class="keyword">function</span><span class="params">(schema, plugin_t, dao, is_updating)</span></span></div><div class="line">    <span class="comment">-- 执行任何自定义验证</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="描述您的配置schema"><a href="#描述您的配置schema" class="headerlink" title="描述您的配置schema"></a>描述您的配置schema</h2><p><code>schema.lua</code>文件的<code>fields</code>自选描述了插件配置的schema。它是一个灵活的键/值表，其中每个键都是插件的有效配置属性，每个键都是一个描述该属性规则的表。例如：<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fields = &#123;</div><div class="line">   some_string = &#123;type = <span class="string">"string"</span>, required = true&#125;,</div><div class="line">   some_boolean = &#123;type = <span class="string">"boolean"</span>, default = false&#125;,</div><div class="line">   some_array = &#123;type = <span class="string">"array"</span>, enum = &#123;<span class="string">"<span class="keyword">GET</span>"</span>, <span class="string">"<span class="keyword">POST</span>"</span>, <span class="string">"<span class="keyword">PUT</span>"</span>, <span class="string">"<span class="keyword">DELETE</span>"</span>&#125;&#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>以下是属性的规则列表：</p>
+<table>
+<thead>
+<tr>
+<th>规则</th>
+<th>LUA TYPE(S)</th>
+<th>可使用的值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>“id”, “number”, “boolean”, “string”, <br>“table”, “array”, “url”, “timestamp”</td>
+<td>验证属性的类型。</td>
+</tr>
+<tr>
+<td><code>required</code></td>
+<td>boolean</td>
+<td></td>
+<td>默认值：false。<br> 如果为true，则该属性必须存在于配置中。</td>
+</tr>
+<tr>
+<td><code>unique</code></td>
+<td>boolean</td>
+<td></td>
+<td>默认值：false。<br> 如果为true，则该值必须是唯一的（请参阅下面的注释）。</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td>any</td>
+<td></td>
+<td>如果未在配置中指定该属性，则将该属性设置为给定值。</td>
+</tr>
+<tr>
+<td><code>immutable</code></td>
+<td>boolean</td>
+<td></td>
+<td>默认值：false。<br> 如果为true，则在创建插件配置后将不允许更新该属性。</td>
+</tr>
+<tr>
+<td><code>enum</code></td>
+<td>table</td>
+<td></td>
+<td>属性的可接受值列表。不接受此列表中未包含的任何值。</td>
+</tr>
+<tr>
+<td><code>regex</code></td>
+<td>string</td>
+<td></td>
+<td>用于验证属性值的正则表达式。</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td>table</td>
+<td></td>
+<td>如果属性的类型是table，则定义用于验证这些子属性的模式。</td>
+</tr>
+<tr>
+<td><code>func</code></td>
+<td>function</td>
+<td></td>
+<td>用于对属性执行任何自定义验证的函数。请参阅后面的示例，了解其参数和返回值。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>type:</strong>将转换从请求参数中检索的值。如果类型不是本机Lua类型之一，则会对其执行自定义验证：<ul>
+<li>id:必须是string</li>
+<li>timestamp:必须是nember</li>
+<li>uri:必须是有效的URL</li>
+<li>array:必须是整数索引表（相当于Lua中的数组）。在Admin API中，可以通过在请求的正文中使用不同值的属性键的多次来发送这样的数组，或者通过单个body参数以逗号分隔。</li>
+</ul>
+</li>
+<li><strong>unique:</strong>此属性对插件配置没有意义，但在插件需要在数据存储区中存储自定义实体时使用。</li>
+<li><strong>schema:</strong>如果您需要对嵌套属性进行深化验证，则此字段允许您创建嵌套模式。模式验证是递归的。任何级别的嵌套都是有效的，但请记住，这会影响插件的可用性。</li>
+<li><strong>附加到配置对象但schema中不存在的任何属性也将使所述配置无效。</strong> </li>
+</ul>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><a href="https://docs.konghq.com/plugins/key-authentication/" target="_blank" rel="external">key-auth</a>插件的<code>schema.lua</code>文件定义了API密钥的可接受参数名称的默认列表，以及默认设置为<code>false</code>的布尔值：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-- schema.lua</div><div class="line">return &#123;</div><div class="line">  no_consumer = <span class="literal">true</span>,</div><div class="line">  fields = &#123;</div><div class="line">    key_names = &#123;type = <span class="string">"array"</span>, required = <span class="literal">true</span>,<span class="built_in"> default </span>= &#123;<span class="string">"apikey"</span>&#125;&#125;,</div><div class="line">    hide_credentials = &#123;type = <span class="string">"boolean"</span>,<span class="built_in"> default </span>= <span class="literal">false</span>&#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>于是，当在<a href="https://docs.konghq.com/1.1.x/plugin-development/custom-logic/" target="_blank" rel="external">handler.lua</a>中实现插件的<code>access()</code>函数并且用户使用默认值启用插件时，您可以如下：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- handler.lua</span></div><div class="line"><span class="keyword">local</span> BasePlugin = <span class="built_in">require</span> <span class="string">"kong.plugins.base_plugin"</span></div><div class="line"><span class="keyword">local</span> CustomHandler = BasePlugin:extend()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CustomHandler:new</span><span class="params">()</span></span></div><div class="line">  CustomHandler.super.new(self, <span class="string">"my-custom-plugin"</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CustomHandler:access</span><span class="params">(config)</span></span></div><div class="line">  CustomHandler.super.access(self)</div><div class="line"></div><div class="line">  kong.<span class="built_in">log</span>.inspect(<span class="built_in">config</span>.key_names)        <span class="comment">-- &#123;"apikey"&#125;</span></div><div class="line">  kong.<span class="built_in">log</span>.inspect(<span class="built_in">config</span>.hide_credentials) <span class="comment">-- false</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> CustomHandler</div></pre></td></tr></table></figure></p>
+<p>请注意，上面的示例使用<a href="https://docs.konghq.com/1.1.x/pdk" target="_blank" rel="external">插件开发工具包(PDK)</a>的<a href="http://localhost:3000/docs/0.14.x/pdk/kong.log/#kong_log_inspect" target="_blank" rel="external">kong.log.inspect</a>函数将这些值打印到Kong日志中。</p>
+<p>一个更复杂的示例，可用于最终日志记录插件：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">-- schema.lua</div><div class="line"></div><div class="line">local function server_port(given_value, given_config)</div><div class="line">  -- 自定义验证</div><div class="line">  <span class="keyword">if</span> given_value &gt; 65534 then</div><div class="line">    return <span class="literal">false</span>, <span class="string">"port value too high"</span></div><div class="line">  end</div><div class="line"></div><div class="line">  -- 如果环境是“开发”，8080将是默认端口</div><div class="line">  <span class="keyword">if</span> given_config.environment == <span class="string">"development"</span> then</div><div class="line">    return <span class="literal">true</span>, <span class="literal">nil</span>, &#123;port = 8080&#125;</div><div class="line">  end</div><div class="line">end</div><div class="line"></div><div class="line">return &#123;</div><div class="line">  fields = &#123;</div><div class="line">    environment = &#123;type = <span class="string">"string"</span>, required = <span class="literal">true</span>, enum = &#123;<span class="string">"production"</span>, <span class="string">"development"</span>&#125;&#125;</div><div class="line">   <span class="built_in"> server </span>= &#123;</div><div class="line">     <span class="built_in"> type </span>= <span class="string">"table"</span>,</div><div class="line">      schema = &#123;</div><div class="line">        fields = &#123;</div><div class="line">          host = &#123;type = <span class="string">"url"</span>,<span class="built_in"> default </span>= <span class="string">"http://example.com"</span>&#125;,</div><div class="line">         <span class="built_in"> port </span>= &#123;type = <span class="string">"number"</span>, func = server_port,<span class="built_in"> default </span>= 80&#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的配置将允许用户将配置发布到您的插件，如下所示：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">curl -X POST http://kong:8001/services/&lt;service-name-or-id&gt;/plugins \</div><div class="line">    -<span class="ruby">d <span class="string">"name=my-custom-plugin"</span> \</span></div><div class="line"><span class="ruby">    -d <span class="string">"config.environment=development"</span> \</span></div><div class="line"><span class="ruby">    -d <span class="string">"config.server.host=http://localhost"</span></span></div></pre></td></tr></table></figure></p>
+<p>以下内容将在<a href="https://docs.konghq.com/1.1.x/plugin-development/custom-logic/" target="_blank" rel="external">handler.lua</a>中提供：<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- handler.lua</span></div><div class="line"><span class="keyword">local</span> BasePlugin = <span class="built_in">require</span> <span class="string">"kong.plugins.base_plugin"</span></div><div class="line"><span class="keyword">local</span> CustomHandler = BasePlugin:extend()</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CustomHandler:new</span><span class="params">()</span></span></div><div class="line">  CustomHandler.super.new(self, <span class="string">"my-custom-plugin"</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">CustomHandler:access</span><span class="params">(config)</span></span></div><div class="line">  CustomHandler.super.access(self)</div><div class="line"></div><div class="line">  kong.<span class="built_in">log</span>.inspect(<span class="built_in">config</span>.environment) <span class="comment">-- "development"</span></div><div class="line">  kong.<span class="built_in">log</span>.inspect(<span class="built_in">config</span>.server.host) <span class="comment">-- "http://localhost"</span></div><div class="line">  kong.<span class="built_in">log</span>.inspect(<span class="built_in">config</span>.server.port) <span class="comment">-- 8080</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> CustomHandler</div></pre></td></tr></table></figure></p>
+<p>您还可以在<a href="https://github.com/Kong/kong/blob/master/kong/plugins/key-auth/schema.lua" target="_blank" rel="external">Key-Auth插件源代码</a>中查看schema的真实示例。</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong 插件开发 – 插件配置</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2019-05-15</p><p><span>最后更新：</span>2019-05-17</p><p><span>原始链接：</span><a href="/2019/05/15/kong-plugin-configuration/">https://102no.com/2019/05/15/kong-plugin-configuration/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2019/05/15/kong-plugin-configuration/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2019/05/15/kong-plugin-configuration/" data-id="ckreodon900bxzg9d54ewnbpj" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aS07DQBAFQO5/aSOxxsl7PQYpMzWrCCW2y4umf19f8bl+zt1frpvz+vvJlR8+GBgYH8u4Xp7XD90+6N1v2xf0yxUwMDAOYLSXy69w9/38vsk/AAwMDIwkXUtC9pugiYGBgfFQwG2DaZtoYmBgYKwUsUnxOUsE2zCNgYFxGqMdDPzn5z+cb2BgYHwI4yrPrLnWtvDqp8LAwNia0a47zJK/dvCZl7jFPggGBsaHM/JHTC6at/7bFl7yojEwMM5hrN9gtiLWvgIMDIwTGO1wMQe07f72RWBgYJzDaBe22soxTwqjdYrXIwQMDIytGe0CVttcy1v/edMNAwPjTEYbUtvGXN4+y4cHGBgYZzLyx13Z18rTweHQFAMD4wDG7HPe7s8Hn7NWIAYGxk6M2UrEs8Vt21B7MxLAwMDYlLEyvGx/la+XFaUvBgbG1ow2OWtXJfKSdbaigYGBcQIjCY5tibseiOvEFAMDY2tG3tzPk8L8lrNWHQYGxmmMfDFrVr7Odj3aVQwMDIwTGHmxurIqkYfRPJXEwMA4gfHsmtfKeDIfDLxJEDEwMLZjXOVZaaU922i7XQvDwMDYjjFrurU3ywNo29TDwMA4h9EG2XaEORs/1O8bAwPjAMZTl65j+XLQx8DAwFgPuLOitA7oGBgYGKPb5zV0W+6+mcdiYGBsysjHk8PblElkPRLAwMDYmrHSDstTt2S1Ip9gPDDfwMDA+AzGN3YFvCpOLjeCAAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/Kong插件开发/"><i class="fa fa-tag"></i>Kong插件开发</a></div><div class="post-nav"><a class="pre" href="/2019/05/16/kong-plugin-file-structure/">微服务 API 网关 Kong 插件开发 - 文件结构</a><a class="next" href="/2019/05/05/kong-plugin-distribution/">微服务 API 网关 Kong 插件开发 - 安装/卸载插件</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

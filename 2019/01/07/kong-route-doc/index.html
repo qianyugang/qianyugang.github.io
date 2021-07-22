@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong Route 中文文档 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong Route 中文文档</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong Route 中文文档</h1><div class="post-meta">2019-01-07<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2019/01/07/kong-route-doc/#vcomment"><span class="valine-comment-count" data-xid="/2019/01/07/kong-route-doc/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Route-路由"><span class="toc-number">1.</span> <span class="toc-text">Route 路由</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加-route"><span class="toc-number">1.1.</span> <span class="toc-text">添加 route</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个route"><span class="toc-number">1.1.1.</span> <span class="toc-text">创建一个route</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与特定服务关联的路由"><span class="toc-number">1.1.2.</span> <span class="toc-text">创建与特定服务关联的路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体"><span class="toc-number">1.1.3.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应"><span class="toc-number">1.1.4.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由列表"><span class="toc-number">1.2.</span> <span class="toc-text">路由列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#所有路由列表"><span class="toc-number">1.2.1.</span> <span class="toc-text">所有路由列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出与特定服务关联的路由列表"><span class="toc-number">1.2.2.</span> <span class="toc-text">列出与特定服务关联的路由列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询路由"><span class="toc-number">1.3.</span> <span class="toc-text">查询路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询路由-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">查询路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询与特定插件关联的路由"><span class="toc-number">1.3.2.</span> <span class="toc-text">查询与特定插件关联的路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新路由"><span class="toc-number">1.4.</span> <span class="toc-text">更新路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更新路由-1"><span class="toc-number">1.4.1.</span> <span class="toc-text">更新路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新与特定插件关联的路由"><span class="toc-number">1.4.2.</span> <span class="toc-text">更新与特定插件关联的路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-3"><span class="toc-number">1.4.4.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新或创建路由"><span class="toc-number">1.5.</span> <span class="toc-text">更新或创建路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#更新或创建一个路由"><span class="toc-number">1.5.1.</span> <span class="toc-text">更新或创建一个路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建或更新与特定插件关联的路由"><span class="toc-number">1.5.2.</span> <span class="toc-text">创建或更新与特定插件关联的路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求体-2"><span class="toc-number">1.5.3.</span> <span class="toc-text">请求体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-4"><span class="toc-number">1.5.4.</span> <span class="toc-text">响应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除路由"><span class="toc-number">1.6.</span> <span class="toc-text">删除路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#删除一个路由"><span class="toc-number">1.6.1.</span> <span class="toc-text">删除一个路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应-5"><span class="toc-number">1.6.2.</span> <span class="toc-text">响应</span></a></li></ol></li></ol></li></ol></div></div><div class="post-content"><h1 id="Route-路由"><a href="#Route-路由" class="headerlink" title="Route 路由"></a>Route 路由</h1><p>路由实体定义规则以匹配客户端请求。每个Route与一个服务相关联，一个服务可能有多个与之关联的路由。匹配给定路由的每个请求都将代理到其关联的服务。<br>Routes 和 Services 的组合（以及它们之间的关注点分离）提供了一种强大的路由机制，通过它可以在 Kong 中定义细粒度的入口点，从而导致基础架构的不同上游服务。</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="string">"id"</span>: <span class="string">"173a6cee-90d1-40a7-89cf-0329eca780a6"</span>,</div><div class="line">    <span class="string">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="string">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="string">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="string">"protocols"</span>: [<span class="string">"http"</span>, <span class="string">"https"</span>],</div><div class="line">    <span class="string">"methods"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</div><div class="line">    <span class="string">"hosts"</span>: [<span class="string">"example.com"</span>, <span class="string">"foo.test"</span>],</div><div class="line">    <span class="string">"paths"</span>: [<span class="string">"/foo"</span>, <span class="string">"/bar"</span>],Service 服务</div><div class="line">    <span class="string">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="string">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="string">"service"</span>: &#123;<span class="string">"id"</span>:<span class="string">"f5a9c0ca-bdbb-490f-8928-2ca95836239a"</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="添加-route"><a href="#添加-route" class="headerlink" title="添加 route"></a>添加 route</h2><h3 id="创建一个route"><a href="#创建一个route" class="headerlink" title="创建一个route"></a>创建一个route</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">POST:</span>/routes</div></pre></td></tr></table></figure>
+<h3 id="创建与特定服务关联的路由"><a href="#创建与特定服务关联的路由" class="headerlink" title="创建与特定服务关联的路由"></a>创建与特定服务关联的路由</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">POST:/services/&#123;service <span class="built_in">name</span> <span class="keyword">or</span> <span class="built_in">id</span>&#125;/routes</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service name or id</code> <br> <strong>required</strong></td>
+<td>应与新创建的路由关联的服务的唯一标识符或名称属性。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code> <br> <em>optional</em></td>
+<td>Route 名称</td>
+</tr>
+<tr>
+<td><code>protocols</code></td>
+<td>此路由应允许的协议列表。设置为<code>[“https”]</code>时，将通过请求升级到HTTPS来回答HTTP请求。默认为<code>[“http”，“https”]</code>。</td>
+</tr>
+<tr>
+<td><code>methods</code> <br> <em>semi-optional</em></td>
+<td>与此Route匹配的HTTP方法列表。使用http或https协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, or <code>methods</code>。</td>
+</tr>
+<tr>
+<td><code>hosts</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的域名列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>hosts [] = example.com＆hosts [] = foo.test</code>。使用JSON，使用Array。</td>
+</tr>
+<tr>
+<td><code>paths</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的路径列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>paths [] = / foo＆paths [] = / bar</code>。使用JSON，使用数组。</td>
+</tr>
+<tr>
+<td><code>regex_priority</code> <br> <em>optional</em></td>
+<td>用于选择哪条路由解析给定请求的数字，当多条路由同时使用正则表达式匹配时。当两条路径匹配路径并具有相同的<code>regex_priority</code>时，将使用较旧的路径（最低的<code>created_at</code>）。请注意，非正则表达式路由的优先级不同（较长的非正则表达式路由在较短的路由之前匹配）。默认为<code>0</code>。</td>
+</tr>
+<tr>
+<td><code>strip_path</code> <br> <em>optional</em></td>
+<td>通过其中一条<code>path</code>匹配Route时，从上游请求URL中删除匹配的前缀。默认为<code>true</code>。</td>
+</tr>
+<tr>
+<td><code>preserve_host</code> <br> <em>optional</em></td>
+<td>通过其中一个主机域名匹配Route时，请使用上游请求标头中的请求主机头。如果设置为false，则上游主机头将是服务主机的头。</td>
+</tr>
+<tr>
+<td><code>snis</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的SNI列表。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>sources</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的传入连接的IP源列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>destinations</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时，与此路由匹配的传入连接的IP目标列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td>此路由所关联的服务。这是Route代理流量的地方，使用表单encode。表示法是<code>service.id = &lt;service_id&gt;</code>。使用JSON，使用<code>“service”：{“id”：“&lt;service_id&gt;”}</code>。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP <span class="number">201</span> Created</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="string">"173a6cee-90d1-40a7-89cf-0329eca780a6"</span>,</div><div class="line">    <span class="attr">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="attr">"protocols"</span>: [<span class="string">"http"</span>, <span class="string">"https"</span>],</div><div class="line">    <span class="attr">"methods"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</div><div class="line">    <span class="attr">"hosts"</span>: [<span class="string">"example.com"</span>, <span class="string">"foo.test"</span>],</div><div class="line">    <span class="attr">"paths"</span>: [<span class="string">"/foo"</span>, <span class="string">"/bar"</span>],</div><div class="line">    <span class="attr">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"service"</span>: &#123;<span class="attr">"id"</span>:<span class="string">"f5a9c0ca-bdbb-490f-8928-2ca95836239a"</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="路由列表"><a href="#路由列表" class="headerlink" title="路由列表"></a>路由列表</h2><h3 id="所有路由列表"><a href="#所有路由列表" class="headerlink" title="所有路由列表"></a>所有路由列表</h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">GET:</span>/routes</div></pre></td></tr></table></figure>
+<h3 id="列出与特定服务关联的路由列表"><a href="#列出与特定服务关联的路由列表" class="headerlink" title="列出与特定服务关联的路由列表"></a>列出与特定服务关联的路由列表</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/services/&#123;service <span class="built_in">name</span> <span class="keyword">or</span> <span class="built_in">id</span>&#125;/routes</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service name or id</code> <br> <strong>required</strong></td>
+<td>要检索其路由的服务的唯一标识符或<code>name</code>属性。仅列出与指定服务关联的路由。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-1"><a href="#响应-1" class="headerlink" title="响应"></a>响应</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP <span class="number">200</span> OK</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line"><span class="attr">"data"</span>: [&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="string">"885a0392-ef1b-4de3-aacf-af3f1697ce2c"</span>,</div><div class="line">    <span class="attr">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="attr">"protocols"</span>: [<span class="string">"http"</span>, <span class="string">"https"</span>],</div><div class="line">    <span class="attr">"methods"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</div><div class="line">    <span class="attr">"hosts"</span>: [<span class="string">"example.com"</span>, <span class="string">"foo.test"</span>],</div><div class="line">    <span class="attr">"paths"</span>: [<span class="string">"/foo"</span>, <span class="string">"/bar"</span>],</div><div class="line">    <span class="attr">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"service"</span>: &#123;<span class="attr">"id"</span>:<span class="string">"a3395f66-2af6-4c79-bea2-1b6933764f80"</span>&#125;</div><div class="line">&#125;, &#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="string">"4fe14415-73d5-4f00-9fbc-c72a0fccfcb2"</span>,</div><div class="line">    <span class="attr">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="attr">"protocols"</span>: [<span class="string">"tcp"</span>, <span class="string">"tls"</span>],</div><div class="line">    <span class="attr">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"snis"</span>: [<span class="string">"foo.test"</span>, <span class="string">"example.com"</span>],</div><div class="line">    <span class="attr">"sources"</span>: [&#123;<span class="attr">"ip"</span>:<span class="string">"10.1.0.0/16"</span>, <span class="attr">"port"</span>:<span class="number">1234</span>&#125;, &#123;<span class="attr">"ip"</span>:<span class="string">"10.2.2.2"</span>&#125;, &#123;<span class="attr">"port"</span>:<span class="number">9123</span>&#125;],</div><div class="line">    <span class="attr">"destinations"</span>: [&#123;<span class="attr">"ip"</span>:<span class="string">"10.1.0.0/16"</span>, <span class="attr">"port"</span>:<span class="number">1234</span>&#125;, &#123;<span class="attr">"ip"</span>:<span class="string">"10.2.2.2"</span>&#125;, &#123;<span class="attr">"port"</span>:<span class="number">9123</span>&#125;],</div><div class="line">    <span class="attr">"service"</span>: &#123;<span class="attr">"id"</span>:<span class="string">"ea29aaa3-3b2d-488c-b90c-56df8e0dd8c6"</span>&#125;</div><div class="line">&#125;],</div><div class="line"></div><div class="line">    <span class="attr">"next"</span>: <span class="string">"http://localhost:8001/routes?offset=6378122c-a0a1-438d-a5c6-efabae9fb969"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="查询路由"><a href="#查询路由" class="headerlink" title="查询路由"></a>查询路由</h2><h3 id="查询路由-1"><a href="#查询路由-1" class="headerlink" title="查询路由"></a>查询路由</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET:/routes/&#123;<span class="built_in">name</span> <span class="keyword">or</span> <span class="built_in">id</span>&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>service name or id</code> <br> <strong>required</strong></td>
+<td>要检索其路由的服务的唯一标识符或<code>name</code>属性。仅列出与指定服务关联的路由。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="查询与特定插件关联的路由"><a href="#查询与特定插件关联的路由" class="headerlink" title="查询与特定插件关联的路由"></a>查询与特定插件关联的路由</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">GET:</span><span class="meta-keyword">/plugins/</span>&#123;plugin id&#125;/route</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code> <br> <strong> required </strong></td>
+<td>与要更新的路由关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-2"><a href="#响应-2" class="headerlink" title="响应"></a>响应</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP <span class="number">200</span> OK</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="string">"173a6cee-90d1-40a7-89cf-0329eca780a6"</span>,</div><div class="line">    <span class="attr">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="attr">"protocols"</span>: [<span class="string">"http"</span>, <span class="string">"https"</span>],</div><div class="line">    <span class="attr">"methods"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</div><div class="line">    <span class="attr">"hosts"</span>: [<span class="string">"example.com"</span>, <span class="string">"foo.test"</span>],</div><div class="line">    <span class="attr">"paths"</span>: [<span class="string">"/foo"</span>, <span class="string">"/bar"</span>],</div><div class="line">    <span class="attr">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"service"</span>: &#123;<span class="attr">"id"</span>:<span class="string">"f5a9c0ca-bdbb-490f-8928-2ca95836239a"</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="更新路由"><a href="#更新路由" class="headerlink" title="更新路由"></a>更新路由</h2><h3 id="更新路由-1"><a href="#更新路由-1" class="headerlink" title="更新路由"></a>更新路由</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATCH:/routes/&#123;<span class="built_in">name</span> <span class="keyword">or</span> <span class="built_in">id</span>&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code> <br> <strong> required </strong></td>
+<td>唯一标识符或要更新的路由的名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="更新与特定插件关联的路由"><a href="#更新与特定插件关联的路由" class="headerlink" title="更新与特定插件关联的路由"></a>更新与特定插件关联的路由</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">PATCH:</span><span class="meta-keyword">/plugins/</span>&#123;plugin id&#125;/route</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code> <br> <strong> required </strong></td>
+<td>与要更新的路由关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="请求体-1"><a href="#请求体-1" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code> <br> <em>optional</em></td>
+<td>Route 名称</td>
+</tr>
+<tr>
+<td><code>protocols</code></td>
+<td>此路由应允许的协议列表。设置为<code>[“https”]</code>时，将通过请求升级到HTTPS来回答HTTP请求。默认为<code>[“http”，“https”]</code>。</td>
+</tr>
+<tr>
+<td><code>methods</code> <br> <em>semi-optional</em></td>
+<td>与此Route匹配的HTTP方法列表。使用http或https协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, or <code>methods</code>。</td>
+</tr>
+<tr>
+<td><code>hosts</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的域名列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>hosts [] = example.com＆hosts [] = foo.test</code>。使用JSON，使用Array。</td>
+</tr>
+<tr>
+<td><code>paths</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的路径列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>paths [] = / foo＆paths [] = / bar</code>。使用JSON，使用数组。</td>
+</tr>
+<tr>
+<td><code>regex_priority</code> <br> <em>optional</em></td>
+<td>用于选择哪条路由解析给定请求的数字，当多条路由同时使用正则表达式匹配时。当两条路径匹配路径并具有相同的<code>regex_priority</code>时，将使用较旧的路径（最低的<code>created_at</code>）。请注意，非正则表达式路由的优先级不同（较长的非正则表达式路由在较短的路由之前匹配）。默认为<code>0</code>。</td>
+</tr>
+<tr>
+<td><code>strip_path</code> <br> <em>optional</em></td>
+<td>通过其中一条<code>path</code>匹配Route时，从上游请求URL中删除匹配的前缀。默认为<code>true</code>。</td>
+</tr>
+<tr>
+<td><code>preserve_host</code> <br> <em>optional</em></td>
+<td>通过其中一个主机域名匹配Route时，请使用上游请求标头中的请求主机头。如果设置为false，则上游主机头将是服务主机的头。</td>
+</tr>
+<tr>
+<td><code>snis</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的SNI列表。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>sources</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的传入连接的IP源列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>destinations</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时，与此路由匹配的传入连接的IP目标列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td>此路由所关联的服务。这是Route代理流量的地方，使用表单encode。表示法是<code>service.id = &lt;service_id&gt;</code>。使用JSON，使用<code>“service”：{“id”：“&lt;service_id&gt;”}</code>。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-3"><a href="#响应-3" class="headerlink" title="响应"></a>响应</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP <span class="number">200</span> OK</div></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"id"</span>: <span class="string">"173a6cee-90d1-40a7-89cf-0329eca780a6"</span>,</div><div class="line">    <span class="attr">"created_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"updated_at"</span>: <span class="number">1422386534</span>,</div><div class="line">    <span class="attr">"name"</span>: <span class="string">"my-route"</span>,</div><div class="line">    <span class="attr">"protocols"</span>: [<span class="string">"http"</span>, <span class="string">"https"</span>],</div><div class="line">    <span class="attr">"methods"</span>: [<span class="string">"GET"</span>, <span class="string">"POST"</span>],</div><div class="line">    <span class="attr">"hosts"</span>: [<span class="string">"example.com"</span>, <span class="string">"foo.test"</span>],</div><div class="line">    <span class="attr">"paths"</span>: [<span class="string">"/foo"</span>, <span class="string">"/bar"</span>],</div><div class="line">    <span class="attr">"regex_priority"</span>: <span class="number">0</span>,</div><div class="line">    <span class="attr">"strip_path"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">"preserve_host"</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">"service"</span>: &#123;<span class="attr">"id"</span>:<span class="string">"f5a9c0ca-bdbb-490f-8928-2ca95836239a"</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code> <br> <strong> required </strong></td>
+<td>与要更新的路由关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="更新或创建路由"><a href="#更新或创建路由" class="headerlink" title="更新或创建路由"></a>更新或创建路由</h2><h3 id="更新或创建一个路由"><a href="#更新或创建一个路由" class="headerlink" title="更新或创建一个路由"></a>更新或创建一个路由</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PUT:/routes/&#123;<span class="built_in">name</span> <span class="keyword">or</span> <span class="built_in">id</span>&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code> <br> <strong> required </strong></td>
+<td>要创建或更新的路由的唯一标识符或名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="创建或更新与特定插件关联的路由"><a href="#创建或更新与特定插件关联的路由" class="headerlink" title="创建或更新与特定插件关联的路由"></a>创建或更新与特定插件关联的路由</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">PUT:</span><span class="meta-keyword">/plugins/</span>&#123;plugin id&#125;/route</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>plugin id</code> <br> <strong> required </strong></td>
+<td>与要更新的路由关联的插件的唯一标识符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="请求体-2"><a href="#请求体-2" class="headerlink" title="请求体"></a>请求体</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code> <br> <em>optional</em></td>
+<td>Route 名称</td>
+</tr>
+<tr>
+<td><code>protocols</code></td>
+<td>此路由应允许的协议列表。设置为<code>[“https”]</code>时，将通过请求升级到HTTPS来回答HTTP请求。默认为<code>[“http”，“https”]</code>。</td>
+</tr>
+<tr>
+<td><code>methods</code> <br> <em>semi-optional</em></td>
+<td>与此Route匹配的HTTP方法列表。使用http或https协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, or <code>methods</code>。</td>
+</tr>
+<tr>
+<td><code>hosts</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的域名列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>hosts [] = example.com＆hosts [] = foo.test</code>。使用JSON，使用Array。</td>
+</tr>
+<tr>
+<td><code>paths</code> <br> <em>semi-optional</em></td>
+<td>与此路由匹配的路径列表。使用<code>http</code>或<code>https</code>协议时，必须至少设置一个必须至少设置一个<code>hosts</code>, <code>paths</code>, 或者 <code>methods</code>。使用表单编码时，符号是<code>paths [] = / foo＆paths [] = / bar</code>。使用JSON，使用数组。</td>
+</tr>
+<tr>
+<td><code>regex_priority</code> <br> <em>optional</em></td>
+<td>用于选择哪条路由解析给定请求的数字，当多条路由同时使用正则表达式匹配时。当两条路径匹配路径并具有相同的<code>regex_priority</code>时，将使用较旧的路径（最低的<code>created_at</code>）。请注意，非正则表达式路由的优先级不同（较长的非正则表达式路由在较短的路由之前匹配）。默认为<code>0</code>。</td>
+</tr>
+<tr>
+<td><code>strip_path</code> <br> <em>optional</em></td>
+<td>通过其中一条<code>path</code>匹配Route时，从上游请求URL中删除匹配的前缀。默认为<code>true</code>。</td>
+</tr>
+<tr>
+<td><code>preserve_host</code> <br> <em>optional</em></td>
+<td>通过其中一个主机域名匹配Route时，请使用上游请求标头中的请求主机头。如果设置为false，则上游主机头将是服务主机的头。</td>
+</tr>
+<tr>
+<td><code>snis</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的SNI列表。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>sources</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时与此路由匹配的传入连接的IP源列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>destinations</code> <br> <em>semi-optional</em></td>
+<td>使用流路由时，与此路由匹配的传入连接的IP目标列表。每个条目都是一个对象，其字段为“ip”（可选地为CIDR范围表示法）和/或“port”。使用<code>tcp</code>或<code>tls</code>协议时，必须至少设置一个<code>snis</code>，<code>sources</code>或<code>destinations</code>。</td>
+</tr>
+<tr>
+<td><code>service</code></td>
+<td>此路由所关联的服务。这是Route代理流量的地方，使用表单encode。表示法是<code>service.id = &lt;service_id&gt;</code>。使用JSON，使用<code>“service”：{“id”：“&lt;service_id&gt;”}</code>。</td>
+</tr>
+</tbody>
+</table>
+<p>使用请求提中指定的参数插入(或替换)请求资源下的路由。Route将通过<code>name</code>或<code>id</code>属性进行标识。<br>当<code>name</code>或<code>id</code>属性具有UUID的结构时，插入/替换的Route将由其<code>id</code>标识。否则将通过其<code>name</code>识别。<br>在创建新路由而不指定id（既不在URL中也不在主体中）时，它将自动生成。<br>请注意，不允许在URL中指定<code>name</code>，在请求正文中指定其他名称。  </p>
+<h3 id="响应-4"><a href="#响应-4" class="headerlink" title="响应"></a>响应</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP <span class="number">201</span> Created or HTTP <span class="number">200</span> OK</div></pre></td></tr></table></figure>
+<p>参考 POST 和 PATCH 的响应。</p>
+<h2 id="删除路由"><a href="#删除路由" class="headerlink" title="删除路由"></a>删除路由</h2><h3 id="删除一个路由"><a href="#删除一个路由" class="headerlink" title="删除一个路由"></a>删除一个路由</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DELETE</span>:/routes/&#123;<span class="keyword">name</span> <span class="keyword">or</span> <span class="keyword">id</span>&#125;</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name or id</code> <br> <strong> required </strong></td>
+<td>要删除的路由的唯一标识符或名称。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="响应-5"><a href="#响应-5" class="headerlink" title="响应"></a>响应</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">HTTP</span> <span class="number">204</span> <span class="literal">No</span> <span class="string">Content</span></div></pre></td></tr></table></figure>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong Route 中文文档</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2019-01-07</p><p><span>最后更新：</span>2019-08-01</p><p><span>原始链接：</span><a href="/2019/01/07/kong-route-doc/">https://102no.com/2019/01/07/kong-route-doc/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2019/01/07/kong-route-doc/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2019/01/07/kong-route-doc/" data-id="ckreodoni00cozg9d752f1239" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS46DQAxF0ex/0/SUQSjus0lLuC6jCEGoQySn/Pl88HGcjvOZq8/nM+tr1lc+fMiQIeO1jGN5rB/MH0leBHnuFV6GDBk7MK4evP5MlkteGaHerFmGDBkywiDIN4L8uTJkyJBRC7g8ue28AhkyZMhIvzrdOKav4+e5uAwZMl7I4MWy///8k/6GDBkyXsU4woNTn0p30apkyJAxmsED3HowgqeaxQSVrEeGDBmjGbUJq85dnZGyYPsoQ4aMEQyuJKGWL5rfhcAyZMjYgPFUEzFNTUlRr/j/IEOGjEEMQurU3vmZWmKM+rEyZMgYxEgfk4bFWoOBrEeGDBk7MHiBLC2o1VqVvFXwpegmQ4aMcYxaUf6pMlyak16elyFDxmgG36KlrcfaFpAnscFLkSFDxghGa2y0lAyThkQ8MyJDhozRjFZ9rjRm0Q/Q6DeRIUPGCEbaJqy1MNOJiDh5liFDxgaMdNtXW1C66KD8J0OGjNEMXjgj4S8dC6tdf/ObyJAhYzQjXWhayn9q03mJkSFDxgYMXtBff+4MXpBQe/k9MmTI2IbBS12d1mbaeEB/DDJkyBjK6GzISCgkWzryDTd3yZAhYzSjE+z6SSw5k94rQ4aMqYxaiOyU+zvpa9BNlSFDxjhGJ1DybWUarINxMRkyZMgopZ21pDRuCciQIUPGQ0MS/VbEDVKGDBkbMGrNABIQ07EzXsKTIUPGPow0dUxHMdJraqNpMmTIGMr4A12x+ghg40+/AAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/Kong插件/"><i class="fa fa-tag"></i>Kong插件</a></div><div class="post-nav"><a class="pre" href="/2019/01/23/kong-config-doc/">微服务 API 网关 Kong 配置文件中文详解</a><a class="next" href="/2018/12/27/kong-service-doc/">微服务 API 网关 Kong Service 中文文档</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

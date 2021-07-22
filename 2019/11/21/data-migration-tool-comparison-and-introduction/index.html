@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>数据迁移工具对比&amp;介绍 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">数据迁移工具对比&amp;介绍</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">数据迁移工具对比&amp;介绍</h1><div class="post-meta">2019-11-21<span> | </span><span class="category"><a href="/categories/我是修电脑的/">我是修电脑的</a></span></div><a class="disqus-comment-count" href="/2019/11/21/data-migration-tool-comparison-and-introduction/#vcomment"><span class="valine-comment-count" data-xid="/2019/11/21/data-migration-tool-comparison-and-introduction/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Tungsten-Replicator"><span class="toc-number">1.</span> <span class="toc-text">1.Tungsten Replicator</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Maxwell"><span class="toc-number">2.</span> <span class="toc-text">2. Maxwell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-MySQLStreamer"><span class="toc-number">3.</span> <span class="toc-text">3.MySQLStreamer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Camus"><span class="toc-number">4.</span> <span class="toc-text">4.Camus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Gobblin"><span class="toc-number">5.</span> <span class="toc-text">5.Gobblin</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-Open-Replicator"><span class="toc-number">6.</span> <span class="toc-text">6.Open Replicator</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#７-Galera-Cluster"><span class="toc-number">7.</span> <span class="toc-text">７.Galera Cluster</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Group-Replication"><span class="toc-number">8.</span> <span class="toc-text">8.Group Replication</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比"><span class="toc-number">9.</span> <span class="toc-text">对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#相关链接"><span class="toc-number">10.</span> <span class="toc-text">相关链接</span></a></li></ol></div></div><div class="post-content"><h1 id="1-Tungsten-Replicator"><a href="#1-Tungsten-Replicator" class="headerlink" title="1.Tungsten Replicator"></a>1.Tungsten Replicator</h1><p>简介 Tungsten Replicator是数据库集群和复制供应商 Continuent 推出的高性能、开源的数据复制引擎，是Continuent最先进的集群解决方案的核心组件之一，特别适合作为异构数据库之间数据迁移的解决方案。 Tungsten replicator被定义为是异构数据库复制框架，可实现不同版本，不同种类数据库之间的数据库复制。根据官方的说明，现在可以实现mysql各版本件，以及mysql与oracle间的数据库复制，但是一些函数上限制还是不能避免。 <img src="https://images2015.cnblogs.com/blog/885818/201701/885818-20170107151230331-1412994990.png" alt=""></p>
+<ul>
+<li>官网：<a href="https://code.google.com/p/tungsten-replicator/wiki/Downloads" target="_blank" rel="external">https://code.google.com/p/tungsten-replicator/wiki/Downloads</a></li>
+</ul>
+<p>特点</p>
+<ol>
+<li>支持高版本MySQL向低版本复制，如5.1-&gt;5.0；</li>
+<li>支持跨数据库系统的复制，如MySQL-&gt;Oracle，并且所支持的数据库不仅包括MySQL、PostgreSQL和Amazon RDS等传统关系型数据库，还包括MongoDB等NoSQL数据库以及Vertica、InfiniDB、Hadoop和Amazon RedShift等数据仓库；</li>
+<li>支持多种复制拓扑结构，如Master-Slave、Multi-Master、Direct、Fan-In和Star等。</li>
+<li>数据备份与恢复以及数据库基准测试工具等其他辅助功能点</li>
+</ol>
+<p>参考链接</p>
+<ul>
+<li><a href="https://www.cnblogs.com/fernandolee24/p/6259480.html" target="_blank" rel="external">https://www.cnblogs.com/fernandolee24/p/6259480.html</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1005413" target="_blank" rel="external">https://cloud.tencent.com/developer/article/1005413</a></li>
+<li><a href="https://blog.51cto.com/tanzj/595795" target="_blank" rel="external">https://blog.51cto.com/tanzj/595795</a></li>
+</ul>
+<h1 id="2-Maxwell"><a href="#2-Maxwell" class="headerlink" title="2. Maxwell"></a>2. Maxwell</h1><p>简介 Maxwell是一个能实时读取MySQL二进制日志binlog，并生成 JSON 格式的消息，作为生产者发送给 Kafka，Kinesis、RabbitMQ、Redis、Google Cloud Pub/Sub、文件或其它平台的应用程序。它的常见应用场景有ETL、维护缓存、收集表级别的dml指标、增量到搜索引擎、数据分区迁移、切库binlog回滚方案等。 maxwell相对于canal的优势是使用简单，它直接将数据变更输出为json字符串，不需要再编写客户端。maxwell可以看作是canal服务端+canal客户端</p>
+<ul>
+<li>官网：<a href="http://maxwells-daemon.io/" target="_blank" rel="external">http://maxwells-daemon.io/</a></li>
+<li>项目地址:<a href="https://github.com/zendesk/maxwell" target="_blank" rel="external">https://github.com/zendesk/maxwell</a></li>
+</ul>
+<p>特点</p>
+<ul>
+<li>支持<code>SELECT*FROM table</code>的方式进行全量数据初始化</li>
+<li>支持在主库发生failover后，自动恢复binlog位置(GTID)</li>
+<li>可以对数据进行分区，解决数据倾斜问题，发送到kafka的数据支持database、table、column等级别的数据分区</li>
+<li>工作方式是伪装为Slave，接收binlog events，然后根据schemas信息拼装，可以接受ddl、xid、row等各种event</li>
+</ul>
+<p>参考链接</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1403999" target="_blank" rel="external">https://cloud.tencent.com/developer/article/1403999</a></li>
+<li><a href="https://laijianfeng.org/2019/03/MySQL-Binlog-%E8%A7%A3%E6%9E%90%E5%B7%A5%E5%85%B7-Maxwell-%E8%AF%A6%E8%A7%A3/" target="_blank" rel="external">https://laijianfeng.org/2019/03/MySQL-Binlog-%E8%A7%A3%E6%9E%90%E5%B7%A5%E5%85%B7-Maxwell-%E8%AF%A6%E8%A7%A3/</a></li>
+</ul>
+<h1 id="3-MySQLStreamer"><a href="#3-MySQLStreamer" class="headerlink" title="3.MySQLStreamer"></a>3.MySQLStreamer</h1><p>简介 MySQLStreamer 是一个数据库变更捕获和发布系统，它负责捕获数据库的每一条数据变更，将它们打包成消息并发布到Kafka 中。“流表二象性”的概念就是讲述可以重放表中的每一条变更操作来将整张表重建为某个时间点的镜像，或者发送表中的每一条变更来重新生成流。 要理解我们是如何捕获和发布数据变更的，就必须了解我们的数据库基础架构。在 Yelp，我们把绝大多数数据都保存在 MySQL 集群中。为了处理海量访问和管理读请求负载，Yelp 必须维护几十个在地理上按区域分布的读副本。 MySQL 数据复制原理： 要注意的是从库上 SQL 线程执行的事件并不一定是主库二进制文件中的最新事件，这个在上图中表现为复制延迟。Yelp 的 MySQLStreamer 就做为一个从库，把更新操作持久化到 Apache Kafka 中，而不是象普通的 MySQL 从库一样持久化到数据表中。 MySQLStreamer 则负责： 不断从 MySQL 二进制文件中查看最新的日志，读取这两种类型的事件； 根据事件类型不同而进行相应处理，将 DML 事件发布到 Kafka Topic 中； MySQLStreamer 会发布四种不同的事件类型：插入、更新、删除和刷新。前三种对应着相同类型的 DML 操作。刷新事件由我们的初始化 Topic 过程产生 <img src="https://static001.infoq.cn/resource/image/d0/44/d05d23406ae3bc3db8bdf43484e05244.jpg" alt=""></p>
+<ul>
+<li>项目地址:<a href="https://github.com/Yelp/mysql_streamer" target="_blank" rel="external">https://github.com/Yelp/mysql_streamer</a></li>
+</ul>
+<p>参考链接</p>
+<ul>
+<li><a href="https://www.infoq.cn/article/yelp-real-time-data-pipeline-part02" target="_blank" rel="external">https://www.infoq.cn/article/yelp-real-time-data-pipeline-part02</a></li>
+</ul>
+<h1 id="4-Camus"><a href="#4-Camus" class="headerlink" title="4.Camus"></a>4.Camus</h1><p>简介 linkin开发,目前被 gobblin 取代</p>
+<ul>
+<li>项目地址:<a href="https://github.com/linkedin/camus" target="_blank" rel="external">https://github.com/linkedin/camus</a></li>
+</ul>
+<h1 id="5-Gobblin"><a href="#5-Gobblin" class="headerlink" title="5.Gobblin"></a>5.Gobblin</h1><p>简介 Gobblin是一个用于批处理和流系统的分布式大数据集成框架（导入，复制，合规性，保留）。 Gobblin是用来整合各种数据源的通用型ETL框架，在某种意义上，各种数据都可以在这里“一站式”的解决ETL整个过程，专为大数据采集而生，易于操作和监控，提供流式抽取支持 Gobblin具有与Apache Hadoop，Apache Kafka，Salesforce，S3，MySQL，Google等的集成。 <img src="https://ask.qcloudimg.com/http-save/yehe-2725853/v74nkx004r.jpeg?imageView2/2/w/1620" alt=""></p>
+<ul>
+<li>项目地址:<a href="https://github.com/apache/incubator-gobblin" target="_blank" rel="external">https://github.com/apache/incubator-gobblin</a></li>
+<li>官网地址:<a href="https://gobblin.readthedocs.io/en/latest/" target="_blank" rel="external">https://gobblin.readthedocs.io/en/latest/</a></li>
+</ul>
+<p>特点 底层支持三种部署方式，分别是standalone，mapreduce，mapreduce on yarn。可以方便快捷的与Hadoop进行集成，上层有运行时任务调度和状态管理层，可以与Oozie，Azkaban进行整合，同时也支持使用Quartz来调度（standalone模式默认使用Quartz进行调度）。对于失败的任务还拥有多种级别的重试机制，可以充分满足我们的需求。再上层呢就是由6大组件组成的执行单元了。这6大组件的设计也正是Gobblin高度可扩展的原因。</p>
+<ul>
+<li>Source:主要负责将源数据整合到一系列workunits中，并指出对应的extractor是什么。这有点类似于Hadoop的InputFormat。</li>
+<li>Extractor:则通过workunit指定数据源的信息，例如kafka，指出topic中每个partition的起始offset，用于本次抽取使用。Gobblin使用了watermark的概念，记录每次抽取的数据的起始位置信息。</li>
+<li>Converter:顾名思义是转换器的意思，即对抽取的数据进行一些过滤、转换操作，例如将byte arrays 或者JSON格式的数据转换为需要输出的格式。转换操作也可以将一条数据映射成0条或多条数据（类似于flatmap操作）。</li>
+<li>Quality Checker:即质量检测器，有2中类型的checker：record-level和task-level的策略。通过手动策略或可选的策略，将被check的数据输出到外部文件或者给出warning。</li>
+<li>Writer:就是把导出的数据写出，但是这里并不是直接写出到output file，而是写到一个缓冲路径（ staging directory）中。当所有的数据被写完后，才写到输出路径以便被publisher发布。Sink的路径可以包括HDFS或者kafka或者S3中，而格式可以是Avro,Parquet,或者CSV格式。同时Writer也可是根据时间戳，将输出的文件输出到按照“小时”或者“天”命名的目录中。</li>
+<li>Publisher:就是根据writer写出的路径，将数据输出到最终的路径。同时其提供2种提交机制：完全提交和部分提交；如果是完全提交，则需要等到task成功后才pub，如果是部分提交模式，则当task失败时，有部分在staging directory的数据已经被pub到输出路径了。</li>
+</ul>
+<p>参考链接</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1351988" target="_blank" rel="external">https://cloud.tencent.com/developer/article/1351988</a></li>
+</ul>
+<h1 id="6-Open-Replicator"><a href="#6-Open-Replicator" class="headerlink" title="6.Open Replicator"></a>6.Open Replicator</h1><p>Open Replicator是一个用Java编写的MySQL binlog分析程序。Open Replicator 首先连接到MySQL（就像一个普通的MySQL Slave一样），然后接收和分析binlog，最终将分析得出的binlog events以回调的方式通知应用。Open Replicator可以被应用到MySQL数据变化的实时推送，多Master到单Slave的数据同步等多种应用场景。 Open Replicator目前只支持MySQL5.0及以上版本。 简介</p>
+<ul>
+<li>项目地址：<a href="https://github.com/whitesock/open-replicator" target="_blank" rel="external">https://github.com/whitesock/open-replicator</a></li>
+<li>项目主页：<a href="https://code.google.com/archive/p/open-replicator/" target="_blank" rel="external">https://code.google.com/archive/p/open-replicator/</a></li>
+</ul>
+<p>参考链接</p>
+<ul>
+<li><a href="https://blog.csdn.net/u013256816/article/details/53072560" target="_blank" rel="external">https://blog.csdn.net/u013256816/article/details/53072560</a></li>
+<li><a href="https://blog.csdn.net/menergy/article/details/17583823" target="_blank" rel="external">https://blog.csdn.net/menergy/article/details/17583823</a></li>
+</ul>
+<h1 id="７-Galera-Cluster"><a href="#７-Galera-Cluster" class="headerlink" title="７.Galera Cluster"></a>７.Galera Cluster</h1><p>简介 -　官网：<a href="https://galeracluster.com/" target="_blank" rel="external">https://galeracluster.com/</a> 何谓Galera Cluster？就是集成了Galera插件的MySQL集群，是一种新型的，数据不共享的，高度冗余的高可用方案，目前Galera Cluster有两个版本，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster了，因为Galera本身是具有多主特性的，所以Galera Cluster也就是multi-master的集群架构，如图1所示： <img src="https://img-blog.csdn.net/20180729102825657?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dvMTgyMzcwOTU1Nzk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""> 特性</p>
+<ul>
+<li>真正的多主集群，Active-Active架构；</li>
+<li>同步复制，没有复制延迟；</li>
+<li>多线程复制；行级别并行复制</li>
+<li>没有主从切换操作，无需使用虚IP；</li>
+<li>热备份，单个节点故障期间不会影响数据库业务；</li>
+<li>支持节点自动加入，无需手动拷贝数据；</li>
+<li>支持InnoDB存储引擎；</li>
+<li>对应用程序透明，原生MySQL接口；</li>
+<li>无需做读写分离；</li>
+<li>部署使用简单。</li>
+</ul>
+<p>参考链接</p>
+<ul>
+<li><a href="http://www.yunweipai.com/archives/19574.html" target="_blank" rel="external">http://www.yunweipai.com/archives/19574.html</a></li>
+<li><a href="https://juejin.im/post/5d36a4f551882537dc64a734" target="_blank" rel="external">https://juejin.im/post/5d36a4f551882537dc64a734</a></li>
+<li><a href="https://blog.csdn.net/qq_38125183/article/details/80861925" target="_blank" rel="external">https://blog.csdn.net/qq_38125183/article/details/80861925</a></li>
+<li><a href="https://blog.csdn.net/wo18237095579/article/details/81270954" target="_blank" rel="external">https://blog.csdn.net/wo18237095579/article/details/81270954</a></li>
+</ul>
+<h1 id="8-Group-Replication"><a href="#8-Group-Replication" class="headerlink" title="8.Group Replication"></a>8.Group Replication</h1><p>简介 MySQL Group Replication（简称MGR）是MySQL官方于2016年12月推出的一个全新的高可用与高扩展的解决方案。组复制是MySQL5.7版本出现的新特性，它提供了高可用、高扩展、高可靠的MySQL集群服务。MySQL组复制分单主模式和多主模式，mysql 的复制技术仅解决了数据同步的问题，如果 master 宕机，意味着数据库管理员需要介入，应用系统可能需要修改数据库连接地址或者重启才能实现。（这里也可以使用数据库中间件产品来避免应用系统数据库连接的问题，例如 mycat 和 atlas 等产品）。组复制在数据库层面上做到了，只要集群中大多数主机可用，则服务可用，也就是说3台服务器的集群，允许其中1台宕机。 MGR提供了single-primary和multi-primary两种模式。其中，single-primary mode(单写模式) 组内只有一个节点负责写入，读可以从任意一个节点读取，组内数据保持最终一致；multi-primary mode(多写模式)，即写会下发到组内所有节点，组内所有节点同时可读，也是能够保证组内数据最终一致性。尤其要注意：一个MGR的所有节点必须配置使用同一种模式，不可混用！</p>
+<ul>
+<li>在单主模式下, 组复制具有自动选主功能，每次只有一个 server成员接受更新;</li>
+<li>在多主模式下, 所有的 server 成员都可以同时接受更新;</li>
+</ul>
+<p><img src="https://images2017.cnblogs.com/blog/695151/201802/695151-20180209163955857-1422391339.png" alt=""> 参考链接</p>
+<ul>
+<li><a href="http://drmingdrmer.github.io/tech/mysql/2018/08/04/mysql-group-replication.html" target="_blank" rel="external">http://drmingdrmer.github.io/tech/mysql/2018/08/04/mysql-group-replication.html</a></li>
+<li><a href="https://www.cnblogs.com/kevingrace/p/10260685.html" target="_blank" rel="external">https://www.cnblogs.com/kevingrace/p/10260685.html</a></li>
+</ul>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>平台</p>
+<p>开发厂商</p>
+<p>语言</p>
+<p>stars</p>
+<p>active</p>
+<p>Tungsten Replicator</p>
+<p>Continuent</p>
+<p>Java</p>
+<p>Maxwell</p>
+<p>zendesk</p>
+<p>Java</p>
+<p>1.8k</p>
+<p>6 days ago</p>
+<p>MySQLStreamer</p>
+<p>Yelp</p>
+<p>Python</p>
+<p>332</p>
+<p>3 years ago</p>
+<p>Camus</p>
+<p>linkdin</p>
+<p>Java</p>
+<p>837</p>
+<p>4 years ago</p>
+<p>Gobblin</p>
+<p>linkdin</p>
+<p>Java</p>
+<p>1.6k</p>
+<p>4 days ago</p>
+<p>Open Replicator</p>
+<p>person</p>
+<p>Java</p>
+<p>440</p>
+<p>4 years ago</p>
+<p>Group Replication</p>
+<p>Galera Cluster</p>
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><ul>
+<li><a href="https://www.cnblogs.com/wuchangsoft/p/10390552.html" target="_blank" rel="external">https://www.cnblogs.com/wuchangsoft/p/10390552.html</a></li>
+<li><a href="https://dbaplus.cn/news-141-2315-1.html" target="_blank" rel="external">https://dbaplus.cn/news-141-2315-1.html</a></li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>数据迁移工具对比&amp;介绍</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2019-11-21</p><p><span>最后更新：</span>2020-06-02</p><p><span>原始链接：</span><a href="/2019/11/21/data-migration-tool-comparison-and-introduction/">https://102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2019/11/21/data-migration-tool-comparison-and-introduction/" data-id="ckreodokw005jzg9de3by0mry" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aQXLjMAwEwPz/09kHpKzMEERWh9bJ5cg2WwcCGfDrK76+P1w/73l+J3//5698+tSFCw8PD+/S0p9/7O+/+dOnnh86Hh4e3h4v+brnpbeFJPm25PUvFjw8PLwX8G4tNG/T8/YaDw8P752857CgXcTzPa+oe3h4eHiDMKJtrxN823YvZi14eHh4MS8PZN/zemW+h4eHhzceUOUxwWT7zgtGvVo8PDy8BV6+4T43rG2g0AYZ7fECPDw8vD1esqznrT+5P39kecGIQhA8PDy8BV4ep05KwuKBquSveHh4eFd5+dhpcnxq0u+3K/xYEvDw8PAu8SZxQ9uOt63w2QO6lqbg4eHhxW1oztj4VD5gi5p1PDw8vDVeGxzMC08eyI6iCjw8PLwFXhsEtItrC8bZY40abjw8PLwF3tm23kYJ7SGDpAycNfR4eHh4Z7zRv/pXt/U8ui3uwcPDw1vgJTFBHgckVSgpGJMiUacgeHh4eEe8tmE929zzI1nP5WrepuPh4eFt8PIMI19osuh2YDaKdPHw8PDGvLNB17wFT8rMZAiHh4eHd5d3NsTKK8zZhh6Fs0lJwMPDw1vmtYeo2iJxFkaMHg0eHh7eGq8NGm6Vkzwgblt2PDw8vD3ercB0EtfOS8gvjT4eHh7eGq/d4m+VhLZ9rx8cHh4e3hrvrADk7LODAm3YgYeHh/e/eJNhf9JYt6FGexVTPjw8PLxyPWfbcTvESkKNfNH5mA0PDw9vg9dutUmDO1/cWVDyNbnw8PDwSl7b7G6Xh1vxBx4eHt4272wwNml2V5IVPDw8vNfzJsetJgcCiseEh4eH9zJeu8W3B7ye349+Fw8PD2+N1w698tb2bw4WfFwhHh4e3gKv/Yc/PwTQbutnoe2FCw8PDy/l/QNafw0B+1TsnAAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/工具/"><i class="fa fa-tag"></i>工具</a></div><div class="post-nav"><a class="pre" href="/2019/11/26/libfaketime-use/">时间测试神器libfaketime的使用</a><a class="next" href="/2019/11/15/php-protobuf-err/">解决 protobuf 3 PHP 中枚举值报错问题</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

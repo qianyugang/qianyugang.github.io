@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Openresty 第三方库 Lua-resty-http 使用教程 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Openresty 第三方库 Lua-resty-http 使用教程</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua. (句中提及语言,博主一概不会.单押x3)</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Openresty 第三方库 Lua-resty-http 使用教程</h1><div class="post-meta">2018-12-21<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2018/12/21/lua-resty-http/#vcomment"><span class="valine-comment-count" data-xid="/2018/12/21/lua-resty-http/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装第三方库lua-resty-http"><span class="toc-number">1.</span> <span class="toc-text">安装第三方库lua_resty_http</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步"><span class="toc-number">1.1.</span> <span class="toc-text">第一步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步"><span class="toc-number">1.2.</span> <span class="toc-text">第二步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码示例"><span class="toc-number">2.</span> <span class="toc-text">代码示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数详解"><span class="toc-number">3.</span> <span class="toc-text">参数详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求参数"><span class="toc-number">3.1.</span> <span class="toc-text">请求参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#返回参数"><span class="toc-number">3.2.</span> <span class="toc-text">返回参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol></div></div><div class="post-content"><p>lua_resty_http是一个第三方 openresty 库，基于 Openresty/ngx_lua 的HTTP客户端，支持POST方法上传数据.<br>刚好项目中用到需要从网关中发起请求，于是就用到这个库，把使用方式在这里分享一下。</p>
+<h2 id="安装第三方库lua-resty-http"><a href="#安装第三方库lua-resty-http" class="headerlink" title="安装第三方库lua_resty_http"></a>安装第三方库lua_resty_http</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>首先找到项目地址:<a href="https://github.com/pintsized/lua-resty-http" target="_blank" rel="external">https://github.com/pintsized/lua-resty-http</a></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>然后将 <code>lua-resty-http/lib/resty/</code> 目录下的 <code>http.lua</code> 和 <code>http_headers.lua</code> 两个文件拷贝到 <code>/usr/local/openresty/lualib/resty</code> 目录下即可， <code>OpenResty</code> 安装目录为 <code>/usr/local/openresty</code>）。不需要重启。（少数需要清空 Openresty shared_dict 数据的情况需要重启 ）。</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">HttpUtil</span><span class="params">(jwt_data)</span></span></div><div class="line">	<span class="comment">-- 引入第三方库</span></div><div class="line">    <span class="keyword">local</span> http = <span class="built_in">require</span> <span class="string">"resty.http"</span></div><div class="line">    <span class="keyword">local</span> httpc = http.new()</div><div class="line">    <span class="comment">-- 需要post的参数</span></div><div class="line">    <span class="keyword">local</span> str = <span class="string">"aaa=1&amp;bbb=2%ccc=3"</span></div><div class="line">    <span class="comment">-- 请求地址</span></div><div class="line">    <span class="keyword">local</span> url = <span class="string">"http://wwww.xxxxxxx.com"</span></div><div class="line">    <span class="keyword">local</span> res, err = httpc:request_uri(url, &#123;</div><div class="line">        method = <span class="string">"POST"</span>,</div><div class="line">        body = str,</div><div class="line">        headers = &#123;</div><div class="line">            [<span class="string">"Content-Type"</span>] = <span class="string">"application/x-www-form-urlencoded"</span>,</div><div class="line">            [<span class="string">"Content-Length"</span>] = #str,</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">	<span class="comment">-- 返回值</span></div><div class="line">    ngx.say(res.body)</div><div class="line">    ngx.say(res.<span class="built_in">status</span>)</div><div class="line">    ngx.say(res.headers)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> res.body,res.<span class="built_in">status</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><h3 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h3><table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>version</td>
+<td>HTTP版本号，目前支持1.0或1.1</td>
+</tr>
+<tr>
+<td>method</td>
+<td>HTTP方法</td>
+</tr>
+<tr>
+<td>path</td>
+<td>路径</td>
+</tr>
+<tr>
+<td>query</td>
+<td>查询字符串，表示为文字字符串或Lua table</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>请求 header table</td>
+</tr>
+<tr>
+<td>body</td>
+<td>请求体作为字符串或迭代器函数（请参阅<a href="https://github.com/pintsized/lua-resty-http#get_client_body_reader" target="_blank" rel="external">get_client_body_reader</a>）。</td>
+</tr>
+<tr>
+<td>ssl_verify</td>
+<td>验证SSL证书是否与主机名匹配</td>
+</tr>
+</tbody>
+</table>
+<h3 id="返回参数"><a href="#返回参数" class="headerlink" title="返回参数"></a>返回参数</h3><p>请求成功后，res将包含以下字段：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>status</td>
+<td>状态码</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>状态原因短语</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>headers 类型是table ，相同名称的header会合并成一个table</td>
+</tr>
+<tr>
+<td>has_body</td>
+<td>bool值，指示是否有要读取的正文</td>
+</tr>
+<tr>
+<td>body_reader</td>
+<td>迭代器函数，用于以流方式读取正文。</td>
+</tr>
+<tr>
+<td>read_body</td>
+<td>一种将整个主体读入字符串的方法。</td>
+</tr>
+<tr>
+<td>read_trailers</td>
+<td>读取正文后，合并标题下trailers的方法。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/ngx_lua/how_use_third_lib.html" target="_blank" rel="external">如何引用第三方 resty 库</a></li>
+<li><a href="https://moonbingbing.gitbooks.io/openresty-best-practices/ngx_lua/how_use_third_lib.html" target="_blank" rel="external">Lua-发送http请求</a></li>
+<li><a href="https://my.oschina.net/u/2539854/blog/848059" target="_blank" rel="external">Lua-resty-http上传数据</a></li>
+<li><a href="https://www.haiyun.me/archives/932.html" target="_blank" rel="external">Nginx Lua HTTP客户端</a></li>
+</ul>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>Openresty 第三方库 Lua-resty-http 使用教程</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2018-12-21</p><p><span>最后更新：</span>2020-06-01</p><p><span>原始链接：</span><a href="/2018/12/21/lua-resty-http/">https://102no.com/2018/12/21/lua-resty-http/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2018/12/21/lua-resty-http/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2018/12/21/lua-resty-http/" data-id="ckreodooc00ezzg9d3m4iik06" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3au47DMAxE0fz/TzutG8kzQwWIyesqWCSWjgqu+Ph85Oe6Pfe/rD7f/7L/zv6bhx8YMGC8lnFtn1MLKwehrLvaAwwYMCYwVguvvuMG3P22FOrDnmHAgAFjwdhvSAnW7rowYMCA4b7uFF5Jj2HAgAEje7W75F/k4jBgwHghoxJGf/35J/0NGDBgvIpxmc+p8pkedqVdwYABozUja0BmhbNSgio0RGHAgNGboQc+N1nVR8T2mzMuizBgwGjHUK5u7q+UTbvDGQ/hGwYMGK0Z2bb0y2KWErsHCgMGjDmMbKjibLnNHQE5NhsCAwaMFzLc0QflCOpFOimVhQEDRjtGNp2hLJO1KrMWKQwYMCYw9ECpJLqVEp57lDBgwJjJcIv79YEJt5G5nBaBAQNGa0a2mFIU06+GbokNBgwYcxhukHVbnlmpLmxwwoABoymjvrmslK+PaEj/DGDAgDGG4TYAlFTWTXrDVBYGDBitGfp2sxGK+riGcm2FAQPGNIZyacuueu5nuwwHAwaMAQw37LrhMnubkejCgAFjDONUISwbsHDf8Dl1ZjBgwPhjxmU+SmPAfYMe6Je/ggEDRmuGGyj1slplsMwFw4ABYwIjC7LuFVBvl7ptCRgwYMxhVBLOrFSXJcYP91wYMGDAcF8dJaVhEgsDBgwYyrhDlNZmxyQNsMKAAaMdQ0lis5HTyrXPOCYYMGC0ZmQjDpWxjMrAWamRCQMGjPcxvmdQvCqBPWYWAAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/OpenResty/"><i class="fa fa-tag"></i>OpenResty</a><a href="/tags/Lua/"><i class="fa fa-tag"></i>Lua</a></div><div class="post-nav"><a class="pre" href="/2018/12/25/kong-1.0-update-log/">微服务 API 网关 Kong 1.0 GA 版本正式发布(更新详情)</a><a class="next" href="/2018/12/19/kong-docs-and-notes/">Kong 开发笔记&amp;相关文章</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'false' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">107</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/07/14/10-excel-books/">10本 Excel 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/07/01/10-front-end-framework-vue-learning-books/">10本前端框架 VUE 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/07/10-nginx-learn-books/">10本 Nginx 开发学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/06/01/10-git-learn-books/">10本 Git 版本管理学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/25/10-mongodb-learn-books/">10本 MongoDB 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/20/10-postgresql-learn-books/">10本 PostgreSQL 学习书籍推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/08/10-company-development-office-books/">10本适合放在互联网公司开发办公室书籍</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/21/kong-2.4/">Kong 2.4 正式发布！</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="blog of forecho" target="_blank">blog of forecho</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://yiws.net/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="你好我是森林" target="_blank">你好我是森林</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
