@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-07-30T08:41:16.428Z</updated>
+  <updated>2021-08-25T10:29:33.215Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10本 Excel VBA 学习书籍推荐</title>
+    <link href="https://102no.com/2021/08/25/10-excel-vba-books/"/>
+    <id>https://102no.com/2021/08/25/10-excel-vba-books/</id>
+    <published>2021-08-24T16:00:00.000Z</published>
+    <updated>2021-08-25T10:29:33.215Z</updated>
+    
+    <content type="html"><![CDATA[<p>Excel 是全世界使用最广泛的电子表格软件，它是 Microsoft Office 办公套件的一个组成部分。 Excel 是目前最流行的电子表格软件，并且很多年以来已成为世界标准。</p><p>Excel 兼容几乎所有的数据文件，是各种系统之间的桥梁，更是整理数据、输出可视化报表的重要工具。VBA（Visual Basic for Applications）是Visual Basic的一种宏语言，主要能用来扩展Windows的应用程序功能，特别是Microsoft Office软件。今天就推荐 10 本在 Excel中使用 VBA 的 学习书籍。</p><h2 id="《别怕，Excel-VBA其实很简单》"><a href="#《别怕，Excel-VBA其实很简单》" class="headerlink" title="《别怕，Excel VBA其实很简单》"></a>《别怕，Excel VBA其实很简单》</h2><p>本书考虑到大多数读者没有编程基础的实际情况，用浅显易懂的语言和生动形象的比喻，并配合大量插画，介绍excel中看似复杂的概念和代码。</p><p>本书适合想提高工作效率的办公人员，特别是经常需要处理、分析大量数据的相关人员，以及财经专业的高校师生阅读。</p><p>作者：</p><ul><li>Excel Home</li></ul><h2 id="《Excel-VBA实战技巧精粹》"><a href="#《Excel-VBA实战技巧精粹》" class="headerlink" title="《Excel VBA实战技巧精粹》"></a>《Excel VBA实战技巧精粹》</h2><p>本书内容侧重于ExcelVBA使用技巧，旨在帮助Excel VBA的初学者和有一定ExcelVBA应用基础、希望进阶的读者。</p><p>本书内容丰富、图文并茂，适合各学习阶段的读者阅读。</p><p>作者：</p><ul><li>Excel Home</li></ul><h2 id="《深入浅出Excel-VBA》"><a href="#《深入浅出Excel-VBA》" class="headerlink" title="《深入浅出Excel VBA》"></a>《深入浅出Excel VBA》</h2><p>本书基于作者在高校课堂和网络教育中多年积累的教学经验，由浅入深地讲解了Excel VBA程序设计的知识与技巧。</p><p>本书适合初学Excel VBA程序设计的读者，以及非计算机专业、无实际编程经验的各行业人士学习使用，也可以作为大专院校学生的辅助教材或自学参考书。</p><p>作者：</p><ul><li>杨洋，网易云课堂开设“全民一起VBA”系列视频课程</li></ul><h2 id="《Excel-VBA程序开发自学宝典》"><a href="#《Excel-VBA程序开发自学宝典》" class="headerlink" title="《Excel VBA程序开发自学宝典》"></a>《Excel VBA程序开发自学宝典》</h2><p>通读本书，您不仅能学到如何开发函数、编写程序，还能设计报表系统，独立开发Excel百宝箱式的大中型插件。</p><p>本书适应的读者对象是完全没有编程经验的读者，它将带您步入VBA程序殿堂。</p><p>作者：</p><ul><li>罗刚君，ExcelTip技巧网等近10个办公软件论坛的版主，有着丰富的Office应用经验和图书写作经验。</li></ul><h2 id="《来吧！带你玩转-Excel-VBA》"><a href="#《来吧！带你玩转-Excel-VBA》" class="headerlink" title="《来吧！带你玩转 Excel VBA》"></a>《来吧！带你玩转 Excel VBA》</h2><p>本书旨在普及Excel VBA 基础理论，以及通过VBA 的高级应用扩展Excel 的功能，提升读者的制表效率，解决工作中的疑难，同时亦可借此开发商业插件。</p><p>作者：</p><ul><li>罗刚君，ExcelTip技巧网等近10个办公软件论坛的版主，有着丰富的Office应用经验和图书写作经验。</li><li>杨嘉恺，ExcelTip论坛的版主，对VBA读取网页数据和VBA操作数据库有着相当丰富的实战经验。</li></ul><h2 id="《Excel-VBA基础入门》"><a href="#《Excel-VBA基础入门》" class="headerlink" title="《Excel VBA基础入门》"></a>《Excel VBA基础入门》</h2><p>本书在安排内容时，充分考虑到大多数初学者几乎没有编程基础的实际情况，在文字表述方面尽量避开专业术语，用通俗易懂的语言，教读者如何学习Excel VBA。</p><p>作者：</p><ul><li>赵志东</li></ul><h2 id="《Excel-VBA常用代码实战大全》"><a href="#《Excel-VBA常用代码实战大全》" class="headerlink" title="《Excel VBA常用代码实战大全》"></a>《Excel VBA常用代码实战大全》</h2><p>本书重点强调实践性，旨在帮助Excel初学者和有一定ExcelVBA编程基础、希望进一步提高的读者掌握VBA编程设计的技巧。</p><p>本书内容丰富、图文并茂，适合初步掌握VBA的基本知识，但需要进一步提高编程能力的初学者，以及希望通过VBA提高工作效率的各类从业人员。也适合各大、中专院校相关专业师生和企业、相关单位的培训班学员阅读。</p><p>作者：</p><ul><li>袁竹平</li></ul><h2 id="《Excel-2010-VBA编程与实践》"><a href="#《Excel-2010-VBA编程与实践》" class="headerlink" title="《Excel 2010 VBA编程与实践》"></a>《Excel 2010 VBA编程与实践》</h2><p>本书侧重于“解决问题”，主要展示诸多常见疑难的解决方案。</p><p>本书既适合Excel VBA用户参考学习，又可以作为大中专院校或者企业的培训教材，同时对于在数据处理与分析方面有实践经验的用户也有较高的参考价值。</p><p>作者：</p><ul><li>罗刚君，Exceltip.net技术社区版主，多个OFFICE技术社区资深版主，从事Excel软件研究与写作多年,精通Excel VBA与函数、图表。</li><li>章兰新，Exceltip.net技术社区版主，多个OFFICE技术社区资深版主，拥有十多年丰富的政府信息化实践、管理和组织实施经验，精通Excel和MS SQL在管理中的应用。</li><li>黄朝阳，Exceltip.net站长，微软全球最有价值专家（MVP）。拥有十多年丰富的企业信息化实践和管理经验，精通Excel和MS SQL在企业中的应用。</li></ul><h2 id="《中文版Excel-2010高级VBA编程宝典》"><a href="#《中文版Excel-2010高级VBA编程宝典》" class="headerlink" title="《中文版Excel 2010高级VBA编程宝典》"></a>《中文版Excel 2010高级VBA编程宝典》</h2><p>如果你已经拥有使用excel的丰富经验，可以借助本书成为一位 excel专家。</p><p>作者：</p><ul><li>John Walkenbach，全球声名卓著的Excel权威，曾撰写了数百篇文章，并创建了赢得大奖的Power UtilityPak。</li></ul><h2 id="《基于Excel和VBA的高级金融建模》"><a href="#《基于Excel和VBA的高级金融建模》" class="headerlink" title="《基于Excel和VBA的高级金融建模》"></a>《基于Excel和VBA的高级金融建模》</h2><p>本书将大部分金融模型用电子制表软件实现。本书的特点是将计算机应用与金融计算有机地结合起来。通过学习本书内容，既可以熟悉并巩固金融领域的大部分经典理论，又可以学习到Excel的编程知识。读者能够轻松使用Excel来实现有关金融计算。</p><p>本书可作为金融专业本科高年级学生和研究生的教材，也可作为金融从业者的参考工具。</p><p>作者：</p><ul><li>Mary Jackson</li><li>Mike Staunton</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Excel 是全世界使用最广泛的电子表格软件，它是 Microsoft Office 办公套件的一个组成部分。 Excel 是目前最流行的电子表格软件，并且很多年以来已成为世界标准。&lt;/p&gt;
+&lt;p&gt;Excel 兼容几乎所有的数据文件，是各种系统之间的桥梁，更是整理数据、输出
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong 2.5 正式发布！</title>
@@ -521,31 +547,6 @@
     
     
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本计算机/互联网/科技发展历史书籍推荐</title>
-    <link href="https://102no.com/2021/02/22/10-internet-technology-history-books/"/>
-    <id>https://102no.com/2021/02/22/10-internet-technology-history-books/</id>
-    <published>2021-02-21T16:00:00.000Z</published>
-    <updated>2021-02-22T03:10:35.994Z</updated>
-    
-    <content type="html"><![CDATA[<p>世界上第一台通用电子计算机「ENIAC」于1946年2月14日在美国宾夕法尼亚大学诞生，预示着信息时代的爆炸即将到来。而从互联网的前身——阿帕网被发明的那一刻起，全世界又再一次的进入一次信息飞跃，互联网的发展可以说是一部波澜壮阔的全球性史诗，是一场席卷全球所有国家的人类新文明浪潮。今天就推荐10本涵盖国内外的计算机/互联网/科技发展历史书籍，一窥这相对短暂而又波澜的历史。</p><p>家庭读书系列可点击查看：</p><ul><li><a href="https://102no.com/2020/04/23/10-essential-books-for-famil-medicine/">10本家庭医疗必备书籍</a></li><li><a href="https://102no.com/2021/02/05/10-children-picture-book/">10本春节过年回家适合和小朋友一起看的绘本书推荐</a></li></ul><p>算法学习书籍推荐系列可点击查看：</p><ul><li><a href="https://102no.com/2020/12/03/10-algorithm-books/">10本算法入门书籍推荐</a></li><li><a href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/">10本算法深入学习书籍推荐</a></li></ul><p>Linux书籍推荐系列可点击查看:</p><ul><li><a href="https://102no.com/2020/08/13/10-linux-introduction-books/">10本Linux操作入门书籍推荐</a></li><li><a href="https://102no.com/2020/08/17/10-linux-advanced-books/">10本Linux进阶书籍推荐</a></li><li><a href="https://102no.com/2020/09/01/10-linux-kernel-books/">10本Linux内核书籍推荐</a></li></ul><h2 id="01《浪潮之巅》"><a href="#01《浪潮之巅》" class="headerlink" title="01《浪潮之巅》"></a>01《浪潮之巅》</h2><p><img src="https://i.loli.net/2021/02/22/GSAral1Mhn2RbYC.png" alt="浪潮之巅.png"></p><p>近一百多年来，总有一些公司很幸运地、有意识或无意识地站在技术革命的浪尖之上。在这十几年间，它们代表着科技的浪潮，直到下一波浪潮的来临。</p><p>在极度商业化的今天，科技的进步和商机是分不开的。因此，本书也系统地介绍了影响到科技浪潮的风险投资公司，诸如 KPCB 和红杉资本，以及百年来为科技捧场的投资银行，例如高盛公司，等等。</p><p>在这些公司兴衰的背后，有着它必然的规律。本书不仅讲述科技工业的历史，更重在揭示它的规律性。</p><p>作者：</p><ul><li>吴军博士，毕业于清华大学计算机系（本科）、电子工程系（硕士）和美国约翰 · 霍普金斯大学计算机科学系（博士）。</li></ul><h2 id="02《沸腾十五年》"><a href="#02《沸腾十五年》" class="headerlink" title="02《沸腾十五年》"></a>02《沸腾十五年》</h2><p><img src="https://i.loli.net/2021/02/22/Qd3a6csXp9T5wxb.png" alt="沸腾十五年.png"></p><p>《沸腾十五年：中国互联网1995-2009》</p><p>本书记录了一群在中国创造属于自己历史的人和他们的故事，他们是中国互联网自1995年兴起的波澜壮阔中的弄潮儿和财富新贵的代表，他们用互联网创造和推动着这个国家的历史，并改写了自己的财富路径，他们分属于三类人：海归（从海外归来的创业者）、本土技术爱好者（极客）和商业价值发现者（商人）。</p><p>作者：</p><ul><li>林军：中信出版社、蓝狮子财经出版中心签约作家，英鹏兰德公司执行董事，互联网老兵群创始人，曾任IT第一中文网站天极网创始人和总编辑等职，归属中国互联网创业第一代，记者生涯中曾任《电脑报》新闻中心主任和《知识经济》副总编等职，是中国资深互联网观察家之一。</li></ul><h2 id="03《激荡三十年》"><a href="#03《激荡三十年》" class="headerlink" title="03《激荡三十年》"></a>03《激荡三十年》</h2><p><img src="https://i.loli.net/2021/02/22/2fndwyugHlU7pqW.png" alt="激荡三十年.png"></p><p>尽管任何一段历史都有它不可替代的独特性，可是，1978年—2008年的中国，却是最不可能重复的，在一个拥有近13亿人口的大国里，僵化的计划经济体制日渐瓦解了，一群小人物把中国变成了一个巨大的试验场，它在众口睽睽之下，以不可逆转的姿态向商业社会转轨……</p><p>作者：</p><ul><li>吴晓波，1968年出生，毕业于复旦大学新闻系。财经作家，“蓝狮子”财经图书策划人，哈佛大学访问学者。</li></ul><h2 id="04《大败局》"><a href="#04《大败局》" class="headerlink" title="04《大败局》"></a>04《大败局》</h2><p><img src="https://i.loli.net/2021/02/22/34Q6CtsDoafAJPY.png" alt="大败局.png"></p><p><img src="https://i.loli.net/2021/02/22/2shQ1ldc7WvDUYP.png" alt="大败局2.png"></p><p>这是一个令人激动的年代，无数的机会令人心动，一个伟大品派往往在一瞬间便打造而成；这也是一个冒险的 年代，未知的风险又令每一个人不寒而畏，成功者往往在一瞬间灰飞烟灭。</p><p>在《大败局Ⅱ》中，我们更多地看到了一种“工程师+赌徒”的商业人格模式。他们往往有较好的专业素养，在某些领域有超人的直觉和运营天赋，同时更有着不可遏制的豪情赌性，敢于在机遇降临的那一刻，倾命一搏。</p><p>作者：</p><ul><li>吴晓波，1968年出生，毕业于复旦大学新闻系。财经作家，“蓝狮子”财经图书策划人，哈佛大学访问学者。</li></ul><h2 id="05《硅谷之谜》"><a href="#05《硅谷之谜》" class="headerlink" title="05《硅谷之谜》"></a>05《硅谷之谜》</h2><p><img src="https://i.loli.net/2021/02/22/hgq2vcRpFZ8371V.png" alt="硅谷之谜.png"></p><p>《硅谷之谜》从某种意义上讲是《浪潮之巅》的续集或姊妹篇。在《硅谷之谜》中，吴军站在一个更高的层次，仔细分析了硅谷的起源和发展，对硅谷的创新力进行了深刻剖析，把硅谷的经验提升到了理论高度，并且解释了为什么只有硅谷真正做到了宽容叛逆、宽容失败、多元文化和拒绝平庸。这些特点造就了硅谷几十年的长盛不衰。</p><p>本书有助于中国的科技工作者、创业者、风险投资人以及政府相关部门的管理者深入研究、学习硅谷，也非常适合对科技创新与创业感兴趣的人士阅读参考。</p><p>作者：</p><ul><li>吴军博士，毕业于清华大学计算机系（本科）、电子工程系（硕士）和美国约翰 · 霍普金斯大学计算机科学系（博士）。</li></ul><h2 id="06《硅谷百年史》"><a href="#06《硅谷百年史》" class="headerlink" title="06《硅谷百年史》"></a>06《硅谷百年史》</h2><p><img src="https://i.loli.net/2021/02/22/X9n4PcuEJHsLDRj.png" alt="硅谷百年史.png"></p><p>《硅谷百年史： 伟大的科技创新与创业历程(1900-2013)》</p><p>一百多年来，仅硅谷就培育了50多位诺贝尔奖获得者，以及无数依靠智慧和知识而成为百万富翁的人。这一人类历史上最伟大的科技创新与创业历程为什么会发生在硅谷？究竟是如何发生的？其他地方是否可以复制出“硅谷”？</p><p>对于国内的创业者、科技创新者、风险投资人以及政府相关部门的管理者都有很高的借鉴价值，是每一个对硅谷感兴趣、希望了解和学习硅谷经验者的必读之书。</p><p>作者：</p><ul><li>阿伦·拉奥（Arun Rao），毕业于宾夕法尼亚大学沃顿商学院和加州大学洛杉矶分校安德森工商管理学院，长期从事投资业务，曾先后在三家投资公司工作，其中两家在硅谷。</li><li>皮埃罗·斯加鲁菲（Piero Scarruffi ），毕业于意大利都灵大学数学系，1983年来到硅谷，在奥利维蒂公司任职工程师，长期从事人工智能研究和互联网设计。</li></ul><h2 id="07《计算机简史》"><a href="#07《计算机简史》" class="headerlink" title="07《计算机简史》"></a>07《计算机简史》</h2><p><img src="https://i.loli.net/2021/02/22/1C67Wy9voPGfb4k.png" alt="计算机简史.png"></p><p>这是一部计算机史的权-威之作，追溯了计算机的史前史、发明、软硬件的创新、应用领域的扩展以及个人计算机和因特网的兴起。</p><p>作者：</p><ul><li>马丁·坎贝尔–凯利，沃里克大学计算机科学名誉教授。 </li><li>威廉·阿斯普雷，德克萨斯大学信息技术学院教授。 </li></ul><h2 id="08《信息简史》"><a href="#08《信息简史》" class="headerlink" title="08《信息简史》"></a>08《信息简史》</h2><p><img src="https://i.loli.net/2021/02/22/tYVsDcONvfdIQ2M.png" alt="信息简史.png"></p><p>现如今，信息如洪流般淹没了我们，使我们深陷信息焦虑、信息过载、信息疲劳的困扰。但回顾历史，这并不是件新鲜事，人们也总是能想出应对手段。</p><p>作者：</p><ul><li>詹姆斯•格雷克，生于1954年，本科毕业于哈佛学院，曾长期在《纽约时报》担任记者和编辑，并多年为《时代》周刊撰写技术专栏。</li></ul><h2 id="09《贝尔实验室与美国革新大时代》"><a href="#09《贝尔实验室与美国革新大时代》" class="headerlink" title="09《贝尔实验室与美国革新大时代》"></a>09《贝尔实验室与美国革新大时代》</h2><p><img src="https://i.loli.net/2021/02/22/Vnuc1ZS2pDbPkhH.png" alt="贝尔实验室与美国革新大时代.png"></p><p>书中，乔恩·格特纳对20世纪一些最重要的发明进行了追根溯源。文中描绘了数位对当代通信和计算机技术做出过决定性贡献的科学家。同时，本书也赞誉了贝尔实验室那些宽敞且与世隔绝的工作场所，因为天才们可以在那里进行各种尝试，无须担心复杂的人际关系、股民利益或公司收益。</p><p>作者：</p><ul><li>乔恩·格特纳，在新泽西州伯克利海茨长大，那里距离贝尔实验室只有几百码远。2004年以来，他一直担任《纽约时报杂志》撰稿人，目前是《快公司》杂志的编辑，跟妻子和两个孩子一起居住在新泽西州。</li></ul><h2 id="10《图灵的大教堂》"><a href="#10《图灵的大教堂》" class="headerlink" title="10《图灵的大教堂》"></a>10《图灵的大教堂》</h2><p><img src="https://i.loli.net/2021/02/22/Tm3QthSGj2aH1By.png" alt="图灵的大教堂.png"></p><p>《图灵的大教堂：数字宇宙开启智能时代》</p><p>本书详细介绍了计算机在美国诞生和发展的历程，以及相关的人物和背景故事。在本书中，作者着重介绍了一小群人，为首的是供职于新泽西州普林斯顿高等研究院的约翰•冯•诺依曼，他参与建造了最早的一台计算机，以实现艾伦•图 灵提出的通用机的愿景。他们的工作打破了用于表意的数字和用于运算的数字之间的区别，世界因此而改变。</p><p>作者：</p><ul><li>乔治·戴森，美国著名的科技史学家和非虚构类图书作家，研究方向包括技术与物理环境的演变及社会学。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;世界上第一台通用电子计算机「ENIAC」于1946年2月14日在美国宾夕法尼亚大学诞生，预示着信息时代的爆炸即将到来。而从互联网的前身——阿帕网被发明的那一刻起，全世界又再一次的进入一次信息飞跃，互联网的发展可以说是一部波澜壮阔的全球性史诗，是一场席卷全球所有国家的人类新文
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
