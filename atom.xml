@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-08-25T10:29:33.215Z</updated>
+  <updated>2021-08-25T10:31:03.929Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://102no.com/2021/08/25/10-excel-vba-books/"/>
     <id>https://102no.com/2021/08/25/10-excel-vba-books/</id>
     <published>2021-08-24T16:00:00.000Z</published>
-    <updated>2021-08-25T10:29:33.215Z</updated>
+    <updated>2021-08-25T10:31:03.929Z</updated>
     
     <content type="html"><![CDATA[<p>Excel 是全世界使用最广泛的电子表格软件，它是 Microsoft Office 办公套件的一个组成部分。 Excel 是目前最流行的电子表格软件，并且很多年以来已成为世界标准。</p><p>Excel 兼容几乎所有的数据文件，是各种系统之间的桥梁，更是整理数据、输出可视化报表的重要工具。VBA（Visual Basic for Applications）是Visual Basic的一种宏语言，主要能用来扩展Windows的应用程序功能，特别是Microsoft Office软件。今天就推荐 10 本在 Excel中使用 VBA 的 学习书籍。</p><h2 id="《别怕，Excel-VBA其实很简单》"><a href="#《别怕，Excel-VBA其实很简单》" class="headerlink" title="《别怕，Excel VBA其实很简单》"></a>《别怕，Excel VBA其实很简单》</h2><p>本书考虑到大多数读者没有编程基础的实际情况，用浅显易懂的语言和生动形象的比喻，并配合大量插画，介绍excel中看似复杂的概念和代码。</p><p>本书适合想提高工作效率的办公人员，特别是经常需要处理、分析大量数据的相关人员，以及财经专业的高校师生阅读。</p><p>作者：</p><ul><li>Excel Home</li></ul><h2 id="《Excel-VBA实战技巧精粹》"><a href="#《Excel-VBA实战技巧精粹》" class="headerlink" title="《Excel VBA实战技巧精粹》"></a>《Excel VBA实战技巧精粹》</h2><p>本书内容侧重于ExcelVBA使用技巧，旨在帮助Excel VBA的初学者和有一定ExcelVBA应用基础、希望进阶的读者。</p><p>本书内容丰富、图文并茂，适合各学习阶段的读者阅读。</p><p>作者：</p><ul><li>Excel Home</li></ul><h2 id="《深入浅出Excel-VBA》"><a href="#《深入浅出Excel-VBA》" class="headerlink" title="《深入浅出Excel VBA》"></a>《深入浅出Excel VBA》</h2><p>本书基于作者在高校课堂和网络教育中多年积累的教学经验，由浅入深地讲解了Excel VBA程序设计的知识与技巧。</p><p>本书适合初学Excel VBA程序设计的读者，以及非计算机专业、无实际编程经验的各行业人士学习使用，也可以作为大专院校学生的辅助教材或自学参考书。</p><p>作者：</p><ul><li>杨洋，网易云课堂开设“全民一起VBA”系列视频课程</li></ul><h2 id="《Excel-VBA程序开发自学宝典》"><a href="#《Excel-VBA程序开发自学宝典》" class="headerlink" title="《Excel VBA程序开发自学宝典》"></a>《Excel VBA程序开发自学宝典》</h2><p>通读本书，您不仅能学到如何开发函数、编写程序，还能设计报表系统，独立开发Excel百宝箱式的大中型插件。</p><p>本书适应的读者对象是完全没有编程经验的读者，它将带您步入VBA程序殿堂。</p><p>作者：</p><ul><li>罗刚君，ExcelTip技巧网等近10个办公软件论坛的版主，有着丰富的Office应用经验和图书写作经验。</li></ul><h2 id="《来吧！带你玩转-Excel-VBA》"><a href="#《来吧！带你玩转-Excel-VBA》" class="headerlink" title="《来吧！带你玩转 Excel VBA》"></a>《来吧！带你玩转 Excel VBA》</h2><p>本书旨在普及Excel VBA 基础理论，以及通过VBA 的高级应用扩展Excel 的功能，提升读者的制表效率，解决工作中的疑难，同时亦可借此开发商业插件。</p><p>作者：</p><ul><li>罗刚君，ExcelTip技巧网等近10个办公软件论坛的版主，有着丰富的Office应用经验和图书写作经验。</li><li>杨嘉恺，ExcelTip论坛的版主，对VBA读取网页数据和VBA操作数据库有着相当丰富的实战经验。</li></ul><h2 id="《Excel-VBA基础入门》"><a href="#《Excel-VBA基础入门》" class="headerlink" title="《Excel VBA基础入门》"></a>《Excel VBA基础入门》</h2><p>本书在安排内容时，充分考虑到大多数初学者几乎没有编程基础的实际情况，在文字表述方面尽量避开专业术语，用通俗易懂的语言，教读者如何学习Excel VBA。</p><p>作者：</p><ul><li>赵志东</li></ul><h2 id="《Excel-VBA常用代码实战大全》"><a href="#《Excel-VBA常用代码实战大全》" class="headerlink" title="《Excel VBA常用代码实战大全》"></a>《Excel VBA常用代码实战大全》</h2><p>本书重点强调实践性，旨在帮助Excel初学者和有一定ExcelVBA编程基础、希望进一步提高的读者掌握VBA编程设计的技巧。</p><p>本书内容丰富、图文并茂，适合初步掌握VBA的基本知识，但需要进一步提高编程能力的初学者，以及希望通过VBA提高工作效率的各类从业人员。也适合各大、中专院校相关专业师生和企业、相关单位的培训班学员阅读。</p><p>作者：</p><ul><li>袁竹平</li></ul><h2 id="《Excel-2010-VBA编程与实践》"><a href="#《Excel-2010-VBA编程与实践》" class="headerlink" title="《Excel 2010 VBA编程与实践》"></a>《Excel 2010 VBA编程与实践》</h2><p>本书侧重于“解决问题”，主要展示诸多常见疑难的解决方案。</p><p>本书既适合Excel VBA用户参考学习，又可以作为大中专院校或者企业的培训教材，同时对于在数据处理与分析方面有实践经验的用户也有较高的参考价值。</p><p>作者：</p><ul><li>罗刚君，Exceltip.net技术社区版主，多个OFFICE技术社区资深版主，从事Excel软件研究与写作多年,精通Excel VBA与函数、图表。</li><li>章兰新，Exceltip.net技术社区版主，多个OFFICE技术社区资深版主，拥有十多年丰富的政府信息化实践、管理和组织实施经验，精通Excel和MS SQL在管理中的应用。</li><li>黄朝阳，Exceltip.net站长，微软全球最有价值专家（MVP）。拥有十多年丰富的企业信息化实践和管理经验，精通Excel和MS SQL在企业中的应用。</li></ul><h2 id="《中文版Excel-2010高级VBA编程宝典》"><a href="#《中文版Excel-2010高级VBA编程宝典》" class="headerlink" title="《中文版Excel 2010高级VBA编程宝典》"></a>《中文版Excel 2010高级VBA编程宝典》</h2><p>如果你已经拥有使用excel的丰富经验，可以借助本书成为一位 excel专家。</p><p>作者：</p><ul><li>John Walkenbach，全球声名卓著的Excel权威，曾撰写了数百篇文章，并创建了赢得大奖的Power UtilityPak。</li></ul><h2 id="《基于Excel和VBA的高级金融建模》"><a href="#《基于Excel和VBA的高级金融建模》" class="headerlink" title="《基于Excel和VBA的高级金融建模》"></a>《基于Excel和VBA的高级金融建模》</h2><p>本书将大部分金融模型用电子制表软件实现。本书的特点是将计算机应用与金融计算有机地结合起来。通过学习本书内容，既可以熟悉并巩固金融领域的大部分经典理论，又可以学习到Excel的编程知识。读者能够轻松使用Excel来实现有关金融计算。</p><p>本书可作为金融专业本科高年级学生和研究生的教材，也可作为金融从业者的参考工具。</p><p>作者：</p><ul><li>Mary Jackson</li><li>Mike Staunton</li></ul>]]></content>
     
@@ -39,6 +39,8 @@
     
     
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="Excel" scheme="https://102no.com/tags/Excel/"/>
     
   </entry>
   
