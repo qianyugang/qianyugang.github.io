@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2021-11-18T02:34:31.309Z</updated>
+  <updated>2022-01-10T01:55:31.302Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第三十年冬至</title>
+    <link href="https://102no.com/2021/12/21/30th-dongzhi/"/>
+    <id>https://102no.com/2021/12/21/30th-dongzhi/</id>
+    <published>2021-12-20T16:00:00.000Z</published>
+    <updated>2022-01-10T01:55:31.302Z</updated>
+    
+    <content type="html"><![CDATA[<p>诸事繁忙，占位待补</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;诸事繁忙，占位待补&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
+    
+    
+      <category term="思想汇报" scheme="https://102no.com/tags/%E6%80%9D%E6%83%B3%E6%B1%87%E6%8A%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong 2.6 正式发布啦！</title>
@@ -524,32 +550,6 @@
     
     
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是 iPaaS ？</title>
-    <link href="https://102no.com/2021/03/05/what-is-ipaas/"/>
-    <id>https://102no.com/2021/03/05/what-is-ipaas/</id>
-    <published>2021-03-04T16:00:00.000Z</published>
-    <updated>2021-03-05T08:39:33.350Z</updated>
-    
-    <content type="html"><![CDATA[<p>集成平台即服务（或 iPaaS）是一种基于云的服务，可集成数据、应用程序和流程。iPaaS 可自动化并简化集成活动，使其轻松连接部署在任何环境中的应用程序和数据。有了 iPaaS，可以在云和内部应用和数据之间的云中构建和部署集成，而无需安装或管理任何中间件或硬件。</p><p>iPaaS 可用于不同的场景，在这些场景中，需要在整个公司的应用程序之间连接、迁移或复制数据。它提供了一种快速、简单、灵活的方式来连接您的应用程序和数据。而且不一定要成为程序员才能使用它。</p><p>随着可用的SaaS应用程序的爆炸性增长，对更简单、更自助的方式来连接和管理它们的所有数据的需求也在增长。传统的集成任务通常是由你的IT部门来完成的，他们往往面临着大量的任务负载积压，无法快速行动以跟上业务需求的速度。</p><h1 id="iPaaS-可以做些什么"><a href="#iPaaS-可以做些什么" class="headerlink" title="iPaaS 可以做些什么"></a>iPaaS 可以做些什么</h1><p>iPaaS是一种软件即服务(SaaS)产品，它继承了云的所有特性。例如，它可以通过互联网连接和浏览器从任何地方访问。它可以自动扩展，立即提供您所需的适量计算资源，以满足您的集成需求。</p><p>一个强大的iPaaS还提供以下针对集成需求的功能。</p><ul><li><p><strong>提供一个连接器库。</strong><br>  连接器允许您的应用程序相互对话，无论它们在哪里托管。通常 iPaaS 提供两种类型的连接器：一些用于特定应用程序（如 Salesforce），另一些支持通信协议（如 XML 或 OData）。这些连接器在iPaaS用户界面中暴露了应用程序的特定配置中的字段和实体，这样你就可以创建一个集成。当考虑iPaaS供应商时，您应该确保它提供您需要的连接器，以便与您的所有应用程序，数据和流程一起工作。</p></li><li><p><strong>在应用程序之间移动数据。</strong><br>  iPaaS使用连接器在您的源应用程序和目标应用程序之间移动数据。您的应用程序可以接收和推送数据，以便数据从源应用程序流向目标应用程序。</p></li><li><p><strong>转换数据。</strong><br>  应用程序需要特定格式的数据，以便准确地处理数据。iPaaS映射和转换数据，以满足您的源应用程序和目标应用程序的要求。将iPaaS视为您的数据的通用翻译器。</p></li><li><p><strong>创建集成工作流程。</strong><br>  iPaaS 的用户界面可帮助您设计集成的逻辑，包括创建工作流和协调应用程序之间的行动的能力。</p></li><li><p><strong>监控和管理集成。</strong><br>  iPaaS 提供了一个基于 Web 的控制台，以便您可以集中创建、部署和执行您的集成。您可以安排、启动和停止集成，并检查正在运行的集成的健康状况。</p></li></ul><h1 id="iPaaS-如何帮助您的企业？"><a href="#iPaaS-如何帮助您的企业？" class="headerlink" title="iPaaS 如何帮助您的企业？"></a>iPaaS 如何帮助您的企业？</h1><p>领先的iPaaS为您提供云计算的速度、敏捷性和经济性，从而产生几大业务效益。</p><ul><li><p><strong>加速集成计划。</strong><br>  利用iPaaS，可以显著减少集成应用程序所需的时间，使集成更加快速，从而加快您的数字化转型计划。</p></li><li><p><strong>将更多的时间用于价值更高的集成活动。</strong><br>  因为它提供了预建的、经过验证的连接器，这些连接器已经与特定应用的API进行了集成，所以有了iPaaS，您不必编写低级的连接代码。iPaaS供应商承诺维护连接器并确保与关键应用程序的兼容性。</p></li><li><p><strong>扩展集成能力。</strong><br>  集成专家、业务分析师，甚至是公共集成开发者都可以使用 iPaaS 的高级工具，使您可以扩大创建和管理集成的人员库。这不仅加快了新集成的可用性，还减轻了您的 IT 部门的负担，使他们能够专注于更高价值的活动。</p></li><li><p><strong>迅速改变集成。</strong><br>  由于业务和所使用的技术不断变化，iPaaS 可帮助快速适应一致的用户界面，更新或发展集成，以适应大多数数字化转型工作的要求。</p></li><li><p><strong>转型进展为数字业务。</strong><br>  数字化企业利用数字技术创造新的商业模式，使物理世界和数字世界相结合。iPaaS 有助于推动向数字业务的转型，打破数据孤岛之间的障碍，并将它们整合在一起。它使正确的信息能够即时提供给正确的人，使他们能够迅速做出决策并采取行动。这不仅能帮助人们更聪明地工作，而且还能更高效地工作，因为整合应用程序和数据可以通过消除不必要的手工数据输入来自动化许多业务流程。</p></li></ul><h1 id="可以使用-iPaaS-来做什么？"><a href="#可以使用-iPaaS-来做什么？" class="headerlink" title="可以使用 iPaaS 来做什么？"></a>可以使用 iPaaS 来做什么？</h1><p>iPaaS 是数字化转型计划中的一个重要组成部分。无论您在哪里托管数据和应用程序（在云端或内部），iPaaS都能提供帮助。</p><ul><li><p>在应用程序之间近乎实时地<strong>交换数据</strong>，以简化业务流程，增强客户和员工体验，并赋予企业决策者权力。例如，您可以将 Salesforce Sales Cloud 实例与内部企业级 ERP 平台（如 Microsoft Dynamics AX）或基于云的 ERP 解决方案（如 Microsoft Dynamics 365 Operations）进行集成，以便让这两个系统的最终用户完整地了解客户和订单执行活动。了解创建这种类型的集成的最佳实践。</p></li><li><p>将数据从遗留应用程序<strong>迁移</strong>到现代基于云的业务系统，使业务更加灵活。例如，可以将数据从旧的业务系统（如Microsoft Dynamics CRM 4.0内部部署）映射、转换和移动到云CRM（如Salesforce或Microsoft Dynamics 365）。iPaaS可以帮助您以正确的顺序迁移数据（如账户、联系人和机会），以保存新系统中数据之间的关系。许多公司还使用自定义字段和自定义对象，iPaaS可以发现这些字段和对象并将其包含在迁移过程中。</p></li><li><p>定期<strong>复制数据</strong>，用于分析和存档流程，以帮助发现新的思路，或用于定期财务报告。可以在数据仓库内创建来自多个数据源的格式化数据的单一视图，或在数据湖内创建原始数据。可以连续或按计划复制数据。例如，您可以将CRM系统（如Salesforce或Microsoft Dynamics 365）中的数据复制到本地Oracle、MySQL或Microsoft SQL Server数据库。</p></li><li><p>将来自传感器和嵌入式设备的<strong>外部数据集成</strong>到您的业务流程中，以获得业务环境和市场的实时视图。 iPaaS使您更容易集成连接到企业防火墙之外的网络的智能设备。</p></li></ul><p><strong>原文：<a href="https://www.tibco.com/zh-hans/node/49041" target="_blank" rel="external">https://www.tibco.com/zh-hans/node/49041</a></strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;集成平台即服务（或 iPaaS）是一种基于云的服务，可集成数据、应用程序和流程。iPaaS 可自动化并简化集成活动，使其轻松连接部署在任何环境中的应用程序和数据。有了 iPaaS，可以在云和内部应用和数据之间的云中构建和部署集成，而无需安装或管理任何中间件或硬件。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="iPaaS" scheme="https://102no.com/tags/iPaaS/"/>
     
   </entry>
   
