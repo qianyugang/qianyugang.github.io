@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2022-02-08T07:15:31.288Z</updated>
+  <updated>2022-03-08T06:15:11.759Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一次启用事务 begin 没有 commit 的事故</title>
+    <link href="https://102no.com/2022/03/08/mysql-begin-no-commit/"/>
+    <id>https://102no.com/2022/03/08/mysql-begin-no-commit/</id>
+    <published>2022-03-07T16:00:00.000Z</published>
+    <updated>2022-03-08T06:15:11.759Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在公司接到了一个工单，表象是运营人员在配置一个表单的时候执行一个接口请求，所有的日志和返回都是正确，但是 <code>update</code> 和 <code>insert</code> 语句都没有执行，日志系统却都追踪到执行了此语句。更奇怪的是，这个接口的前半部分都执行成功，后半部分都失败了。如下中语句1、语句2、语句3、都成功了。语句4、语句5、语句6都失败了。</p><p>伪代码如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$parameters = [];</div><div class="line"></div><div class="line">$db-&gt;select;<span class="comment">//语句1</span></div><div class="line"></div><div class="line">$db-&gt;insert;<span class="comment">//语句2</span></div><div class="line"></div><div class="line">$db-&gt;update;<span class="comment">//语句3</span></div><div class="line"></div><div class="line">$db-&gt;begin;</div><div class="line"></div><div class="line">$re = <span class="keyword">$this</span>-&gt;judge(parameters)</div><div class="line"></div><div class="line"><span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$db-&gt;commit;</div><div class="line"></div><div class="line">$db-&gt;update;<span class="comment">//语句5</span></div><div class="line"></div><div class="line">$db-&gt;insert;<span class="comment">//语句6</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">(parameters)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> ( $parameters[xx] = <span class="keyword">null</span>)&#123;</div><div class="line">        </div><div class="line">        $db-&gt;update;<span class="comment">//语句4</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>拿到这个问题按照经验来讲，就是通过几个方面来排查：</p><ol><li>代码问题，是否有bug</li><li>是否启用了事务，执行失败导致回滚。</li><li>是否是因为数据库配置了主从，<code>update</code> 和 <code>insert</code> 的主表，<code>select</code> 的从表，但是主从不一致。</li></ol><p>随后和架构师以及运维沟通，排除了3，数据库日志都显示正常。那就去排查2，发现虽然代码中有一个事务，但是并不影响主流程的执行。1排查了半天，由于是老代码，且写代码的人离职了，所以并不能仔细的追踪到问题点。</p><p>于是就造了一些数据，把线上的拉到本地执行，发现了问题的真正所在：1+2一起造成了这次bug：</p><p>在语句3之后开启了事务，参数 $parameters[xx] = null 的时候，加了一个判断，问题是在判断之后，直接返回了个true，也就是说此时开启了事务，随后所有的语句都会掉到这个事务中，由于一直没有commit，语句4和语句4以后的sql都得不到执行。在长时间没有执行的情况下，sql语句会自动回滚。相当于语句4和语句4以后的sql都没有执行。但是只从代码上看，语句5、语句6的确是执行到了。</p><p>所以 实际上，本次事故，的原因是有两个：</p><ul><li>第一是代码问题。</li><li>第二是我们的日志系统没有追中到事务的执行，只是单纯的记录了sql的执行。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近在公司接到了一个工单，表象是运营人员在配置一个表单的时候执行一个接口请求，所有的日志和返回都是正确，但是 &lt;code&gt;update&lt;/code&gt; 和 &lt;code&gt;insert&lt;/code&gt; 语句都没有执行，日志系统却都追踪到执行了此语句。更奇怪的是，这个接口的前半部分都
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Mysql -" scheme="https://102no.com/tags/Mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>开源一个 PHP 多版本共存 docker 环境</title>
@@ -521,32 +546,6 @@
       
         &lt;p&gt;上两篇推荐了10本 Python 零基础入门学习书籍以及非零基础入门学习书籍，今天推荐10深入学习书籍推荐。&lt;/p&gt;
 &lt;p&gt;Python 是一款解释型、面向对象、动态数据类型的高级程序设计语言。语法简捷清晰，具有丰富和强大的类库，因而在各种行业中得到广泛的应用。对于初学者来
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Python 入门学习书籍推荐</title>
-    <link href="https://102no.com/2021/04/07/10-python-learn-guide-books/"/>
-    <id>https://102no.com/2021/04/07/10-python-learn-guide-books/</id>
-    <published>2021-04-06T16:00:00.000Z</published>
-    <updated>2021-07-05T05:59:44.930Z</updated>
-    
-    <content type="html"><![CDATA[<p>上一篇推荐了10本 Python 零基础入门学习书籍，今天推荐10本入门学习书籍推荐，本次推荐书籍和上次不一样之处是不是「零基础」。</p><p>Python 是一款解释型、面向对象、动态数据类型的高级程序设计语言。语法简捷清晰，具有丰富和强大的类库，因而在各种行业中得到广泛的应用。对于初学者来讲，Python 是一款既容易学又相当有用的编程语言。</p><p>Python 是一种被广泛用于网站开发、数据处理和机器学习等领域的高级编程语言，同时也是一种学习门槛较低的高级编程语言。是目前最流行的动态脚本语言之一。</p><p>值得注意的是Python的 2.X 版本和 3.X 版本有差别，注意自己需要学习的语言版本。</p><p>Python学习系列可点击查看：</p><ul><li><a href="http://localhost:4000/2021/04/06/10-python-learn-from-scratch-books/" target="_blank" rel="external">10本 Python 零基础入门学习书籍推荐</a></li><li><a href="http://localhost:4000/2021/04/07/10-python-learn-guide-books/" target="_blank" rel="external">10本 Python 入门学习书籍推荐</a></li><li><a href="http://localhost:4000/2021/04/09/10-python-learn-depth-books/" target="_blank" rel="external">10本 Python 深入学习书籍推荐</a></li></ul><p>算法学习书籍推荐系列可点击查看：</p><ul><li><a href="https://102no.com/2020/12/03/10-algorithm-books/">10本算法入门书籍推荐</a></li><li><a href="https://102no.com/2021/01/25/10-in-depth-algorithm-books/">10本算法深入学习书籍推荐</a></li></ul><p>Linux书籍推荐系列可点击查看:</p><ul><li><a href="https://102no.com/2020/08/13/10-linux-introduction-books/">10本Linux操作入门书籍推荐</a></li><li><a href="https://102no.com/2020/08/17/10-linux-advanced-books/">10本Linux进阶书籍推荐</a></li><li><a href="https://102no.com/2020/09/01/10-linux-kernel-books/">10本Linux内核书籍推荐</a></li></ul><h2 id="《Python编程：从入门到实践》"><a href="#《Python编程：从入门到实践》" class="headerlink" title="《Python编程：从入门到实践》"></a>《Python编程：从入门到实践》</h2><p>本书是一本针对所有层次的Python 读者而作的Python 入门书。第一部分介绍用Python编程所必须了解的基本概念，第二部分将理论付诸实践，讲解如何开发三个项目。</p><p>作者：</p><ul><li>埃里克·马瑟斯（Eric Matthes），高中科学和数学老师，现居住在阿拉斯加，在当地讲授Python入门课程。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFwMQD1YaWxUyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UXAxAPVhpbFR1LQglGa0hGWUMVfwdQYUUdD2cidnVCdFMFGkMOHjdUK1sUAxEFURlcFwMiN1Uca15sEzdUK1sSAhsFVBheEQMXAlIrXBULItD8j4yzlsq1zM%2FTmNSLrIGxxyUyIgRlK2sVMhE3F3VbFAcWDgccXREKFARQH14SC0VQBRNZQQAWAlNLU0FWFDdXGloRCw%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python基础教程》"><a href="#《Python基础教程》" class="headerlink" title="《Python基础教程》"></a>《Python基础教程》</h2><p>本书包括Python程序设计的方方面面：首先从Python的安装开始，随后介绍了Python的基础知识和基本概念，然后循序渐进地介绍了一些相对高级的主题，此后探讨了如何将Python与数据库、网络、C语言等工具结合使用，同时介绍了Python程序测试、打包、发布等知识，最后作者结合前面讲述的内容，按照实际项目开发的步骤向读者介绍了10个具有实际意义的Python项目的开发过程。</p><p>作者：</p><ul><li>Magnus Lie Hetland，挪威科技大学副教授，教授算法；黑客，喜欢钻研新锐编程语言，是Python语言的坚定支持者。写过很多Python方面的书和在线教程，比如深受读者欢迎的网上教程“Instant Python”。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtZFwEUA1YZWxIyEgZUGF0TABEAVhJYEQoiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWHV0XARUEXBhfHR1LQglGaxJlZVcRHSlmYE8dVWceEQdNBl0TAFMOHjdUK1sUAxEFURlcFwMiN1Uca1RsFANdH1oQMhM3VRxbHAATBFAdXhICEzdSG1Il1buTgr3PzbCL092WjYypxq3JK2slASI3ZRtrFjJQaQceUhwAFFNUGVwTUhcHVxtSEQYbDwVPU0cFRlcFHF4UMhAGVB9S" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python编程入门》"><a href="#《Python编程入门》" class="headerlink" title="《Python编程入门》"></a>《Python编程入门》</h2><p>本书用通俗易懂的语言结合常见任务、屏幕图和详细的解释，循序渐进地介绍了Python的基础知识，助你轻松、迅速地学习Python。书中没有深奥的理论或者高级应用，非常适合用来自学。</p><p>作者：</p><ul><li>Toby Donaldson，加拿大温哥华西蒙弗雷泽大学计算机科学系高级讲师，教授编程和计算机课程十余年。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtaEgUSD1QYUhEyFwBQEloVARUEVxtrUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0seXBALEwdWHFgXAg1eEEcGJVBqe0tJQWVwcWdWawdQVU8OVx0hcEQeC2UaaxUDEwRXH1kSABM3ZRtcJUN8AVYYWBIFIgZlG1wVCxAGVh5THAMUBGUcWxwyxa7BzP2B2qCegZPWw5u50%2F%2BHayUyETdlK1slASJFO05cE1dFUldIX0FVRwJQGlgdAhJQVEhbFwUbVFxPDxIAIgVUGl8c" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python编程入门经典》"><a href="#《Python编程入门经典》" class="headerlink" title="《Python编程入门经典》"></a>《Python编程入门经典》</h2><p>本书涵盖了python的方方面面，通过学习本书，读者可以立即使用python编写程序。掌握本书内容后，将学会如何迅速而自信地创建健壮、可靠而又可重用的python应用程序。</p><p>作者：</p><ul><li>James Payne，佛罗里达州马盖特市，Developer Shed公司的主编，7岁起就开始写作和编程，精通多门语言。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtSFwcSBFEaUhAyEgZUGFkdBhQOVx1aEwsiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWGVMRBBsFUxpdHB1LQglGa08FVUUWeQ11ZxBlS0decQRMb1dFW0MOHjdUK1sUAxEFURlcFwMiN1Uca1RsEgZUE10VChc3VCtbEgIbBVQYXxUFGgFQK1wVCyLQ%2FI%2BMs5bKtczP05jUi6yBscclMiIEZStrFTIRNxd1Uh0GFQRUGl5FABJUUBoIRgtCBQFIUkBREgUAHFsQVRE3VxpaEQs%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python入门经典》"><a href="#《Python入门经典》" class="headerlink" title="《Python入门经典》"></a>《Python入门经典》</h2><p>本书是面向Python初学者的学习指南，详细介绍了Python编程基础，以及一些高级概念，如面向对象编程。本书内容循序渐进，逐步深入，概念和知识点讲解清楚，而且每章最后配有练习，供读者检查和巩固所学知识。本书适合学习Python语言和应用的初中级用户阅读和自学，也可以作为相关培训的教材。</p><p>作者：</p><ul><li>Katie Cunningham，Cox Media Group的Python程序员，Python和开源软件的积极倡导者，并且热衷于教人们编程</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFwMQDlcYWBIyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UXAxAOVxhYEh1LQglGa3ZCcG4XYzxrYRtXClJSEGJmXVAfW2UOHjdUK1sUAxEFURlcFwMiN1Uca15sEzdUK1sSAhsFVBhfEAsTBFErXBULItD8j4yzlsq1zM%2FTmNSLrIGxxyUyIgRlK2sVMhE3F3UMRgsbAFUfWkYAQVRQGlgdC0IBUxlfQAYTUwJOXxIEEDdXGloRCw%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python学习手册》"><a href="#《Python学习手册》" class="headerlink" title="《Python学习手册》"></a>《Python学习手册》</h2><p>如果你想动手编写高效、高质量并且很容易与其他语言和工具集成的代码，本书将快速地帮助你利用Python提高效率。本书基于Python专家的流程培训课程编写，内容通俗易懂。本书包含很多注释的例子和插图，以帮助你开始使用Python2.7和3.3。</p><p>作者：</p><ul><li>Mark Lutz，Python最畅销书籍的作者，也是Python社区的先驱。拥有威斯康星大学计算机科学学士和硕士学位，在过去的25年中，他主要从事编译器、编程工具、脚本程序以及各种客户端/服务器系统方面的工作。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtSFwsWB1EcXhUyEgZUGF0dChEFXBhcFgMiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWHVMdARAOVhxYFB1LQglGa0V6ckIlRDl0YWsEVmJYTnhNBV0YX1MOHjdUK1sUAxEFURlcFwMiN1Uca1RsEgZUE10VBBQ3VCtbEgIbBVQYXx0EFwJSK1wVCyLQ%2FI%2BMs5bKtczP05jUi6yBscclMiIEZStrFTIRNxd1CBcBF1VRElITBRFSUB5aHQoWBF0fXEYDGwZdH1IVUhQ3VxpaEQs%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python语言入门》"><a href="#《Python语言入门》" class="headerlink" title="《Python语言入门》"></a>《Python语言入门》</h2><p>书中描述了Python程序的基本构件：类型、操作符、语句、函数、模块、类以及异常，此外还介绍了更多高级主题，包括复杂的实例，最后讲述了如何使用Python定制库来创建大型程序。</p><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRhaHAMWBFceXxMyEgZUGFwSARAOUB9YEwAiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWHFwWABsCURhdFx1LQglGa30FGmEsexppZ1p1F3IPfXhBfhxyOFMOHjdUK1sUAxEFURlcFwMiN1Uca1RsEgZXH1kVABM3VCtbEgIbBVQYXB0LGgFXK1wVCyLQ%2FI%2BMs5bKtczP05jUi6yBscclMiIEZStrFTIRNxd1DxZWEVBdH10XBEAPUBhaFgoQAl0fXh1WQVVRGFxFBkI3VxpaEQs%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《跟老齐学Python：从入门到精通》"><a href="#《跟老齐学Python：从入门到精通》" class="headerlink" title="《跟老齐学Python：从入门到精通》"></a>《跟老齐学Python：从入门到精通》</h2><p>本书是面向编程零基础读者的Python入门教程，内容涵盖了Python的基础知识和初步应用。以比较轻快的风格，向零基础的学习者介绍一门时下比较流行、并且用途比较广泛的编程语言。本书是面向初学者的读物，不是为开发者提供的开发手册，所以，它不是“又适用于中高级读者”的读物。</p><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQIbAVEdWRIyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVAhsBUR1ZEh1LQglGa2BbSUIISy5gZ2RTBx4hRXxFez1EBVMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxICVitaJQIVB1wZWhYFFA9SG1klBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsBQABXT1gTB0cOVhpeQAdCDwYdWUULQVBRHVwTBEYFUitZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python语言程序设计基础》"><a href="#《Python语言程序设计基础》" class="headerlink" title="《Python语言程序设计基础》"></a>《Python语言程序设计基础》</h2><p>本书提出了以理解和运用计算生态为目标的Python语言教学思想，不仅系统讲解了Python语言语法，同时介绍了从数据理解到图像处理的14个Python函数库，向初学Python语言的读者展示了全新的编程语言学习路径。本书适合初学Python语言的读者使用，也适合作为各类大专院校的教材，同时，也可作为对Python感兴趣读者的自学参考书。</p><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtTEAYSBFAeWRIyEgZUGFIQBBUOUx9fFAAiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWEl4TBRsBUR9aFx1LQglGa0BUTG5VWCUWYlFlF2wMS2VOQhZlXXUOHjdUK1sUAxEFURlcFwMiN1Uca1RsFAVXHF4cMhM3VRxbHAATBFIeUxMCEDdSG1Il1buTgr3PzbCL092WjYypxq3JK2slASI3ZRtrFjJQaQAYCEJREgECGlkSVxdVVR4LHFIWBwYeWEBVFQIFHQ9AMhAGVB9S" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Python-cookbook-中文版》"><a href="#《Python-cookbook-中文版》" class="headerlink" title="《Python cookbook 中文版》"></a>《Python cookbook 中文版》</h2><p>本书介绍了Python应用在各个领域中的一些使用技巧和方法，书中的代码和方法具有很强的实用性，可以方便地应用到实际的项目中，并产生立竿见影的效果。本书适合具有一定Python基础的读者阅读参考。</p><p>作者：</p><ul><li>David Beazley，一位居住在芝加哥的独立软件开发者以及图书作者。</li><li>Brain K. Jones，普林斯顿大学计算机系的一位系统管理员。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEbB1UcWxQyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARsHVRxbFB1LQglGa3EFSwYxH1NVYWRHB24GT0JUARQcAnUOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxYAUitaJQIVB1wZWhYFEgBVG1MlBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsLRgRdGAsTVkJUUUheQgRAVAUTDhwAGwQGHl4UAkICAStZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;上一篇推荐了10本 Python 零基础入门学习书籍，今天推荐10本入门学习书籍推荐，本次推荐书籍和上次不一样之处是不是「零基础」。&lt;/p&gt;
-&lt;p&gt;Python 是一款解释型、面向对象、动态数据类型的高级程序设计语言。语法简捷清晰，具有丰富和强大的类库，因而在各种行业中得到
       
     
     </summary>
