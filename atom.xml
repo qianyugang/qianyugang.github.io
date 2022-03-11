@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2022-03-08T06:41:47.654Z</updated>
+  <updated>2022-03-11T01:49:50.338Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://102no.com/2022/03/08/mysql-begin-no-commit/"/>
     <id>https://102no.com/2022/03/08/mysql-begin-no-commit/</id>
     <published>2022-03-07T16:00:00.000Z</published>
-    <updated>2022-03-08T06:41:47.654Z</updated>
+    <updated>2022-03-11T01:49:50.338Z</updated>
     
     <content type="html"><![CDATA[<p>最近在公司接到了一个工单，表象是运营人员在配置一个表单的时候执行一个接口请求，所有的日志和返回都是正确，但是 <code>update</code> 和 <code>insert</code> 语句都没有执行，日志系统却都追踪到执行了此语句。更奇怪的是，这个接口的前半部分都执行成功，后半部分都失败了。如下中语句1、语句2、语句3、都成功了。语句4、语句5、语句6都失败了。</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>伪代码如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$parameters = [];</div><div class="line"></div><div class="line">$db-&gt;select;<span class="comment">//语句1</span></div><div class="line"></div><div class="line">$db-&gt;insert;<span class="comment">//语句2</span></div><div class="line"></div><div class="line">$db-&gt;update;<span class="comment">//语句3</span></div><div class="line"></div><div class="line">$db-&gt;begin;</div><div class="line"></div><div class="line">$re = <span class="keyword">$this</span>-&gt;judge(parameters)</div><div class="line"></div><div class="line"><span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$db-&gt;commit;</div><div class="line"></div><div class="line">$db-&gt;update;<span class="comment">//语句5</span></div><div class="line"></div><div class="line">$db-&gt;insert;<span class="comment">//语句6</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">(parameters)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> ( $parameters[xx] = <span class="keyword">null</span>)&#123;</div><div class="line">        </div><div class="line">        $db-&gt;update;<span class="comment">//语句4</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure><h1 id="排查"><a href="#排查" class="headerlink" title="排查"></a>排查</h1><p>拿到这个问题按照经验来讲，就是通过几个方面来排查：</p><ol><li>代码问题，是否有bug</li><li>是否启用了事务，执行失败导致回滚。</li><li>是否是因为数据库配置了主从，<code>update</code> 和 <code>insert</code> 的主表，<code>select</code> 的从表，但是主从不一致。</li></ol><p>随后和架构师以及运维沟通，排除了3，数据库日志都显示正常。那就去排查2，发现虽然代码中有一个事务，但是并不影响主流程的执行。1排查了半天，由于是老代码，且写代码的人离职了，所以并不能仔细的追踪到问题点。</p><p>于是就造了一些数据，把线上的拉到本地执行，发现了问题的真正所在：1+2一起造成了这次bug。</p><h1 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h1><p>在语句3之后开启了事务，参数 $parameters[xx] = null 的时候，加了一个判断，问题是在判断之后，直接返回了个true，也就是说此时开启了事务，随后所有的语句都会掉到这个事务中，由于一直没有commit，语句4和语句4以后的sql都得不到执行。在长时间没有执行的情况下，sql语句会自动回滚。相当于语句4和语句4以后的sql都没有执行。但是只从代码上看，语句5、语句6的确是执行到了。</p><p>所以 实际上，本次事故，的原因是有两个：</p><ul><li>第一是代码问题。</li><li>第二是我们的日志系统没有追中到事务的执行，只是单纯的记录了sql的执行。</li></ul><h1 id="修复"><a href="#修复" class="headerlink" title="修复"></a>修复</h1><p>直接修复代码即可。使用事务，一定要完整且闭合。</p>]]></content>
     
@@ -37,7 +37,7 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="Mysql" scheme="https://102no.com/tags/Mysql/"/>
+      <category term="MySql" scheme="https://102no.com/tags/MySql/"/>
     
   </entry>
   
