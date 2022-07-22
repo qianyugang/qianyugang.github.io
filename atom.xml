@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2022-03-28T08:00:16.602Z</updated>
+  <updated>2022-07-22T03:37:40.995Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacBook Pro 修复之路</title>
+    <link href="https://102no.com/2022/07/22/the-way-of-maccbook-pro-fix/"/>
+    <id>https://102no.com/2022/07/22/the-way-of-maccbook-pro-fix/</id>
+    <published>2022-07-21T16:00:00.000Z</published>
+    <updated>2022-07-22T03:37:40.995Z</updated>
+    
+    <content type="html"><![CDATA[<p>最开始使用MacBook是在2015年，那时候的公司给每个开发都发了2015款的13寸MacBook Pro作为办公笔记本，后来2017年的时候我自己在小闷那里买了2016款的15寸MacBook Pro，花了￥13500，用到现在也五年了，这五年笔记本也都出现过或大或小的问题，今天这篇文章就汇总一下我这台MacBook Pro出现过的问题。</p><h2 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h2><p>这个问题就是昨晚出现的，用着用着就突然黑屏了，按键背光和touch Bar都还亮着，我第一反应是不是死机了，于是乎强行重启了几次，发现依旧没有用，就怀疑是不是硬件问题。一瞬间想到，这款Mac好像是有屏幕背光问题，我不会是也遇到了吧，我就用手机的手电筒照着屏幕一看，竟然还能看到文字内容，这下确定了，屏幕的显示面板没问题，但是背光坏掉了。</p><h3 id="尝试修复"><a href="#尝试修复" class="headerlink" title="尝试修复"></a>尝试修复</h3><p>重启大法不好使了之后，就立即联系了苹果的电话售后，售后给了几个解决方案，让我挨个试试，还帮忙预约了天才吧，如果这几个方案不好使，就直接去售后。</p><ul><li><a href="https://support.apple.com/zh-cn/HT201295" target="_blank" rel="external">如何重置 Mac 的 SMC</a></li><li><a href="https://support.apple.com/zh-cn/HT204063" target="_blank" rel="external">重置 Mac 上的 NVRAM 或 PRAM</a></li></ul><p>我直接使用了重置SMC的方案，重启之后，竟然恢复了，心想有可能是什么驱动问题，重置竟然解决了，欣喜了一晚上之后。第二天一开电脑，擦，又挂了，看来还是硬件问题，还是得去售后。</p><h3 id="苹果服务计划"><a href="#苹果服务计划" class="headerlink" title="苹果服务计划"></a>苹果服务计划</h3><p>于是我一顿搜索，发现这个问题还真的是通病，而且苹果还针对其突出了服务计划<a href="https://support.apple.com/zh-cn/13-inch-macbook-pro-display-backlight-service" target="_blank" rel="external">13 英寸 MacBook Pro 显示屏背光服务计划</a>，一看内容，坑爹的是15寸的竟然不在列表之内。但是天才吧已经预约了，还是去碰一碰，看看给不给免费修，如果不给免费修，我就打算自己来或者丢去华强北修，毕竟也是一个老机器了，以苹果的尿性，自费修复估计也是换总成得花大几千，这个电脑残值可能都还不值这么多。</p><p>这个通病的原因，搜了一圈有说是因为2016年开始用了新模具之后，排线设计过短的问题，在多次弯折之后就会触发这个硬件问题。除了黑屏，暗屏，还有可能舞台灯效果屏等等症状。2018之后的很少有这个问题，因为加长了排线。</p><p>截止目前还没有送去天才吧，后续更新。</p><h2 id="按键"><a href="#按键" class="headerlink" title="按键"></a>按键</h2><p>按键问题也是个老问题了，2016款是第一代的蝴蝶键盘，稍微进一点点灰就会卡住，每次都要用气吹吹开。然后终于又一次command按键直接坏掉了，按下去起不来，应该是一个卡扣断掉了，我直接淘宝买了一个按键￥35，直接自己换上完事儿。</p><h2 id="音箱"><a href="#音箱" class="headerlink" title="音箱"></a>音箱</h2><p>也算是一个老问题（怎么都是老问题），左边的喇叭📢破音了，音量不敢开太大，这个我都没管它，现在还存在，直接长期使用右声道。</p><h2 id="一些软件问题"><a href="#一些软件问题" class="headerlink" title="一些软件问题"></a>一些软件问题</h2><p>除了硬件，有时候还会出现一些软件问题</p><h3 id="睡眠唤醒没声音"><a href="#睡眠唤醒没声音" class="headerlink" title="睡眠唤醒没声音"></a>睡眠唤醒没声音</h3><p>这个好像是音频核心进程的bug，只要杀掉进程重启即可，执行如下命令</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo killall coreaudiod</span></div></pre></td></tr></table></figure><h3 id="WiFi链接卡顿转圈"><a href="#WiFi链接卡顿转圈" class="headerlink" title="WiFi链接卡顿转圈"></a>WiFi链接卡顿转圈</h3><p>就是在点击WiFi图标选择WiFi的时候cpu突然飙升，巨卡无比，是因为Airpotd的问题，可以执行如下命令解决：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sudo killall airportd</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最开始使用MacBook是在2015年，那时候的公司给每个开发都发了2015款的13寸MacBook Pro作为办公笔记本，后来2017年的时候我自己在小闷那里买了2016款的15寸MacBook Pro，花了￥13500，用到现在也五年了，这五年笔记本也都出现过或大或小的
+      
+    
+    </summary>
+    
+      <category term="我是修电脑的" scheme="https://102no.com/categories/%E6%88%91%E6%98%AF%E4%BF%AE%E7%94%B5%E8%84%91%E7%9A%84/"/>
+    
+    
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong 2.8 已经发布：提高安全性，简化API管理</title>
@@ -529,32 +554,6 @@
       <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
       <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Redis 学习书籍推荐</title>
-    <link href="https://102no.com/2021/04/12/10-redis-learn-books/"/>
-    <id>https://102no.com/2021/04/12/10-redis-learn-books/</id>
-    <published>2021-04-11T16:00:00.000Z</published>
-    <updated>2021-04-12T07:38:10.681Z</updated>
-    
-    <content type="html"><![CDATA[<p>Redis 是一个完全开源的、遵守 BSD 协议、高性能的 key-value 数据库。是互联网技术架构在存储系统中使用得最为广泛的中间件，</p><p>Redis是现在最受欢迎的 NoSQL 数据库之一，是一个十分热门的内存数据库，它拥有诸多优良特性，已经被越来越多的公司采用，值得每一位开发者学习。今天就推荐10本 Redis 学习书籍。</p><h2 id="《Redis入门指南（第2版）》"><a href="#《Redis入门指南（第2版）》" class="headerlink" title="《Redis入门指南（第2版）》"></a>《Redis入门指南（第2版）》</h2><p>本书是一本Redis的入门指导书籍，以通俗易懂的方式介绍了Redis基础与实践方面的知识。本书的目标读者不仅包括Redis的新手，还包括那些已经掌握Redis使用方法的人。</p><p>作者：</p><ul><li>李子骅，北京航空航天大学软件学院2009级本科生，随行科技联合创始人。著名 redis macOS 客户端 Medis 作者。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQIVDlEfXRAyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVAhUOUR9dEB1LQglGaw9LYGUmHFpXZ0xhI14NUH5odFxTQUMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxYAUitaJQIVB1wYWxYFGwFcG10lBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXtSRwcCSQtHAxMCBkxeEQdFVFQZUkIKFAFRElMQCkBVXStZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis设计与实现》"><a href="#《Redis设计与实现》" class="headerlink" title="《Redis设计与实现》"></a>《Redis设计与实现》</h2><p>本书全面而完整地讲解了Redis的内部机制与实现方式，对Redis的大多数单机功能以及所有多机功能的实现原理进行了介绍。通过阅读本书，读者可以快速、有效地了解Redis的内部构造以及运作机制，更好、更高效地使用Redis。</p><p>作者：</p><ul><li>黄健宏，软件开发者，喜欢函数式编程，热爱开源软件。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtdFwMbBl0TXhIyEgBTE1gUARQDUSsfSlpMWGVCHlBDUAxLBQNQVk4YDk5ER1xOGVUcXR0BEwRTH18KW1dbCCsMEldOcDZtM3Z0aGdVQxJTVHBkAgU7GQ4iBmUbWhQBEANXHFkUMiIHUisaewIWBVIZWSUDIgdSG1IWAhEBVxNeEQMiAFUSa8KrhtDzj4Onm8aP2M3Cvta4m2UraxYyIjdVK1glQHxTUx0LF1EQAQZJUhwHF1VRSFoSBhZXABkLEAoRUF1LXyUAEwZREg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis开发与运维》"><a href="#《Redis开发与运维》" class="headerlink" title="《Redis开发与运维》"></a>《Redis开发与运维》</h2><p>本书全面讲解Redis基本功能及其应用，并结合线上开发与运维监控中的实际使用案例，深入分析并总结了实际开发运维中遇到的“陷阱”，以及背后的原因， 包含大规模集群开发与管理的场景、应用案例与开发技巧，为高效开发运维提供了大量实际经验和建议。本书不要求读者有任何Redis使用经验,对入门与进阶DevOps的开发者提供有价值的帮助。</p><p>作者：</p><ul><li>付磊，搜狐视频高级研发工程师，CacheCloud项目联合创始人。拥有多年Redis开发运维经验，为公司多个核心业务提供Redis服务，同时热衷于技术传播和分享，撰写了大量关于Redis开发运维的技术文章。</li><li>张益军，搜狐视频资深研发工程师，CacheCloud项目联合创始人。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRhbHQsSAl0SUhwyEgZUGF0SBxUEURlaEQoiQwpDBUoyS0IQWhkeHAxfEE8HCllHGAdFBwsCEwZWHVwQBREDVxpfHR1LQglGa3Rga2AdYid0YWcAUm8gEGlQcCdrEmUOHjdUK1sUAxEFURlcFwMiN1Uca1RsEgZUE1wSARo3VCtbEgIbBFUYXRIFFgFQK1wVCyLQ%2FI%2BMs5bKtczP05jUi6yBscclMiIEZStrFTIRNxd1X0cCEANTS1hFVRoHUBtcF1FGAABMXhxVGwACTlkVVxM3VxpaEQs%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis实战》"><a href="#《Redis实战》" class="headerlink" title="《Redis实战》"></a>《Redis实战》</h2><p>本书深入浅出地介绍了Redis的5种数据类型，并通过多个实用示例展示了Redis的用法。除此之外，书中还讲述了Redis的优化方法以及扩展方法，是一本对于学习和使用 Redis 来说不可多得的参考书籍。</p><p>本书将是一本对于学习和使用 Redis 来说不可多得的参考书籍， 无论是 Redis 新手还是有一定经验的 Redis 使用者， 应该都能从本书中获益。</p><p>作者：</p><ul><li>黄健宏，软件开发者，喜欢函数式编程，热爱开源软件。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQIUD1UcWhMyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVAhQPVRxaEx1LQglGaxFwTU8NEi9UYHJXDhMaSHd2eQJGW3UOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxYAUitaJQIVB1wYWxYEGgVdH1glBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsGFgJWSQlFUUFSVR9eEgpHV1BOWh1VEgMCElITCkdQUitZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis深度历险：核心原理与应用实践》"><a href="#《Redis深度历险：核心原理与应用实践》" class="headerlink" title="《Redis深度历险：核心原理与应用实践》"></a>《Redis深度历险：核心原理与应用实践》</h2><p>本书适合有 Redis 基础，渴望深度掌握 Redis 技术原理的中高级后端开发者；渴望成功进入大型互联网企业研发部的中高级后端开发者；需要支撑公司 Redis 中间件运维工作的初中级运维工程师；对 Redis 中间件技术好奇的中高级前端技术研究者。</p><p>作者：</p><ul><li>钱文品，互联网分布式高并发技术领域奋战十年的老兵，目前担任掌阅服务端技术专家。i</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEXAFAaWh0yVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARcAUBpaHR1LQglGa3BiUU8MHRhOYHpXXUY4F0BFdy9%2BEEMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxICVitaJQIVB1wYWxcDEwFUGVslBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsHRwRQGlsWVxFSXRNeEVUaVAcaDEYEFgZcSFkQV0BVAitZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis使用手册》"><a href="#《Redis使用手册》" class="headerlink" title="《Redis使用手册》"></a>《Redis使用手册》</h2><p>本书系统化介绍Redis命令及其应用场景，内容深入，图文并茂，巨细靡遗，是掌握Redis的案头必备参考书。</p><p>作者：</p><ul><li>黄健宏，软件开发者，喜欢函数式编程，热爱开源软件。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEUB1IYXBIyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARQHUhhcEh1LQglGa3MBe10%2BSShGYBp1XVI5cUBLUVF6G2UOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxMDVitaJQIVB1wYWxYKEwZRHlIlBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsKQA9dSQsRAxIPVR9eFAJGV1cYWx0CElQBHFMVBxdTVCtZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis设计与源码分析》"><a href="#《Redis设计与源码分析》" class="headerlink" title="《Redis设计与源码分析》"></a>《Redis设计与源码分析》</h2><p>本书系统讲解Redis 5设计、数据结构、底层命令实现，以及持久化、主从复制、集群的实现。</p><p>作者：</p><ul><li>陈雷，好未来学而思网校增长研发负责人，清华与北京邮电大学硕士，曾在百度、腾讯和滴滴等公司工作，12年后端架构经验。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQEWAFIZUhcyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARYAUhlSFx1LQglGa2BaSlk2cA9WZ0YEJ30YTgQXVxF6CVMOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxMDVitaJQIVB1wYWxcDGwFVHFslBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsBFwAHGgkSCxtVXU5eElUbD1JPWEVXQFNTSFIXBEcEUitZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis-4-x-Cookbook中文版》"><a href="#《Redis-4-x-Cookbook中文版》" class="headerlink" title="《Redis 4.x Cookbook中文版》"></a>《Redis 4.x Cookbook中文版》</h2><p>本书通过可实战的80 多个案例全面系统地讲解了Redis 技术应用，适合所有对Redis 感兴趣的开发与运维人员阅读和参考。</p><p>作者：</p><ul><li>黄鹏程，中国民生银行担任软件工程师及大数据基础设施团队的负责人，负责为整家银行提供大数据基础设施服务。</li><li>王左非，居住在美国旧金山湾区的经验丰富的软件工程师。</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRtbEQITAF0SWRYyFQFXHV0UBRoBURhrUV1KWQorAlBHU0VeBUVNR0ZbSkAOClBMW0scXRcEFAZSE10RAQ1eEEcGJWQSfAhBAVdgd1c3YwJoWEFRAVALXlQeC2UaaxUDEwRXH1kSABM3ZRtcJUN8AVEZWRUDIgZlG1wVCxEHVxpcHQAVA2UcWxwyxa7BzP2B2qCegZPWw5u50%2F%2BHayUyETdlK1slASJFOx5dHFFFU1YfWBECGwIATF1FAhoAUUhTFAAaUlQZXRMEIgVUGl8c" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《深入理解Redis》"><a href="#《深入理解Redis》" class="headerlink" title="《深入理解Redis》"></a>《深入理解Redis》</h2><p>本书以由浅入深、由原理到应用场景的方式介绍了Redis 这款NoSQL 数据库产品。本书适合有一定NoSQL 经验的开发者或者架构师阅读。读者可以从书中找到许多应用场景和解决方案</p><p>作者：</p><ul><li>Jeremy Nelson，</li></ul><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFQETAF0dUhEyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UVARMAXR1SER1LQglGa1VCdh0XYA1XZ05TE20fYFJSXDNrBWUOHjdUK1sUAxEFURlcFwMiN1Uca0NsEgZUGloUBxICVitaJQIVB1wYWxcDFgdUHlMlBRIOZczygdW0k42pwsGKn9HMsI%2B%2FniI3ZRhrJTISN1YrGXsHRVJcGVsRABADVh1eQQcUDgUZWhxVQA8BHlxBBBcBBytZFAMWDg%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p><h2 id="《Redis-Essentials》"><a href="#《Redis-Essentials》" class="headerlink" title="《Redis Essentials》"></a>《Redis Essentials》</h2><p>本书适合有英文基础的需要入门redis的人员查看。</p><p><a href="https://union-click.jd.com/jdc?e=&amp;p=AyIGZRprFwMQAVUTWhQyVlgNRQQlW1dCFFlQCxxKQgFHRE5XDVULR0UXAxABVRNaFB1LQglGa2BScX0yEgVJYUYAU1wHVAV3ZFRNInUOHjdUK1sUAxEFURlcFwMiN1Uca15sEzdUK1sSAhsEVRlaFwUbBF0rXBULItD8j4yzlsq1zM%2FTmNSLrIGxxyUyIgRlK2sVMhE3F3VaRQUTAFceCR1SQQBQTFkQURoAUUlaQQMbVwFOCBQHQjdXGloRCw%3D%3D" target="_blank" rel="external">【查看详情】&gt;&gt; </a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Redis 是一个完全开源的、遵守 BSD 协议、高性能的 key-value 数据库。是互联网技术架构在存储系统中使用得最为广泛的中间件，&lt;/p&gt;
-&lt;p&gt;Redis是现在最受欢迎的 NoSQL 数据库之一，是一个十分热门的内存数据库，它拥有诸多优良特性，已经被越来越多的公
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
   </entry>
   
