@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2022-12-05T05:55:01.200Z</updated>
+  <updated>2022-12-09T07:32:28.891Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GitHub基于ChatGPT开源项目</title>
+    <link href="https://102no.com/2022/12/09/github-chatgpt/"/>
+    <id>https://102no.com/2022/12/09/github-chatgpt/</id>
+    <published>2022-12-08T16:00:00.000Z</published>
+    <updated>2022-12-09T07:32:28.891Z</updated>
+    
+    <content type="html"><![CDATA[<p>GitHub上目前已经有很多基于ChatGPT的项目，基本100⭐️以上的都在这里了，汇总如下：</p><h1 id="使用指南"><a href="#使用指南" class="headerlink" title="使用指南"></a>使用指南</h1><ul><li>一个ChatGPT 使用指南：<a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" rel="external">https://github.com/f/awesome-chatgpt-prompts</a></li><li>ChatGPT 提问工程师开发指南：<a href="https://github.com/wuchangming/chat-gpt-ask-question-engineer-handbook" target="_blank" rel="external">https://github.com/wuchangming/chat-gpt-ask-question-engineer-handbook</a><h1 id="非官方API"><a href="#非官方API" class="headerlink" title="非官方API"></a>非官方API</h1></li><li>使用Python编写的轻量级的 ChatGPT API：<a href="https://github.com/acheong08/ChatGPT" target="_blank" rel="external">https://github.com/acheong08/ChatGPT</a></li><li>一个使用Python编写的非官方ChatGPT API，基于Daniel Gross的WhatsApp GPT：<a href="https://github.com/taranjeet/chatgpt-api" target="_blank" rel="external">https://github.com/taranjeet/chatgpt-api</a></li><li>使用 Python 编写的非官方ChatGPT API ：<a href="https://github.com/rawandahmad698/PyChatGPT" target="_blank" rel="external">https://github.com/rawandahmad698/PyChatGPT</a><h1 id="非官方客户端"><a href="#非官方客户端" class="headerlink" title="非官方客户端"></a>非官方客户端</h1></li><li>使用nodejs编写的非官方 ChatGPT 客户端：<a href="https://github.com/transitive-bullshit/chatgpt-api" target="_blank" rel="external">https://github.com/transitive-bullshit/chatgpt-api</a></li><li>一个ChatGPT macOS桌面客户端：<a href="https://github.com/vincelwt/" target="_blank" rel="external">https://github.com/vincelwt/</a><h1 id="chatgpt-mac"><a href="#chatgpt-mac" class="headerlink" title="chatgpt-mac"></a>chatgpt-mac</h1></li><li>一个使用rust编写的 ChatGPT 桌面客户端，支持macOS， Windows， Linux：<a href="https://github.com/sonnylazuardi/chatgpt-desktop" target="_blank" rel="external">https://github.com/sonnylazuardi/chatgpt-desktop</a><h1 id="编辑器插件"><a href="#编辑器插件" class="headerlink" title="编辑器插件"></a>编辑器插件</h1></li><li>一个 VSCode ChatGPT 插件：<a href="https://github.com/mpociot/chatgpt-vscode" target="_blank" rel="external">https://github.com/mpociot/chatgpt-vscode</a><h1 id="浏览器插件"><a href="#浏览器插件" class="headerlink" title="浏览器插件"></a>浏览器插件</h1></li><li>一个为ChatGPT添加web访问能力的Chrome浏览器插件：<a href="https://github.com/qunash/chatgpt-advanced" target="_blank" rel="external">https://github.com/qunash/chatgpt-advanced</a></li><li>一个ChatGPT Chrome 插件，把ChatGPT集成到互联网上的每个文本框中：<a href="https://github.com/gragland/chatgpt-chrome-extension" target="_blank" rel="external">https://github.com/gragland/chatgpt-chrome-extension</a></li><li>可以让ChatGPT回答在谷歌搜索结果页面旁边显示的浏览器插件，支持Chrome/Edge/Firefox浏览器：<a href="https://github.com/wong2/chat-gpt-google-extension" target="_blank" rel="external">https://github.com/wong2/chat-gpt-google-extension</a></li><li>集成在谷歌搜索结果的浏览器插件：<a href="https://github.com/ZohaibAhmed/ChatGPT-Google" target="_blank" rel="external">https://github.com/ZohaibAhmed/ChatGPT-Google</a></li><li>一个Chrome浏览器插件，可以导出你的ChatGPT历史到PNG、 PDF，或生成一个可共享的链接：<a href="https://github.com/liady/ChatGPT-pdf" target="_blank" rel="external">https://github.com/liady/ChatGPT-pdf</a><h1 id="微信机器人"><a href="#微信机器人" class="headerlink" title="微信机器人"></a>微信机器人</h1></li><li>ChatGPT 微信机器人：<a href="https://github.com/AutumnWhj/ChatGPT-wechat-bot" target="_blank" rel="external">https://github.com/AutumnWhj/ChatGPT-wechat-bot</a></li><li>基于开源的微信对话机器人SDK Wechaty 编写的 ChatGPT 微信机器人：<a href="https://github.com/fuergaosi233/wechat-chatgpt" target="_blank" rel="external">https://github.com/fuergaosi233/wechat-chatgpt</a></li><li>为个人微信接入ChatGPT：<a href="https://github.com/869413421/wechatbot" target="_blank" rel="external">https://github.com/869413421/wechatbot</a><h1 id="QQ机器人："><a href="#QQ机器人：" class="headerlink" title="QQ机器人："></a>QQ机器人：</h1></li><li>一个Python编写的基于Nonebot2的一个闲聊机器人： <a href="https://github.com/Quan666/ELFChatBot" target="_blank" rel="external">https://github.com/Quan666/ELFChatBot</a></li><li>一个基于 OpenAI GPT-3 和 Mirai 的 QQ 聊天机器人：<a href="https://github.com/Byaidu/QChatBot-GPT" target="_blank" rel="external">https://github.com/Byaidu/QChatBot-GPT</a></li><li>ChatGPT for Mirai QQ 机器人：<a href="https://github.com/lss233/chatgpt-mirai-qq-bot" target="_blank" rel="external">https://github.com/lss233/chatgpt-mirai-qq-bot</a><h1 id="电报机器人"><a href="#电报机器人" class="headerlink" title="电报机器人"></a>电报机器人</h1></li><li>一个基于 ChatGPT 的 Telegram 机器人：<a href="https://github.com/m1guelpf/chatgpt-telegram" target="_blank" rel="external">https://github.com/m1guelpf/chatgpt-telegram</a></li><li>一个 ChatGPT Telegram 机器人：<a href="https://github.com/altryne/chatGPT-telegram-bot" target="_blank" rel="external">https://github.com/altryne/chatGPT-telegram-bot</a><h1 id="GIT版本工具"><a href="#GIT版本工具" class="headerlink" title="GIT版本工具"></a>GIT版本工具</h1></li><li>使用ChatGPT自动生成commit提交信息：<a href="https://github.com/RomanHotsiy/commitgpt" target="_blank" rel="external">https://github.com/RomanHotsiy/commitgpt</a><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1></li><li>非官方的ChatGPT Raycast 扩展： <a href="https://github.com/abielzulio/chatgpt-raycast" target="_blank" rel="external">https://github.com/abielzulio/chatgpt-raycast</a></li><li>ChatGPT蓝鸟机器人：<a href="https://github.com/transitive-bullshit/chatgpt-twitter-bot" target="_blank" rel="external">https://github.com/transitive-bullshit/chatgpt-twitter-bot</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;GitHub上目前已经有很多基于ChatGPT的项目，基本100⭐️以上的都在这里了，汇总如下：&lt;/p&gt;
+&lt;h1 id=&quot;使用指南&quot;&gt;&lt;a href=&quot;#使用指南&quot; class=&quot;headerlink&quot; title=&quot;使用指南&quot;&gt;&lt;/a&gt;使用指南&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="GitHub" scheme="https://102no.com/tags/GitHub/"/>
+    
+  </entry>
   
   <entry>
     <title>第三十一年冬至</title>
@@ -526,33 +553,6 @@
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
       <category term="MongoDB" scheme="https://102no.com/tags/MongoDB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 PostgreSQL 学习书籍推荐</title>
-    <link href="https://102no.com/2021/05/20/10-postgresql-learn-books/"/>
-    <id>https://102no.com/2021/05/20/10-postgresql-learn-books/</id>
-    <published>2021-05-19T16:00:00.000Z</published>
-    <updated>2021-05-20T06:06:55.843Z</updated>
-    
-    <content type="html"><![CDATA[<p>PostgreSQL 是一种特性非常齐全、功能十分强大、源代码开放的自由软件的对象-关系型数据库管理系统。而且它的性能十分优秀，且支持多种例如 json 、 Hive 的复杂类型。今天就推荐10本PostgreSQL的学习书籍。<br>官网地址：<a href="https://www.postgresql.org/" target="_blank" rel="external">https://www.postgresql.org/</a></p><h2 id="《PostgreSQL-9从零开始学》"><a href="#《PostgreSQL-9从零开始学》" class="headerlink" title="《PostgreSQL 9从零开始学》"></a>《PostgreSQL 9从零开始学》</h2><p>本书循序渐进地介绍了PostgresQL9数据库应用与开发的相关基础知识，提供了大量具体操作PostgreSQL9数据库的示例，供读者实践。</p><p>本书适合PostgreSQL数据库初学者、数据库开发人员，也适合高等院校和培训学校相关专业的师生教学参考。</p><p>作者：</p><ul><li>刘增杰</li><li>张少军</li></ul><h2 id="《深入浅出-PostgreSQL》"><a href="#《深入浅出-PostgreSQL》" class="headerlink" title="《深入浅出 PostgreSQL》"></a>《深入浅出 PostgreSQL》</h2><p>本书采用“理论+实践”的形式编写，通过大量的实例，详细讲解了PostgreSQL的各种SQL特性、参数配置、备份恢复、性能调优、服务端编程、高可用方案等。</p><p>本书适合感兴趣的读者自学参考，也适合作为社会培训机构的培训教材，还可作为大中专院校相关专业的教学参考书。</p><p>作者：</p><ul><li>屠要峰，研究员、中兴通讯数据库技术专家委员会主任、研究院副院长、CCF信息存储委员会常委、中国开源软件联盟理事。</li><li>陈河堆，现任中兴通讯数据库平台首席专家，PostgreSQL中文社区核心组成员，拥有十几年数据库研发工作经验，曾参与公司自研高性能内存数据库、分布式数据库和分布式缓存等系统的设计和开发</li></ul><h2 id="《由浅入深-PostgreSQL》"><a href="#《由浅入深-PostgreSQL》" class="headerlink" title="《由浅入深 PostgreSQL》"></a>《由浅入深 PostgreSQL》</h2><p>本书是一本实用性很强的PostgreSQL 进阶指南，能帮助有一定PostgreSQL 知识的读者深入了解PostgreSQL 中更多更全面的高级特性。</p><p>本书适合数据库管理人员和开发人员了解和学习PostgreSQL。通过阅读本书，读者可以对PostgreSQL有一个全面透彻的了解。</p><p>作者：</p><ul><li>Hans-Jürgen Schönig</li></ul><h2 id="《PostgreSQL-实战》"><a href="#《PostgreSQL-实战》" class="headerlink" title="《PostgreSQL 实战》"></a>《PostgreSQL 实战》</h2><p>本书基于PostgreSQL 10编写，重点介绍PostgreSQL的丰富特性以及生产实践运维技巧。</p><p>作者：</p><ul><li>谭峰，中国开源软件推进联盟PostgreSQL分会特聘专家。</li><li>张文升，中国开源软件推进联盟PostgreSQL分会核心成员之一。</li></ul><h2 id="《PostgreSQL-9-0性能调校》"><a href="#《PostgreSQL-9-0性能调校》" class="headerlink" title="《PostgreSQL 9.0性能调校》"></a>《PostgreSQL 9.0性能调校》</h2><p>本书是针对PostgreSQL 9.0的性能调校指南，能够帮助读者加速PostgreSQL系统，并且避免一些可能导致系统缓慢的常见缺陷。</p><p>作者：</p><ul><li>Gregory Smith</li></ul><h2 id="《PostgreSQL-修炼之道》"><a href="#《PostgreSQL-修炼之道》" class="headerlink" title="《PostgreSQL 修炼之道》"></a>《PostgreSQL 修炼之道》</h2><p>本书是目前有关PostgreSQL数据库领域比较全面和系统的中文著作，内容十分丰富。</p><p>作者：</p><ul><li>唐成，拥有十几年数据库、操作系统、存储领域的工作经验。目前任沃趣科技首席数据库架构师，从事数据库高可用、高性能以及数据库云化等方面的研究工作。</li></ul><h2 id="《PostgreSQL-即学即用》"><a href="#《PostgreSQL-即学即用》" class="headerlink" title="《PostgreSQL 即学即用》"></a>《PostgreSQL 即学即用》</h2><p>本书将帮助你理解和使用PostgreSQL 这一开源数据库系统。通过示例展示了如何实现在其他数据库中难以或无法完成的任务。</p><p>作者：</p><ul><li>Regina Obe，数据库咨询公司Paragon的负责人之一，在编程语言和数据库系统方面有15年以上的专业经验。</li><li>Leo Hsu，Paragon公司的负责人之一，曾为大大小小的组织开发过数据库，有15年以上的专业经验。</li></ul><h2 id="《PostgreSQL-指南：内幕探索》"><a href="#《PostgreSQL-指南：内幕探索》" class="headerlink" title="《PostgreSQL 指南：内幕探索》"></a>《PostgreSQL 指南：内幕探索》</h2><p>本书介绍了PostgreSQL 内部的工作原理，包括数据库对象的逻辑组织与物理实现，进程与内存的架构。为DBA 与系统开发者提供了一幅全景概念地图，有助于读者形成对数据库实现的整体认识，亦可作为深入学习PostgreSQL 源代码的导读手册，对于理解数据库原理与PostgreSQL 内部实现大有裨益。</p><p>本书适合数据库开发人员及相关领域的研究人员、数据库DBA 及高等院校相关专业的学生阅读。</p><p>作者：</p><ul><li>铃木启修，毕业于北海道大学信息工程研究生院，获得信息工程硕士学位，曾在多家公司担任软件开发人员和技术经理/技术主管。</li></ul><h2 id="《PostgreSQL-数据库内核分析》"><a href="#《PostgreSQL-数据库内核分析》" class="headerlink" title="《PostgreSQL 数据库内核分析》"></a>《PostgreSQL 数据库内核分析》</h2><p>本书从PostgreSQL数据库的源代码入手，深入分析了该数据库管理系统的底层实现细节，揭示了数据库运行的基本原理。</p><p>本书适合从事数据库领域相关研究的技术人员、高等院校相关专业高年级本科生或研究生阅读，有助于读者进行数据库的高级开发、基于PostgreSQL定制满足需求的数据库系统，或者在数据库内核中实现并验证数据库新技术。</p><p>作者：</p><ul><li>彭智勇，武汉大学计算机学院教授，博士生导师，日本京都大学博士，武汉大学珞珈特聘教授，中国计算机学会数据库专业委员会委员，长期从事数据库理论与技术的研究和教学工作。</li><li>彭煜玮，武汉大学计算机学院讲师、博士，长期从事数据库理论与技术研究以及教学工作，主要负责“数据库内核分析”等课程的实践教学工作。</li></ul><h2 id="《PostgreSQL技术内幕：查询优化深度探索》"><a href="#《PostgreSQL技术内幕：查询优化深度探索》" class="headerlink" title="《PostgreSQL技术内幕：查询优化深度探索》"></a>《PostgreSQL技术内幕：查询优化深度探索》</h2><p>本书揭示了PostgreSQL数据库中查询优化的实现技术细节，适合数据库内核开发人员及相关领域的研究人员、数据库DBA、高等院校相关专业的本科生或者研究生阅读。</p><p>作者：</p><ul><li>张树杰</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;PostgreSQL 是一种特性非常齐全、功能十分强大、源代码开放的自由软件的对象-关系型数据库管理系统。而且它的性能十分优秀，且支持多种例如 json 、 Hive 的复杂类型。今天就推荐10本PostgreSQL的学习书籍。&lt;br&gt;官网地址：&lt;a href=&quot;https
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-      <category term="PostgreSQL" scheme="https://102no.com/tags/PostgreSQL/"/>
     
   </entry>
   
