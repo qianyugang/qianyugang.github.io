@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>把酒诗代码，趁乱写年华。</title>
   
-  <subtitle>是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（句中提及语言博主一概不会。）</subtitle>
+  <subtitle>是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（上述语言博主一概不会。）</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
