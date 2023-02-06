@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-02-02T09:37:54.676Z</updated>
+  <updated>2023-02-06T02:33:30.845Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ChatGPT 类似产品</title>
+    <link href="https://102no.com/2023/02/06/chatgtp-alternatives/"/>
+    <id>https://102no.com/2023/02/06/chatgtp-alternatives/</id>
+    <published>2023-02-05T16:00:00.000Z</published>
+    <updated>2023-02-06T02:33:30.845Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="You"><a href="#You" class="headerlink" title="You"></a>You</h1><p><a href="https://you.com/" target="_blank" rel="external">https://you.com/</a> （域名好厉害）<br>功能基本与chatGPT一致，而且可以联网使用</p><h1 id="ChatSonic"><a href="#ChatSonic" class="headerlink" title="ChatSonic"></a>ChatSonic</h1><p><a href="https://writesonic.com/" target="_blank" rel="external">https://writesonic.com/</a><br>Writesonic旗下的ChatSonic是最新的、最好的大规模预训练对话响应生成模型，专门为多回合对话构建。与谷歌集成，可联网，可以给出最新的结果。</p><h1 id="ChatYuan"><a href="#ChatYuan" class="headerlink" title="ChatYuan"></a>ChatYuan</h1><p><a href="https://www.yuanyu.ai/" target="_blank" rel="external">https://www.yuanyu.ai/</a><br>元语功能型对话大模型，来自国内，无需注册</p><h1 id="Sparrow"><a href="#Sparrow" class="headerlink" title="Sparrow"></a>Sparrow</h1><p>Alphabet（谷歌） 旗下人工智能实验室 DeepMind 即将推出。使用其大型语言模型 Chinchilla 训练的人工智能聊天机器人 Sparrow。也是交谈类的AI，而且还可以实时使用谷歌搜索。</p><h1 id="BLOOM"><a href="#BLOOM" class="headerlink" title="BLOOM"></a>BLOOM</h1><p><a href="https://bloomai.co/" target="_blank" rel="external">https://bloomai.co/</a><br>BLOOM 是由 1000 多名志愿研究人员在一个名为「BigScience」的项目中创建的，该项目由人工智能初创公司 Hugging Face 利用法国政府的资金运作的。</p><h1 id="Replika"><a href="#Replika" class="headerlink" title="Replika"></a>Replika</h1><p><a href="https://replika.com/" target="_blank" rel="external">https://replika.com/</a><br>著名的人工智能伴侣，还可回忆识别视觉元素并继续对话。</p><h1 id="Jasper-Chat"><a href="#Jasper-Chat" class="headerlink" title="Jasper Chat"></a>Jasper Chat</h1><p><a href="https://jasper.ai/" target="_blank" rel="external">https://jasper.ai/</a><br>Jasper AI 种内容写作工具，它使用人工智能编写内容，基于开源的 GPT-3 API，Jasper Chat是其推出的类似于 chatGPT 的对话服务。</p><h1 id="LaMDA"><a href="#LaMDA" class="headerlink" title="LaMDA"></a>LaMDA</h1><p><a href="https://blog.google/technology/ai/lamda/" target="_blank" rel="external">https://blog.google/technology/ai/lamda/</a><br>也是来自于 Alphabet（谷歌）的 NLP（自然语言处理）平台，基于由谷歌研究院发明并于 2017 年开源的一个神经网络架构Transformer的对话技术，可以获取自然语言输入，并生成能够感知上下文、连贯且自然的响应。</p><h1 id="Elsa-Speak"><a href="#Elsa-Speak" class="headerlink" title="Elsa Speak"></a>Elsa Speak</h1><p><a href="https://elsaspeak.com/" target="_blank" rel="external">https://elsaspeak.com/</a><br>英语语言语音助手（English Language Speech Assistant），这是一个基于人工智能的语言学习应用程序，利用人工智能对用户进行语音测试，然后制定一组用户可以轻松理解的任务。还可以将不同的语言翻译成英语。</p><h1 id="DialoGPT"><a href="#DialoGPT" class="headerlink" title="DialoGPT"></a>DialoGPT</h1><p><a href="https://github.com/microsoft/DialoGPT" target="_blank" rel="external">https://github.com/microsoft/DialoGPT</a><br>来自于微软的大规模、可调整的神经对话响应生成模型 DialoGPT（dialogue generative pre-trained transformer）</p><h1 id="Perplexity"><a href="#Perplexity" class="headerlink" title="Perplexity"></a>Perplexity</h1><p><a href="https://www.perplexity.ai/" target="_blank" rel="external">https://www.perplexity.ai/</a><br>Perplexity AI也由大型语言模型(OpenAI API)提供支持。它会从各种流行的平台(如维基百科、LinkedIn和亚马逊)等等收集信息。</p><h1 id="Character-AI"><a href="#Character-AI" class="headerlink" title="Character AI"></a>Character AI</h1><p><a href="https://beta.character.ai/" target="_blank" rel="external">https://beta.character.ai/</a><br>专注于模拟角色智能对话，允许访问者根据自己想象的角色创建聊天机器人并与其聊天。</p><h1 id="OpenAI-Playground"><a href="#OpenAI-Playground" class="headerlink" title="OpenAI Playground"></a>OpenAI Playground</h1><p>OpenAI的试用装，可以奇幻GPT3及其其他模型。</p><h1 id="Megatron-Turing-Natural-Language-Generation"><a href="#Megatron-Turing-Natural-Language-Generation" class="headerlink" title="Megatron-Turing Natural Language Generation"></a>Megatron-Turing Natural Language Generation</h1><p>微软联手英伟达推出，三倍规模于GPT-3</p><h1 id="DeepL-Write"><a href="#DeepL-Write" class="headerlink" title="DeepL Write"></a>DeepL Write</h1><p><a href="https://www.deepl.com/write" target="_blank" rel="external">https://www.deepl.com/write</a><br>一款人工智能写作辅助工具，可以提高书面交流的能力。它不仅仅涉及语法，还可以通过提供措辞、语气、风格和用词方面的建议辅助写作。</p><h1 id="其他AI辅助写作工具"><a href="#其他AI辅助写作工具" class="headerlink" title="其他AI辅助写作工具"></a>其他AI辅助写作工具</h1><ul><li>Marmof<ul><li><a href="https://marmof.com/" target="_blank" rel="external">https://marmof.com/</a></li></ul></li><li>Writier<ul><li><a href="https://writier.io/" target="_blank" rel="external">https://writier.io/</a></li></ul></li><li>Texta.ai<ul><li><a href="https://texta.ai/" target="_blank" rel="external">https://texta.ai/</a></li></ul></li><li>Easy-Peasy<ul><li><a href="https://easy-peasy.ai/" target="_blank" rel="external">https://easy-peasy.ai/</a></li></ul></li><li>Rytr<ul><li><a href="https://rytr.me/" target="_blank" rel="external">https://rytr.me/</a></li></ul></li><li>Writerly<ul><li><a href="https://writerly.ai/" target="_blank" rel="external">https://writerly.ai/</a></li></ul></li></ul><h1 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h1><ul><li><a href="https://writesonic.com/blog/chatgpt-alternatives/" target="_blank" rel="external">Top 14 ChatGPT alternatives that will blow your mind in 2023 (Free &amp; Paid)</a></li><li><a href="https://alternativeto.net/software/chatgpt" target="_blank" rel="external">Alternativeto : ChatGPT Alternatives</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;You&quot;&gt;&lt;a href=&quot;#You&quot; class=&quot;headerlink&quot; title=&quot;You&quot;&gt;&lt;/a&gt;You&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://you.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="ChatGPT" scheme="https://102no.com/tags/ChatGPT/"/>
+    
+  </entry>
   
   <entry>
     <title>在深圳过年</title>
@@ -513,32 +538,6 @@
       
       
         &lt;p&gt;Nginx (『engine x』) 是俄罗斯人Igor Sysoev编写的一款高性能 HTTP 和反向代理服务器。Nginx选择了epoll和kqueue作为网络I/O 模型，在高连接并发的情况下，Nginx是Apache服务器不错的替代品，它能够支持高达50 000个并
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Git 版本管理学习书籍推荐</title>
-    <link href="https://102no.com/2021/06/01/10-git-learn-books/"/>
-    <id>https://102no.com/2021/06/01/10-git-learn-books/</id>
-    <published>2021-05-31T16:00:00.000Z</published>
-    <updated>2021-06-01T06:20:33.549Z</updated>
-    
-    <content type="html"><![CDATA[<p>Git是一款免费、开源的分布式版本控制系统，早由LinilusTorvalds创建，用于管理Linux内核开发，现已成为分布式版本控制的主流工具。在众多的项目开发中普遍使用，得到程序员和工程师的欢迎和喜爱。</p><p>高效的版本控制是成功开发软件项目的关键。自2005年诞生以来，Git以其分布式特点和对非线性开发的强有力支持，成为了许多软件项目的版本控制系统。今天推荐10本 Git 版本管理学习书籍。</p><h2 id="《版本控制之道：使用Git》"><a href="#《版本控制之道：使用Git》" class="headerlink" title="《版本控制之道：使用Git》"></a>《版本控制之道：使用Git》</h2><p>本书概述了版本控制系统，特别是分布式版本控制系统，并展示分布方式，使您在移动性不断增加的环境中更有效地工作。</p><p>通过本书可以全面了解到如何充分利用Git的先进功能。本书还将为您打下坚实的基础，使您掌握个人和在团队中如何运用Git。</p><p>作者：</p><ul><li>Travis Swicegood</li></ul><h2 id="《Git权威指南》"><a href="#《Git权威指南》" class="headerlink" title="《Git权威指南》"></a>《Git权威指南》</h2><p>本书是Git领域的集大成之作，是一本关于Git的百科全书，在广度、深度和实战性上让同类作品望尘莫及。</p><p>作者：</p><ul><li>蒋鑫，国内顶尖的版本控制专家和咨询顾问之一，对Subversion和Git等版本控制工具有十分深入的研究，参与了Git以及Gitosis、Gitolite、Repo、Topgit、Gistore等与Git相关的开源软件的开发或创建，在大量实践中积累了丰富的经验。</li></ul><h2 id="《Pro-Git》"><a href="#《Pro-Git》" class="headerlink" title="《Pro Git》"></a>《Pro Git》</h2><p>本书为英文版本，本书将教你如何像专业人员一样使用Git。</p><p>本书可在线免费查看中文版本：</p><ul><li>地址：<a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">http://git-scm.com/book/zh/v2</a></li></ul><p>作者：</p><ul><li>Scott Chacon，是GitHub的联合创始人和CIO，曾在全球数十次会议上发表关于Git、GitHub和未来工作的演讲。</li><li>Ben Straub，一名开发者，长期为Libgit2做贡献，拥有硕士学位，是一名国际演讲者和Git老师。</li></ul><h2 id="《Git-版本控制管理》"><a href="#《Git-版本控制管理》" class="headerlink" title="《Git 版本控制管理》"></a>《Git 版本控制管理》</h2><p>本书适合需要进行版本控制的开发团队成员阅读，对Git感兴趣的开发人员也可以从中获益。</p><p>作者：</p><ul><li>Jon Loeliger，是一位自由的软件开发工程师，对Linux、U-Boot和Git等开源项目颇有贡献。</li><li>Matthew McCullough，Github.com的培训副总裁，在企业软件开发领域有15年的从业经历，还是一名经常往返于世界各地的开源教育家，以及一家美国咨询公司的联合创始人。这</li></ul><h2 id="《精通-Git（第2版）》"><a href="#《精通-Git（第2版）》" class="headerlink" title="《精通 Git（第2版）》"></a>《精通 Git（第2版）》</h2><p>本书内容由浅入深，展现了普通程序员和项目经理如何有效利用Git提高工作效率，掌握分支概念，灵活地将Git用于服务器和分布式工作流，如何将开发项目迁移到Git，以及如何高效利用GitHub。</p><p>本书不仅是Git日常操作指南，而且深入剖析了Git的内部原理，能有效帮助程序员提升软技能。</p><p>作者：</p><ul><li>Scott Chacon，GitHub联合创始人，曾任GitHub首xi信息官，现任在线教育创业公司Chatterbug的首xi执行官。</li><li>Ben Straub，软件开发者，曾就职于GitHub，参与开发了Libgit2开发包以及GitHub for Windows客户端。</li></ul><h2 id="《Git-团队协作》"><a href="#《Git-团队协作》" class="headerlink" title="《Git 团队协作》"></a>《Git 团队协作》</h2><p>本书内容主要介绍工作流的构建，从宏观视角陈述以不同方式组织工作流会如何影响团队协作方式；分别针对单人团队和多人团队，从实践角度阐述Git命令，提供上手练习以及介绍主流代码托管系统，为读者提供这些平台用法的入门指南。</p><p>作者</p><ul><li>Emma Jane Hogbin Westby，知名Web开发人员，并拥有丰富的团队管理经验，曾在全球举办过100多场会议演讲、课程和研讨会，内容涉及Web前端开发、无障碍标准、分布式版本控制、可视化和变更管理。</li></ul><h2 id="《Git-学习指南》"><a href="#《Git-学习指南》" class="headerlink" title="《Git 学习指南》"></a>《Git 学习指南》</h2><p>本书并不偏重理论介绍，也不面面俱到，而是一本学习Git 的实用指南。本书首先介绍了Git 的基础知识，然后关注于敏捷开发，并给出工作流展示了解决现实问题所需的命令和选项。</p><p>本书适合从事项目开发的专业人士阅读，想要学习Git的读者也可以选用。</p><p>作者：</p><ul><li>René Prei?el，Bj?rn Stachmann，德国杰出软件开发人员。</li></ul><h2 id="《Git-Magic》"><a href="#《Git-Magic》" class="headerlink" title="《Git Magic》"></a>《Git Magic》</h2><p>本书为英文书籍，以打游戏的方式学习Git，这是学习Git的好办法：新如果是新手的话，不妨忽略Git的内部机理，只当小把戏玩，借助Git其奇妙的能力，逗逗朋友，气气敌人。</p><p>本书可在线免费观看中文版本：</p><ul><li>地址：<a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/" target="_blank" rel="external">http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/</a></li></ul><p>作者：</p><ul><li>Ben Lynn：斯坦福大学毕业，2007年出品的Git Magic，如今已经有12国语言编译，包括中文、法语、德语、意大利语、韩语</li></ul><h2 id="《GitHub-入门》"><a href="#《GitHub-入门》" class="headerlink" title="《GitHub 入门》"></a>《GitHub 入门》</h2><p>本书将教你如何使用GitHub的Web接口浏览项目并与你的团队有效协作。学习如何使用以及为什么使用GitHub进行协作。</p><p>作者：</p><ul><li>Peter Bell，GitHub培训团队的合约成员,也是企业培训公司Pragmatic Learning的创始人，该公司负责帮助商人和开发者如何更好地构建软件。</li><li>Brent Beer，作为一名专业的Web开发人员以及对开源项目的贡献者，已使用Git和GitHub超过五年时间。</li></ul><h2 id="《GitHub-入门与实践》"><a href="#《GitHub-入门与实践》" class="headerlink" title="《GitHub 入门与实践》"></a>《GitHub 入门与实践》</h2><p>本书旨在指导读者使用GitHub进行高效开发。内容全面，系统讲解GitHub的功能和实用技巧，一步步演示GitHub的使用方法；专门搭建实践仓库，邀请读者进行Pull Request 并共同维护，包含GitHub的开发流程和辅助工具，适合需要引入GitHub的公司或团队直接使用。</p><p>作者：</p><ul><li>大塚弘记，将敏捷软件开发导入开发现场的领军人物，以顾问身份就Web应用的开发及服务指导过多家企业和团队。曾为多家企业和团队导入GitHub，在建立一天之内多次部署的开发体制方面拥有丰富经验。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Git是一款免费、开源的分布式版本控制系统，早由LinilusTorvalds创建，用于管理Linux内核开发，现已成为分布式版本控制的主流工具。在众多的项目开发中普遍使用，得到程序员和工程师的欢迎和喜爱。&lt;/p&gt;
-&lt;p&gt;高效的版本控制是成功开发软件项目的关键。自2005年
       
     
     </summary>
