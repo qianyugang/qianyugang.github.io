@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-04-20T03:09:32.143Z</updated>
+  <updated>2023-06-05T10:59:12.660Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新书推荐《高性能MySQL》第四版</title>
+    <link href="https://102no.com/2023/06/05/high-performance-mysql-4/"/>
+    <id>https://102no.com/2023/06/05/high-performance-mysql-4/</id>
+    <published>2023-06-04T16:00:00.000Z</published>
+    <updated>2023-06-05T10:59:12.660Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前有在专栏里面写过一篇《10本MySQL必看书籍推荐》的文章，里面受众最广泛的一本，而且看的人最多的就是《高性能MySQL》，目前这本书已经出到第四版了，想当年买这本书的时候还是第二还是第三版来着。这一版最大的更新就是拥抱新版本，更新了大量 MySQL 5.7 和 8.0 版本新特性的介绍，删除了很多老版本已经废弃的功能。还增加了一些企业级、架构类别的MySQL提升技能。</p><h2 id="新章节"><a href="#新章节" class="headerlink" title="新章节"></a>新章节</h2><p>整本书比第三版要薄了一半左右，章节数量也从16章变到了13章，着重增加了「扩展 MySQL」、「云端的 MySQL」、「MySQL 的合规性」章节，不论是深度还是广度都有更加深入的介绍，甚至在本书的末尾还用极短的篇幅指引了一下「Kubernetes 上的 MySQL」。</p><h3 id="云端的-MySQL"><a href="#云端的-MySQL" class="headerlink" title="云端的 MySQL"></a>云端的 MySQL</h3><p>「云端的 MySQL」这一章比较紧跟现在的云潮流，书里面直接介绍了现在全球流行的最大云服务商的 MySQL产品「Amazon Aurora for MySQL 」、「GCP Cloud SQL」。非常直给简洁的介绍上云数据库的流程、注意事项、权衡计算硬件消耗，了解云数据库的性能衡量指标等等一些上云必备指引。</p><h3 id="扩展性"><a href="#扩展性" class="headerlink" title="扩展性"></a>扩展性</h3><p>「扩展性」的这一章节，就讲了MySQL如何应对高速增长的流量、高速增长数据需求复杂度；从哪些不同的维度去扩展、具体如何扩展、如何从读和写去扩展、有哪些工具可以辅助扩展、考虑使用周期性模型去扩展等等。这些问题在做初期架构设计和长期运维的时候是必须要考虑到的。</p><h3 id="合规性"><a href="#合规性" class="headerlink" title="合规性"></a>合规性</h3><p>现在信息安全已经是各大互联网厂商必须要非常重视的一个环节，「MySQL 的合规性」就着重讲了这一部分，除了信息安全合规，还介绍了如何构建这个合规的控制体系，诸如信息管理、数据分离、日志追踪。基本从企业级数据管理来介绍了这一重要环节，所以从企业技术管理者的角度来看，学习此部分也是必不可少。</p><p>看完《高性能MySQL》第四版之后最大的感觉就是，前面几个版本是慢慢指引各位开发还有DBA入门到深入了解使用MySQL，这个版本视野更加开阔了，站的角度更高了，如果想要更进一步朝着初级架构师、CTO进发，增加数据库广度知识，这本书也是值得一看的。当然如果是入门了解、深入学习或者当做工具书来看，第三版+第四版那将是绝配。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之前有在专栏里面写过一篇《10本MySQL必看书籍推荐》的文章，里面受众最广泛的一本，而且看的人最多的就是《高性能MySQL》，目前这本书已经出到第四版了，想当年买这本书的时候还是第二还是第三版来着。这一版最大的更新就是拥抱新版本，更新了大量 MySQL 5.7 和 8.0
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
+    
+      <category term="MySql" scheme="https://102no.com/tags/MySql/"/>
+    
+  </entry>
   
   <entry>
     <title>灭蟑螂🪳</title>
@@ -112,9 +139,9 @@
       <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="GitHub" scheme="https://102no.com/tags/GitHub/"/>
-    
       <category term="ChatGPT" scheme="https://102no.com/tags/ChatGPT/"/>
+    
+      <category term="GitHub" scheme="https://102no.com/tags/GitHub/"/>
     
   </entry>
   
@@ -505,33 +532,6 @@
     <updated>2021-07-02T03:00:51.001Z</updated>
     
     <content type="html"><![CDATA[<p>Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的是，它不依赖于任何语言、框架或包装系统。上一篇推荐了10本 Docker 入门学习书籍，本篇将推荐 10本 Docker 进阶学习书籍。</p><p>Docker学习系列可查看:</p><ul><li><a href="https://102no.com/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li><a href="https://102no.com/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li></ul><h2 id="《Docker开发指南》"><a href="#《Docker开发指南》" class="headerlink" title="《Docker开发指南》"></a>《Docker开发指南》</h2><p>本书对Docker进行了全面讲解，包括开发、生产以至维护的整个软件生命周期，并对其中可能出现的一些问题进行了探讨，如软件版本差异、开发环境与生产环境的差异、系统安全问题，等等。</p><p>作者：</p><ul><li>Adrian Mouat，Container Solutions公司首席科学家。</li></ul><h2 id="《Docker进阶与实战》"><a href="#《Docker进阶与实战》" class="headerlink" title="《Docker进阶与实战》"></a>《Docker进阶与实战》</h2><p>本书由一个真正钻研容器技术的团队写作，他们不仅仅是在使用Docker，更多的是在探索容器的未来之路，希望把“代码与产品，理论与实践”完美结合。本书内容从Docker的来源、镜像、仓库、安全、网络、卷存储，到生态、测试及社区贡献都有涉猎。</p><p>作者：</p><ul><li>华为Docker实践小组</li></ul><h2 id="《Docker-容器与容器云》"><a href="#《Docker-容器与容器云》" class="headerlink" title="《Docker-容器与容器云》"></a>《Docker-容器与容器云》</h2><p>本书从实践者的角度，在讲解Docker高级实践技巧的同时，深入到源代码层次，为读者梳理出Docker容器技术和基于Docker的容器云技术（如Kubernetes）的实现方法和设计思路，帮助读者理解如何在实际场景中利用Docker解决问题并启发新的思考。</p><p>本书适用于有一定Docker基础的开发者、架构师、IT专业学生以及探索基于Docker构建云计算平台的技术人员，也非常适合作为高校教材或培训资料。</p><p>作者：</p><ul><li>浙江大学SEL实验室</li></ul><h2 id="《自己动手写Docker》"><a href="#《自己动手写Docker》" class="headerlink" title="《自己动手写Docker》"></a>《自己动手写Docker》</h2><p>本书在详细分析Docker所依赖的技术栈的基础上，一步一步地通过代码实例，让读者可以自己循序渐进地用Go语言构建出一个容器的引擎。</p><p>本书适合对容器技术已经使用过或有一些了解，希望更深层次掌握容器技术原理和最佳实践的读者。</p><p>作者：</p><ul><li>陈显鹭，阿里云高级研发工程师，对Docker有深入研究，是Docker多个项目的Contributor，专注于容器技术的编排与基础环境研究。</li><li>王炳燊，阿里云研发工程师，具有丰富的Linux开发经验，对Docker有深入研究，多次提交Docker Patch。</li><li>秦妤嘉，阿里云高级研发工程师、DevOps工程师，有丰富的容器化持续集成和持续交付开发实战经验，进行过Jenkins源码分析改造和Jenkins插件开发。</li></ul><h2 id="《Docker生产环境实践指南》"><a href="#《Docker生产环境实践指南》" class="headerlink" title="《Docker生产环境实践指南》"></a>《Docker生产环境实践指南》</h2><p>本书围绕“Docker该如何应用到生产环境”这一核心问题展开。本书要求读者具备一定的容器管理和运维的基础知识，适合在生产环境中使用Docker的相关技术人员阅读，尤其适合具有中高级DevOps和运维背景的读者阅读。</p><p>作者：</p><ul><li>Joe Johnston，全栈开发人员、企业家及服务于旧金山创业公司的顾问。</li><li>Antoni Batchelli，PeerSpace公司 的工程副总裁和PalletOps公司（一家基础设施自动化咨询公司）的联合创始人。</li><li>Justin Cormack，顾问，他对开源软件、云计算及分布式系统方面的创新机会尤其感兴趣</li><li>John Fiedler，RelateIQ公司的工程运营总监。</li><li>Milos Gajdos，Infrahackers有限公司的基础设施的负责人，他协助企业更好地理解Linux容器技术，并实现基于容器的基础设施。</li></ul><h2 id="《Docker经典实例》"><a href="#《Docker经典实例》" class="headerlink" title="《Docker经典实例》"></a>《Docker经典实例》</h2><p>本书全面介绍了Docker相关各种工具和平台，涵盖网络、镜像管理、配置以及包括Kubernetes和Mesos在内的编排和调度生态系统，对私有云和公有云上部署的应用程序都给出了丰富实用的解决方案和示例。本书适合运维人员、系统管理员和开发人员阅读。</p><p>作者：</p><ul><li>Sébastien Goasguen，Citrix高级开源解决方案架构师，主要从事Apache CloudStack项目，帮助开发CloudStack生态系统</li></ul><h2 id="《Docker实战》"><a href="#《Docker实战》" class="headerlink" title="《Docker实战》"></a>《Docker实战》</h2><p>本书适用于互联网，云计算，企业级软件开发、架构、测试，以及运维人员快速上手的Docker 容器；同样适用于搭建以Docker 为核心的基础设施，并在生产环境中快速部署应用以及管理容器集群。</p><p>作者：</p><ul><li>Jeff Nickoloff ，曾在Amazon.com、Limelight 网络和亚利桑那州立大学构建大型服务，撰写技术文章，并帮助人们实现产品目标。</li></ul><h2 id="《高性能Docker》"><a href="#《高性能Docker》" class="headerlink" title="《高性能Docker》"></a>《高性能Docker》</h2><p>本书旨在帮助读者改善其Docker 工作流，并保证应用在生产环境中顺利进行。</p><p>如果你对于管理Docker 服务和Linux 文件系统有充分的理解，并希望优化你的Docker 容器，那本书将非常适合你。</p><p>作者：</p><ul><li>Allan Espinosa，名生活在东京的DevOps 从业者，他是很多分布式系统工具的活跃的开源贡献者，比如Docker 和Chef。</li></ul><h2 id="《Docker源码分析》"><a href="#《Docker源码分析》" class="headerlink" title="《Docker源码分析》"></a>《Docker源码分析》</h2><p>本书是一本引导读者深入了解Docker实现原理的技术普及读物，主要目标是通过对Docker架构和源代码的详细讲解和解剖，帮助读者对Docker的底层实现有一个全面的理解。</p><p>作者：</p><ul><li>孙宏亮，硕士，浙江大学毕业，现为DaoCloud软件工程师，主要负责企业级容器云平台的研发工作。数年来一直从事云计算、PaaS领域的研究与实践，是国内较早一批接触Docker的先行者，同时也是Docker技术的推广者。</li></ul><h2 id="《Docker容器与虚拟化技术》"><a href="#《Docker容器与虚拟化技术》" class="headerlink" title="《Docker容器与虚拟化技术》"></a>《Docker容器与虚拟化技术》</h2><p>本书针对具备Linux基础的人群，主要介绍了虚拟化、Docker企业级应用、监控的相关知识与应用，以企业级的实战项目案例，使读者能够掌握应用运维的工作内容。</p><p>本书通过通俗易懂的原理及深入浅出的案例，并配以完善的学习资源和支持服务，为读者带来全方位的学习体验。</p><p>作者：</p><ul><li>肖睿，北京大学教育学博士，课工场kgc.cn创始人，总经理。</li><li>付伟</li><li>田军</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-      <category term="Docker" scheme="https://102no.com/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Docker 入门学习书籍推荐</title>
-    <link href="https://102no.com/2021/06/15/10-docker-beginner-books/"/>
-    <id>https://102no.com/2021/06/15/10-docker-beginner-books/</id>
-    <published>2021-06-14T16:00:00.000Z</published>
-    <updated>2021-07-02T03:00:49.799Z</updated>
-    
-    <content type="html"><![CDATA[<p>Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的是，它不依赖于任何语言、框架或包装系统。今天推荐10本 Docker 入门学习书籍。</p><p>Docker学习系列可查看:</p><ul><li><a href="https://102no.com/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li><a href="https://102no.com/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li></ul><h2 id="《第一本Docker书》"><a href="#《第一本Docker书》" class="headerlink" title="《第一本Docker书》"></a>《第一本Docker书》</h2><p>本书由Docker 公司前服务与支持副总裁James Turnbull 编写，是权威的Docker 开发指南。本书会指导读者完成Docker 的安装、部署、管理和扩展，带领读者经历从测试到生产的整个开发生命周期，让读者了解Docker 适用于什么场景。书中先介绍Docker 及其组件的基础知识，然后用Docker 构建容器和服务来完成各种任务：利用Docker 为新项目建立测试环境，演示如何使用持续集成的工作流集成Docker，如何构建应用程序服务和平台，如何使用Docker 的API，如何扩展Docker。</p><p>本书既是第一本Docker书，也非常适合作为学习Docker的第一本入门书。适合对Docker 或容器开发感兴趣的系统管理员、运维人员和开发人员阅读。</p><p>作者：</p><ul><li>James Turnbull，Docker公司前服务与支持副总裁。</li></ul><h2 id="《每天5分钟玩转Docker容器技术》"><a href="#《每天5分钟玩转Docker容器技术》" class="headerlink" title="《每天5分钟玩转Docker容器技术》"></a>《每天5分钟玩转Docker容器技术》</h2><p>本书读者在学习的过程中，可以跟着教程进行操作，在实践中掌握 Docker 容器技术的核心技能。在之后的工作中，可以将本教程作为参考书，按需查找相关知识点。</p><p>本书主要面向微服务软件开发人员，以及 IT 实施和运维工程师等相关人员，也适合高等院校和培训学校相关专业的师生教学参考。</p><p>作者：</p><ul><li>CloudMan，十多年 IT 从业经验，就职于国际知名 IT 企业，从事 IT 基础设施实施服务，项目涉及服务器、存储、网络、虚拟化、云技术等各个方面。</li></ul><h2 id="《深入浅出Docker》"><a href="#《深入浅出Docker》" class="headerlink" title="《深入浅出Docker》"></a>《深入浅出Docker》</h2><p>本书是一本Docker入门图书，从Docker概览和Docker技术两部分进行全面解析，深入浅出地介绍了Docker的相关知识，清晰详细的操作步骤结合大量的实际代码帮助读者学以致用，将Docker知识应用到真实的项目开发当中。</p><p>本书适合对Docker感兴趣的入门新手、Docker技术开发人员以及运维人员阅读，本书也可作为Docker认证工程师考试的参考图书。</p><p>作者：</p><ul><li>Nigel Poulton，Docker Captains专家、存储专家，Docker技术先驱。Nigel有丰富的运维技术经验，著有多部容器相关的图书，并开设了视频培训课程，在业界有非常大的影响力。</li></ul><h2 id="《Docker从入门到实战》"><a href="#《Docker从入门到实战》" class="headerlink" title="《Docker从入门到实战》"></a>《Docker从入门到实战》</h2><p>本书从Docker的相关概念与基础知识讲起，结合实际应用，通过不同开发环境的实战例子，详细介绍了Docker的基础知识与进阶实战的相关内容。本书非常适合所有对Docker感兴趣的入门新手阅读。不管是开发人员还是运维人员，都可以通过本书学习Docker的基本知识。</p><p>作者：</p><ul><li>黄靖钧，全栈开发者，热衷开源技术。长期以来一直使用容器技术作为应用部署方案，在Docker容器实战方面经验丰富。有多年的大规模集群管理经验。</li></ul><h2 id="《Docker开发实践》"><a href="#《Docker开发实践》" class="headerlink" title="《Docker开发实践》"></a>《Docker开发实践》</h2><p>本书由浅入深地介绍了Docker的实践之道，本书适合Docker开发人员阅读。</p><p>作者：</p><ul><li>曾金龙，计算机硕士，中山大学毕业，就职于迅雷网络，靠前覆盖面很广的“迅雷P2P引擎”核心研发成员。</li><li>肖新华，工学学士，衡阳师范学院毕业，项目架构师。</li><li>刘清，硕士，华中科技大学毕业，就职于迅雷网络</li></ul><h2 id="《Docker-技术入门与实战-第3版》"><a href="#《Docker-技术入门与实战-第3版》" class="headerlink" title="《Docker 技术入门与实战 第3版》"></a>《Docker 技术入门与实战 第3版》</h2><p>本书从Docker基本原理开始，深入浅出地讲解Docker的构建与操作，内容系统全面，可帮助开发人员、运维人员快速部署Docker应用。</p><p>作者：</p><ul><li>杨保华，博士，现为甲骨文架构师。研究方向包括分布式系统、大数据和算法设计等，是容器、网络虚拟化、区块链等技术的早期研究者和布道者。</li></ul><h2 id="《循序渐进学Docker》"><a href="#《循序渐进学Docker》" class="headerlink" title="《循序渐进学Docker》"></a>《循序渐进学Docker》</h2><p>本书由腾讯官方4位资深Docker技术专家撰写，他们是腾讯最早期从事Docker相关技术研究与应用的核心技术人员。</p><p>本书重点总结了他们在腾讯大规模应用Docker的技术心得与实践经验，有针对性地对各种常见的问题给出了在腾讯被验证的解决方案。</p><p>作者：</p><ul><li>李金榜，资深运维开发专家，写作本书时就职于腾讯SNG（社交网络事业群），从事运维自动化迁移相关工作，负责Docker的运维和开发，是腾讯早期从事Docker相关工作的技术专家之一。在Docker大规模的使用方面，积累了丰富的理论知识和实战经验。</li><li>尹烨，腾讯高级工程师，先后从事后台服务、MySQL内核开发相关工作。2014年开始从事Docker相关技术的研究，并开始在腾讯游戏业务的进行实践，对Docker等相关技术有深入的研究和丰富的实践经验。</li><li>刘天斯，资深运维专家，从事运维工作已13年，就职于腾讯IEG（互动娱乐事业群），负责游戏大数据的运营，曾就职于天涯社区，担任首席架构师/系统管理员。</li></ul><h2 id="《Docker即学即用》"><a href="#《Docker即学即用》" class="headerlink" title="《Docker即学即用》"></a>《Docker即学即用》</h2><p>本书实用的指南会教你如何使用 Docker 打包应用及其所有依赖，如何测试、分发和弹性伸缩容器，以及如何让生产环境支持容器。</p><p>作者：</p><ul><li>Sean Kane， New Relic 公司的首席网站可靠性工程师。</li><li>Karl Matthias， New Relic 公司任职首席网站可靠性工程师。</li></ul><h2 id="《Docker全攻略》"><a href="#《Docker全攻略》" class="headerlink" title="《Docker全攻略》"></a>《Docker全攻略》</h2><p>本书由浅入深，从基本原理入手，系统讲解了Docker 的原理、构建与操作。同时讲解了Docker 在实际生产环境中的使用，还探讨了Docker 的底层实现技术和基于Docker 的相关开源技术。</p><p>本书既适用于具备Linux 基础知识的Docker 初学者，也适用于具有开发功底想深入研究Docker 内核的高级用户。书中所提供的实践案例，可供读者在实际生产环境部署时借鉴。</p><p>作者：</p><ul><li>张涛，TIBCO中国研发中心架构师，拥有7年C/Java开发、平台中间件和云平台开发经验，精通分布式服务框架、平台中间件、企业ESB总线和Microservices。</li></ul><h2 id="《Docker实践》"><a href="#《Docker实践》" class="headerlink" title="《Docker实践》"></a>《Docker实践》</h2><p>本书由浅入深地讲解了Docker的相关内容，涵盖从开发环境到DevOps流水线，再一路到生产环境的整个落地过程以及相关的实用技巧。</p><p>本书要求读者具备一定的容器管理和运维的基础知识，适合想要将Docker投入实践的相关技术人员阅读，尤其适合具有中高级DevOps和运维背景的读者阅读。</p><p>作者：</p><ul><li>伊恩·米尔，巴克莱的首席OpenShift架构师，也是一位经验丰富的软件工程师，他是公司中首位发现Docker潜力的人，并且在Docker生态系统中创建了他自己的工具。</li><li>艾丹·霍布森·塞耶斯，对Docker实践的细节有浓厚的兴趣，他经常分析Docker源代码。他和Ian都为Docker的发展贡献了自己的一份力量，对在商业压力开发环境中构建和维护Docker基础设施有着丰富的经验。</li></ul>]]></content>
     
     <summary type="html">
     
