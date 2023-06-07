@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-06-07T01:18:23.560Z</updated>
+  <updated>2023-06-07T02:39:07.148Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>苹果WWDC2023 发布的Apple Vision Pro</title>
+    <link href="https://102no.com/2023/06/07/apple-vision-pro/"/>
+    <id>https://102no.com/2023/06/07/apple-vision-pro/</id>
+    <published>2023-06-06T16:00:00.000Z</published>
+    <updated>2023-06-07T02:39:07.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>看到苹果发的这个Apple Vision Pro，瞬间想到微软当年发布的HoloLens，2015年发布第一代，2019年发布第二代，有幸在2016年的时候，在前公司玩过同事的这个HoloLens的一代产品，当时觉得非常惊艳，现在想来也觉得挺震撼。</p><p>苹果的这个新品和HoloLens一样，不单纯的是VR产品，更多的是AR（虚拟现实增强），或者说是更接近与MR（混合虚拟现实增强）？，大致意思就是通过摄像头实时的获取现实中的所有场景，在此场景的基础之上实时建模计算拟合之后再输出。</p><p>当时用 这个HoloLens印象最深的就是内置了 一个演示游戏，我带着眼镜看向地面，眼镜就实时建模计算 地面的材质、三维、光照以及周围环境等等信息，然后立马模拟出地面碎裂掉落的场景，实时输出到眼镜画面之上，不过碍于分辨率和计算能力，当时看起来还稍微有点假，不过等硬件和算力跟上去之后，应该会有更多的玩法，也会更加惊艳。</p><p>不过一些缺点也是明显存在，重量非常感人，基本就是大半个头盔的感觉，做不了什么太大的动作；戴上之后过一阵子发热就非常严重。二代应该比我当时玩的一代重量和发热控制好很多。</p><p>目前微软的这个产品除了给消费者使用，企业级应用也不少[1]，例如应用于航空航天、建筑改造、汽车行业、军事训练与作战[2]，基本上各个领域都有探索与应用。</p><p>不知道苹果的这个消费级的能做到什么地步，如果有配套的能特别让人惊艳的游戏或者应用相辅相成，应该会有概率成功，至于能不能引领下一个时代，还是需要加上一个问号。</p><p>如果把这类产品加上AI ，《头号玩家》会不会就真的到来了吧！？</p><p>参考：</p><ul><li><a href="https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition" target="_blank" rel="external">https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition</a></li><li><a href="https://www.uchstar.com/news_page/247.html" target="_blank" rel="external">https://www.uchstar.com/news_page/247.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;看到苹果发的这个Apple Vision Pro，瞬间想到微软当年发布的HoloLens，2015年发布第一代，2019年发布第二代，有幸在2016年的时候，在前公司玩过同事的这个HoloLens的一代产品，当时觉得非常惊艳，现在想来也觉得挺震撼。&lt;/p&gt;
+&lt;p&gt;苹果的这个
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Apple" scheme="https://102no.com/tags/Apple/"/>
+    
+  </entry>
   
   <entry>
     <title>《高性能MySQL》第四版：视角升级，拥抱新版📖</title>
@@ -521,33 +547,6 @@
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
       <category term="VUE" scheme="https://102no.com/tags/VUE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Docker 进阶学习书籍推荐</title>
-    <link href="https://102no.com/2021/06/17/10-docker-advanced-books/"/>
-    <id>https://102no.com/2021/06/17/10-docker-advanced-books/</id>
-    <published>2021-06-16T16:00:00.000Z</published>
-    <updated>2021-07-02T03:00:51.001Z</updated>
-    
-    <content type="html"><![CDATA[<p>Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的是，它不依赖于任何语言、框架或包装系统。上一篇推荐了10本 Docker 入门学习书籍，本篇将推荐 10本 Docker 进阶学习书籍。</p><p>Docker学习系列可查看:</p><ul><li><a href="https://102no.com/2021/06/15/10-docker-beginner-books/">10本 Docker 入门学习书籍推荐</a></li><li><a href="https://102no.com/2021/06/17/10-docker-advanced-books/">10本 Docker 进阶学习书籍推荐</a></li></ul><h2 id="《Docker开发指南》"><a href="#《Docker开发指南》" class="headerlink" title="《Docker开发指南》"></a>《Docker开发指南》</h2><p>本书对Docker进行了全面讲解，包括开发、生产以至维护的整个软件生命周期，并对其中可能出现的一些问题进行了探讨，如软件版本差异、开发环境与生产环境的差异、系统安全问题，等等。</p><p>作者：</p><ul><li>Adrian Mouat，Container Solutions公司首席科学家。</li></ul><h2 id="《Docker进阶与实战》"><a href="#《Docker进阶与实战》" class="headerlink" title="《Docker进阶与实战》"></a>《Docker进阶与实战》</h2><p>本书由一个真正钻研容器技术的团队写作，他们不仅仅是在使用Docker，更多的是在探索容器的未来之路，希望把“代码与产品，理论与实践”完美结合。本书内容从Docker的来源、镜像、仓库、安全、网络、卷存储，到生态、测试及社区贡献都有涉猎。</p><p>作者：</p><ul><li>华为Docker实践小组</li></ul><h2 id="《Docker-容器与容器云》"><a href="#《Docker-容器与容器云》" class="headerlink" title="《Docker-容器与容器云》"></a>《Docker-容器与容器云》</h2><p>本书从实践者的角度，在讲解Docker高级实践技巧的同时，深入到源代码层次，为读者梳理出Docker容器技术和基于Docker的容器云技术（如Kubernetes）的实现方法和设计思路，帮助读者理解如何在实际场景中利用Docker解决问题并启发新的思考。</p><p>本书适用于有一定Docker基础的开发者、架构师、IT专业学生以及探索基于Docker构建云计算平台的技术人员，也非常适合作为高校教材或培训资料。</p><p>作者：</p><ul><li>浙江大学SEL实验室</li></ul><h2 id="《自己动手写Docker》"><a href="#《自己动手写Docker》" class="headerlink" title="《自己动手写Docker》"></a>《自己动手写Docker》</h2><p>本书在详细分析Docker所依赖的技术栈的基础上，一步一步地通过代码实例，让读者可以自己循序渐进地用Go语言构建出一个容器的引擎。</p><p>本书适合对容器技术已经使用过或有一些了解，希望更深层次掌握容器技术原理和最佳实践的读者。</p><p>作者：</p><ul><li>陈显鹭，阿里云高级研发工程师，对Docker有深入研究，是Docker多个项目的Contributor，专注于容器技术的编排与基础环境研究。</li><li>王炳燊，阿里云研发工程师，具有丰富的Linux开发经验，对Docker有深入研究，多次提交Docker Patch。</li><li>秦妤嘉，阿里云高级研发工程师、DevOps工程师，有丰富的容器化持续集成和持续交付开发实战经验，进行过Jenkins源码分析改造和Jenkins插件开发。</li></ul><h2 id="《Docker生产环境实践指南》"><a href="#《Docker生产环境实践指南》" class="headerlink" title="《Docker生产环境实践指南》"></a>《Docker生产环境实践指南》</h2><p>本书围绕“Docker该如何应用到生产环境”这一核心问题展开。本书要求读者具备一定的容器管理和运维的基础知识，适合在生产环境中使用Docker的相关技术人员阅读，尤其适合具有中高级DevOps和运维背景的读者阅读。</p><p>作者：</p><ul><li>Joe Johnston，全栈开发人员、企业家及服务于旧金山创业公司的顾问。</li><li>Antoni Batchelli，PeerSpace公司 的工程副总裁和PalletOps公司（一家基础设施自动化咨询公司）的联合创始人。</li><li>Justin Cormack，顾问，他对开源软件、云计算及分布式系统方面的创新机会尤其感兴趣</li><li>John Fiedler，RelateIQ公司的工程运营总监。</li><li>Milos Gajdos，Infrahackers有限公司的基础设施的负责人，他协助企业更好地理解Linux容器技术，并实现基于容器的基础设施。</li></ul><h2 id="《Docker经典实例》"><a href="#《Docker经典实例》" class="headerlink" title="《Docker经典实例》"></a>《Docker经典实例》</h2><p>本书全面介绍了Docker相关各种工具和平台，涵盖网络、镜像管理、配置以及包括Kubernetes和Mesos在内的编排和调度生态系统，对私有云和公有云上部署的应用程序都给出了丰富实用的解决方案和示例。本书适合运维人员、系统管理员和开发人员阅读。</p><p>作者：</p><ul><li>Sébastien Goasguen，Citrix高级开源解决方案架构师，主要从事Apache CloudStack项目，帮助开发CloudStack生态系统</li></ul><h2 id="《Docker实战》"><a href="#《Docker实战》" class="headerlink" title="《Docker实战》"></a>《Docker实战》</h2><p>本书适用于互联网，云计算，企业级软件开发、架构、测试，以及运维人员快速上手的Docker 容器；同样适用于搭建以Docker 为核心的基础设施，并在生产环境中快速部署应用以及管理容器集群。</p><p>作者：</p><ul><li>Jeff Nickoloff ，曾在Amazon.com、Limelight 网络和亚利桑那州立大学构建大型服务，撰写技术文章，并帮助人们实现产品目标。</li></ul><h2 id="《高性能Docker》"><a href="#《高性能Docker》" class="headerlink" title="《高性能Docker》"></a>《高性能Docker》</h2><p>本书旨在帮助读者改善其Docker 工作流，并保证应用在生产环境中顺利进行。</p><p>如果你对于管理Docker 服务和Linux 文件系统有充分的理解，并希望优化你的Docker 容器，那本书将非常适合你。</p><p>作者：</p><ul><li>Allan Espinosa，名生活在东京的DevOps 从业者，他是很多分布式系统工具的活跃的开源贡献者，比如Docker 和Chef。</li></ul><h2 id="《Docker源码分析》"><a href="#《Docker源码分析》" class="headerlink" title="《Docker源码分析》"></a>《Docker源码分析》</h2><p>本书是一本引导读者深入了解Docker实现原理的技术普及读物，主要目标是通过对Docker架构和源代码的详细讲解和解剖，帮助读者对Docker的底层实现有一个全面的理解。</p><p>作者：</p><ul><li>孙宏亮，硕士，浙江大学毕业，现为DaoCloud软件工程师，主要负责企业级容器云平台的研发工作。数年来一直从事云计算、PaaS领域的研究与实践，是国内较早一批接触Docker的先行者，同时也是Docker技术的推广者。</li></ul><h2 id="《Docker容器与虚拟化技术》"><a href="#《Docker容器与虚拟化技术》" class="headerlink" title="《Docker容器与虚拟化技术》"></a>《Docker容器与虚拟化技术》</h2><p>本书针对具备Linux基础的人群，主要介绍了虚拟化、Docker企业级应用、监控的相关知识与应用，以企业级的实战项目案例，使读者能够掌握应用运维的工作内容。</p><p>本书通过通俗易懂的原理及深入浅出的案例，并配以完善的学习资源和支持服务，为读者带来全方位的学习体验。</p><p>作者：</p><ul><li>肖睿，北京大学教育学博士，课工场kgc.cn创始人，总经理。</li><li>付伟</li><li>田军</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Docker是一个开源的应用容器引擎，开发者可以利用Docker打包自己的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux机器上，也可以实现虚拟化。容器完全使用沙箱机制，相互之间不会有任何接口。几乎没有性能开销，可以很容易地在机器和数据中心中运行。最重要的
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-      <category term="Docker" scheme="https://102no.com/tags/Docker/"/>
     
   </entry>
   
