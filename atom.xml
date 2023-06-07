@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-06-07T02:39:07.148Z</updated>
+  <updated>2023-06-07T02:47:25.565Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>苹果WWDC2023 发布的Apple Vision Pro</title>
+    <title>苹果WWDC2023 发布的Apple Vision Pro🍎</title>
     <link href="https://102no.com/2023/06/07/apple-vision-pro/"/>
     <id>https://102no.com/2023/06/07/apple-vision-pro/</id>
     <published>2023-06-06T16:00:00.000Z</published>
-    <updated>2023-06-07T02:39:07.148Z</updated>
+    <updated>2023-06-07T02:47:25.565Z</updated>
     
     <content type="html"><![CDATA[<p>看到苹果发的这个Apple Vision Pro，瞬间想到微软当年发布的HoloLens，2015年发布第一代，2019年发布第二代，有幸在2016年的时候，在前公司玩过同事的这个HoloLens的一代产品，当时觉得非常惊艳，现在想来也觉得挺震撼。</p><p>苹果的这个新品和HoloLens一样，不单纯的是VR产品，更多的是AR（虚拟现实增强），或者说是更接近与MR（混合虚拟现实增强）？，大致意思就是通过摄像头实时的获取现实中的所有场景，在此场景的基础之上实时建模计算拟合之后再输出。</p><p>当时用 这个HoloLens印象最深的就是内置了 一个演示游戏，我带着眼镜看向地面，眼镜就实时建模计算 地面的材质、三维、光照以及周围环境等等信息，然后立马模拟出地面碎裂掉落的场景，实时输出到眼镜画面之上，不过碍于分辨率和计算能力，当时看起来还稍微有点假，不过等硬件和算力跟上去之后，应该会有更多的玩法，也会更加惊艳。</p><p>不过一些缺点也是明显存在，重量非常感人，基本就是大半个头盔的感觉，做不了什么太大的动作；戴上之后过一阵子发热就非常严重。二代应该比我当时玩的一代重量和发热控制好很多。</p><p>目前微软的这个产品除了给消费者使用，企业级应用也不少[1]，例如应用于航空航天、建筑改造、汽车行业、军事训练与作战[2]，基本上各个领域都有探索与应用。</p><p>不知道苹果的这个消费级的能做到什么地步，如果有配套的能特别让人惊艳的游戏或者应用相辅相成，应该会有概率成功，至于能不能引领下一个时代，还是需要加上一个问号。</p><p>如果把这类产品加上AI ，《头号玩家》会不会就真的到来了吧！？</p><p>参考：</p><ul><li><a href="https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition" target="_blank" rel="external">https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition</a></li><li><a href="https://www.uchstar.com/news_page/247.html" target="_blank" rel="external">https://www.uchstar.com/news_page/247.html</a></li></ul>]]></content>
     
