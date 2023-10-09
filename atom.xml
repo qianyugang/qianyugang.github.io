@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-10-09T02:23:32.247Z</updated>
+  <updated>2023-10-09T02:26:06.257Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://102no.com/2023/10/09/kong-manager-oss/"/>
     <id>https://102no.com/2023/10/09/kong-manager-oss/</id>
     <published>2023-10-08T16:00:00.000Z</published>
-    <updated>2023-10-09T02:23:32.247Z</updated>
+    <updated>2023-10-09T02:26:06.257Z</updated>
     
-    <content type="html"><![CDATA[<p>之前开源版的 Kong Gateway 的管理面板都是第三方的，比如 Konga、Kong dash、kong-admin-ui 之类的，不过随着 Kong Gateway 版本的更新，很多管理面板都缺乏及时维护而无法使用了。</p><p>不过来自 Kong Inc 官方公众号的消息：Kong Gateway OSS 的官方管理界面 Kong Manager 开源啦！Kong Manager 之前是只给商业版本使用的，现在开源出来无疑是完全补足了 Kong 开源生态重要一环，开源发布日期还是中秋节这天。</p><blockquote><p>今天，我们很高兴地宣布：Kong Gateway OSS 用户拥有了自己的管理界面：Kong Manager。</p><p>我们注意到用户对于可视化和直观界面的需求正在不断增长，特别是技术娴熟的用户也开始注重更加直观的可视化界面。我们在 Kong Enterprise 中提供此功能已经有一段时间了，现在我们很高兴能够将此功能扩展到我们的开源用户群中。</p><p>我们把这个管理界面称为 Kong Manager 开源版</p></blockquote><h1 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h1><ul><li>文档地址：<a href="https://docs.konghq.com/gateway/latest/kong-manager-oss/" target="_blank" rel="external">https://docs.konghq.com/gateway/latest/kong-manager-oss/</a></li><li>项目地址：<a href="https://github.com/Kong/kong-manage" target="_blank" rel="external">https://github.com/Kong/kong-manage</a></li></ul><p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/KcoGzCGUyyedzOkZkB2b3Cp6Kkg3kp5ttsHdmjHibQ5qJe08A8EJ0t0m0KMc03AiaicdTCpaC7KXyHz6lX5bnFmzg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""><br><img src="https://mmbiz.qpic.cn/mmbiz_jpg/KcoGzCGUyyedzOkZkB2b3Cp6Kkg3kp5t7puMRBOvSovTSOxtgIDicTmUCy1VVnF513H2P3A1VExl3RxrkkQK1icg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>之前开源版的 Kong Gateway 的管理面板都是第三方的，比如 Konga、Kong dash、kong-admin-ui 之类的，不过随着 Kong Gateway 版本的更新，很多管理面板都缺乏及时维护而无法使用了。</p><p>不过来自 Kong Inc 官方公众号的消息：Kong Gateway OSS 的官方管理界面 Kong Manager 开源啦！Kong Manager 之前是只给商业版本使用的，现在开源出来无疑是完全补足了 Kong 开源生态重要一环，开源发布日期还是中秋节这天。</p><blockquote><p>今天，我们很高兴地宣布：Kong Gateway OSS 用户拥有了自己的管理界面：Kong Manager。</p><p>我们注意到用户对于可视化和直观界面的需求正在不断增长，特别是技术娴熟的用户也开始注重更加直观的可视化界面。我们在 Kong Enterprise 中提供此功能已经有一段时间了，现在我们很高兴能够将此功能扩展到我们的开源用户群中。</p><p>我们把这个管理界面称为 Kong Manager 开源版</p></blockquote><h1 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h1><ul><li>文档地址：<a href="https://docs.konghq.com/gateway/latest/kong-manager-oss/" target="_blank" rel="external">https://docs.konghq.com/gateway/latest/kong-manager-oss/</a></li><li>项目地址：<a href="https://github.com/Kong/kong-manage" target="_blank" rel="external">https://github.com/Kong/kong-manage</a></li></ul><p><img src="https://prd-mktg-konghq-com.imgix.net/images/2023/09/650b5d19-figure-1-kong-manager-open-source.png?auto=format&amp;fit=max&amp;w=1920" alt=""><br><img src="https://prd-mktg-konghq-com.imgix.net/images/2023/09/650b5d0d-figure-2-kong-manager-oss-seamlessly-configure-your-services-via-the-ui.png?auto=format&amp;fit=max&amp;w=1920" alt=""></p>]]></content>
     
     <summary type="html">
     
