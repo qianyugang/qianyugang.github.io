@@ -1335,7 +1335,9 @@ figure.highlight,
     font-size: 15px;
     color: #555;
     border-bottom: none;
-    float: left; }
+    float: left;
+    text-wrap: wrap;
+    width: 49%; }
     .post-nav a.pre {
       float: left; }
       .post-nav a.pre:before {
@@ -1343,7 +1345,8 @@ figure.highlight,
         content: "\f0d9";
         padding-right: 0.3em; }
     .post-nav a.next {
-      float: right; }
+      float: right;
+      text-align: right; }
       .post-nav a.next:after {
         font-family: "FontAwesome";
         content: "\f0da";
