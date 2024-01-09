@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2023-10-09T02:28:44.759Z</updated>
+  <updated>2024-01-09T08:14:12.130Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第三十二年冬至</title>
+    <link href="https://102no.com/2024/01/09/32th-dongzhi/"/>
+    <id>https://102no.com/2024/01/09/32th-dongzhi/</id>
+    <published>2024-01-08T16:00:00.000Z</published>
+    <updated>2024-01-09T08:14:12.130Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇文章应该是归属于到2023年的，奈何每年这篇文章都拖延了，也就不自欺欺人了，索性放到2024年类别好了，不过农历新年还没到嘛，也还能算做是2023年。今年应该是自2018年以来文章写的最少的一年了，真正原创的更少了，基本上工作上的比重一高起来，我就感觉有点懒惰，再加上带娃，这个 Blog 的优先级就算是拉到最低了，祈祷一下明年开始更新多点文章吧（其实在知乎发的更多一些）。</p><p>今年我的高中同桌同学也结婚了，去广州参加了他的婚礼，就这样定居广州了，也算在广东省城也有个驻点了，这样算来我的两个伴郎现在也都结婚了，全都是人生新阶段了。在广州和老孟也又一次深夜言欢，高中班上的同学也在工作十年之后考上华科研究生，肥肠之佩服以及羡慕。</p><h1 id="码字"><a href="#码字" class="headerlink" title="码字"></a>码字</h1><p>今年在知乎上发的文章也多了一些，也被知乎拉到他们的创作者群里去了，作为知乎第3万多个用户，白嫖了快十三年了吧，现在也可以在知乎写写东西涨一涨粉丝，不过我还是业余时间搞一搞，有时间了发一发，好多人全职写这个，看他们晒的收入也还算是不错的。</p><p>话说知乎的变现还是比较少的，比起抖音、尤其是小红书这种同为图文的平台不算是多，但是也在增长中吧，毕竟在知乎上确实是长了不少知识。中秋还收到了知乎的礼盒呢。看这篇文章-&gt;<a href="https://102no.com/2023/09/26/zhihu-zhongqiu/">知乎2023中秋月饼礼盒开箱！🥮</a>。</p><h1 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h1><p>确切的说是GPT，LLM大模型，从去年年底开始，这个GPT就席卷了各行各业，大有当年互联网更新迭代所有行业的趋势，目前我在一些文章，或者工作中也都已经用上了AI，用来写代码、但是目前都还是谨慎使用中，需要验证需求。</p><p>显而易见的是，后面肯定AI是会真真切切的改变各行各业的，尽早的接触并且使用AI一定是很有必要的，尤其是身处互联网行业，属于是需要做到头部接触的行当，以后得年头里，会用AI和不会用AI已经是会有很大差别的，目前在知乎的创作，也基本都是和AI相关的，也算是一种知识积累吧，我也是当做一个记事本，知识存储的方式来在知乎写这些文章。</p><h1 id="病毒"><a href="#病毒" class="headerlink" title="病毒"></a>病毒</h1><p>今年生活的重心还是在娃身上，一整年度额感觉感觉像是经过了几年的新冠病毒侵袭，大人小孩的体质感觉都没有以前好了，娃也是非常受罪，尤其是到了下半年冬天降温那些时日，从第三季度开始，娃一直断断续续的各种生病，也朝医院跑了好多次，拉肚子、支原体、甲流、轮番上阵，你方还没唱罢我登场的感觉，深夜医院也跑了好几次。</p><p>自己以前也很少发烧感冒的，就算是感冒也极少发烧，今年也发了几次烧了，办公室里咳咳咳咳的声音也基本上一直没断过，大流行可能真的会一直持续，一定要做好自我防护，甲乙流每年都会流行的，但是大部分人的免疫力似乎都下降了一些，增强体质，多多运动得提上日程。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这篇文章应该是归属于到2023年的，奈何每年这篇文章都拖延了，也就不自欺欺人了，索性放到2024年类别好了，不过农历新年还没到嘛，也还能算做是2023年。今年应该是自2018年以来文章写的最少的一年了，真正原创的更少了，基本上工作上的比重一高起来，我就感觉有点懒惰，再加上带
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Hexo" scheme="https://102no.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong Gateway OSS 官方管理界面 Kong Manager 开源啦！🦍</title>
@@ -514,35 +539,6 @@
       <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
     
       <category term="Excel" scheme="https://102no.com/tags/Excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong 2.5 正式发布！</title>
-    <link href="https://102no.com/2021/07/30/kong-2.5/"/>
-    <id>https://102no.com/2021/07/30/kong-2.5/</id>
-    <published>2021-07-29T16:00:00.000Z</published>
-    <updated>2022-01-27T06:10:53.404Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文链接：<a href="https://konghq.com/blog/kong-gateway-oss-2-5/" target="_blank" rel="external">https://konghq.com/blog/kong-gateway-oss-2-5/</a></p><p>哈喽，Kong的使用者们，我们已经制作了一个崭新版本的Kong Gateway（OSS）2.5，现在支持所有渠道上使用。请继续阅读更多发布信息。</p><h2 id="性能提升"><a href="#性能提升" class="headerlink" title="性能提升"></a>性能提升</h2><h3 id="一个全新的测试框架"><a href="#一个全新的测试框架" class="headerlink" title="一个全新的测试框架"></a>一个全新的测试框架</h3><p>想象一下，你正在访问一个银行网站，以便在假期期间向朋友和家人转账。如果电汇在一定的秒数内没有发送或完全失败，作为用户，您可能会关闭浏览器，去找其他的方法。</p><p>在构建健康的生产系统和api时，了解性能对消费你的服务的客户的作用至关重要，否则你可能会将客户输给他们的竞争对手。为了了解性能，我们在2.5版本中发布了一个新的<a href="https://docs.konghq.com/gateway-oss/2.5.x/performance-testing-framework/" target="_blank" rel="external">性能测试框架</a>，它提供了一种有效的方式来进行 Kong Gateway （OSS）的性能基准测试。</p><p>该框架用于评估Kong Gateway（OSS）本身与捆绑或自定义插件的性能，以及绘制框架图来调试性能瓶颈。该框架内置在Kong Gateway (OSS)现有的集成测试方法中，使得开发性能测试更加容易。请查看<a href="https://github.com/Kong/kong/tree/master/spec/04-perf" target="_blank" rel="external">Kong Repository</a>中的示例，以便入门。</p><p>如果你正在进行容量规划/评估如何建立正确的Kong Gateway（OSS）环境以满足你的部署要求，那么性能测试框架将帮助您了解Gateway在特定EC2实例上每秒的请求。通过这种方式，可以准确地估计硬件需求并节省成本。或者，如果你想了解带有自定义插件的Kong Gateway（OSS）的特定配置如何在你的环境中运行，可以使用框架来测量 Gateway 管理的上游api的延迟。一旦构建Kong Gateway（OSS）和运行测试的方法，在自己的硬件上运行性能测试框架就很简单了。请留意我们计划很快发布的博客，告诉你如何做到这一点!</p><p>在Kong Gateway (OSS) <a href="https://github.com/Kong/kong" target="_blank" rel="external">Github Repository</a>上，我们已经开始使用<a href="https://github.com/Kong/kong/blob/master/.github/workflows/perf.yml" target="_blank" rel="external">Github Actions</a>整合框架——让维护者能够在单个 pull 请求或发布分支上触发性能测试。维护Kong Gateway(OSS)需要在性能和丰富的特性集之间不断权衡。有了这个性能框架，维护人员就有能力绘制随时间变化的性能趋势，从而确保每次提交都能保持Kong Gateway（OSS）社区所期望的高性能标准。</p><h2 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h2><h3 id="加强基础工作"><a href="#加强基础工作" class="headerlink" title="加强基础工作"></a>加强基础工作</h3><p>在混合模式下，Kong Gateway (OSS)扮演数据平面的角色，动态地为您的api委派请求流量，同时扮演控制平面的角色，在多个Kong Gateway数据平面上同步网关配置。作为Kong Gateway (OSS)最流行的部署模型之一，我们已经开始在2.5中为即将到来的一些高级特性打下基础!请看下面的混合模式部署模型的最新增强功能。</p><p>混合模式新增功能如下：</p><ul><li>Kong Gateway现在在数据平面上公开了一个上游健康检查端点（使用状态API），以便更好地观察。更多信息请参见<a href="https://docs.konghq.com/gateway-oss/2.5.x/hybrid-mode/#readonly-status-api-endpoints-on-data-plane" target="_blank" rel="external">数据平面上的只读状态API端点</a>。<a href="https://github.com/Kong/kong/pull/7429" target="_blank" rel="external">#7429</a></li><li>控制平面在混合模式下检查数据平面的兼容性时，现在更加宽松了。更多信息请参见混合模式指南中的<a href="https://docs.konghq.com/gateway-oss/2.5.x/hybrid-mode/#version_compatibility" target="_blank" rel="external">版本兼容性</a>部分。<a href="https://github.com/Kong/kong/pull/7488" target="_blank" rel="external">#7488</a></li><li>控制计划现在可以向新的数据计划发送更新，即使控制计划失去与数据库的连接，以获得更好的弹性。<a href="https://github.com/kong/kong/pull/6938" target="_blank" rel="external">#6938</a></li><li>当在混合模式下运行时，Kong 现在会自动将 <code>cluster_cert</code> ( <code>cluster_mtls=shared</code>) 或 <code>cluster_ca_cert</code> ( <code>cluster_mtls=pki</code>) 添加到 <code>lua_ssl_trusted_certificate</code>。在此之前，混合模式用户需要手动配置<code>lua_ssl_trusted_certificate</code>，作为Lua验证控制平面证书的要求。这将使设置数据平面的速度更快一些。更多信息请参见混合模式指南中的启动数据平面节点。<a href="https://github.com/kong/kong/pull/7044" target="_blank" rel="external">#7044</a></li><li>一些bug<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#fixes" target="_blank" rel="external">修复</a>。</li></ul><h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><p>以下插件做了改进更新：</p><ul><li><strong>hmac-auth</strong>: HMAC认证插件现在支持签名字符串中的<code>@request-target</code>字段。在此之前，，该插件使用<code>request-line</code>参数，其中包含HTTP请求方法、请求URI和HTTP版本号。签名中包含HTTP版本号导致对同一目标的请求使用不同的请求方法(如HTTP/2)产生不同的签名。新增加的<code>request-target</code>字段在计算哈希值时只包括小写的请求方法和请求URI，从而避免了这些问题。有关更多信息，参阅HMAC<a href="https://docs.konghq.com/hub/kong-inc/hmac-auth" target="_blank" rel="external">HMAC认证</a>文档。<a href="https://github.com/kong/kong/pull/7037" target="_blank" rel="external">#7037</a></li><li><strong>syslog</strong>：Syslog插件现在包括设施配置选项，这是插件对来自不同来源的错误信息进行分组的一种方式。更多信息请参见Syslog文档中的<a href="https://docs.konghq.com/hub/kong-inc/syslog/#parameters" target="_blank" rel="external">Parameters</a>部分对设施参数的描述。<a href="https://github.com/kong/kong/pull/6081" target="_blank" rel="external">#6081</a></li><li><strong>Prometheus</strong>：插件现在可以在控制平面上显示连接的数据平面的状态。新指标包括以下内容：<code>data_plane_last_seen</code>、<code>data_plane_config_hash</code>和<code>data_plane_version_compatible</code>。当数据平面在整个集群中的配置不一致时，这些指标可以用于故障排除。更多信息请参见Prometheus插件文档中的<a href="https://docs.konghq.com/hub/kong-inc/prometheus/#available-metrics" target="_blank" rel="external">Available Metrics</a>部分。<a href="https://github.com/Kong/kong-plugin-prometheus/pull/98" target="_blank" rel="external">#98</a></li><li><strong>Zipkin</strong>：Zipkin插件现在包括以下标签：<code>kong.route</code>、<code>kong.service_name</code>、<code>kong.route_name</code>。更多信息请参见Zipkin插件文档中的<a href="https://docs.konghq.com/hub/kong-inc/zipkin/#spans" target="_blank" rel="external">Spans</a>部分。<a href="https://github.com/Kong/kong-plugin-zipkin/pull/115" target="_blank" rel="external">#115</a></li></ul><p>完整的修改列表和相关的PRs请查看<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md" target="_blank" rel="external">CHANGELOG</a>。</p><h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>社区集体受益于个人贡献者的专业知识、关心和关注。怀着感激和特别感谢的心情，我们想表彰以下对2.5版本的贡献者。@jideel， @ealogar， @yamaken1343， @onematchfox， @maxipavlovic @yamaken1343， @ocean-moist， @lockdown56， @hnlq715和@jackkav。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文链接：&lt;a href=&quot;https://konghq.com/blog/kong-gateway-oss-2-5/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog/kong-gateway-oss-2-5/
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
-    
-      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
