@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2024-02-07T08:26:51.869Z</updated>
+  <updated>2024-03-02T06:29:37.109Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kong Gateway 3.6.x 正式发布，较大改变！</title>
+    <link href="https://102no.com/2024/03/02/kong-3.6/"/>
+    <id>https://102no.com/2024/03/02/kong-3.6/</id>
+    <published>2024-03-01T16:00:00.000Z</published>
+    <updated>2024-03-02T06:29:37.109Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文地址：<a href="https://docs.konghq.com/gateway/latest/breaking-changes/" target="_blank" rel="external">https://docs.konghq.com/gateway/latest/breaking-changes/</a></p><p>在升级之前，请审查此版本和之前版本中的任何配置或重大更改，这些更改可能会影响<br>当前的安装。</p><h1 id="重大更改和弃用项"><a href="#重大更改和弃用项" class="headerlink" title="重大更改和弃用项"></a>重大更改和弃用项</h1><h1 id="通用项"><a href="#通用项" class="headerlink" title="通用项"></a>通用项</h1><p>如果您在自定义代码中使用 <code>ngx.var.http_*</code> 来访问 HTTP 头，那么当同一个头部在单个请求中多次使用时，该变量的行为稍有变化。以前，它只会返回第一个值；现在它会返回所有值，以逗号分隔。Kong Gateway PDK header 获取和设置工作方式保持不变。</p><h1 id="Wasm"><a href="#Wasm" class="headerlink" title="Wasm"></a>Wasm</h1><p>为了避免与其他与Wasm相关的<code>nginx.conf</code>指令产生歧义，Wasm <code>shm_kv</code> nginx.conf指令的前缀已从 <code>nginx_wasm_shm_</code> 更改为<code>nginx_wasm_shm_kv_</code> 。Kong/kong/pull/11919</p><h1 id="Admin-API"><a href="#Admin-API" class="headerlink" title="Admin API"></a>Admin API</h1><p>对于consumer groups（<code>/consumer_groups</code>）和consumers（<code>/consumers</code>）的接口，现在它们会返回分页结果。列表的 JSON 的 key 已经从 <code>consumer_groups</code> 或 <code>consumers</code> 更改为 <code>data</code>。</p><h1 id="配置更改"><a href="#配置更改" class="headerlink" title="配置更改"></a>配置更改</h1><p><code>dns_no_sync</code> 选项的默认值已经更改为关闭<code>off</code>。</p><h1 id="TLS-变更"><a href="#TLS-变更" class="headerlink" title="TLS 变更"></a>TLS 变更</h1><h2 id="3-6-0"><a href="#3-6-0" class="headerlink" title="3.6.0"></a>3.6.0</h2><p>最近的 OpenResty 升级包括 TLS 1.3，并弃用了 TLS 1.1。如果您仍需要支持 TLS 1.1，请将 <code>ssl_cipher_suite</code> 设置为 <code>old</code>。</p><p>在 OpenSSL 3.2 中，默认的 SSL/TLS 安全级别已从 1 更改为 2。这意味着安全级别被设置为 112 位安全。因此，以下操作被禁止：</p><ul><li>RSA、DSA 和 DH 密钥长度小于 2048 bits</li><li>ECC 密钥长度小于 224 bits</li><li>任何使用 RC4 的密码套件</li><li>SSL 版本 3 此外，压缩已被禁用。</li></ul><h2 id="3-6-1"><a href="#3-6-1" class="headerlink" title="3.6.1"></a>3.6.1</h2><p>现在在OpenSSL 3.x中默认禁用 TLSv1.1 和更低版本。</p><h2 id="插件变更"><a href="#插件变更" class="headerlink" title="插件变更"></a>插件变更</h2><ul><li>ACME (acme), Rate Limiting (rate-limiting), Response Rate Limiting (response-ratelimiting)插件：跨插件标准化的 Redis 配置。Redis 配置现在遵循一个通用的模式，该模式在其他插件之间共享。</li><li>Azure Functions (azure-functions)：Azure Functions 插件现在删除了 upstream/request  URI，并且仅在请求 Azure API 时使用 routeprefix 配置字段来构造请求路径。</li><li>OAS Validation (oas-validation)：在内容类型不是 application/json 时绕过模式验证。</li><li>Proxy Cache Advanced (proxy-cache-advanced）：已删除 <code>proxy-cache-advanced/migrations/001_035_to_050.lua</code> 文件，该文件阻止了从 OSS 到 Enterprise 的迁移。这是一个重大更改，仅当您从 Kong Gateway 版本 0.3.5 到 0.5.0 之间升级时才会生效。</li><li>SAML (saml)：调整了 SAML 插件的优先级为 1010，以纠正 SAML 插件与其他基于customer的插件之间的集成。</li></ul><h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><p>以下是可能在未来版本中修复的已知问题列表。</p><h3 id="操作系统要求"><a href="#操作系统要求" class="headerlink" title="操作系统要求"></a>操作系统要求</h3><p>Kong Gateway 3.6.0.0 需要更高的 ulimit 才能正常运行。如果 ulimit 设置为 1024 或更低，它将无法正确启动。我们建议将您的操作系统的 ulimit 设置至少为 4096。</p><h3 id="在3-6-1-0中修复的问题"><a href="#在3-6-1-0中修复的问题" class="headerlink" title="在3.6.1.0中修复的问题"></a>在3.6.1.0中修复的问题</h3><p>虽然通常建议为 Kong Gateway 设置更高的 ulimit，但您可以升级到 3.6.1.0，再次从默认值 1024 开始启动。</p><h2 id="HTTP-2-对于读取-request-body-的插件需要-Content-Length"><a href="#HTTP-2-对于读取-request-body-的插件需要-Content-Length" class="headerlink" title="HTTP/2 对于读取 request body 的插件需要 Content-Length"></a>HTTP/2 对于读取 request body 的插件需要 Content-Length</h2><p>Kong 3.6.x 引入了一个对于读取传入请求主体的插件的回归。Clients 必须指定一个表示请求主体长度的 Content-Length 头部。如果不包含此头部，或者依赖 Transfer-Encoding: chunked，将导致 HTTP 响应的错误代码为 500。</p><p>影响如下插件：</p><ul><li>jq</li><li>Request Size Limiting</li><li>Request Validator</li><li>AI Request Transformer</li><li>Request Transformer</li><li>Request Transformer Advanced</li></ul><p>Kong官方正在寻找解决方案。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原文地址：&lt;a href=&quot;https://docs.konghq.com/gateway/latest/breaking-changes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://docs.konghq.com/gateway/la
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
+    
+      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>襄阳牛肉面🍜</title>
@@ -509,34 +536,6 @@
       <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
     
       <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>10本 Excel 数据分析学习书籍推荐</title>
-    <link href="https://102no.com/2021/08/30/10-excel-data-analysis-book/"/>
-    <id>https://102no.com/2021/08/30/10-excel-data-analysis-book/</id>
-    <published>2021-08-29T16:00:00.000Z</published>
-    <updated>2021-08-30T06:02:34.140Z</updated>
-    
-    <content type="html"><![CDATA[<p>Excel 是全世界使用最广泛的电子表格软件，它是 Microsoft Office 办公套件的一个组成部分。 Excel 是目前最流行的电子表格软件，并且很多年以来已成为世界标准。</p><p>Excel 兼容几乎所有的数据文件，是各种系统之间的桥梁，更是整理数据、输出可视化报表的重要工具。大数据时代，数据分析已经是每个行业成果的必经之路了，更是职场核心竞争力之一，它可以帮助我们找出真实世界的规律，辅助我们进行决策和验证。Excel的使用对于数据分析的重要性不言而喻。今天就推荐 10 本 Excel中数据分析书籍。</p><h2 id="《我最想要的EXCEL数据分析书》8-6"><a href="#《我最想要的EXCEL数据分析书》8-6" class="headerlink" title="《我最想要的EXCEL数据分析书》8.6"></a>《我最想要的EXCEL数据分析书》8.6</h2><p>本书从统计分析最基础的解决思路开始介绍，然后结合四个实际实用案例进行了讲解，最后阐述了如何利用EXCEL环境，使数据分析更加高效。</p><p>作者：</p><ul><li>西内启，1981年出生，毕业于东京大学医学部生物统计学专业，现在致力于通过数据给社会带来革新，对诸多项目的调查、分析、系统开发以及战略立案进行分析与指导。</li></ul><h2 id="《谁说菜鸟不会数据分析》系列7-4"><a href="#《谁说菜鸟不会数据分析》系列7-4" class="headerlink" title="《谁说菜鸟不会数据分析》系列7.4"></a>《谁说菜鸟不会数据分析》系列7.4</h2><p>本书形式活泼，内容丰富而且充实，让人有不断阅读下去的动力。本书适合需要提升自身竞争力的职场新人；在市场营销、金融、财务、人力资源管理中需要作数据分析的人士；经常阅读经营分析、市场研究报告的各级管理人员；从事咨询、研究、分析等专业人士。</p><p>作者：</p><ul><li>张文霖，资深数据分析师，曾服务于国内著名市场研究公司、中国移动等公司</li><li>刘夏璐，暨南大学硕士。曾在腾讯、雅芳中国等知名企业有PM、数据分析实习经历。</li><li>狄松，英国南安普顿大学理学硕士，主修市场分析，现服务于全球著名市场研究公司，任高级研究员，主要从事数据分析，建模等工作。</li></ul><h2 id="《Excel数据分析思维、技术与实践》8-0"><a href="#《Excel数据分析思维、技术与实践》8-0" class="headerlink" title="《Excel数据分析思维、技术与实践》8.0"></a>《Excel数据分析思维、技术与实践》8.0</h2><p>本书不是讲解基础的 Excel 软件操作，而是立足于“Excel 数据分析”，精心挑选 Excel 中常用、实用的功能讲解数据分析的思路及其相关操作技术。</p><p>本书沉淀了笔者多年 Excel 数据分析经验，希望能切切实实地帮助读者精进 Excel 数据分析技能，从有限的数据中分析出无限的价值。</p><p>本书适合非统计、数学专业出身，又想掌握数据分析的人，也适合会一点 Excel 操作却不能熟练分析数据的职场人士，还适合刚毕业或即将毕业走向工作岗位的广大学生。而且，本书还可以作为广大职业院校、电脑培训班的教学参考用书。</p><p>作者：</p><ul><li>周庆麟，中国最资深的微软全球最有价值专家（MVP）之一，Excel Home创始人、站长</li><li>胡子平，知名作者，凤凰高新教育总裁，曾任五月花学院（现希望教育集团）教研总监，负责教学、教材研发和教师培训，具有丰富的教学经验。</li></ul><h2 id="《精通Excel-2007数据分析与业务建模》9-4"><a href="#《精通Excel-2007数据分析与业务建模》9-4" class="headerlink" title="《精通Excel 2007数据分析与业务建模》9.4"></a>《精通Excel 2007数据分析与业务建模》9.4</h2><p>本书全面详尽地论述了Excel2007强大的数据处理功能，结构独具匠心，以生动案例组织每个主题，介绍了Excel中与数据分析和业务建模密切相关的众多重要函数和工具。</p><p>作者：</p><ul><li>温斯顿，</li></ul><h2 id="《Excel高级应用与数据分析》7-4"><a href="#《Excel高级应用与数据分析》7-4" class="headerlink" title="《Excel高级应用与数据分析》7.4"></a>《Excel高级应用与数据分析》7.4</h2><p>将结合作者多年在商业智能、数据挖掘、市场研究、数据分析和统计分析领域的研究经验，以及Excel高级系统应用的实战经验，通过行业内实际操作案例，全面地介绍了Excel在数据的组织、管理、计算和分析等方面的强大功能和面向商业智能领域的应用，并着重介绍Excel的高级使用技能与数据分析范例，及其在实际操作中的具体应用技巧和技能。</p><p>作者：</p><ul><li>沈浩</li></ul><h2 id="《基于Excel的地理数据分析》8-8"><a href="#《基于Excel的地理数据分析》8-8" class="headerlink" title="《基于Excel的地理数据分析》8.8"></a>《基于Excel的地理数据分析》8.8</h2><p>本书面向地理问题，基于Excel软件，叙述大量数学方法的应用思路和过程。</p><p>本书虽然是以地理数据为分析对象展开论述，但所涉及的内容绝大多数为通用方法。只要改变数据的来源，书中论述的计算流程完全可以应用到其他领域。</p><p>本书的初稿和修改稿先后在北京大学城市与环境专业研究生中试用八年，可供地理学、生态学、环境科学、地质学、经济学、城市规划学乃至医学、生物学等领域的学生、研究人员和工程技术人员阅读和参考。</p><p>作者：</p><ul><li>陈彦光</li></ul><h2 id="《Excel数据处理与分析实战技巧精粹》8-3"><a href="#《Excel数据处理与分析实战技巧精粹》8-3" class="headerlink" title="《Excel数据处理与分析实战技巧精粹》8.3"></a>《Excel数据处理与分析实战技巧精粹》8.3</h2><p>本书在对Excel技术论坛上上百万个提问的分析与提炼的基础上，汇集了用户在使用Excel进行数据处理与分析过程中最常见的需求，灵活有效地使用Excel来处理工作中遇到的问题。</p><p>本书内容丰富、图文并茂、可操作性强且便于查阅，主要面向Excel中高级读者，能有效地帮助读者提高Excel数据处理与分析的水平，提升工作效率。</p><p>作者：</p><ul><li>Excel Home</li></ul><h2 id="《绝了Excel可以这样用-数据处理、计算与分析》8-2"><a href="#《绝了Excel可以这样用-数据处理、计算与分析》8-2" class="headerlink" title="《绝了Excel可以这样用 : 数据处理、计算与分析》8.2"></a>《绝了Excel可以这样用 : 数据处理、计算与分析》8.2</h2><p>本书全面、详细地讲解了Excel 2010强大的数据处理、计算与分析的功能。<br>本书本书内容丰富，深度和广度兼顾，可以作为初学者的入门指南，也可以帮助中高级读者进一步提升实际工作中的数据处理计算分析能力。</p><p>作者：</p><ul><li>　李云龙，毕业于上海财经大学涉外企业经营管理专业。中国注册会计师（CPA）、国际注册内部审计师（CIA）、上市公司财务经理。</li></ul><h2 id="《Excel高效办公-数据处理与分析》7-7"><a href="#《Excel高效办公-数据处理与分析》7-7" class="headerlink" title="《Excel高效办公:数据处理与分析》7.7"></a>《Excel高效办公:数据处理与分析》7.7</h2><p>本书根据现代企业决策与管理工作的主要特点，从全新的角度全面地介绍了Excel 2003的强大处理功能在企业决策与管理工作中的具体应用。</p><p>作者：</p><ul><li>邓芳</li></ul><h2 id="《数据分析实战：基于EXCEL和SPSS系列工具的实践》6-9"><a href="#《数据分析实战：基于EXCEL和SPSS系列工具的实践》6-9" class="headerlink" title="《数据分析实战：基于EXCEL和SPSS系列工具的实践》6.9"></a>《数据分析实战：基于EXCEL和SPSS系列工具的实践》6.9</h2><p>本书是针对于非统计科班出身的企业人员讲述数据分析和挖掘的著作，也是诸多数据挖掘书籍中为数不多的穿插大量真实实践应用案例和场景的著作。</p><p>作者：</p><ul><li>纪贺元，数据分析专家，从事数据分析与挖掘的培训和咨询多年，曾在通信行业长期从事数据分析与挖掘的建模分析工作。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Excel 是全世界使用最广泛的电子表格软件，它是 Microsoft Office 办公套件的一个组成部分。 Excel 是目前最流行的电子表格软件，并且很多年以来已成为世界标准。&lt;/p&gt;
-&lt;p&gt;Excel 兼容几乎所有的数据文件，是各种系统之间的桥梁，更是整理数据、输出
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="书籍推荐" scheme="https://102no.com/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/"/>
-    
-      <category term="Excel" scheme="https://102no.com/tags/Excel/"/>
     
   </entry>
   
