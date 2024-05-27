@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2024-03-03T05:54:14.259Z</updated>
+  <updated>2024-05-27T08:43:30.833Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>豆角蒸面</title>
+    <link href="https://102no.com/2024/05/27/dou-jiao-zheng-mian/"/>
+    <id>https://102no.com/2024/05/27/dou-jiao-zheng-mian/</id>
+    <published>2024-05-26T16:00:00.000Z</published>
+    <updated>2024-05-27T08:43:30.833Z</updated>
+    
+    <content type="html"><![CDATA[<p>「蒸面」、「卤面」、「焖面」，听上去都是河南特色的面食，可能是由于我的老家跟河南离得非常近，所以我从小到大也吃这个，家里也是经常做这个。不过我也不太能分得清这三者的区别，在我看来就是同一种面，而且在我家，「蒸面」和「卤面」的叫法会更多一些，做法也很简单。</p><h1 id="豆角"><a href="#豆角" class="headerlink" title="豆角"></a>豆角</h1><p>豆角蒸面顾名思义，豆角就是这个面食的主角，豆角可以用四季豆，或者是长的那种豇豆都可以，需要长时间的蒸煮，四季豆豇豆这种耐蒸耐煮的蔬菜就成了做蒸面最黄金的搭档。配料就是五花肉、或者加一些黄豆芽，但我本人又不喜欢吃黄豆芽，不喜欢黄豆芽里「豆」的那个口感，我自己做的时候就不放黄豆芽。也有其他地方加一些其他配料，比如茄子、番茄、土豆，我媳妇儿就喜欢里面加一些土豆。</p><h1 id="蒸"><a href="#蒸" class="headerlink" title="蒸"></a>蒸</h1><h1 id="面"><a href="#面" class="headerlink" title="面"></a>面</h1><p>蒸面用的面条最好是湿面条，有蒸的过程在湿，湿面条更容易蒸熟，而且口感会更好一些、蒸的也会更均匀。如果用挂面就会太干，比较容易干一块湿一块，调料也不太容易入味。</p><p>小时候吃妈妈做的蒸面的时候，就经常去楼下街对面的专门做面条的小店买一点湿面条，通常是宽面，但也没有特别宽，有时候是细面，我自己更爱细面一些。要是楼下的做面条的小店没开门，或者懒得跑出去买了，也会用挂面，就是得需要多加一点水、再多蒸一会儿。</p><blockquote><p>未完待续</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;「蒸面」、「卤面」、「焖面」，听上去都是河南特色的面食，可能是由于我的老家跟河南离得非常近，所以我从小到大也吃这个，家里也是经常做这个。不过我也不太能分得清这三者的区别，在我看来就是同一种面，而且在我家，「蒸面」和「卤面」的叫法会更多一些，做法也很简单。&lt;/p&gt;
+&lt;h1 i
+      
+    
+    </summary>
+    
+      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
+    
+    
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Kong Gateway 3.6.x 正式发布，较大改变！</title>
@@ -509,33 +535,6 @@
     
     
       <category term="思想汇报" scheme="https://102no.com/tags/%E6%80%9D%E6%83%B3%E6%B1%87%E6%8A%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong 2.6 正式发布啦！</title>
-    <link href="https://102no.com/2021/11/16/kong-2.6/"/>
-    <id>https://102no.com/2021/11/16/kong-2.6/</id>
-    <published>2021-11-15T16:00:00.000Z</published>
-    <updated>2022-01-27T06:10:43.642Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文链接：<a href="https://konghq.com/blog/kong-gateway-oss-2-6-released/" target="_blank" rel="external">https://konghq.com/blog/kong-gateway-oss-2-6-released/</a><br>Hello Kong的开发者和用户们！在开源社区和Kong公司核心工程师的同努力下，今天我们非常自豪地发布了Kong Gateway (OSS) 2.6 版本。请继续阅读更多发布信息。</p><h2 id="引擎优化"><a href="#引擎优化" class="headerlink" title="引擎优化"></a>引擎优化</h2><p>就在今年，我们刚刚庆祝了 Kong Gateway (OSS) 成立六周年，Kong 为全世界各地的网关在关键负载上进行组织和编排。Kong Gateway成为世界上最受欢迎的API网关的主要原因之一是它无与伦比的性能，包括它的轻量级占用空间、它处理每秒数量级高的请求和比前一代网关更低的延迟的能力。为了确保我们的用户和商业客户所期望的高性能标准得到充分实现，2.6版本包括:对我们的性能基准测试系统的增强，对底层负载平衡器功能的重大重构，以及对Gateway性能本身的一些改进——下面重点介绍:</p><ul><li>减少不必要的<code>ngx.var</code>读取。#7840</li><li>加载更多索引变量。#7849</li><li>在平衡器中优化了表的创建。#7852</li><li>减少 <code>ngx.update_time</code> 的调用。#7853</li><li>使用只读副本读取PostgreSQL元模式。#7454</li><li>URL转义检测不需要和已经存在的情况。#7742</li><li>通过索引加速变量加载。#7818</li><li>在平衡器中删除了不必要的get_phase调用#7854</li></ul><p>性能改进之后的初步测试结果看起来效果很显著🎉。当使用这个性能基准测试组合2.6的多个测试运行时，与之前的2.5版本相比，网关显示平均每秒请求(RPS)增加了12%，平均延迟从2ms减少到1.25ms。</p><p><img src="https://2tjosk2rxzc21medji3nfn1g-wpengine.netdna-ssl.com/wp-content/uploads/2021/09/Screen-Shot-2021-09-27-at-9.48.57-PM.png.webp" alt=""></p><h2 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h2><ul><li>AWS-Lambda:本插件现在将尝试通过使用<code>AWS_REGION</code>和<code>AWS_DEFAULT_REGION</code>环境变量来检测AWS区域(当插件配置中没有指定时)。这允许在每个Kong节点的基础上指定一个“区域”，因此增加了在Kong所在的相同区域调用Lamda的能力。#7765。参考“AWS区域作为环境变量”一节</li><li>Datadog:host和port配置选项可以通过环境变量<code>KONG_DATADOG_AGENT_HOST</code>和<code>KONG_DATADOG_AGENT_PORT</code>进行配置。这允许开发人员在每个Kong节点上设置不同的目的地，使多DC配置更容易，并且在Kubernetes中允许将Datadog代理作为守护进程集运行。# 7463。参考“每个Kong节点设置主机和端口”章节</li><li>Prometheus:添加了一个新的度量<code>data_plane_cluster_cert_expiry_timestamp</code>以公开数据平面的cluster_cert过期时间戳，以改进混合模式下的监控。参考“1.4.x新增功能”</li><li>Request Termination:一个新的触发器配置选项，这使得插件只激活任何header或query参数名称类似于触发器的请求。这是一个很好的调试辅助工具，不会影响正在处理的实际流量。另外还有一个新的<code>request-echo</code>配置选项。如果设置了，插件将返回传入请求的副本。当Kong在一个或多个其他代理或LB的后面，可以简化故障排除流程，特别是当与新的“触发”选项结合的时候。#6744。请参考“参数”表中的描述。</li><li>GRPC-Gateway:类型为<code>.google.protobuf</code>的字段在gRPC侧的时间戳现在在REST端上被转换为ISO8601字符串。#7538和URI参数，如<code>…?foo.bar=x&amp;foo. bar。Baz =y</code>现在被解释为结构化字段，等价于<code>{&quot;foo&quot;: {&quot;bar&quot;: &quot;x&quot;， &quot; Baz &quot;: &quot;y&quot;}}</code>。更多细节见“用法”的底部</li></ul><p>完整的修改列表和相关的PRs请查看<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#260" target="_blank" rel="external">CHANGELOG</a>。</p><h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>社区集体受益于个人贡献者的专业知识、关心和关注。怀着感激之情，特别感谢感谢2.6版本的贡献者:@rallyben，@git-torrent， @EpicEric，@jiachinzhao，@flrgh，@agile6v，@utix。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文链接：&lt;a href=&quot;https://konghq.com/blog/kong-gateway-oss-2-6-released/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog/kong-gateway
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
-    
-      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
