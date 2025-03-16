@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2025-02-13T06:41:41.819Z</updated>
+  <updated>2025-03-16T09:05:12.756Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>刀削面🍜</title>
+    <link href="https://102no.com/2025/03/16/dao-xiao-miam/"/>
+    <id>https://102no.com/2025/03/16/dao-xiao-miam/</id>
+    <published>2025-03-15T16:00:00.000Z</published>
+    <updated>2025-03-16T09:05:12.756Z</updated>
+    
+    <content type="html"><![CDATA[<p>为啥没有加「山西」两个字儿呢，一来是因为我没去过山西，二来是我小时候吃的那个刀削面大概率不是山西的，我也不知道那边的正宗的山西刀削面是什么口味的，只是刚好我小时候楼下一个小老板，自己找了师傅，学了拉面和刀削面，就在我们那里一开就是好些年，对刀削面的初印象就始于这里。<br>后来吃到的刀削面，都是拉面馆里顺带的那种，显然跟山西的相去甚远，啥时候还是想去山西尝一下真真正正的刀削面。</p><h1 id="刀"><a href="#刀" class="headerlink" title="刀"></a>刀</h1><p>削面的刀，我记得当时楼下小老板是弄了一个像是带了钩子一样的铁片，然后把一边儿磨得很锋利，再卷起来成钩子状，用那个钩子的弯进去的地方钩面。后来额看过其他的削面师傅，好像就是直接用的一个弯一点的刀，直接用刀刃削面，我感觉这种能叫「刀削面」，才有「削」的感觉。现在市面上好像也有卖那种快捷的削面刀，有点像水果刮皮刀一样，中间挖了一个洞，加一个刀片，属于是家用版本，像是「刮面」，奈何本人不擅长做面食，也就没去体会自己「削面」的感觉。</p><h1 id="削"><a href="#削" class="headerlink" title="削"></a>削</h1><p>削面也是有技巧的，那个小老板也是找的师傅学的削面，所以最开始削的时候非常的粗细不均，粗的粗，细的细，不过好在老板人不错，一般都给了比平常更大的一碗，要是太粗就说你们自己把粗的挑出来扔掉，如果一整碗都是那种粗的没法吃的，老板就会给再换一碗。随着时间的推移，老板的技术越来越娴熟，后面也改用那种弯弯的刀片削了，而且还能让老板定制，一整晚都粗，一整碗都细。</p><h1 id="面"><a href="#面" class="headerlink" title="面"></a>面</h1><p>一开始要揉的像枕头一样的大面坨子，把一个木板垫在下面，放在小臂上，开削。我一直喜欢艮啾啾有嚼劲的那种面的口感，刚好刀削面的这个面正合我意，有时候厨师手感不好，削的厚了一些，我也觉得能够接受。后来我就更喜欢那种，细但是更韧的面，除了更有口感，吃面吸溜的那个感觉也更足。后来在超市买过那种机器削的刀削面自己煮过，但是那种不管是鲜面还是干面，都没有那种现削出来的爽滑感。</p><p>刀削面的浇头，番茄鸡蛋最多，不过小老板那也没那么讲究，他那卖的面挺杂的，牛肉、海带豆腐、肥肠一些其他面的浇头也都直接浇在刀削面上面，味道也还不错。就是不知道和真正的「山西刀削面」到底有多大的差距。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;为啥没有加「山西」两个字儿呢，一来是因为我没去过山西，二来是我小时候吃的那个刀削面大概率不是山西的，我也不知道那边的正宗的山西刀削面是什么口味的，只是刚好我小时候楼下一个小老板，自己找了师傅，学了拉面和刀削面，就在我们那里一开就是好些年，对刀削面的初印象就始于这里。&lt;br&gt;
+      
+    
+    </summary>
+    
+      <category term="说过的话" scheme="https://102no.com/categories/%E8%AF%B4%E8%BF%87%E7%9A%84%E8%AF%9D/"/>
+    
+    
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+      <category term="美食" scheme="https://102no.com/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>第三十三年春分</title>
@@ -510,34 +537,6 @@
     
     
       <category term="思想汇报" scheme="https://102no.com/tags/%E6%80%9D%E6%83%B3%E6%B1%87%E6%8A%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong Gateway 3.0 正式发布🦍</title>
-    <link href="https://102no.com/2022/10/01/kong-3.0/"/>
-    <id>https://102no.com/2022/10/01/kong-3.0/</id>
-    <published>2022-09-30T16:00:00.000Z</published>
-    <updated>2023-04-28T07:14:41.618Z</updated>
-    
-    <content type="html"><![CDATA[<p>原文链接：<a href="https://konghq.com/blog/kong-gateway-3-0" target="_blank" rel="external">https://konghq.com/blog/kong-gateway-3-0</a></p><p>Kong Gateway 3.0是一个重要的里程碑版本，它引入了我们原生云API平台的下一个发展。Kong Gateway 3.0的企业版和开源版现在都可以从各个发行渠道获得。</p><p>在Kong Gateway 3.0中，我们引入了许多功能强大的功能，可带来以下主要好处：</p><ul><li><strong>更强的安全性和治理能力：</strong>符合 FIPS 140-2 的安全机密存储的合规要求(跨网关操作和插件)</li><li><strong>灵活性和可扩展性：</strong>客户可以选择他们的插件执行顺序，添加对WebSocket通信的本地支持，深度集成OpenTelemetry。</li><li><strong>简单的API管理：</strong>Kong Manager UI的新功能增强了用户体验。引入一个功能强大的新路由引擎，优化了复杂路由的表达，同时也提高了运行性能。</li><li><strong>显著的性能改进：</strong>与Kong 2.8.1.4相比，在高复杂性的路由场景，吞吐量提高37%，延迟至少降低27%、很大概率(99%的情况下)降低47%，内存消耗减少了9%。</li></ul><h1 id="Tracing-和-OpenTelemetry"><a href="#Tracing-和-OpenTelemetry" class="headerlink" title="Tracing 和 OpenTelemetry"></a>Tracing 和 OpenTelemetry</h1><p>了解Kong Gateway如何执行是部署的关键一环，我们很高兴地宣布在Kong Gateway 开源版和企业版中都提供了广泛的跟踪支持。有两种方法可以开始。可以使用开箱即用的 OpenTelemetry 插件直接将OTel发送到任何兼容的后端，或发送到 OpenTelemetry 收集器。我们一直在用 Honeycomb 测试 Kong Gateway，它很管用。</p><p>这是一个代理一个请求到 mockbin.org 的跟踪：<br><img src="https://kongwp.imgix.net/wp-content/uploads/2022/09/image-1.png?auto=compress%2Cformat&amp;fit=scale&amp;h=177&amp;w=2048" alt=""><br><em>图1:将单个请求代理到mockbin.org的跟踪</em></p><p>然后同样的请求，一旦启用速率限制插件(使用Redis)：<br><img src="https://kongwp.imgix.net/wp-content/uploads/2022/09/image-2.png?auto=compress%2Cformat&amp;fit=scale&amp;h=201&amp;w=2048" alt=""><br><em>图2:启用速率限制插件的相同请求</em></p><p>第二个选择是使用Kong的跟踪插件开发工具包(PDK)来挂钩所有关键事件。这就是 OpenTelemetry 插件的工作方式，它可以完全控制如何收集和抽样跟踪信息，以及如何将数据导出到其他系统。</p><p>无论您选择哪种选择，了解Kong Gateway的表现是关键。确定在每个请求上花费的时间可以帮助您优化更高的性能，从而优化用户体验。</p><h1 id="Websockets-Beta-企业版"><a href="#Websockets-Beta-企业版" class="headerlink" title="Websockets (Beta) (企业版)"></a>Websockets (Beta) (企业版)</h1><h1 id="秘钥管理-GA"><a href="#秘钥管理-GA" class="headerlink" title="秘钥管理(GA)"></a>秘钥管理(GA)</h1><p>我们最初在 Kong Gateway 2.8 中发布了 Secrets Management 测试版，我们很高兴地宣布，在本版本中已正式支持。</p><p>Secrets Management 允许您将敏感信息安全地存储在外部存储中(用于OSS的环境变量、AWS Secrets Manager 和用于企业的HashiCorp Vault)中，Kong可以在运行时访问这些外部存储。通过将敏感值作为机密存储，可以确保它们不以明文形式通过平台、在<code>Kong.conf</code>或声明性配置文件、日志或 Kong Manager UI 中可见。</p><p>此外，使用 Secrets Management 可以为开发、预发布和生产环境提供特定的值，同时使用完全相同的声明性配置文件配置每个环境。</p><p>开始Secrets Management 是很容易的，在之前设置明文密码的任何地方，将其替换为一个保险库路径，例如:</p><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attribute">vault</span>://hcv/redis/password&#125;</div></pre></td></tr></table></figure><p>Kong将检测到此引用，并在运行的时候安全地解析。</p><p>要更深入地了解秘密管理，请关注我们即将发布的博客，该博客将介绍如何在使用代理缓存高级插件时在 HashiCorp Vault 中存储 Redis 密码。</p><h1 id="FIPS-140-2-Compliance-企业版"><a href="#FIPS-140-2-Compliance-企业版" class="headerlink" title="FIPS 140-2 Compliance(企业版)"></a>FIPS 140-2 Compliance(企业版)</h1><h1 id="插件排序-企业版"><a href="#插件排序-企业版" class="headerlink" title="插件排序(企业版)"></a>插件排序(企业版)</h1><h1 id="新的路由引擎"><a href="#新的路由引擎" class="headerlink" title="新的路由引擎"></a>新的路由引擎</h1><p>这个新功能还是有一些技术含量，Kong Gateway 3.0附带了一个全新的「表达式」路由引擎，可以使用该引擎将请求路由到上游 api。</p><p>假设想要路由GET和POST请求，但仅当它们是HTTP请求时。如果不用使用 JSON 来配置路由，可以写一个如下所示的表达式:</p><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">net.protocol == <span class="string">"https"</span> &amp;&amp; (http.method == <span class="string">"<span class="keyword">GET</span>"</span> || http.method == <span class="string">"<span class="keyword">POST</span>"</span>)</div></pre></td></tr></table></figure><p>这是一个简单的示例，但是假设希望路由与特定主机匹配的请求，并包含包含主机名的头信息。这是很难预想的，所以让我们来看看它是什么样子的：</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(http.<span class="attr">host</span> == <span class="string">"example.com"</span> &amp;&amp; http.headers.<span class="attr">x_example_version</span> == <span class="string">"v2"</span> ) ||</div><div class="line"></div><div class="line">(http.<span class="attr">host</span> == <span class="string">"store.example.com"</span> &amp;&amp; http.headers.<span class="attr">x_store_version</span> == <span class="string">"v1"</span>)</div></pre></td></tr></table></figure><p>只有当主机为<code>example.com</code>且header头<code>x-example-version</code>头的值是<code>v2</code>，或者host为<code>store.example.com</code>且header头<code>x-store-version</code>头为<code>v1</code>时，此路由才会匹配。这是Kong Gateway 3.0新路由引擎灵活性的一个很好的例子。如果在2.x中实现相同的功能将要创建两个单独的路由。</p><p>新路由器不仅表现力更强，性能也更好，大型路由配置现在可以增量地重新加载，而不是每次配置更改时都重新构建整个路由器。这使得P99时间在我们的测试中从1.5s减少到0.1s。</p><p>最后，介绍一下2.x中的JSON路由器。在这个版本中依旧可以使用，因为目前需要支持现有的路由规则，所以在3.0中保留了现有的路由器。你可以在 <code>kong.conf</code> 中将 <code>router_flavor</code> 设置为<code>traditional</code>，那么路由匹配会和2.x版本一样。</p><h1 id="Kong-Manager-3-0-企业版"><a href="#Kong-Manager-3-0-企业版" class="headerlink" title="Kong Manager 3.0(企业版)"></a>Kong Manager 3.0(企业版)</h1><h1 id="弃用项和删除项"><a href="#弃用项和删除项" class="headerlink" title="弃用项和删除项"></a>弃用项和删除项</h1><p>Kong对稳定性的承诺意味着我们在一个主要版本的所有发行版中都保持向后兼容性。Kong Gateway 3.0让我们有机会弃用一些功能，并删除其他功能，以提高产品的质量。</p><p>以下是已弃用或删除的项目:</p><ul><li>Kong Gateway不再使用启发式来猜测一条路径是否正确。Path是一个正则表达式模式。从3.0开始，所有的正则表达式路径都必须以“~”前缀开头，所有不以“~”开头的路径都将被视为纯文本。从2.x升级到3.0.x，迁移过程应该会自动转换正则表达式路径。</li><li>3.0版本弃用对<code>nginx-opentracing</code>模块的支持，将在4.0版本时移除。并使用新的跟踪PDK和OpenTracing模块作为替换</li><li>Amazon Linux 1 和 Debian Jesse 不再是官方支持的操作系统。</li><li>目标端点上的POST请求不再能够更新现有实体。他们只能创造新的。如果您有使用POST请求修改/目标的脚本，在更新到Kong Gateway 3.0之前，将它们更改为对适当端点的PUT请求。</li><li>Prometheus 插件默认禁用高基数度量。这样 Prometheus 在清除统计信息时会减少数据库的负载。</li></ul><h1 id="额外亮点"><a href="#额外亮点" class="headerlink" title="额外亮点"></a>额外亮点</h1><ul><li>插件版本一致：要确定你之前运行的是哪个版本的插件是很困难的。从Kong Gateway 3.0开始，插件版本与网关版本保持一致，这样人们就可以确切地知道他们运行的是哪个版本的插件</li><li>Slim/UBI 镜像：我们已经将Docker构建的基本镜像切换为debian-slim 和 rhel-ubi。这意味着镜像更小，安装的软件包更小，从而获得更安全的镜像。</li><li>系统证书颁发机构：Kong 现在默认使用安装在主机操作系统上的任何CA证书。这允许您在一个地方为所有软件管理证书颁发机构</li><li>LDAP认证：LDAP 认证插件可以通过对 LDAP 服务进行认证来保护服务。Kong Gateway 3.0 增加了基于组成员资格的授权支持。例如「只有 FinanceDev 团队的成员才能访问这个API」。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;原文链接：&lt;a href=&quot;https://konghq.com/blog/kong-gateway-3-0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://konghq.com/blog/kong-gateway-3-0&lt;/a&gt;&lt;/p&gt;
-&lt;
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
-    
-      <category term="Kong新版本发布" scheme="https://102no.com/tags/Kong%E6%96%B0%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83/"/>
     
   </entry>
   
