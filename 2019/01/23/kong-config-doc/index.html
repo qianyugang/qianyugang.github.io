@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong 配置文件中文详解 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong 配置文件中文详解</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（上述语言博主一概不会。）</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong 配置文件中文详解</h1><div class="post-meta">2019-01-23<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2019/01/23/kong-config-doc/#vcomment"><span class="valine-comment-count" data-xid="/2019/01/23/kong-config-doc/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置加载"><span class="toc-number">1.</span> <span class="toc-text">配置加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#校验配置"><span class="toc-number">2.</span> <span class="toc-text">校验配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境变量"><span class="toc-number">3.</span> <span class="toc-text">环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入-Nginx-指令"><span class="toc-number">4.</span> <span class="toc-text">注入 Nginx 指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注入单个-Nginx-指令"><span class="toc-number">4.1.</span> <span class="toc-text">注入单个 Nginx 指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过注入的Nginx指令包含文件"><span class="toc-number">4.2.</span> <span class="toc-text">通过注入的Nginx指令包含文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义Nginx模板和嵌入Kong"><span class="toc-number">5.</span> <span class="toc-text">自定义Nginx模板和嵌入Kong</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义Nginx模板"><span class="toc-number">5.1.</span> <span class="toc-text">自定义Nginx模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Kong来给一个网站和APIs提供服务"><span class="toc-number">6.</span> <span class="toc-text">使用Kong来给一个网站和APIs提供服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性参考"><span class="toc-number">7.</span> <span class="toc-text">属性参考</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通用部分"><span class="toc-number">7.1.</span> <span class="toc-text">通用部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Prefix"><span class="toc-number">7.1.1.</span> <span class="toc-text">Prefix</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#log-level"><span class="toc-number">7.1.2.</span> <span class="toc-text">log_level</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-access-log"><span class="toc-number">7.1.3.</span> <span class="toc-text">proxy_access_log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-error-log"><span class="toc-number">7.1.4.</span> <span class="toc-text">proxy_error_log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-access-log"><span class="toc-number">7.1.5.</span> <span class="toc-text">admin_access_log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-error-log"><span class="toc-number">7.1.6.</span> <span class="toc-text">admin_error_log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#plugins"><span class="toc-number">7.1.7.</span> <span class="toc-text">plugins</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#anonymous-reports"><span class="toc-number">7.1.8.</span> <span class="toc-text">anonymous_reports</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx部分"><span class="toc-number">7.2.</span> <span class="toc-text">Nginx部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-listen"><span class="toc-number">7.2.1.</span> <span class="toc-text">proxy_listen</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stream-listen"><span class="toc-number">7.2.2.</span> <span class="toc-text">stream_listen</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-listen"><span class="toc-number">7.2.3.</span> <span class="toc-text">admin_listen</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx-user"><span class="toc-number">7.2.4.</span> <span class="toc-text">nginx_user</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx-worker-processes"><span class="toc-number">7.2.5.</span> <span class="toc-text">nginx_worker_processes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx-daemon"><span class="toc-number">7.2.6.</span> <span class="toc-text">nginx_daemon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mem-cache-size"><span class="toc-number">7.2.7.</span> <span class="toc-text">mem_cache_size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl"><span class="toc-number">7.2.8.</span> <span class="toc-text">ssl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-cipher-suite"><span class="toc-number">7.2.9.</span> <span class="toc-text">ssl_cipher_suite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-ciphers"><span class="toc-number">7.2.10.</span> <span class="toc-text">ssl_ciphers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-cert"><span class="toc-number">7.2.11.</span> <span class="toc-text">ssl_cert</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-cert-key"><span class="toc-number">7.2.12.</span> <span class="toc-text">ssl_cert_key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#http2"><span class="toc-number">7.2.13.</span> <span class="toc-text">http2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client-ssl"><span class="toc-number">7.2.14.</span> <span class="toc-text">client_ssl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client-ssl-cert"><span class="toc-number">7.2.15.</span> <span class="toc-text">client_ssl_cert</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client-ssl-cert-key"><span class="toc-number">7.2.16.</span> <span class="toc-text">client_ssl_cert_key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-ssl"><span class="toc-number">7.2.17.</span> <span class="toc-text">admin_ssl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-ssl-cert"><span class="toc-number">7.2.18.</span> <span class="toc-text">admin_ssl_cert</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-ssl-cert-key"><span class="toc-number">7.2.19.</span> <span class="toc-text">admin_ssl_cert_key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#admin-http2"><span class="toc-number">7.2.20.</span> <span class="toc-text">admin_http2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#upstream-keepalive"><span class="toc-number">7.2.21.</span> <span class="toc-text">upstream_keepalive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#headers"><span class="toc-number">7.2.22.</span> <span class="toc-text">headers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#trusted-ips"><span class="toc-number">7.2.23.</span> <span class="toc-text">trusted_ips</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#real-ip-header"><span class="toc-number">7.2.24.</span> <span class="toc-text">real_ip_header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#real-ip-recursive"><span class="toc-number">7.2.25.</span> <span class="toc-text">real_ip_recursive</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client-max-body-size"><span class="toc-number">7.2.26.</span> <span class="toc-text">client_max_body_size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#client-body-buffer-size"><span class="toc-number">7.2.27.</span> <span class="toc-text">client_body_buffer_size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#error-default-type"><span class="toc-number">7.2.28.</span> <span class="toc-text">error_default_type</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Datastore-section"><span class="toc-number">7.3.</span> <span class="toc-text">Datastore section</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#database"><span class="toc-number">7.3.1.</span> <span class="toc-text">database</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Postgres-settings"><span class="toc-number">7.3.2.</span> <span class="toc-text">Postgres settings</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cassandra-settings"><span class="toc-number">7.3.3.</span> <span class="toc-text">Cassandra settings</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Datastore-cache-section"><span class="toc-number">7.4.</span> <span class="toc-text">Datastore cache section</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#db-update-frequency"><span class="toc-number">7.4.1.</span> <span class="toc-text">db_update_frequency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#db-update-propagation"><span class="toc-number">7.4.2.</span> <span class="toc-text">db_update_propagation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#db-cache-ttl"><span class="toc-number">7.4.3.</span> <span class="toc-text">db_cache_ttl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#db-resurrect-ttl"><span class="toc-number">7.4.4.</span> <span class="toc-text">db_resurrect_ttl</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-解析器部分"><span class="toc-number">7.5.</span> <span class="toc-text">DNS 解析器部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-resolver"><span class="toc-number">7.5.1.</span> <span class="toc-text">dns_resolver</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-hostsfile"><span class="toc-number">7.5.2.</span> <span class="toc-text">dns_hostsfile</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-order"><span class="toc-number">7.5.3.</span> <span class="toc-text">dns_order</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-valid-ttl"><span class="toc-number">7.5.4.</span> <span class="toc-text">dns_valid_ttl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-stale-ttl"><span class="toc-number">7.5.5.</span> <span class="toc-text">dns_stale_ttl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-not-found-ttl"><span class="toc-number">7.5.6.</span> <span class="toc-text">dns_not_found_ttl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-error-ttl"><span class="toc-number">7.5.7.</span> <span class="toc-text">dns_error_ttl</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dns-no-sync"><span class="toc-number">7.5.8.</span> <span class="toc-text">dns_no_sync</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发展和杂项部分"><span class="toc-number">7.6.</span> <span class="toc-text">发展和杂项部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lua-ssl-trusted-certificate"><span class="toc-number">7.6.1.</span> <span class="toc-text">lua_ssl_trusted_certificate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lua-ssl-verify-depth"><span class="toc-number">7.6.2.</span> <span class="toc-text">lua_ssl_verify_depth</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lua-package-path"><span class="toc-number">7.6.3.</span> <span class="toc-text">lua_package_path</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lua-package-cpath"><span class="toc-number">7.6.4.</span> <span class="toc-text">lua_package_cpath</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lua-socket-pool-size"><span class="toc-number">7.6.5.</span> <span class="toc-text">lua_socket_pool_size</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附加配置"><span class="toc-number">7.7.</span> <span class="toc-text">附加配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#origins"><span class="toc-number">7.7.1.</span> <span class="toc-text">origins</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Examples"><span class="toc-number">7.7.2.</span> <span class="toc-text">Examples</span></a></li></ol></li></ol></li></ol></div></div><div class="post-content"><p>原文地址：<a href="https://docs.konghq.com/1.0.x/configuration/" target="_blank" rel="external">https://docs.konghq.com/1.0.x/configuration/</a> （不能保证所有的翻译都是准确无误的，所有如有翻译的不准确或错误之处，请一定记得查看原文，并欢迎留言指出）。</p>
+<h2 id="配置加载"><a href="#配置加载" class="headerlink" title="配置加载"></a>配置加载</h2><p>如果您通过官方软件包安装Kong，则可以在<code>/etc/kong/kong.conf.default</code>找到默认配置文件。<br>要开始配置Kong，您可以复制此配置文件文件：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp <span class="regexp">/etc/</span>kong<span class="regexp">/kong.conf.default /</span>etc<span class="regexp">/kong/</span>kong.conf</div></pre></td></tr></table></figure>
+<p>如果您的配置文件中的所有值都被注释掉，Kong将使用默认设置运行。<br>启动时，Kong会自动查找可能包含配置文件的多个默认位置：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta-keyword">/etc/</span>kong/kong.conf</div><div class="line"><span class="meta-keyword">/etc/</span>kong.conf</div></pre></td></tr></table></figure>
+<p>您可以通过使用CLI中的<code>-c / --conf</code>参数，为配置文件指定自定义路径：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kong start --<span class="keyword">conf</span> /path/<span class="keyword">to</span>/kong.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+<p>配置文件格式修改很简单：只需取消注释任何属性（注释由<code>#</code>字符定义）并根据需要进行修改。为方便起见，可以将布尔值指定为<code>on / off</code>或<code>true / false</code>。</p>
+<h2 id="校验配置"><a href="#校验配置" class="headerlink" title="校验配置"></a>校验配置</h2><p>您可以使用<code>check</code>命令验证设置的完整性：</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ kong<span class="built_in"> check </span>&lt;path/to/kong.conf&gt;</div><div class="line">configuration at &lt;path/to/kong.conf&gt; is valid</div></pre></td></tr></table></figure>
+<p>此命令将考虑您当前设置的环境变量，并在设置无效时报错。此外，您还可以在调试模式下使用CLI，以便更深入地了解Kong的启动属性</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ kong start -c &lt;kong.conf&gt; --vv</div><div class="line">2016/08/11 14:53:36 [verbose] <span class="literal">no</span><span class="built_in"> config </span>file found at /etc/kong.conf</div><div class="line">2016/08/11 14:53:36 [verbose] <span class="literal">no</span><span class="built_in"> config </span>file found at /etc/kong/kong.conf</div><div class="line">2016/08/11 14:53:36 [<span class="builtin-name">debug</span>] admin_listen = <span class="string">"0.0.0.0:8001"</span></div><div class="line">2016/08/11 14:53:36 [<span class="builtin-name">debug</span>] database = <span class="string">"postgres"</span></div><div class="line">2016/08/11 14:53:36 [<span class="builtin-name">debug</span>] log_level = <span class="string">"notice"</span></div><div class="line">[<span class="built_in">..</span>.]</div></pre></td></tr></table></figure>
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>从配置文件中加载属性时，Kong还将查找具有相同名称的环境变量。<br>您可以通过环境变量完全配置Kong，这对于基于容器的基础结构非常方便。要使用环境变量覆盖设置，请使用设置名称声明环境变量，前缀为<code>KONG_</code>并大写。例：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">log_level = debug <span class="comment"># in kong.conf</span></div></pre></td></tr></table></figure>
+<p>可以被如下系统环境变量覆盖：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="builtin-name">export</span> <span class="attribute">KONG_LOG_LEVEL</span>=error</div></pre></td></tr></table></figure></p>
+<h2 id="注入-Nginx-指令"><a href="#注入-Nginx-指令" class="headerlink" title="注入 Nginx 指令"></a>注入 Nginx 指令</h2><p>通过调整Kong实例的Nginx配置，您可以优化其基础架构的性能。当Kong启动时，它会构建一个Nginx配置文件。您可以通过Kong配置直接将自定义Nginx指令注入此文件。</p>
+<h3 id="注入单个-Nginx-指令"><a href="#注入单个-Nginx-指令" class="headerlink" title="注入单个 Nginx 指令"></a>注入单个 Nginx 指令</h3><p>添加到<code>kong.conf</code>文件中的任何以<code>nginx_http_</code>，<code>nginx_proxy_</code>或<code>nginx_admin_</code>为前缀的条目将通过删除前缀并添加到Nginx配置的相应部分而转换为等效的Nginx指令。</p>
+<ul>
+<li>带有<code>nginx_http_</code>前缀的条目将被注入整个<code>http</code>块指令。</li>
+<li>带有<code>nginx_proxy_</code>前缀的条目将被注入到处理Kong的代理端口的<code>Service</code>块指令中。</li>
+<li>带有<code>nginx_admin_</code>前缀的条目将被注入到处理Kong的Admin API端口的服务器块指令中。</li>
+</ul>
+<p>例如，如果将以下行添加到<code>kong.conf</code>文件中：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">nginx_proxy_large_client_header_buffers</span>=<span class="number">16</span> <span class="number">128</span>k</div></pre></td></tr></table></figure>
+<p>它会将以下指令添加到Kong的Nginx配置的代理<code>Service</code>块中：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">large_client_header_buffers <span class="number">16</span> <span class="number">128</span>k;</div></pre></td></tr></table></figure>
+<p>与kong.conf中的任何其他条目一样，也可以使用环境变量指定这些指令，如上所示。<br>例如，如果您声明一个这样的环境变量：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">export</span> <span class="attribute">KONG_NGINX_HTTP_OUTPUT_BUFFERS</span>=<span class="string">"4 64k"</span></div></pre></td></tr></table></figure>
+<p>这样将以下Nginx指令添加到http模块</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">output_buffers <span class="number">4</span> <span class="number">64</span>k;</div></pre></td></tr></table></figure>
+<p>与往常一样，请注意shell的引用规则，指定包含空格的值。有关Nginx配置文件结构和块指令的更多详细信息，请参阅<a href="https://nginx.org/en/docs/beginners_guide.html#conf_structure。" target="_blank" rel="external">https://nginx.org/en/docs/beginners_guide.html#conf_structure。</a><br>但请注意，某些指令依赖于特定的Nginx模块，其中一些模块可能不包含在Kong的官方版本中。</p>
+<h3 id="通过注入的Nginx指令包含文件"><a href="#通过注入的Nginx指令包含文件" class="headerlink" title="通过注入的Nginx指令包含文件"></a>通过注入的Nginx指令包含文件</h3><p>对于更复杂的配置方案，例如添加整个新<code>Servic</code>块，您可以使用上述方法将include指令注入Nginx配置，指向包含其他Nginx设置的文件。</p>
+<p>或者，如果使用以下内容创建名为<code>my-server.kong.conf</code>的文件：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># custom server</span></div><div class="line">server &#123;</div><div class="line">  listen 2112;</div><div class="line">  location / &#123;</div><div class="line">    # <span class="built_in">..</span>.more settings<span class="built_in">..</span>.</div><div class="line">    return 200;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>您可以通过在kong.conf文件中添加以下条目来使Kong节点服务于此端口：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx_http_include = /path/to/your/my-server<span class="selector-class">.kong</span><span class="selector-class">.conf</span></div></pre></td></tr></table></figure>
+<p>或者，通过环境变量配置它：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="builtin-name">export</span> <span class="attribute">KONG_NGINX_HTTP_INCLUDE</span>=<span class="string">"/path/to/your/my-server.kong.conf"</span></div></pre></td></tr></table></figure>
+<p>现在，当你启动Kong时，该文件中的服务器部分将被添加到该文件中，这意味着其中定义的自定义服务器将与常规Kong端口一起响应：<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl -I http:<span class="comment">//127.0.0.1:2112</span></div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>请注意，如果在<code>nginx_http_include</code>属性中使用相对路径，则该路径将相对于<code>kong.conf</code>文件的<code>prefix</code>属性的值进行解释（如果使用它来覆盖<code>kong start</code>的<code>-p</code>标志的值）<br>开始Kong时的前缀）。</p>
+<h2 id="自定义Nginx模板和嵌入Kong"><a href="#自定义Nginx模板和嵌入Kong" class="headerlink" title="自定义Nginx模板和嵌入Kong"></a>自定义Nginx模板和嵌入Kong</h2><p>对于绝大多数用例，使用上面解释的Nginx指令注入系统应该足以定制Kong的Nginx实例的行为。这样，您可以从单个<code>kong.conf</code>文件（以及可选的自己包含的文件）管理Kong节点的配置和调优，而无需处理自定义Nginx配置模板。</p>
+<p>有两种情况您可能希望直接使用自定义Nginx配置模板：</p>
+<ul>
+<li>在极少数情况下，您可能需要修改一些不能通过其标准<code>kong.conf</code>属性调整的Kong的默认Nginx配置，您仍然可以修改Kong使用的模板来生成其Nginx配置并使用您的自定义模板启动Kong。</li>
+<li>如果您需要在已经运行的OpenResty实例中嵌入Kong，则Nginx section<br>Permalink可以重用Kong生成的配置并将其包含在现有配置中。</li>
+</ul>
+<h3 id="自定义Nginx模板"><a href="#自定义Nginx模板" class="headerlink" title="自定义Nginx模板"></a>自定义Nginx模板</h3><p>可以使用<code>--nginx-conf</code>参数启动，重新加载和重新启动Kong，该参数必须指定Nginx配置模板。这样的模板使用<a href="http://stevedonovan.github.io/Penlight/api/index.html" target="_blank" rel="external">Penlight</a><a href="http://stevedonovan.github.io/Penlight/api/libraries/pl.template.html" target="_blank" rel="external">模板引擎</a>，该引擎使用给定的Kong配置进行编译，然后在启动Nginx之前将其转储到您的Kong前缀目录中。</p>
+<p>可以在以下网址找到默认模板：<a href="https://github.com/kong/kong/tree/master/kong/templates。" target="_blank" rel="external">https://github.com/kong/kong/tree/master/kong/templates。</a><br>它分为两个Nginx配置文件：<code>nginx.lua</code>和<code>nginx_kong.lua</code>。前者是简约的，包括后者，其中包含了运行所需要的一切。<br>当kong start运行时，就在启动Nginx之前，它会将这两个文件复制到前缀目录中，如下所示：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="keyword">local</span>/kong</div><div class="line">├── nginx-kong.<span class="keyword">conf</span></div><div class="line">└── nginx.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+<p>如果你必须调整由Kong定义但不能通过kong.conf中的Kong配置调整的全局设置，你可以将nginx_kong.lua配置模板的内容内联到一个自定义模板文件（在这个例子中称为custom_nginx.template），例如：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ---------------------</span></div><div class="line"><span class="comment"># custom_nginx.template</span></div><div class="line"><span class="comment"># ---------------------</span></div><div class="line"></div><div class="line">worker_processes $&#123;&#123;NGINX_WORKER_PROCESSES&#125;&#125;; <span class="comment"># can be set by kong.conf</span></div><div class="line">daemon $&#123;&#123;NGINX_DAEMON&#125;&#125;;                     <span class="comment"># can be set by kong.conf</span></div><div class="line"></div><div class="line">pid pids/nginx.pid;                      <span class="comment"># this setting is mandatory</span></div><div class="line">error_log logs/<span class="keyword">error</span>.<span class="built_in">log</span> $&#123;&#123;LOG_LEVEL&#125;&#125;; <span class="comment"># can be set by kong.conf</span></div><div class="line"></div><div class="line">events &#123;</div><div class="line">    use epoll;          <span class="comment"># a custom setting</span></div><div class="line">    multi_accept <span class="keyword">on</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http &#123;</div><div class="line"></div><div class="line">  <span class="comment"># contents of the nginx_kong.lua template follow:</span></div><div class="line"></div><div class="line">  resolver $&#123;&#123;DNS_RESOLVER&#125;&#125; ipv6=off;</div><div class="line">  charset UTF<span class="number">-8</span>;</div><div class="line">  error_log logs/<span class="keyword">error</span>.<span class="built_in">log</span> $&#123;&#123;LOG_LEVEL&#125;&#125;;</div><div class="line">  access_log logs/access.<span class="built_in">log</span>;</div><div class="line"></div><div class="line">  ... <span class="comment"># etc</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后你可以这样启动你的Nginx实例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> nginx -p /usr/<span class="built_in">local</span>/openresty -c my_nginx.conf</span></div></pre></td></tr></table></figure>
+<p>并且Kong将在该实例中运行（在<code>nginx-kong.conf</code>中配置）。</p>
+<h2 id="使用Kong来给一个网站和APIs提供服务"><a href="#使用Kong来给一个网站和APIs提供服务" class="headerlink" title="使用Kong来给一个网站和APIs提供服务"></a>使用Kong来给一个网站和APIs提供服务</h2><p>API提供方的一个常见用例是使Kong通过代理端口（80或443）在生产中同时为网站和API提供服务。例如，https：//example.net（Website）和<a href="https://example.net/api/v1（API）。" target="_blank" rel="external">https://example.net/api/v1（API）。</a></p>
+<p>为实现这一目标，我们不能简单地声明一个新的虚拟服务器块，就像我们在上一节中所做的那样。</p>
+<p>一个好的解决方案是使用自定义的Nginx配置模板，该模板内联nginx_kong.lua并添加一个新的位置块，为Kong Proxy <code>location</code> 提供服务：</p>
+<figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ---------------------</span></div><div class="line"><span class="comment"># custom_nginx.template</span></div><div class="line"><span class="comment"># ---------------------</span></div><div class="line"></div><div class="line">worker_processes $&#123;&#123;NGINX_WORKER_PROCESSES&#125;&#125;<span class="comment">; # can be set by kong.conf</span></div><div class="line">daemon $&#123;&#123;NGINX_DAEMON&#125;&#125;<span class="comment">;                     # can be set by kong.conf</span></div><div class="line"></div><div class="line"><span class="keyword">pid</span> pids/nginx.<span class="keyword">pid</span><span class="comment">;                      # this setting is mandatory</span></div><div class="line">error_log logs/<span class="keyword">error</span>.log $&#123;&#123;LOG_LEVEL&#125;&#125;<span class="comment">; # can be set by kong.conf</span></div><div class="line">events &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">http</span> &#123;</div><div class="line"><span class="comment">  # here, we inline the contents of nginx_kong.lua</span></div><div class="line">  charset UTF<span class="number">-8</span>;</div><div class="line"></div><div class="line"><span class="comment">  # any contents until Kong's Proxy server block</span></div><div class="line">  ...</div><div class="line"></div><div class="line"><span class="comment">  # Kong's Proxy server block</span></div><div class="line">  server &#123;</div><div class="line">    server_name kong;</div><div class="line"></div><div class="line"><span class="comment">    # any contents until the location / block</span></div><div class="line">    ...</div><div class="line"></div><div class="line"><span class="comment">    # here, we declare our custom location serving our website</span></div><div class="line"><span class="comment">    # (or API portal) which we can optimize for serving static assets</span></div><div class="line">    location / &#123;</div><div class="line">      root /var/www/example.net;</div><div class="line">      index index.htm index.html;</div><div class="line">      ...</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">    # Kong's Proxy location / has been changed to /api/v1</span></div><div class="line">    location /api/v1 &#123;</div><div class="line">      <span class="keyword">set</span> $upstream_host nil;</div><div class="line">      <span class="keyword">set</span> $upstream_scheme nil;</div><div class="line">      <span class="keyword">set</span> $upstream_uri nil;</div><div class="line"></div><div class="line"><span class="comment">      # Any remaining configuration for the Proxy location</span></div><div class="line">      ...</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"><span class="comment">  # Kong's Admin server block goes below</span></div><div class="line"><span class="comment">  # ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="属性参考"><a href="#属性参考" class="headerlink" title="属性参考"></a>属性参考</h2><h3 id="通用部分"><a href="#通用部分" class="headerlink" title="通用部分"></a>通用部分</h3><h4 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h4><p>工作目录。<br>相当于Nginx的前缀路径，包含临时文件和日志。每个Kong流程必须有一个单独的工作目录。</p>
+<p>默认：<code>/usr/local/kong</code></p>
+<h4 id="log-level"><a href="#log-level" class="headerlink" title="log_level"></a>log_level</h4><p>Nginx服务器的日志级别。可以在 <code>&lt;prefix&gt;/logs/error.log</code>中找到日志有关可接受值的列表，请参见<a href="http://nginx.org/en/docs/ngx_core_module.html#error_log。" target="_blank" rel="external">http://nginx.org/en/docs/ngx_core_module.html#error_log。</a></p>
+<h4 id="proxy-access-log"><a href="#proxy-access-log" class="headerlink" title="proxy_access_log"></a>proxy_access_log</h4><p>代理端口请求访问日志的路径。<br>将此值设置为off可禁用日志记录代理请求。<br>如果此值是相对路径，则它将位于<code>prefix</code>位置下</p>
+<p>默认：<code>logs/access.log</code></p>
+<h4 id="proxy-error-log"><a href="#proxy-error-log" class="headerlink" title="proxy_error_log"></a>proxy_error_log</h4><p>代理端口请求错误日志的路径。<br>这些日志的粒度由<code>log_level</code>指令调整。<br>默认：<code>logs/error.log</code></p>
+<h4 id="admin-access-log"><a href="#admin-access-log" class="headerlink" title="admin_access_log"></a>admin_access_log</h4><p>Admin API请求访问日志的路径。<br>将此值设置为off可禁用日志记录Admin API请求。<br>如果此值是相对路径，则它将位于<code>prefix</code>位置下。</p>
+<p>默认：<code>logs/admin_access.log</code></p>
+<h4 id="admin-error-log"><a href="#admin-error-log" class="headerlink" title="admin_error_log"></a>admin_error_log</h4><p>Admin API请求错误日志的路径。<br>这些日志的粒度由log_level指令调整。</p>
+<p>默认：<code>logs/error.log</code></p>
+<h4 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h4><p>此节点应加载的插件名称的逗号分隔列表。<br>列表中的每个项目可以是：</p>
+<ul>
+<li>插件名称。这里接受默认捆绑插件（例如key-auth）和自定义插件（例如自定义速率限制）。</li>
+<li>关键字<code>bundled</code>。这与包含与Kong捆绑的所有插件（来自<code>kong.plugins。{name}.*</code>命名空间）具有相同的含义。</li>
+<li>关键字off。如果指定，Kong将不会加载任何插件，并且任何插件都不能通过Admin API进行配置。</li>
+</ul>
+<p>请注意，如果以前配置了一些插件（即在数据库中有行）并且未在此列表中指定，则Kong将无法启动。<br>在禁用插件之前，请确保在重新启动Kong之前删除它的所有实例。</p>
+<p>默认：<code>bundled</code></p>
+<p>例子：</p>
+<ul>
+<li><code>plugins=bundled,custom-auth,custom-log</code> 将会包含已经捆绑的默认插件，和两个自定义插件</li>
+<li><code>plugins=custom-auth,custom-log</code> 将会包含只 <code>custom-auth</code> 和 <code>custom-log</code>两个插件</li>
+<li><code>plugins=off</code> 不会包含任何插件</li>
+</ul>
+<p>提示：限制可用插件的数量可以在数据库缓存中遇到LRU搅动时（即配置的mem_cache_size已满时）提高P99延迟。</p>
+<h4 id="anonymous-reports"><a href="#anonymous-reports" class="headerlink" title="anonymous_reports"></a>anonymous_reports</h4><p>发送匿名使用数据，例如错误堆栈跟踪，以帮助改善Kong。<br>默认：<code>on</code></p>
+<h3 id="Nginx部分"><a href="#Nginx部分" class="headerlink" title="Nginx部分"></a>Nginx部分</h3><h4 id="proxy-listen"><a href="#proxy-listen" class="headerlink" title="proxy_listen"></a>proxy_listen</h4><p>代理服务器应侦听的以逗号分隔的地址和端口列表。代理服务器是Kong的公共入口点，它将来自您的消费者的流量代理到您的后端服务。proxy_listen值接受IPv4，IPv6和主机名。</p>
+<p>可以为每对指定一些后缀：<br>发送匿名使用数据，例如错误堆栈跟踪，以帮助改善Kong。 默认：on</p>
+<p>Nginx部分</p>
+<p>proxy_listen</p>
+<p>发送匿名使用数据，例如错误堆栈跟踪，以帮助改善Kong。 默认：on</p>
+<p>Nginx部分</p>
+<p>proxy_listen</p>
+<ul>
+<li><code>ssl</code> 将要求通过特定地址/端口建立的所有连接都是在启用TLS的情况下进行的。</li>
+<li><code>http2</code> 将允许客户端打开到Kong的代理服务器的HTTP / 2连接。</li>
+<li><code>proxy_protocol</code> 将为给定的地址/端口启用PROXY协议的使用。</li>
+</ul>
+<p>此节点的代理端口，启用“控制平面”模式（无流量代理功能），可以配置连接到同一数据库的节点集群。有关此参数的值和其他<code>* _listen</code>值的可接受格式的说明，请参见<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#listen。" target="_blank" rel="external">http://nginx.org/en/docs/http/ngx_http_core_module.html#listen。</a></p>
+<p>默认：<code>0.0.0.0:8000, 0.0.0.0:8443 ssl</code><br>例子：<code>0.0.0.0:80, 0.0.0.0:81 http2, 0.0.0.0:443 ssl, 0.0.0.0:444 http2 ssl</code></p>
+<h4 id="stream-listen"><a href="#stream-listen" class="headerlink" title="stream_listen"></a>stream_listen</h4><p>流模式应侦听的以逗号分隔的地址和端口列表。此值接受IPv4，IPv6和主机名。</p>
+<p>可以为每对指定一些后缀：</p>
+<ul>
+<li><code>proxy_protocol</code> 将为给定的地址/端口启用PROXY协议的使用。</li>
+<li><code>transparent</code> 将会使kong监听您在iptables中配置的任何和所有IP地址和端口并进行响应。</li>
+</ul>
+<p>请注意，不支持<code>ssl</code>后缀，并且每个地址/端口都将接受启用或未启用TLS的TCP。</p>
+<p>例子：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">stream_listen</span> = <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">7000</span></div><div class="line"><span class="attr">stream_listen</span> = <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">989</span>, <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">20</span></div><div class="line"><span class="attr">stream_listen</span> = [::<span class="number">1</span>]:<span class="number">1234</span></div></pre></td></tr></table></figure></p>
+<p>默认情况下，此值设置为<code>off</code>，从而禁用此节点的mesh proxy 端口</p>
+<h4 id="admin-listen"><a href="#admin-listen" class="headerlink" title="admin_listen"></a>admin_listen</h4><p>管理员界面应监听的以逗号分隔的地址和端口列表。Admin界面是允许您配置和管理Kong的API。访问此界面应仅限于Kong管理员。此值接受IPv4，IPv6和主机名。<br>可以为每对指定一些后缀：</p>
+<ul>
+<li><code>ssl</code> 将要求通过特定地址/端口建立的所有连接都是在启用TLS的情况下完成的。</li>
+<li><code>http2</code> 将允许客户端打开到Kong的代理服务器的HTTP / 2连接。</li>
+<li><code>proxy_protocol</code> 将为给定的地址/端口启用PROXY协议的使用。</li>
+</ul>
+<p>此值可以设置为off，从而禁用此节点的Admin接口，启用“数据平面”模式（无配置功能）从数据库中提取其配置更改。</p>
+<p>默认：<code>127.0.0.1:8001, 127.0.0.1:8444 ssl</code></p>
+<p>例子：<code>127.0.0.1:8444 http2 ssl</code></p>
+<h4 id="nginx-user"><a href="#nginx-user" class="headerlink" title="nginx_user"></a>nginx_user</h4><p>定义工作进程使用的用户和组凭据。如果省略group，则使用名称等于user的组。</p>
+<p>默认：<code>nobody nobody</code></p>
+<p>例子：<code>nginx www</code></p>
+<h4 id="nginx-worker-processes"><a href="#nginx-worker-processes" class="headerlink" title="nginx_worker_processes"></a>nginx_worker_processes</h4><p>确定Nginx生成的工作进程数。有关此指令的详细用法和可接受值的说明，请参见<a href="http://nginx.org/en/docs/ngx_core_module.html#worker_processes。" target="_blank" rel="external">http://nginx.org/en/docs/ngx_core_module.html#worker_processes。</a></p>
+<p>默认：<code>auto</code></p>
+<h4 id="nginx-daemon"><a href="#nginx-daemon" class="headerlink" title="nginx_daemon"></a>nginx_daemon</h4><p>确定Nginx是作为守护程序还是作为前台进程运行。主要用于开发或在Docker环境中运行Kong时。参见：<a href="http://nginx.org/en/docs/ngx_core_module.html#daemon。" target="_blank" rel="external">http://nginx.org/en/docs/ngx_core_module.html#daemon。</a></p>
+<p>默认：<code>on</code></p>
+<h4 id="mem-cache-size"><a href="#mem-cache-size" class="headerlink" title="mem_cache_size"></a>mem_cache_size</h4><p>数据库实体的内存高速缓存大小。接受的单位是k和m，最小推荐值为几MB。</p>
+<p>默认：<code>128m</code></p>
+<h4 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h4><p>确定Nginx是否应该在<code>proxy_listen_ssl</code>地址上监听HTTPS流量。<br>如果禁用，Nginx将仅在<code>proxy_listen</code>上绑定自己，并且将忽略所有SSL设置。</p>
+<p>默认：<code>on</code></p>
+<h4 id="ssl-cipher-suite"><a href="#ssl-cipher-suite" class="headerlink" title="ssl_cipher_suite"></a>ssl_cipher_suite</h4><p>定义Nginx提供的TLS密码。可接受的值包括<code>modern</code>, <code>intermediate</code>, <code>old</code>, 或者 <code>custom</code>。有关每个密码套件的详细说明，请参阅<a href="https://wiki.mozilla.org/Security/Server_Side_TLS。" target="_blank" rel="external">https://wiki.mozilla.org/Security/Server_Side_TLS。</a></p>
+<h4 id="ssl-ciphers"><a href="#ssl-ciphers" class="headerlink" title="ssl_ciphers"></a>ssl_ciphers</h4><p>定义由Nginx提供的自定义TLS密码列表。此列表必须符合<code>openssl ciphers</code>定义的模式。如果ssl_cipher_suite不是自定义的，则忽略此值。</p>
+<p>默认：无</p>
+<h4 id="ssl-cert"><a href="#ssl-cert" class="headerlink" title="ssl_cert"></a>ssl_cert</h4><p>如果启用了<code>ssl</code>，则为<code>proxy_listen_ssl</code>地址的SSL证书的绝对路径。<br>如果未指定且启用了<code>ssl</code>，则Kong将生成默认证书和密钥。</p>
+<p>默认：无</p>
+<h4 id="ssl-cert-key"><a href="#ssl-cert-key" class="headerlink" title="ssl_cert_key"></a>ssl_cert_key</h4><p>如果启用了<code>ssl</code>，则为<code>proxy_listen_ssl</code>地址的SSL密钥的绝对路径。</p>
+<p>默认：无</p>
+<h4 id="http2"><a href="#http2" class="headerlink" title="http2"></a>http2</h4><p>在<code>proxy_listen_ssl</code>地址上启用对HTTPS流量的HTTP2支持。</p>
+<p>默认：<code>off</code></p>
+<h4 id="client-ssl"><a href="#client-ssl" class="headerlink" title="client_ssl"></a>client_ssl</h4><p>确定代理请求时Nginx是否应发送客户端SSL证书。</p>
+<p>默认：<code>off</code></p>
+<h4 id="client-ssl-cert"><a href="#client-ssl-cert" class="headerlink" title="client_ssl_cert"></a>client_ssl_cert</h4><p>如果启用了<code>client_ssl</code>，则<code>proxy_ssl_certificate</code>指令的客户端SSL证书的绝对路径。<br>请注意，此值是在节点上静态定义的，目前无法基于每个API进行配置。</p>
+<p>默认：无</p>
+<h4 id="client-ssl-cert-key"><a href="#client-ssl-cert-key" class="headerlink" title="client_ssl_cert_key"></a>client_ssl_cert_key</h4><p>如果启用了client_ssl，则为proxy_ssl_certificate_key地址的客户端SSL密钥的绝对路径。<br>请注意，此值是在节点上静态定义的，并且当前无法基于每个API进行配置。</p>
+<p>默认：无</p>
+<h4 id="admin-ssl"><a href="#admin-ssl" class="headerlink" title="admin_ssl"></a>admin_ssl</h4><p>确定Nginx是否应该在admin_listen_ssl地址上侦听HTTPS流量。<br>如果禁用，Nginx将仅在admin_listen上绑定自身，并且将忽略所有SSL设置。</p>
+<p>默认：<code>on</code></p>
+<h4 id="admin-ssl-cert"><a href="#admin-ssl-cert" class="headerlink" title="admin_ssl_cert"></a>admin_ssl_cert</h4><p>如果启用了<code>admin_ssl</code>，则为<code>admin_listen_ssl</code>地址的SSL证书的绝对路径。<br>如果未指定且启用了<code>admin_ssl</code>，则Kong将生成默认证书和密钥。</p>
+<p>默认：无</p>
+<h4 id="admin-ssl-cert-key"><a href="#admin-ssl-cert-key" class="headerlink" title="admin_ssl_cert_key"></a>admin_ssl_cert_key</h4><p>如果启用了<code>admin_ssl</code>，则为<code>admin_listen_ssl</code>地址的SSL密钥的绝对路径。</p>
+<p>默认：无</p>
+<h4 id="admin-http2"><a href="#admin-http2" class="headerlink" title="admin_http2"></a>admin_http2</h4><p>在<code>admin_listen_ssl</code>地址上启用对HTTPS流量的HTTP2支持。</p>
+<h4 id="upstream-keepalive"><a href="#upstream-keepalive" class="headerlink" title="upstream_keepalive"></a>upstream_keepalive</h4><p>设置在每个工作进程的缓存中保留的上游服务器的最大空闲keepalive连接数。<br>超过此数量时，将关闭最近最少使用的连接。<br>值为<code>0</code>将完全禁用此行为，强制每个上游请求打开新连接。</p>
+<p>默认：60</p>
+<h4 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h4><p>Kong应该在客户端响应中注入的，以逗号分隔的headers列表。<br>可接受的值是：</p>
+<ul>
+<li><code>Server</code>：Kong产生的响应上注入<code>Server:kong / x.y.z</code> （例如Admin API，来自auth插件的拒绝请求等）。</li>
+<li><code>Via</code>：<code>Via:kong / x.y.z</code>注入成功代理的请求。</li>
+<li><code>X-Kong-Proxy-Latency</code>：Kong在代理上游请求之前处理请求并运行所有插件所花费的时间（以毫秒为单位）</li>
+<li><code>X-Kong-Upstream-Latency</code>：上游服务发送响应头所花费的时间（以毫秒为单位）</li>
+<li><code>X-Kong-Upstream-Status</code>：上游服务返回的HTTP状态码。如果插件有重写响应的话，这对于客户端区分上游状态特别有用。</li>
+<li><code>server_tokens</code>：与指定<code>Server</code>和<code>Via</code>相同。</li>
+<li><code>latency_tokens</code>：与指定<code>X-Kong-Proxy-Latency</code>和<code>X-Kong-Upstream-Latency</code>相同。</li>
+</ul>
+<p>除此之外，这个值可以设置为<code>off</code>，这可以防止Kong注入任何上述headers。<br>请注意，这不会阻止插件注入自己的headers。</p>
+<p>例子：<code>headers = via, latency_tokens</code><br>默认：<code>server_tokens, latency_tokens</code></p>
+<h4 id="trusted-ips"><a href="#trusted-ips" class="headerlink" title="trusted_ips"></a>trusted_ips</h4><p>定义已知可以发送正确的<code>X-Forwarded-*</code>headers的可信IP地址块。来自可靠IP的请求，Kong会向上游转发了他们的原本<code>X-Forwarded- *</code>headers。不可信的请求使Kong插入自己的<code>X-Forwarded-*</code>headers。</p>
+<h4 id="real-ip-header"><a href="#real-ip-header" class="headerlink" title="real_ip_header"></a>real_ip_header</h4><p>定义请求header字段，其值将用于替换客户端地址。<br>此值设置Nginx配置中同名的<code>ngx_http_realip_module</code>指令。</p>
+<p>如果这个值收到<code>proxy_protocol</code></p>
+<ul>
+<li>至少有一个<code>proxy_listen</code>条目必须启用<code>proxy_protocol</code>标志。</li>
+<li><code>proxy_protocol</code>参数将附加到Nginx模板的<code>listen</code>指令。</li>
+</ul>
+<p>有关此指令的说明，请查看<a href="http://nginx.org/en/docs/http/ngx_http_realip_module.html#real_ip_header" target="_blank" rel="external">http://nginx.org/en/docs/http/ngx_http_realip_module.html#real_ip_header</a></p>
+<h4 id="real-ip-recursive"><a href="#real-ip-recursive" class="headerlink" title="real_ip_recursive"></a>real_ip_recursive</h4><p>此值设置Nginx配置中同名的<code>ngx_http_realip_module</code>指令。</p>
+<p>有关此指令的说明，请查看<a href="http://nginx.org/en/docs/http/ngx_http_realip_module.html#real_ip_recursive" target="_blank" rel="external">http://nginx.org/en/docs/http/ngx_http_realip_module.html#real_ip_recursive</a></p>
+<p>默认：off</p>
+<h4 id="client-max-body-size"><a href="#client-max-body-size" class="headerlink" title="client_max_body_size"></a>client_max_body_size</h4><p>定义由Kong代理的请求所允许的最大请求主体大小，在Content-Length请求标头中指定。如果请求超过此限制，Kong将回复413（请求实体太大）。将此值设置为0将禁用检查请求正文大小。</p>
+<p>默认：0</p>
+<h4 id="client-body-buffer-size"><a href="#client-body-buffer-size" class="headerlink" title="client_body_buffer_size"></a>client_body_buffer_size</h4><p>定义用于读取请求正文的缓冲区大小。<br>如果客户端请求正文大于此值，则正文将缓冲到磁盘。<br>请注意，当主体缓冲到磁盘时，访问或操作请求主体的插件可能无法正常工作，因此建议将此值设置得尽可能高（例如，将其设置为与<code>client_max_body_size</code>一样高，以强制保留请求主体<br>在缓存中）。请注意，高并发环境将需要大量内存分配来处理许多并发的大型请求主体。</p>
+<h4 id="error-default-type"><a href="#error-default-type" class="headerlink" title="error_default_type"></a>error_default_type</h4><p>缺少请求<code>Accept</code>header且Nginx返回请求错误时要使用的默认MIME类型。可接受的值是<code>text/plain</code>，<code>text/html</code>，<code>application/json</code>和<code>application/xml</code>。</p>
+<p>默认：<code>text/plain</code></p>
+<h3 id="Datastore-section"><a href="#Datastore-section" class="headerlink" title="Datastore section"></a>Datastore section</h3><p>Kong将把所有数据（例如路由，服务，消费者和插件）存储在Cassandra或PostgreSQL中，并且属于同一群集的所有Kong节点必须将它们自己连接到同一个数据库。</p>
+<p>Kong支持以下数据库版本：</p>
+<ul>
+<li>PostgreSQL：9.5及以上。</li>
+<li>Cassandra：2.2及以上。</li>
+</ul>
+<h4 id="database"><a href="#database" class="headerlink" title="database"></a>database</h4><p>确定此节点将使用哪个PostgreSQL或Cassandra作为其数据存储区。<br>可接受的值是<code>postgres</code>和<code>cassandra</code>。</p>
+<p>默认值：<code>postgres</code></p>
+<h4 id="Postgres-settings"><a href="#Postgres-settings" class="headerlink" title="Postgres settings"></a>Postgres settings</h4><table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+<th>DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pg_port</td>
+<td>Postgres服务器的主机。</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>pg_host</td>
+<td>Postgres服务器的端口。</td>
+<td><code>5432</code></td>
+</tr>
+<tr>
+<td>pg_user</td>
+<td>Postgres用户。</td>
+<td><code>kong</code></td>
+</tr>
+<tr>
+<td>pg_password</td>
+<td>Postgres用户的密码。</td>
+<td></td>
+</tr>
+<tr>
+<td>pg_database</td>
+<td>要连接的数据库。</td>
+<td><code>kong</code></td>
+</tr>
+<tr>
+<td>pg_ssl</td>
+<td>启用与服务器的SSL连接。</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td>pg_ssl_verify</td>
+<td>如果启用了<code>pg_ssl</code>，则切换服务器证书验证。请参阅<code>lua_ssl_trusted_certificate</code>设置。</td>
+<td><code>off</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Cassandra-settings"><a href="#Cassandra-settings" class="headerlink" title="Cassandra settings"></a>Cassandra settings</h4><table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>DESCRIPTION</th>
+<th>DEFAULT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cassandra_contact_points</td>
+<td>以逗号分隔的联系人列表指向的Cassandra群集。</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>cassandra_port</td>
+<td>节点正在侦听的端口。的所有节点和联系点必须在同一端口上监听</td>
+<td><code>9042</code></td>
+</tr>
+<tr>
+<td>cassandra_keyspace</td>
+<td>Keyspace可以在您的群集中使用。如果它不存在，将被创建。</td>
+<td><code>kong</code></td>
+</tr>
+<tr>
+<td>cassandra_consistency</td>
+<td>读取/写入Cassandra集群时使用的一致性设置</td>
+<td><code>ONE</code></td>
+</tr>
+<tr>
+<td>cassandra_timeout</td>
+<td>定义读取和写入的超时（以毫秒为单位）</td>
+<td><code>5000</code></td>
+</tr>
+<tr>
+<td>cassandra_ssl</td>
+<td>切换Kong和Cassandra之间的客户端到节点TLS连接。</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td>cassandra_ssl_verify</td>
+<td>如果启用了<code>cassandra_ssl</code>，则切换服务器证书验证。<br>请参阅<code>lua_ssl_trusted_certificate</code>以指定证书颁发机构。</td>
+<td><code>off</code></td>
+</tr>
+<tr>
+<td>cassandra_username</td>
+<td>使用PasswordAuthenticator方案时的用户名。</td>
+<td><code>kong</code></td>
+</tr>
+<tr>
+<td>cassandra_password</td>
+<td>使用PasswordAuthenticator方案时的密码。</td>
+<td></td>
+</tr>
+<tr>
+<td>cassandra_lb_policy</td>
+<td>在Cassandra集群中分发查询时使用的负载平衡策略。<br>可接受的值是<code>RoundRobin</code>，<code>RequestRoundRobin</code>，<br><code>DCAwareRoundRobin</code>和<code>RequestDCAwareRoundRobin</code>。<br>以“Request”为前缀的策略可以在整个同一请求中有效地使用已建立的连接。<br>当且仅当您使用多数据中心群集时，首选“DCAware”策略。</td>
+<td></td>
+</tr>
+<tr>
+<td>cassandra_local_datacenter</td>
+<td>使用<code>DCAwareRoundRobin</code>或<code>RequestDCAwareRoundRobin</code>平衡策略时，<br>必须指定与此Kong节点本地（最近）的集群的名称。</td>
+<td></td>
+</tr>
+<tr>
+<td>cassandra_repl_strategy</td>
+<td>在第一次迁移时，Kong将使用此设置来创建密钥空间。<br>可接受的值是<code>SimpleStrategy</code>和<code>NetworkTopologyStrategy</code></td>
+<td><code>SimpleStrategy</code></td>
+</tr>
+<tr>
+<td>cassandra_repl_factor</td>
+<td>在第一次迁移时，Kong将在使用<code>SimpleStrategy</code>时使用此复制因子创建keyspace。</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>cassandra_data_centers</td>
+<td>在第一次迁移时，Kong将在使用<code>NetworkTopologyStrategy</code>时使用此设置。格式是以逗号分隔的列表，由<code>&lt;dc_name&gt;:&lt;repl_factor&gt;</code>组成。</td>
+<td><code>dc1:2,dc2:3</code></td>
+</tr>
+<tr>
+<td>cassandra_schema_consensus_timeout</td>
+<td>定义Cassandra节点之间每个模式共识的等待时间的超时（以毫秒为单位）。此值仅在迁移期间使用。</td>
+<td><code>10000</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="Datastore-cache-section"><a href="#Datastore-cache-section" class="headerlink" title="Datastore cache section"></a>Datastore cache section</h3><p>为了避免与数据存储区进行不必要的通信，Kong将实体（例如API，消费者，凭证等）缓存一段可配置的时间。<br>如果更新了这样的实体，它还会处理失效。<br>本节允许配置Kong关于此类配置实体的缓存的行为。</p>
+<h4 id="db-update-frequency"><a href="#db-update-frequency" class="headerlink" title="db_update_frequency"></a>db_update_frequency</h4><p>使用数据存储区检查更新实体的频率（以秒为单位）。<br>当节点通过Admin API创建，更新或删除实体时，其他节点需要等待下一轮询（由此值配置）以最终清除旧的缓存实体并开始使用新的实体。</p>
+<p>默认：<code>5</code></p>
+<h4 id="db-update-propagation"><a href="#db-update-propagation" class="headerlink" title="db_update_propagation"></a>db_update_propagation</h4><p>数据存储中的实体传输到另一个数据中心的副本节点所用的时间（以秒为单位）。<br>在分布式环境（如多数据中心Cassandra集群）中，此值应为Cassandra将行传播到其他数据中心所花费的最大秒数。<br>设置后，此属性将增加Kong传输实体更改所用的时间。<br>单数据中心设置或PostgreSQL服务器应该没有这样的延迟，并且该值可以安全地设置为0。</p>
+<p>默认：<code>0</code></p>
+<h4 id="db-cache-ttl"><a href="#db-cache-ttl" class="headerlink" title="db_cache_ttl"></a>db_cache_ttl</h4><p>此节点缓存时实体从数据存储区的生存时间（以秒为单位）。<br>数据库未命中（无实体）也根据此设置进行缓存。<br>如果设置为0（默认值），则此类缓存实体或未命中永不过期。</p>
+<p>默认：<code>0</code>(不过期)</p>
+<h4 id="db-resurrect-ttl"><a href="#db-resurrect-ttl" class="headerlink" title="db_resurrect_ttl"></a>db_resurrect_ttl</h4><p>数据存储区中的陈旧实体在无法刷新时（例如，数据存储区无法访问）的时间（以秒为单位）。<br>当此TTL到期时，将进行刷新陈旧实体的新尝试。</p>
+<h3 id="DNS-解析器部分"><a href="#DNS-解析器部分" class="headerlink" title="DNS 解析器部分"></a>DNS 解析器部分</h3><p>默认情况下，DNS解析器将使用标准配置文件<code>/etc/hosts</code>和<code>etc/resolv.conf</code>。<br>如果已设置环境变量<code>LOCALDOMAIN</code>和<code>RES_OPTIONS</code>，则后一个文件中的设置将被覆盖。</p>
+<p>Kong会将主机名解析为<code>SRV</code>或<code>A</code>记录（按此顺序，<code>CNAME</code>记录将在此过程中取消引用）。<br>如果名称被解析为<code>SRV</code>记录，它还将通过从DNS服务器接收的端口字段内容覆盖任何给定的端口号。</p>
+<p>DNS选项<code>SEARCH</code>和<code>NDOTS</code>（来自<code>/etc/resolv.conf</code>文件）将用于将短名称扩展为完全限定名称。<br>因此，它将首先尝试<code>SRV</code>类型的整个<code>SEARCH</code>列表，如果失败则会尝试搜索<code>A</code>的<code>SEARCH</code>列表等。</p>
+<p>在<code>ttl</code>的持续时间内，内部DNS解析器将对通过DNS记录中的条目获得的每个请求进行负载均衡。<br>对于<code>SRV</code>记录，<code>weight</code>权重字段将被接受，但它将仅使用记录中的最低优先级<code>priority</code>字段条目。</p>
+<h4 id="dns-resolver"><a href="#dns-resolver" class="headerlink" title="dns_resolver"></a>dns_resolver</h4><p>以逗号分隔的名称服务器列表，每个条目都采用<code>ip [:port]</code>格式供Kong使用。<br>如果未指定，将使用本地<code>resolv.conf</code>文件中的名称服务器。<br>如果省略，端口默认为<code>53</code>。<br>接受IPv4和IPv6地址。</p>
+<p>默认：无</p>
+<h4 id="dns-hostsfile"><a href="#dns-hostsfile" class="headerlink" title="dns_hostsfile"></a>dns_hostsfile</h4><p>要使用的hosts文件。<br>此文件只读一次，其内容在内存中是静态的。<br>要在修改文件后再次读取文件，必须重新加载Kong。</p>
+<p>默认：<code>/etc/hosts</code></p>
+<h4 id="dns-order"><a href="#dns-order" class="headerlink" title="dns_order"></a>dns_order</h4><p>解析不同记录类型的顺序。<br><code>LAST</code>类型表示上次成功查找的类型（对于指定的名称）。<br>格式是（不区分大小写）逗号分隔列表。</p>
+<p>默认值：<code>LAST</code>，<code>SRV</code>，<code>A</code>，<code>CNAME</code></p>
+<h4 id="dns-valid-ttl"><a href="#dns-valid-ttl" class="headerlink" title="dns_valid_ttl"></a>dns_valid_ttl</h4><p>默认情况下，使用响应的TTL值缓存DNS记录。<br>如果此属性收到一个值（以秒为单位），它将覆盖所有记录的TTL。</p>
+<p>默认：无</p>
+<h4 id="dns-stale-ttl"><a href="#dns-stale-ttl" class="headerlink" title="dns_stale_ttl"></a>dns_stale_ttl</h4><p>以秒为单位定义记录在缓存中保留的时间长度超过其TTL。<br>在后台获取新DNS记录时将使用此值。<br>过期数据将从记录到期时使用，直到刷新查询完成或<code>dns_stale_ttl</code>秒数已过。</p>
+<h4 id="dns-not-found-ttl"><a href="#dns-not-found-ttl" class="headerlink" title="dns_not_found_ttl"></a>dns_not_found_ttl</h4><p>空DNS响应和“（(3) name error”响应的TTL，以秒为单位。</p>
+<p>默认：无</p>
+<h4 id="dns-error-ttl"><a href="#dns-error-ttl" class="headerlink" title="dns_error_ttl"></a>dns_error_ttl</h4><p>错误响应的TTL，以秒为单位。</p>
+<p>默认：<code>1</code></p>
+<h4 id="dns-no-sync"><a href="#dns-no-sync" class="headerlink" title="dns_no_sync"></a>dns_no_sync</h4><p>如果启用，则在缓存未命中时，每个请求都将触发自己的dns查询。<br>禁用时，同一名称/类型的多个请求将同步到单个查询。</p>
+<p>默认：<code>off</code></p>
+<h3 id="发展和杂项部分"><a href="#发展和杂项部分" class="headerlink" title="发展和杂项部分"></a>发展和杂项部分</h3><p>从lua-nginx-module继承的其他设置允许更多的灵活性和高级用法。<br>有关更多信息，请参阅lua-nginx-module文档：https：//github.com/openresty/lua-nginx-module</p>
+<h4 id="lua-ssl-trusted-certificate"><a href="#lua-ssl-trusted-certificate" class="headerlink" title="lua_ssl_trusted_certificate"></a>lua_ssl_trusted_certificate</h4><p>PEM格式的Lua cosockets的证书颁发机构文件的绝对路径。当启用<code>pg_ssl_verify</code>或<code>cassandra_ssl_verify</code>时，此证书将用于验证Kong的数据库连接。</p>
+<p>默认：无</p>
+<h4 id="lua-ssl-verify-depth"><a href="#lua-ssl-verify-depth" class="headerlink" title="lua_ssl_verify_depth"></a>lua_ssl_verify_depth</h4><p>设置Lua cosockets使用的服务器证书链中的验证深度，由<code>lua_ssl_trusted_certificate</code>设置。<br>这包括为Kong的数据库连接配置的证书。</p>
+<p>默认：<code>1</code></p>
+<h4 id="lua-package-path"><a href="#lua-package-path" class="headerlink" title="lua_package_path"></a>lua_package_path</h4><p>设置Lua模块搜索路径（LUA_PATH）。　　<br>在开发或使用未存储在默认搜索路径中的自定义插件时很有用。　　</p>
+<p>查看：<a href="https://github.com/openresty/lua-nginx-module#lua_ssl_verify_depth" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module#lua_ssl_verify_depth</a></p>
+<p>默认：无</p>
+<h4 id="lua-package-cpath"><a href="#lua-package-cpath" class="headerlink" title="lua_package_cpath"></a>lua_package_cpath</h4><p>设置Lua C模块搜索路径（LUA_CPATH）。</p>
+<p>查看：<a href="https://github.com/openresty/lua-nginx-module#lua_package_cpath" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module#lua_package_cpath</a></p>
+<h4 id="lua-socket-pool-size"><a href="#lua-socket-pool-size" class="headerlink" title="lua_socket_pool_size"></a>lua_socket_pool_size</h4><p>指定与每个远程服务器关联的每个cosocket连接池的大小限制。</p>
+<p>请参阅<a href="https://github.com/openresty/lua-nginx-module#lua_socket_pool_size" target="_blank" rel="external">https://github.com/openresty/lua-nginx-module#lua_socket_pool_size</a></p>
+<p>默认值：<code>30</code></p>
+<h3 id="附加配置"><a href="#附加配置" class="headerlink" title="附加配置"></a>附加配置</h3><h4 id="origins"><a href="#origins" class="headerlink" title="origins"></a>origins</h4><p>原始配置在复杂的网络配置中非常有用，并且在Kong用于服务网格(service mesh)时通常是必需的。</p>
+<p><code>origin</code>是一个以逗号分隔的成对对象列表，该对的每一半用<code>=</code>符号分隔。每对左侧的原点被右侧的原点覆盖。此覆盖发生在访问阶段之后和上游解析之前。它具有导致Kong将流向左侧原点的流量发送到右侧原点的效果。</p>
+<p>术语origin（单数）是指特定 scheme/host 或 IP address/port 三元组，如RFC 6454（<a href="https://tools.ietf.org/html/rfc6454#section-3.2" target="_blank" rel="external">https://tools.ietf.org/html/rfc6454#section-3.2</a> ）中所述。在kong的<code>origin</code>配置项中，必须是<code>http</code>, <code>https</code>, <code>tcp</code>, or <code>tls</code>其中之一。在每对源中，该方案必须是类似的类型 - 因此http可以与https配对，并且tcp可以与tls配对，但http和https不能与tcp和tls配对。</p>
+<p>当左侧原点的加密方案（如tls或https）与右侧来源中的tcp或http等未加密方案配对时，Kong将在与左侧原点匹配的传入连接上终止TLS，然后将未加密的流量路由到指定的右侧源。当通过TLS与Kong节点建立连接时，这很有用，但本地服务（Kong代理流量）不会或不能终止TLS。类似地，如果左侧原点是<code>tcp</code>或<code>http</code>且右侧原点是<code>tls</code>或<code>https</code>，则Kong将接受未加密的传入流量，然后在将其路由到出站时将该流量包装在TLS中。这种能力是Kong Mesh的重要推动。</p>
+<p>与所有Kong配置设置一样，可以在Kong.conf文件中声明origin设置 - <strong>但是建议Kong管理员不要这样做。</strong> 相反，应使用环境变量在每个节点上设置<code>origin</code>。因此，kong.conf.default中不存在<code>origins</code>。在Kubernetes部署中，建议不要“手动”配置和维护起源 - 相反，每个Kong节点的起源应由Kubernetes身份模块（KIM）管理。</p>
+<p>默认值：无</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>如果给定的Kong节点具有以下源的配置:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http:<span class="regexp">//u</span>pstream-foo-bar:<span class="number">1234</span>=http:<span class="regexp">//</span>localhost:<span class="number">5678</span></div></pre></td></tr></table></figure>
+<p>Kong节点不会尝试解析<code>upstream-foo-bar</code>，而是将该节点路由到<code>localhost：5678</code>。<br>在Kong的服务网格部署中，这种覆盖是必要的，以使临近<code>upstream-foo-bar</code>应用程序实例的Kong边车将流量路由到该本地实例，而不是试图将流量通过网络路由回到<code>upstream-foo-bar</code>的非本地实例。</p>
+<p>在另一个典型的边车部署中，其中Kong节点部署在同一主机，虚拟机或Kubernetes Pod上，作为Kong作为代理的服务的一个实例，起源将配置为：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http<span class="variable">s:</span>//service-<span class="variable">b:9876</span>=http://localhos<span class="variable">t:5432</span></div></pre></td></tr></table></figure>
+<p>这种设置将导致该Kong节点仅接受端口9876上的HTTPS连接，终止TLS，然后将现在未加密的流量转发到localhost端口5432。</p>
+<p>以下是一个由两对组成的示例，演示正确使用没有空格的分隔符：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http<span class="variable">s:</span>//foo.bar.<span class="keyword">com</span>:<span class="number">443</span>=http://localhos<span class="variable">t:80</span>,<span class="keyword">tl</span><span class="variable">s:</span>//dog.<span class="keyword">cat</span>.<span class="built_in">or</span><span class="variable">g:9999</span>=tcp://localhos<span class="variable">t:8888</span></div></pre></td></tr></table></figure>
+<p>此配置将导致Kong仅接受端口443上的HTTPS流量，并且仅接受端口9999上的TLS流量，在两种情况下都终止TLS，然后分别将流量转发到localhost端口80和8888。<br>假设localhost端口80和8888每个都与一个单独的服务相关联，当Kong充当节点代理时，可能会发生这种配置，这是一个代表多个服务的本地代理（与sidecar代理不同，<br>其中本地代理仅代表单个本地服务）。</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong 配置文件中文详解</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2019-01-23</p><p><span>最后更新：</span>2025-06-15</p><p><span>原始链接：</span><a href="/2019/01/23/kong-config-doc/">https://102no.com/2019/01/23/kong-config-doc/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2019/01/23/kong-config-doc/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2019/01/23/kong-config-doc/" data-id="cmd77wieg00fa28mtlhntpcqa" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3a0WoEIQyF4X3/l7bQq4XF8ZwTt1TzezUsU/WbQtAkr5c8xu94f34fs/dnfzWb8/N584ABA8axjPE4siWf35n98oxffD4YMGA0YFS2omxL/yjuZ4IBAwaM2QLuMXFXsIYBAwYMfXl9gSEPGDBgwHhmKFMrSTclWeYeDTffxWHAgHEgIysM/M3z1+sbMGDA+PeMURh6gkyfLdsVDBgw7mYol1K3/SJL4T1jpEAMAwaMSxluMK3jszPeYnUYMGA0YCglST3V5c6pYBarwIABoxlDOcDp7WJZ04ZbNIUBA0YfxjdKmPpzlrCDAQNGB4Z7gKsky5RrcH1dGDBgdGC4v2RtGdlHkT4TDBgwrmPorQ/unVE/ROrsRboNBgwYlzIqYVQveVauvkbZAAYMGA0Yu5oq3GKD+wkWARcGDBjXMfRrapZQqzSHGb/AgAGjAUMPc24odBs1pNT/5x5gwIDRgOEe3dzgm5UcjBYxGDBgXM1QjmhuC5dSMKg0cNgYGDBgXMFQAmi9kJkl5oxrMwwYMNowKqXKSjEyOw7a51wYMGAcy8hS9spFV3/H3UOpLAEDBoyjGMMcbgkzC5p6IQEGDBgdGHtDrf6c9UiUygMwYMA4nJGl7+vtFHryTkrYwYABowGjkjjLNppdoafzwIABA4Z8HVXKBlnBYDE/DBgwYERTZ6E8TPDBgAGjAUMvPWaFxqyxLDw5woAB4zpGdimtvJkdH7f9x2DAgHES4wd4BXRyUpMaGgAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/api网关/"><i class="fa fa-tag"></i>api网关</a><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a></div><div class="post-nav"><a class="pre" href="/2019/02/16/kong-PDK-doc/">微服务 API 网关 Kong 插件开发套件中文文档</a><a class="next" href="/2019/01/07/kong-route-doc/">微服务 API 网关 Kong Route 中文文档</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">124</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">53</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/05/09/ke-jia-yan-mian-san-ji-di/">客家腌面三及第🥣</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/01/sha-guo-hu-bo/">砂锅糊饽🥘</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/dao-xiao-miam/">刀削面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/11/33th-chunfen/">第三十三年春分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/19/nan-ning-lao-you-fen/">南宁老友粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/13/liu-zhou-luo-si-fen/">柳州螺蛳粉🐚</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/22/chao-xi-mi-fen/">炒细米粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/20/re-gan-mian/">热干面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/27/kong-3.7/">Kong 3.7重磅上线！Kong AI Gateway 正式 GA！🦍</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/05/27/dou-jiao-zheng-mian/">豆角蒸面🍜</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="forecho's blog" target="_blank">forecho's blog</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://zhou.ge/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="特立独行的异类" target="_blank">特立独行的异类</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a><ul></ul><a href="https://www.ctq6.cn/" title="mikelPan" target="_blank">mikelPan</a><ul></ul><a href="https://xyzbz.cn/" title="网友小宋" target="_blank">网友小宋</a><ul></ul><a href="https://vjo.cc/" title="刘郎" target="_blank">刘郎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

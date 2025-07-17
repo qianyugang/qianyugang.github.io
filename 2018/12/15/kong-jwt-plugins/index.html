@@ -1,0 +1,351 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong JWT 插件中文文档 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong JWT 插件中文文档</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（上述语言博主一概不会。）</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong JWT 插件中文文档</h1><div class="post-meta">2018-12-15<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2018/12/15/kong-jwt-plugins/#vcomment"><span class="valine-comment-count" data-xid="/2018/12/15/kong-jwt-plugins/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关术语"><span class="toc-number">1.</span> <span class="toc-text">相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在service上启用插件"><span class="toc-number">2.1.</span> <span class="toc-text">在service上启用插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在路由上启用插件"><span class="toc-number">2.2.</span> <span class="toc-text">在路由上启用插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在API上启用插件"><span class="toc-number">2.3.</span> <span class="toc-text">在API上启用插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局插件"><span class="toc-number">2.4.</span> <span class="toc-text">全局插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数"><span class="toc-number">2.5.</span> <span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档"><span class="toc-number">3.</span> <span class="toc-text">文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个Consumer"><span class="toc-number">3.1.</span> <span class="toc-text">创建一个Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个-JWT-credential"><span class="toc-number">3.2.</span> <span class="toc-text">创建一个 JWT credential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除一个-JWT-credential"><span class="toc-number">3.3.</span> <span class="toc-text">删除一个 JWT credential</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JWT-credential-列表"><span class="toc-number">3.4.</span> <span class="toc-text">JWT credential 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个带秘钥的JWT-HS256"><span class="toc-number">3.5.</span> <span class="toc-text">创建一个带秘钥的JWT(HS256)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发起一个带有JWT的请求"><span class="toc-number">3.6.</span> <span class="toc-text">发起一个带有JWT的请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可选-验证claims"><span class="toc-number">3.7.</span> <span class="toc-text">(可选)验证claims</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可选-Base64-encoded-秘钥"><span class="toc-number">3.8.</span> <span class="toc-text">(可选) Base64 encoded 秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用JWT-的-public-private-keys-RS256-or-ES256"><span class="toc-number">3.9.</span> <span class="toc-text">使用JWT 的 public/private keys (RS256 or ES256)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成一个-public-private-keys"><span class="toc-number">3.10.</span> <span class="toc-text">生成一个 public/private keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在JWT插件中使用Auth0"><span class="toc-number">3.11.</span> <span class="toc-text">在JWT插件中使用Auth0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上游-Headers"><span class="toc-number">3.12.</span> <span class="toc-text">上游 Headers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过JWT分页"><span class="toc-number">3.13.</span> <span class="toc-text">通过JWT分页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索与JWT关联的使用者"><span class="toc-number">3.14.</span> <span class="toc-text">检索与JWT关联的使用者</span></a></li></ol></li></ol></div></div><div class="post-content"><p><strong> 原文链接：</strong> <a href="https://docs.konghq.com/hub/kong-inc/jwt/" target="_blank" rel="external">https://docs.konghq.com/hub/kong-inc/jwt/</a><br>（如有翻译的不准确或错误之处，欢迎留言指出）<br>验证包含HS256或RS256签名JSON Web令牌的请求（如<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="external">RFC 7519</a>中所述）。每个消费者都将拥有JWT凭证（公钥和密钥），这些凭证必须用于签署其JWT。然后可以通过令牌传递如下：</p>
+<ul>
+<li>查询字符串参数</li>
+<li>一个cookie</li>
+<li>或者带有 Authorization 的头</li>
+</ul>
+<p>如果验证了令牌的签名，Kong会将请求代理到您的上游服务，否则将丢弃该请求。Kong还可以对RFC 7519（exp和nbf）的一些注册声明进行验证。</p>
+<h2 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h2><ul>
+<li><code>plugin</code>:在请求被代理到上游API之前或之后，在Kong内部执行操作的插件</li>
+<li><code>Service</code>:表示外部上游API或微服务的Kong实体。</li>
+<li><code>Route</code>:Kong实体表示将下游请求映射到上游服务的方法</li>
+<li><code>upstream service</code>:这是指位于Kong后面的您自己的API /服务，转发客户端请求</li>
+<li><code>API</code>:上游服务的实例。在<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#0130---20180322" target="_blank" rel="external">CE 0.13.0</a> and <a href="https://docs.konghq.com/enterprise/changelog/#0-32" target="_blank" rel="external">EE 0.32</a>版本后被弃用，替换为service</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="在service上启用插件"><a href="#在service上启用插件" class="headerlink" title="在service上启用插件"></a>在service上启用插件</h3><p>通过发出以下请求在<a href="https://docs.konghq.com/latest/admin-api/#service-object" target="_blank" rel="external">service</a>上配置此插件：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/kong:8001/services</span><span class="regexp">/&#123;service&#125;/plugins</span> \</div><div class="line">    --data <span class="string">"name=jwt"</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>service</code>：此插件将要代理的service的id或者name</li>
+</ul>
+<h3 id="在路由上启用插件"><a href="#在路由上启用插件" class="headerlink" title="在路由上启用插件"></a>在路由上启用插件</h3><p>通过以下请求在<a href="https://docs.konghq.com/latest/admin-api/#Route-object" target="_blank" rel="external">router</a>上配置:<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/kong:8001/routes</span><span class="regexp">/&#123;route_id&#125;/plugins</span> \</div><div class="line">    --data <span class="string">"name=jwt"</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>rouer_id</code>:将要启动插件的路由id</li>
+</ul>
+<h3 id="在API上启用插件"><a href="#在API上启用插件" class="headerlink" title="在API上启用插件"></a>在API上启用插件</h3><p>如果您正在使用老版本的    Kong（在<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#0130---20180322" target="_blank" rel="external">CE 0.13.0</a> and <a href="https://docs.konghq.com/enterprise/changelog/#0-32" target="_blank" rel="external">EE 0.32</a>版本后被弃用，替换为service） 。您可以通过发出以下请求在此类API之上配置此插件：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/kong:8001/apis</span><span class="regexp">/&#123;api&#125;/plugins</span> \</div><div class="line">    --data <span class="string">"name=jwt"</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>api</code>:此插件配置将定位的API的ID或名称。</li>
+</ul>
+<h3 id="全局插件"><a href="#全局插件" class="headerlink" title="全局插件"></a>全局插件</h3><p>可以使用<code>http://kong:8001/plugins/</code>配置所有插件，一个插件跟任何service ，router， api 或者 Consumer 没有强关联，都可以考虑把它做成全局插件，将在每个请求上运行，有关更多信息，请阅读<a href="https://docs.konghq.com/latest/admin-api/#add-plugin" target="_blank" rel="external">插件参考</a>和<a href="https://docs.konghq.com/latest/admin-api/#precedence" target="_blank" rel="external">插件优先级</a>相关文档。</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>以下是可在此插件配置中使用的所有参数的列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td></td>
+<td>要使用的插件的名称，在本例中为<code>jwt</code></td>
+</tr>
+<tr>
+<td><code>service_id</code></td>
+<td></td>
+<td>此插件将定位的服务的ID。</td>
+</tr>
+<tr>
+<td><code>route_id</code></td>
+<td></td>
+<td>此插件将定位的路由的ID。</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td><code>true</code></td>
+<td>是否将应用此插件</td>
+</tr>
+<tr>
+<td><code>api_id</code></td>
+<td></td>
+<td>此插件配置将定位的API的ID或名称。(在<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md#0130---20180322" target="_blank" rel="external">CE 0.13.0</a> and <a href="https://docs.konghq.com/enterprise/changelog/#0-32" target="_blank" rel="external">EE 0.32</a>版本后被弃用，替换为service)</td>
+</tr>
+<tr>
+<td><code>config.uri_param_names</code>（可选）</td>
+<td><code>jwt</code></td>
+<td>Kong用来查询JWT字符串的uri参数列表。</td>
+</tr>
+<tr>
+<td><code>config.cookie_names</code>（可选）</td>
+<td></td>
+<td>Kong用来查询JWT字符串的ucookies参数列表。</td>
+</tr>
+<tr>
+<td><code>config.claims_to_verify</code>（可选）</td>
+<td></td>
+<td>需要被验证的声明（也就是payload），支持的值为 <code>exp</code>, <code>nbf</code></td>
+</tr>
+<tr>
+<td><code>config.key_claim_name</code>（可选）</td>
+<td><code>iss</code></td>
+<td>需要被验证的key标示的名称，从0.13.1开始插件将尝试按此顺序从JWT有效负载和标题中读取此声明。</td>
+</tr>
+<tr>
+<td><code>config.secret_is_base64</code>（可选）</td>
+<td><code>false</code></td>
+<td>如果为true，则插件假定凭证的秘密为base64编码。您需要为您的消费者创建base64编码的秘密，并使用原始密码签署您的JWT。</td>
+</tr>
+<tr>
+<td><code>config.anonymous</code>（可选）</td>
+<td></td>
+<td>如果身份验证失败，则用作“匿名”使用者的可选字符串（使用者uuid）值。如果为空（默认），请求将失败，并且身份验证失败4xx。请注意，此值必须引用Kong内部的Consumer id属性，而不是其custom_id。</td>
+</tr>
+<tr>
+<td><code>config.run_on_preflight</code>（可选）</td>
+<td>true</td>
+<td>指示插件是否应在OPTIONS预检请求上运行（并尝试进行身份验证），如果设置为false，则始终允许OPTIONS请求。 （此参数仅适用于版本<code>0.11.1</code>及更高版本）</td>
+</tr>
+<tr>
+<td><code>config.maximum_expiration</code>（可选）</td>
+<td>0</td>
+<td>JWT的生命周期限制为将来的maximum_expiration秒的整数。任何具有更长生命周期的JWT都将被拒绝（HTTP 403）。如果指定了这个值，则还必须在claim_to_verify属性中指定exp。默认值0表示无限期。配置此值时应考虑潜在的时钟偏差。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>为了使用该插件，首先需要创建一个Consumer然后关联一个或多个JWT凭证（保存用于验证令牌的公钥和私钥）。<br>消费者代表了开发人员使用最终服务。</p>
+<h3 id="创建一个Consumer"><a href="#创建一个Consumer" class="headerlink" title="创建一个Consumer"></a>创建一个Consumer</h3><p>您需要将credential与现有的Consumer对象相关联。要创建使用者，您可以执行以下请求：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/consumers \</div><div class="line">    -<span class="ruby">-data <span class="string">"username=&lt;USERNAME&gt;"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"custom_id=&lt;CUSTOM_ID&gt;"</span></span></div><div class="line"><span class="ruby">HTTP/<span class="number">1.1</span> <span class="number">201</span> Created</span></div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code> (半可选)</td>
+<td></td>
+<td>Consumer的用户名,custom_id和username必须至少有一个</td>
+</tr>
+<tr>
+<td><code>custom_id</code> (半可选)</td>
+<td></td>
+<td>用于将Consumer映射到外部数据库的自定义标识符。custom_id和username必须至少有一个</td>
+</tr>
+</tbody>
+</table>
+<p>一个<a href="https://docs.konghq.com/latest/admin-api/#consumer-object" target="_blank" rel="external">Consumer</a>可以拥有许多JWT凭证。</p>
+<h3 id="创建一个-JWT-credential"><a href="#创建一个-JWT-credential" class="headerlink" title="创建一个 JWT credential"></a>创建一个 JWT credential</h3><p>您可以通过发出以下HTTP请求来配置新的HS256 JWT凭证：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/kong:8001/consumers</span><span class="regexp">/&#123;consumer&#125;/jwt</span> -H <span class="string">"Content-Type: application/x-www-form-urlencoded"</span></div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">201</span> Created</div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="string">"consumer_id"</span>: <span class="string">"7bce93e1-0a90-489c-c887-d385545f8f4b"</span>,</div><div class="line">    <span class="string">"created_at"</span>: <span class="number">1442426001000</span>,</div><div class="line">    <span class="string">"id"</span>: <span class="string">"bcbfb45d-e391-42bf-c2ed-94e32946753a"</span>,</div><div class="line">    <span class="string">"key"</span>: <span class="string">"a36c3049b36249a3c9f8891cb127243c"</span>,</div><div class="line">    <span class="string">"secret"</span>: <span class="string">"e71829c351aa4242c2719cbfbe671c09"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>consumer</code>: 通过 <code>id</code> 或者 <code>username</code> 把 credential 关联到相对应credential</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code>(可选)</td>
+<td></td>
+<td>标识凭证的唯一字符串。如果不传的话将自动生成一个.</td>
+</tr>
+<tr>
+<td><code>algorithm</code>(可选)</td>
+<td><code>HS256</code></td>
+<td>用于验证令牌签名的算法.可选值为<code>HS256</code>, <code>HS384</code>, <code>HS512</code>, <code>RS256</code>, <code>ES256</code>.</td>
+</tr>
+<tr>
+<td><code>rsa_public_key</code>(可选)</td>
+<td></td>
+<td>如果参数 <code>algorithm</code> 是 <code>RS256</code> 或者 <code>ES256</code> ,则用于验证令牌签名的公钥（采用PEM格式）。</td>
+</tr>
+<tr>
+<td><code>secret</code>(可选)</td>
+<td></td>
+<td>如果参数 <code>algorithm</code> 是 <code>RS256</code> 或者 <code>ES256</code> ,用于为此凭证签署JWT的秘钥.如果不传的话将自动生成一个.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="删除一个-JWT-credential"><a href="#删除一个-JWT-credential" class="headerlink" title="删除一个 JWT credential"></a>删除一个 JWT credential</h3><p>您可以通过发出以下HTTP请求来删除Consumer的JWT：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -X <span class="keyword">DELETE</span> <span class="keyword">http</span>://kong:<span class="number">8001</span>/consumers/&#123;consumer&#125;/jwt/&#123;<span class="keyword">id</span>&#125;</div><div class="line"><span class="keyword">HTTP</span>/<span class="number">1.1</span> <span class="number">204</span> <span class="keyword">No</span> <span class="keyword">Content</span></div></pre></td></tr></table></figure>
+<ul>
+<li><code>consumer</code> : 通过 <code>id</code> 或者 <code>username</code> 把 credential 关联到相对应credential</li>
+<li><code>id</code>: JWT credential 的id</li>
+</ul>
+<h3 id="JWT-credential-列表"><a href="#JWT-credential-列表" class="headerlink" title="JWT credential 列表"></a>JWT credential 列表</h3><p>您可以通过发出以下HTTP请求列出Consumer的JWT凭证：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X GET <span class="symbol">http:</span>/<span class="regexp">/kong:8001/consumers</span><span class="regexp">/&#123;consumer&#125;/jwt</span></div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">200</span> OK</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>consumer</code>: 通过 <code>id</code> 或者 <code>username</code> 把 credential 关联到相对应credential</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"data"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"rsa_public_key"</span>: <span class="string">"-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgK .... -----END PUBLIC KEY-----"</span>,</div><div class="line">            <span class="attr">"consumer_id"</span>: <span class="string">"39f52333-9741-48a7-9450-495960d91684"</span>,</div><div class="line">            <span class="attr">"id"</span>: <span class="string">"3239880d-1de5-4dbc-bccf-78f7a4280f33"</span>,</div><div class="line">            <span class="attr">"created_at"</span>: <span class="number">1491430568000</span>,</div><div class="line">            <span class="attr">"key"</span>: <span class="string">"c5a55906cc244f483226e02bcff2b5e"</span>,</div><div class="line">            <span class="attr">"algorithm"</span>: <span class="string">"RS256"</span>,</div><div class="line">            <span class="attr">"secret"</span>: <span class="string">"b0970f7fc9564e65xklfn48930b5d08b1"</span></div><div class="line">        &#125;</div><div class="line">    ],</div><div class="line">    <span class="attr">"total"</span>: <span class="number">1</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="创建一个带秘钥的JWT-HS256"><a href="#创建一个带秘钥的JWT-HS256" class="headerlink" title="创建一个带秘钥的JWT(HS256)"></a>创建一个带秘钥的JWT(HS256)</h3><p>既然您的消费者拥有凭证，并且假设我们想要使用HS256进行签名，那么JWT应按照以下方式制作（<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="external">RFC 7519</a>）：</p>
+<p>首先,它的header必须是<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"typ"</span>: <span class="string">"JWT"</span>,</div><div class="line">    <span class="attr">"alg"</span>: <span class="string">"HS256"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后,claims参数中必须包含秘钥的key,在config.key_claim_name配置中.该声明默认为<code>iss</code>(发行者字段),将其值设置为我们先前创建的凭证key,claims可能包含其他值。自Kong 0.13.1起，将会在 JWT 的payload和header中都会查找该字段.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"iss"</span>: <span class="string">"a36c3049b36249a3c9f8891cb127243c"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以在<a href="https://jwt.io" target="_blank" rel="external">https://jwt.io</a> 中调试 JWT ,header (HS256), claims (iss, etc),秘钥字段绑定key(e71829c351aa4242c2719cbfbe671c09),你将会得到这样的一个字符串</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eyJhbGciOiJIUzI<span class="number">1</span><span class="symbol">NiIsInR5</span>cCI<span class="number">6</span>IkpX<span class="attr">VCJ9</span>.eyJpc<span class="number">3</span>MiOiJhMzZjMzA<span class="number">0</span>OWIz<span class="symbol">NjI0</span>OWEzYzlmOD<span class="name">g5</span>MW<span class="symbol">NiMTI3</span>MjQzYyIsImV<span class="number">4</span>cCI<span class="number">6</span>MTQ<span class="number">0</span>MjQzMDA<span class="number">1</span><span class="symbol">NCwibmJmIjoxNDQyNDI2</span><span class="symbol">NDU0</span>LCJpYXQiOjE<span class="number">0</span><span class="symbol">NDI0</span>MjY<span class="number">0</span><span class="symbol">NTR9</span>.AhumfY<span class="number">35</span>GFLuEEjrOXiaAD<span class="meta">o7</span>Ae<span class="number">6</span>gt_<span class="number">8</span>VLwX<span class="number">7</span>qffhQ<span class="symbol">N4</span></div></pre></td></tr></table></figure>
+<h3 id="发起一个带有JWT的请求"><a href="#发起一个带有JWT的请求" class="headerlink" title="发起一个带有JWT的请求"></a>发起一个带有JWT的请求</h3><p>现在,可以把JWT以添加在HEADER中的形式来发起一个请求:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl <span class="symbol">http:</span>/<span class="regexp">/kong:8000/</span>&#123;route path&#125; \</div><div class="line">    -H <span class="string">'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMzZjMzA0OWIzNjI0OWEzYzlmODg5MWNiMTI3MjQzYyIsImV4cCI6MTQ0MjQzMDA1NCwibmJmIjoxNDQyNDI2NDU0LCJpYXQiOjE0NDI0MjY0NTR9.AhumfY35GFLuEEjrOXiaADo7Ae6gt_8VLwX7qffhQN4'</span></div></pre></td></tr></table></figure>
+<p>如果在配置文件中配置了config.uri_param_names字段,也可以把JWT以url参数的形式传入:<br>声明必须包含秘密的密钥字段（这不是用于生成令牌的私钥，而只是该配置声明中的标识符）（来自config.key_claim_name）。<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">curl</span> http://kong:8000/&#123;<span class="attribute">route</span> path&#125;?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMzZjMzA0OWIzNjI0OWEzYzlmODg5MWNiMTI3MjQzYyIsImV4cCI6MTQ0MjQzMDA1NCwibmJmIjoxNDQyNDI2NDU0LCJpYXQiOjE0NDI0MjY0NTR9.AhumfY35GFLuEEjrOXiaADo7Ae6gt_8VLwX7qffhQN4</div></pre></td></tr></table></figure></p>
+<p>如果在配置文件中配置了config.cookie_names,也可以cookies的形式传入:</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --cookie jwt=eyJhbGciOiJIUzI<span class="number">1</span><span class="symbol">NiIsInR5</span>cCI<span class="number">6</span>IkpX<span class="attr">VCJ9</span>.eyJpc<span class="number">3</span>MiOiJhMzZjMzA<span class="number">0</span>OWIz<span class="symbol">NjI0</span>OWEzYzlmOD<span class="name">g5</span>MW<span class="symbol">NiMTI3</span>MjQzYyIsImV<span class="number">4</span>cCI<span class="number">6</span>MTQ<span class="number">0</span>MjQzMDA<span class="number">1</span><span class="symbol">NCwibmJmIjoxNDQyNDI2</span><span class="symbol">NDU0</span>LCJpYXQiOjE<span class="number">0</span><span class="symbol">NDI0</span>MjY<span class="number">0</span><span class="symbol">NTR9</span>.AhumfY<span class="number">35</span>GFLuEEjrOXiaAD<span class="meta">o7</span>Ae<span class="number">6</span>gt_<span class="number">8</span>VLwX<span class="number">7</span>qffhQ<span class="symbol">N4</span> http:<span class="comment">//kong:8000/&#123;route path&#125;</span></div></pre></td></tr></table></figure>
+<p>这个请求将会被kong检查,取决于验证字段是否有效</p>
+<table>
+<thead>
+<tr>
+<th>请求</th>
+<th>是否被代理到上游服务</th>
+<th>响应状态码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>没有携带JWT串</td>
+<td>no</td>
+<td>401</td>
+</tr>
+<tr>
+<td>缺失了 <code>iss</code> claim</td>
+<td>no</td>
+<td>401</td>
+</tr>
+<tr>
+<td>无效签名</td>
+<td>no</td>
+<td>403</td>
+</tr>
+<tr>
+<td>有效签名</td>
+<td>yes</td>
+<td>代理上游的请求返回值</td>
+</tr>
+<tr>
+<td>有效签名，但是没有  <code>iss</code> claim</td>
+<td>no</td>
+<td>403</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>提示:当JWT有效并代理上游服务时，除了添加标识Consumer的标头之外，不会对请求进行任何修改。<br>JWT将会被转发给上游服务，该服务可以检验此jwt的合法性。<br>然后上游服务的作用是base64解码JWT然后使用。</p>
+</blockquote>
+<h3 id="可选-验证claims"><a href="#可选-验证claims" class="headerlink" title="(可选)验证claims"></a>(可选)验证claims</h3><p>如<a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="external">RFC 7519</a>中所定义，Kong还可以对已注册的claims执行验证。要对声明claims验证，请将其添加到config.claims_to_verify属性:</p>
+<p>可以给已经存在的jwt插件补充如下:<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 增加了对 nbf 和 exp claims的验证:</span></div><div class="line"><span class="attribute">curl</span> -X PATCH http://kong:8001/plugins/&#123;<span class="attribute">jwt</span> plugin id&#125; \</div><div class="line">    --data <span class="string">"config.claims_to_verify=exp,nbf"</span></div></pre></td></tr></table></figure></p>
+<p>支持的claims</p>
+<table>
+<thead>
+<tr>
+<th>claim 名称</th>
+<th>校验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>exp</td>
+<td>JWT 是否过期</td>
+</tr>
+<tr>
+<td>nbf</td>
+<td>校验是否过期</td>
+</tr>
+</tbody>
+</table>
+<h3 id="可选-Base64-encoded-秘钥"><a href="#可选-Base64-encoded-秘钥" class="headerlink" title="(可选) Base64 encoded 秘钥"></a>(可选) Base64 encoded 秘钥</h3><p>如果你的秘密包含二进制数据，你可以将它们存储为Kong中的base64编码。</p>
+<p>可以给已经存在的router补充如下:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -X PATCH http:<span class="regexp">//</span>kong:<span class="number">8001</span><span class="regexp">/routes/</span>&#123;route id&#125;<span class="regexp">/plugins/</span>&#123;jwt plugin id&#125; \</div><div class="line">    --data <span class="string">"config.secret_is_base64=true"</span></div></pre></td></tr></table></figure>
+<p>或者已经存在的api:<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl -X PATCH http:<span class="regexp">//</span>kong:<span class="number">8001</span><span class="regexp">/apis/</span>&#123;api&#125;<span class="regexp">/plugins/</span>&#123;jwt plugin id&#125; \</div><div class="line">    --data <span class="string">"config.secret_is_base64=true"</span></div></pre></td></tr></table></figure></p>
+<p>然后base64 encode consumers的 secrets:<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># secret is: "blob data"</span></div><div class="line">curl -X POST http:<span class="string">//kong</span><span class="function">:8001</span>/consumers/&#123;consumer&#125;<span class="string">/jwt</span> \</div><div class="line">  <span class="params">--data</span> <span class="string">"secret=YmxvYiBkYXRh"</span></div></pre></td></tr></table></figure></p>
+<h3 id="使用JWT-的-public-private-keys-RS256-or-ES256"><a href="#使用JWT-的-public-private-keys-RS256-or-ES256" class="headerlink" title="使用JWT 的 public/private keys (RS256 or ES256)"></a>使用JWT 的 public/private keys (RS256 or ES256)</h3><p>如果你想使用RS256 / ES256 来验证JWT,那么创建一个JWT的credential,选择RS256 或者 ES256 作为 algorithm,然后在rsa_public_key直接上传public key(包含 ES256 签名过的token)<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/kong:8001/consumers</span><span class="regexp">/&#123;consumer&#125;/jwt</span> \</div><div class="line">      -F <span class="string">"rsa_public_key=@/path/to/public_key.pem"</span> \</div><div class="line">HTTP/<span class="number">1.1</span> <span class="number">201</span> Created</div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="string">"consumer_id"</span>: <span class="string">"7bce93e1-0a90-489c-c887-d385545f8f4b"</span>,</div><div class="line">    <span class="string">"created_at"</span>: <span class="number">1442426001000</span>,</div><div class="line">    <span class="string">"id"</span>: <span class="string">"bcbfb45d-e391-42bf-c2ed-94e32946753a"</span>,</div><div class="line">    <span class="string">"key"</span>: <span class="string">"a36c3049b36249a3c9f8891cb127243c"</span>,</div><div class="line">    <span class="string">"rsa_public_key"</span>: <span class="string">"-----BEGIN PUBLIC KEY----- ..."</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>创建签名的时候,header 会是这样:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"typ"</span>: <span class="string">"JWT"</span>,</div><div class="line">    <span class="attr">"alg"</span>: <span class="string">"RS256"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后,claims 必须包含秘密的key字段（这不是用于生成令牌的private key，而只是该配置的claim）（来自config.key_claim_name）。<br>该claim 默认为iss（发行者字段）,将其值设置为我们先前创建的credential的 key.claims可能包含其他值.自Kong 0.13.1起，将会在 JWT 的payload和header中都会查找该字段.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"iss"</span>: <span class="string">"a36c3049b36249a3c9f8891cb127243c"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着,然后使用您的私钥创建签名。<br>使用<a href="https://jwt.io" target="_blank" rel="external">https://jwt.io</a> 上的JWT调试器，设置正确的header（RS256），claims（iss等）和相关的 public key。<br>然后将结果值附加到Authorization header中，例如：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ curl http:<span class="comment">//kong:8000/&#123;route path&#125; \</span></div><div class="line">    -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxM2Q1ODE0NTcyZTc0YTIyYjFhOWEwMDJmMmQxN2MzNyJ9.uNPTnDZXVShFYUSiii78Q-IAfhnc2ExjarZr_WVhGrHHBLweOBJxGJlAKZQEKE4rVd7D6hCtWSkvAAOu7BU34OnlxtQqB8ArGX58xhpIqHtFUkj882JQ9QD6_v2S2Ad-EmEx<span class="number">5402</span>ge71VWEJ0-jyH2WvfxZ_pD90n5AG5rAbYNAIlm2Ew78q4w4GVSivpletUhcv31-U3GROsa7dl8rYMqx6gyo9oIIDcGoMh3bu8su5kQc5SQBFp1CcA5H8sHGfYs-Et5rCU2A6yKbyXtpHrd1Y9oMrZpEfQdgpLae0AfWRf6JutA9SPhst9-5rn4o3cdUmto_TBGqHsFmVyob8VQ'</div></pre></td></tr></table></figure>
+<h3 id="生成一个-public-private-keys"><a href="#生成一个-public-private-keys" class="headerlink" title="生成一个 public/private keys"></a>生成一个 public/private keys</h3><p>要创建一对全新的public/private keys，可以运行以下命令：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ openssl genrsa -<span class="keyword">out</span> <span class="keyword">private</span>.pem <span class="number">2048</span></div></pre></td></tr></table></figure>
+<p>这个私钥必须保密。要生成与私钥对应的公钥，执行<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ openssl rsa -<span class="keyword">in</span> <span class="keyword">private</span>.pem -outform PEM -pubout -<span class="keyword">out</span> <span class="keyword">public</span>.pem</div></pre></td></tr></table></figure></p>
+<p>如果运行上述命令，则公钥将写入public.pem，而私钥将写入private.pem。</p>
+<h3 id="在JWT插件中使用Auth0"><a href="#在JWT插件中使用Auth0" class="headerlink" title="在JWT插件中使用Auth0"></a>在JWT插件中使用Auth0</h3><p><a href="https://auth0.com/" target="_blank" rel="external">Auth0</a>是一种流行的授权解决方案，并且在很大程度上依赖于JWT。<br>Auth0依赖于RS256，不进行base64编码，并公开托管用于签署令牌的公钥证书。<br>出于指南的目的，帐户名称被称为“COMPANYNAME”。  </p>
+<p>要开始，请创建service，使用该服service的router或创建API。<br>注意：Auth0不使用base64编码的秘密。</p>
+<p>创建一个service:</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl -i -f -X POST http://localhost:8001/services \</div><div class="line">    -<span class="ruby">-data <span class="string">"name=example-service"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"=http://httpbin.org"</span></span></div></pre></td></tr></table></figure>
+<p>然后创建一个router</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ curl -i -X POST http://localhost:8001/apis \</div><div class="line">    -<span class="ruby">-data <span class="string">"name=&#123;api&#125;"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"hosts=example.com"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"upstream_url=http://httpbin.org"</span></span></div></pre></td></tr></table></figure>
+<p>添加JWT插件<br>添加插件到你的router<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/localhost:8001/route</span><span class="regexp">/&#123;route id&#125;/plugins</span> \</div><div class="line">    --data <span class="string">"name=jwt"</span></div></pre></td></tr></table></figure></p>
+<p>添加插件到你的api<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X POST <span class="symbol">http:</span>/<span class="regexp">/localhost:8001/apis</span><span class="regexp">/&#123;api&#125;/plugins</span> \</div><div class="line">    --data <span class="string">"name=jwt"</span></div></pre></td></tr></table></figure></p>
+<p>下载你的Auth0帐户的X509证书:<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl -o &#123;COMPANYNAME&#125;<span class="string">.pem</span> https:<span class="string">//</span>&#123;COMPANYNAME&#125;<span class="string">.auth0.com/pem</span></div></pre></td></tr></table></figure></p>
+<p>从X509证书中提取公钥:`<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> openssl x509 -pubkey -noout -<span class="keyword">in</span> &#123;COMPANYNAME&#125;.pem &gt; pubkey.pem</span></div></pre></td></tr></table></figure></p>
+<p>使用 Auth0 public key 创建一个Consumer:</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">curl -i -X POST http://kong:8001/consumers \</div><div class="line">    -<span class="ruby">-data <span class="string">"username=&lt;USERNAME&gt;"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"custom_id=&lt;CUSTOM_ID&gt;"</span></span></div><div class="line"><span class="ruby"></span></div><div class="line"><span class="ruby">curl -i -X POST <span class="symbol">http:</span>/<span class="regexp">/localhost:8001/consumers</span><span class="regexp">/&#123;consumer&#125;/jwt</span> \</span></div><div class="line"><span class="ruby">    -F <span class="string">"algorithm=RS256"</span> \</span></div><div class="line"><span class="ruby">    -F <span class="string">"rsa_public_key=@./pubkey.pem"</span> \</span></div><div class="line"><span class="ruby">    -F <span class="string">"key=https://&#123;COMPAYNAME&#125;.auth0.com/"</span> <span class="comment"># the `iss` field</span></span></div></pre></td></tr></table></figure>
+<p>默认情况下，JWT插件会针对令牌中的iss字段验证key_claim_name。Auth0颁发的密钥将其iss字段设置为<code>http://{COMPANYNAME}.auth0.com/</code>.在创建Consumer时，可以使用jwt.io验证key参数的iss字段。</p>
+<p>通过发送请求，只有Auth0签名的令牌才能正常工作：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ curl -i http://localhost:8000 \</div><div class="line">    -<span class="ruby">H <span class="string">"Host:example.com"</span> \</span></div><div class="line"><span class="ruby">    -H <span class="string">"Authorization:Bearer "</span></span></div></pre></td></tr></table></figure></p>
+<p>成功!</p>
+<h3 id="上游-Headers"><a href="#上游-Headers" class="headerlink" title="上游 Headers"></a>上游 Headers</h3><p>当JWT有效时，Consumer已经过身份验证，插件会在将请求代理到上游服务之前将一些头附加到请求中，以便您可以在代码中识别Consumer：</p>
+<ul>
+<li><code>X-Consumer-ID</code>, Consumer 在 Kong 的 ID</li>
+<li><code>X-Consumer-Custom-ID</code>, Consumer的custom_id  (如果存在)</li>
+<li><code>X-Consumer-Username</code>, Consumer的username  (如果存在)</li>
+<li><code>X-Anonymous-Consumer</code>,身份验证失败时将设置为true，并设置“匿名”使用者。</li>
+</ul>
+<p>您可以使用此信息来实现其他逻辑。<br>您可以使用X-Consumer-ID值来查询Kong Admin API并检索有关Consumer的更多信息。</p>
+<h3 id="通过JWT分页"><a href="#通过JWT分页" class="headerlink" title="通过JWT分页"></a>通过JWT分页</h3><blockquote>
+<p>提示：此功能在Kong 0.11.2中引入。</p>
+</blockquote>
+<p>您可以使用以下请求为所有使用者分配JWT：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">$ curl -X GET http://kong:<span class="number">8001</span>/jwts</div><div class="line"></div><div class="line">&#123;</div><div class="line">    <span class="string">"total"</span>: <span class="number">3</span>,</div><div class="line">    <span class="string">"data"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="string">"created_at"</span>: <span class="number">1509593911000</span>,</div><div class="line">            <span class="string">"id"</span>: <span class="string">"381879e5-04a1-4c8a-9517-f85fbf90c3bc"</span>,</div><div class="line">            <span class="string">"algorithm"</span>: <span class="string">"HS256"</span>,</div><div class="line">            <span class="string">"key"</span>: <span class="string">"UHVwIly5ZxZH7g52E0HRlFkFC09v9yI0"</span>,</div><div class="line">            <span class="string">"secret"</span>: <span class="string">"KMWyDsTTcZgqqyOGgRWTDgZtIyWeEtJh"</span>,</div><div class="line">            <span class="string">"consumer_id"</span>: <span class="string">"3c2c8fc1-7245-4fbb-b48b-e5947e1ce941"</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="string">"created_at"</span>: <span class="number">1511389527000</span>,</div><div class="line">            <span class="string">"id"</span>: <span class="string">"0dfc969b-02be-42ae-9d98-e04ed1c05850"</span>,</div><div class="line">            <span class="string">"algorithm"</span>: <span class="string">"ES256"</span>,</div><div class="line">            <span class="string">"key"</span>: <span class="string">"vcc1NlsPfK3N6uU03YdNrDZhzmFF4S19"</span>,</div><div class="line">            <span class="string">"secret"</span>: <span class="string">"b65Rs6wvnWPYaCEypNU7FnMOZ4lfMGM7"</span>,</div><div class="line">            <span class="string">"consumer_id"</span>: <span class="string">"c0d92ba9-8306-482a-b60d-0cfdd2f0e880"</span></div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="string">"created_at"</span>: <span class="number">1509593912000</span>,</div><div class="line">            <span class="string">"id"</span>: <span class="string">"d10c6f3b-71f1-424e-b1db-366abb783460"</span>,</div><div class="line">            <span class="string">"algorithm"</span>: <span class="string">"HS256"</span>,</div><div class="line">            <span class="string">"key"</span>: <span class="string">"SqSNfg9ARmPnpycyJSMAc2uR6nxdmc9S"</span>,</div><div class="line">            <span class="string">"secret"</span>: <span class="string">"CCh6ZIcwDSOIWacqkkWoJ0FWdZ5eTqrx"</span>,</div><div class="line">            <span class="string">"consumer_id"</span>: <span class="string">"3c2c8fc1-7245-4fbb-b48b-e5947e1ce941"</span></div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>您可以使用以下查询参数过滤列表：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code>(可选)</td>
+<td>基于JWT credential ID字段的列表上的过滤器。</td>
+</tr>
+<tr>
+<td><code>key</code>(可选)</td>
+<td>基于JWT  credential key 字段的列表上的过滤器。</td>
+</tr>
+<tr>
+<td><code>consumer_id</code>(可选)</td>
+<td>基于JWT credential consumer_id字段的列表上的过滤器。</td>
+</tr>
+<tr>
+<td><code>size</code>(可选)</td>
+<td>要返回的对象数量的限制(默认100)</td>
+</tr>
+<tr>
+<td><code>offset</code>(可选)</td>
+<td>用于分页的游标。offset是一个对象标识符，用于定义列表中的位置。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="检索与JWT关联的使用者"><a href="#检索与JWT关联的使用者" class="headerlink" title="检索与JWT关联的使用者"></a>检索与JWT关联的使用者</h3><blockquote>
+<p>提示：此功能在Kong 0.11.2中引入。</p>
+</blockquote>
+<p>可以使用以下请求检索与JWT关联的<a href="https://docs.konghq.com/latest/admin-api/#consumer-object" target="_blank" rel="external"> Consumer </a>：<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>curl -X GET <span class="symbol">http:</span>/<span class="regexp">/kong:8001/jwts</span><span class="regexp">/&#123;key or id&#125;/consumer</span></div><div class="line"></div><div class="line">&#123;</div><div class="line">   <span class="string">"created_at"</span><span class="symbol">:</span><span class="number">1507936639000</span>,</div><div class="line">   <span class="string">"username"</span><span class="symbol">:<span class="string">"foo"</span></span>,</div><div class="line">   <span class="string">"id"</span><span class="symbol">:<span class="string">"c0d92ba9-8306-482a-b60d-0cfdd2f0e880"</span></span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>key or id</code>: JWT的<code>id</code>或<code>key</code>属性，用于获取关联的Consumer。</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong JWT 插件中文文档</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2018-12-15</p><p><span>最后更新：</span>2025-06-15</p><p><span>原始链接：</span><a href="/2018/12/15/kong-jwt-plugins/">https://102no.com/2018/12/15/kong-jwt-plugins/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2018/12/15/kong-jwt-plugins/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2018/12/15/kong-jwt-plugins/" data-id="cmd77wiek00gb28mtw37wpl5m" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQXICMQwEQP7/6c01h7DM2JAq5PaJArPrvqgkWY9HvK5f6/77+533n59987aFgYHxtYzrdiV7khe3z8z3YGBgnMN49uK1cHn/zPzX5GwYGBgYydGT/UkSiYGBgfG5gLsWjjEwMDBaRvKCtWZZ+5yP1+IYGBhfyMi77v//+SP3GxgYGF/FuMqVFKXtBWd7/fDH2zEwMEYz8gC3c22ZBO522AIDA+NMRtvKz1tpyc58pCxqt2FgYIxmrIXR/BB5Oy/fg4GBMZuRANoAupNWLl4AYGBgjGYUiVecRCbNtbyULcpgDAyMAxhtqdm2ydrEsWVjYGDMZuxfD+yXqTtJJwYGxmxGfqy8KRZ1+MoW3ovwjYGBMZpx/7d8zCsfpNi/YIjacBgYGIMY7YF2Uro2fSx6/hgYGAcwWsBO8tcCIgwGBsZhjDbI1l29uAAuil4MDIxjGO1I1tqIxmLyl9xpYGBgDGW0CVwelJPhibURsaJriIGBMYjxrrZXnmjmCWjRnsPAwDiAsTMKtlYArwXxF3kuBgbGaMZ+itY299v/vtiJgYExlHGVq00H8yck7bkot8XAwBjHyFeS0uUJX1sYt5cHGBgY8xg7QXYnKK+Vr/WdBgYGxiBGGyh3hjZaZFGLY2BgYJSjFWtF6doYGQYGBsZOu60d2lhMHDEwMA5gtINZ7a9tO69u8GFgYIxmtKVjEl7zQ+yHewwMjNGMH4OEGQbwSU4DAAAAAElFTkSuQmCC">分享</a><div class="tags"><a href="/tags/api网关/"><i class="fa fa-tag"></i>api网关</a><a href="/tags/Kong/"><i class="fa fa-tag"></i>Kong</a><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/kong插件/"><i class="fa fa-tag"></i>kong插件</a></div><div class="post-nav"><a class="pre" href="/2018/12/19/kong-docs-and-notes/">Kong 开发笔记&amp;相关文章</a><a class="next" href="/2018/12/11/nginx-api-for-lua/">Nginx API for Lua 汇总</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">124</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">53</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/05/09/ke-jia-yan-mian-san-ji-di/">客家腌面三及第🥣</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/01/sha-guo-hu-bo/">砂锅糊饽🥘</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/dao-xiao-miam/">刀削面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/11/33th-chunfen/">第三十三年春分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/19/nan-ning-lao-you-fen/">南宁老友粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/13/liu-zhou-luo-si-fen/">柳州螺蛳粉🐚</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/22/chao-xi-mi-fen/">炒细米粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/20/re-gan-mian/">热干面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/27/kong-3.7/">Kong 3.7重磅上线！Kong AI Gateway 正式 GA！🦍</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/05/27/dou-jiao-zheng-mian/">豆角蒸面🍜</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="forecho's blog" target="_blank">forecho's blog</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://zhou.ge/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="特立独行的异类" target="_blank">特立独行的异类</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a><ul></ul><a href="https://www.ctq6.cn/" title="mikelPan" target="_blank">mikelPan</a><ul></ul><a href="https://xyzbz.cn/" title="网友小宋" target="_blank">网友小宋</a><ul></ul><a href="https://vjo.cc/" title="刘郎" target="_blank">刘郎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

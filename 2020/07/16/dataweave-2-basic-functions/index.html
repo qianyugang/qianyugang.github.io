@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>DataWeave 2.0 基本函数 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">DataWeave 2.0 基本函数</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（上述语言博主一概不会。）</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">DataWeave 2.0 基本函数</h1><div class="post-meta">2020-07-16<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2020/07/16/dataweave-2-basic-functions/#vcomment"><span class="valine-comment-count" data-xid="/2020/07/16/dataweave-2-basic-functions/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本函数"><span class="toc-number">1.</span> <span class="toc-text">基本函数</span></a></li></ol></div></div><div class="post-content"><p>本文章中包含用于数据转换的核心 DataWeave 函数。任何DataWeave脚本都可以直接使用。<br>有关DataWeave 1.0函数的文档，请参阅<a href="https://docs.mulesoft.com/mule-runtime/3.9/dataweave-operators" target="_blank" rel="external">DataWeave操作符</a><br><strong>原文地址：</strong><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core" target="_blank" rel="external">https://docs.mulesoft.com/mule-runtime/4.3/dw-core</a></p>
+<h2 id="基本函数"><a href="#基本函数" class="headerlink" title="基本函数"></a>基本函数</h2><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-plusplus" target="_blank" rel="external"><code>++</code></a></td>
+<td>连接两个值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-minusminus" target="_blank" rel="external"><code>--</code></a></td>
+<td>从输入值中移除指定的值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-abs" target="_blank" rel="external"><code>abs</code></a></td>
+<td>返回一个数的绝对值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-avg" target="_blank" rel="external"><code>avg</code></a></td>
+<td>返回数组中列出的数字的平均值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-ceil" target="_blank" rel="external"><code>ceil</code></a></td>
+<td>将一个数四舍五入到最接近的整数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-contains" target="_blank" rel="external"><code>contains</code></a></td>
+<td>如果输入包含给定值，则返回<code>true</code>;如果不包含给定值，则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-daysbetween" target="_blank" rel="external"><code>daysBetween</code></a></td>
+<td>返回两个日期之间的天数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-distinctby" target="_blank" rel="external"><code>distinctBy</code></a></td>
+<td>对数组进行去重并返回其中唯一的元素。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-endswith" target="_blank" rel="external"><code>endsWith</code></a></td>
+<td>如果字符串以所提供的子字符串结尾，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-entriesof" target="_blank" rel="external"><code>entriesOf</code></a></td>
+<td>从指定的键、值、对象或任何属性返回一个键值对的数组。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-filter" target="_blank" rel="external"><code>filter</code></a></td>
+<td>遍历数组并应用返回匹配值的表达式。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-filterobject" target="_blank" rel="external"><code>filterObject</code></a></td>
+<td>在对象中迭代键-值对，并应用只返回匹配对象的表达式，从输出中过滤掉其余的对象。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-find" target="_blank" rel="external"><code>find</code></a></td>
+<td>返回与指定值匹配的输入的索引。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-flatmap" target="_blank" rel="external"><code>flatMap</code></a></td>
+<td>遍历数组中的每个项并扁平化结果。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-flatten" target="_blank" rel="external"><code>flatten</code></a></td>
+<td>将一组子数组(如<code>[[1,2,3]，[4,5，[6]]，[]，[null]]</code>)转换为单个扁平数组(如<code>[1,2,3,4,5，[6]，null]</code>)。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-floor" target="_blank" rel="external"><code>floor</code></a></td>
+<td>将一个数四舍五入到最接近的整数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-groupby" target="_blank" rel="external"><code>groupBy</code></a></td>
+<td>返回一个对象，该对象根据指定的条件对数组中的项进行分组，例如表达式或匹配的选择器。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isblank" target="_blank" rel="external"><code>isBlank</code></a></td>
+<td>如果给定字符串为空或完全由空白组成，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isdecimal" target="_blank" rel="external"><code>isDecimal</code></a></td>
+<td>如果给定数字包含小数，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isempty" target="_blank" rel="external"><code>isEmpty</code></a></td>
+<td>如果给定输入值为空，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-iseven" target="_blank" rel="external"><code>isEven</code></a></td>
+<td>如果数字或数学操作的数字结果是偶数，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isinteger" target="_blank" rel="external"><code>isInteger</code></a></td>
+<td>如果给定的数字是整数(缺少小数)，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isleapyear" target="_blank" rel="external"><code>isLeapYear</code></a></td>
+<td>如果给定的值是闰年的日期，返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-isodd" target="_blank" rel="external"><code>isOdd</code></a></td>
+<td>如果数字或数学操作的数字结果是奇数，则返回<code>true</code>，否则返回<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-joinby" target="_blank" rel="external"><code>joinBy</code></a></td>
+<td>将数组合并为单个字符串值，并使用所提供的字符串作为列表中每个项之间的分隔符。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-keysof" target="_blank" rel="external"><code>keysOf</code></a></td>
+<td>从传入对象中的键-值对返回键数组。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-log" target="_blank" rel="external"><code>log</code></a></td>
+<td>在不更改输入值的情况下，log将输入作为系统日志返回。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-lower" target="_blank" rel="external"><code>lower</code></a></td>
+<td>转换为小写字符。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-map" target="_blank" rel="external"><code>map</code></a></td>
+<td>遍历数组中的项并将结果输出到新数组中。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-mapobject" target="_blank" rel="external"><code>mapObject</code></a></td>
+<td>遍历一个对象使用一个映射器作用于键,值,或索引的对象。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-match" target="_blank" rel="external"><code>match</code></a></td>
+<td>使用Java正则表达式(regex)匹配字符串，然后将其分割为捕获组。返回数组中的结果。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-matches" target="_blank" rel="external"><code>matches</code></a></td>
+<td>检查表达式是否与整个输入字符串匹配。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-max" target="_blank" rel="external"><code>max</code></a></td>
+<td>返回数组中<code>Comparable</code>的最大值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-maxby" target="_blank" rel="external"><code>maxBy</code></a></td>
+<td>遍历数组并从中返回<code>Comparable</code>元素的最大值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-min" target="_blank" rel="external"><code>min</code></a></td>
+<td>返回数组中<code>Comparable</code>的最小值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-minby" target="_blank" rel="external"><code>minBy</code></a></td>
+<td>遍历数组并从中返回<code>Comparable</code>元素的最小值。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-mod" target="_blank" rel="external"><code>mod</code></a></td>
+<td>取模</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-namesof" target="_blank" rel="external"><code>namesOf</code></a></td>
+<td>返回字符串数组，包含给定对象中所有键的名称。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-native" target="_blank" rel="external"><code>native</code></a></td>
+<td>内部方法，用于指示函数实现不是用DataWeave编写的，而是用Scala编写的。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-now" target="_blank" rel="external"><code>now</code></a></td>
+<td>返回当前<code>DateTime</code> 日期时间。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-orderby" target="_blank" rel="external"><code>orderBy</code></a></td>
+<td>使用对输入的选定元素起作用的标准重新排序输入的元素。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-pluck" target="_blank" rel="external"><code>pluck</code></a></td>
+<td>用于将对象映射到数组中，获取对象上的迭代并从该对象返回键、值或索引数组。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-pow" target="_blank" rel="external"><code>pow</code></a></td>
+<td>幂计算</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-random" target="_blank" rel="external"><code>random</code></a></td>
+<td>返回一个大于或等于0.0且小于1.0的伪随机数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-randomint" target="_blank" rel="external"><code>randomInt</code></a></td>
+<td>返回从0到指定数字的伪随机整数(专用)。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-read" target="_blank" rel="external"><code>read</code></a></td>
+<td>读取字符串或二进制文件并返回解析后的内容。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-readurl" target="_blank" rel="external"><code>readUrl</code></a></td>
+<td>类似于<code>read</code>函数。但是，<code>readURL</code>接受一个<code>URL</code>，包括一个基于类路径的<code>URL</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-reduce" target="_blank" rel="external"><code>reduce</code></a></td>
+<td>对数组中的元素应用表达式。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-replace" target="_blank" rel="external"><code>replace</code></a></td>
+<td>字符串替换。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-round" target="_blank" rel="external"><code>round</code></a></td>
+<td>将一个数四舍五入到最接近的整数。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-scan" target="_blank" rel="external"><code>scan</code></a></td>
+<td>返回一个包含在输入字符串中找到的所有匹配项的数组。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-sizeof" target="_blank" rel="external"><code>sizeOf</code></a></td>
+<td>返回数组中元素的个数。如果数组为空则返回0。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-splitby" target="_blank" rel="external"><code>splitBy</code></a></td>
+<td>根据与该字符串部分匹配的值将该字符串分割为字符串数组。它从返回的数组中过滤出匹配的部分。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-sqrt" target="_blank" rel="external"><code>sqrt</code></a></td>
+<td>返回一个数的平方根</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-startswith" target="_blank" rel="external"><code>startsWith</code></a></td>
+<td>根据输入字符串是否以匹配的前缀开头，返回<code>true</code>或<code>false</code>。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-sum" target="_blank" rel="external"><code>sum</code></a></td>
+<td>返回数组中数值的总和。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-to" target="_blank" rel="external"><code>to</code></a></td>
+<td>返回具有指定边界的范围。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-trim" target="_blank" rel="external"><code>trim</code></a></td>
+<td>删除字符串开头和结尾的所有空格。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-typeof" target="_blank" rel="external"><code>typeOf</code></a></td>
+<td>返回一个值的类型</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-unzip" target="_blank" rel="external"><code>unzip</code></a></td>
+<td>执行与zip相反的操作。它接受数组的数组作为输入。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-upper" target="_blank" rel="external"><code>upper</code></a></td>
+<td>转换为大写字符串</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-uuid" target="_blank" rel="external"><code>uuid</code></a></td>
+<td>使用随机数作为源返回v4 UUID。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-valuesof" target="_blank" rel="external"><code>valuesOf</code></a></td>
+<td>返回对象中键-值对中值的数组。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-with" target="_blank" rel="external"><code>with</code></a></td>
+<td>当与<code>replace</code>一起使用时，<code>with</code>传递一个替换字符串。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-write" target="_blank" rel="external"><code>write</code></a></td>
+<td>以支持的格式将值写入字符串或二进制文件。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-xsitype" target="_blank" rel="external"><code>xsiType</code></a></td>
+<td>创建一个xsi:type类型属性。此方法返回一个对象，因此必须与动态属性一起使用。</td>
+</tr>
+<tr>
+<td><a href="https://docs.mulesoft.com/mule-runtime/4.3/dw-core-functions-zip" target="_blank" rel="external"><code>zip</code></a></td>
+<td>将两个数组中的元素合并为数组。</td>
+</tr>
+</tbody>
+</table>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>DataWeave 2.0 基本函数</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2020-07-16</p><p><span>最后更新：</span>2025-06-15</p><p><span>原始链接：</span><a href="/2020/07/16/dataweave-2-basic-functions/">https://102no.com/2020/07/16/dataweave-2-basic-functions/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2020/07/16/dataweave-2-basic-functions/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2020/07/16/dataweave-2-basic-functions/" data-id="cmd77widg006p28mtjveeor43" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aMXLDMAwFUd//0krrImL2A7QnApdVxlZEPhcYEMDrhdf1ttbf3j35/gl/cvOSIUPGYxnXcqUH5QDyZnI2GTJknMO4i2AkXN5tvz46CevkbDJkyJBB0rVdIZvvK0OGDBn9gMvf3wnNMmTIOI3RSfV4Qa3/+Ya7uAwZMh7I4FX37//9kf6GDBkyHsW4wpW+jRxx3WBAp5IhQ8ZoBg9wPHFM08dawJUhQ8aZjH5Bn4x88UJePCgmQ4aMoQyextWKXLxwVmtn/pLhypAhYzQjbQmQAN0fsyDBXYYMGbMZvEzGSWn+RhqZKPWUIUPGaAYv0HeGydLmaHwXlyFDxlAGCbK1mYc04K5/rD+u2TJkyBjNIKlhOiqRjl+QUItapDJkyBjNCErw7ays04RAF2YZMmSMY/BUjA+B1RoM6SVWhgwZZzJqoxW10MxbDmgvGTJkjGakx+qMWaRX305pT4YMGZMYtVSsFhBriSO6BsuQIWM0I2098kPUivutkC1DhowDGP0NOLgTcD9SO5QhQ8ajGDywpi3JV7hI31WGDBmnMfi/1RLBdLwjhsmQIWMo4woXL+vvuvSifWXIkDGaUUvU0jCdBtkULEOGjBMY/SBLtk/TTfLTyJAh4zTGrsC36zJcvMrKkCFDBni+P+BVDPoyZMiQUWKk3/ITfjXgypAh498wauNcuy6lwaCqDBkyjmTwqyPZcn3odLCjFvplyJAxiPEDhRpqmPCBNRAAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/iPaaS/"><i class="fa fa-tag"></i>iPaaS</a><a href="/tags/DataWeave/"><i class="fa fa-tag"></i>DataWeave</a></div><div class="post-nav"><a class="pre" href="/2020/07/21/dataweave-2-array-functions/">DataWeave 2.0 数组函数</a><a class="next" href="/2020/07/08/trial-mulesoft-4-ce/">Mulesoft 4 CE 社区版本试用</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">124</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">53</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/05/09/ke-jia-yan-mian-san-ji-di/">客家腌面三及第🥣</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/01/sha-guo-hu-bo/">砂锅糊饽🥘</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/dao-xiao-miam/">刀削面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/11/33th-chunfen/">第三十三年春分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/19/nan-ning-lao-you-fen/">南宁老友粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/13/liu-zhou-luo-si-fen/">柳州螺蛳粉🐚</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/22/chao-xi-mi-fen/">炒细米粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/20/re-gan-mian/">热干面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/27/kong-3.7/">Kong 3.7重磅上线！Kong AI Gateway 正式 GA！🦍</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/05/27/dou-jiao-zheng-mian/">豆角蒸面🍜</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="forecho's blog" target="_blank">forecho's blog</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://zhou.ge/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="特立独行的异类" target="_blank">特立独行的异类</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a><ul></ul><a href="https://www.ctq6.cn/" title="mikelPan" target="_blank">mikelPan</a><ul></ul><a href="https://xyzbz.cn/" title="网友小宋" target="_blank">网友小宋</a><ul></ul><a href="https://vjo.cc/" title="刘郎" target="_blank">刘郎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

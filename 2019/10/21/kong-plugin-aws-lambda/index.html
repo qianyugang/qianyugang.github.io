@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>微服务 API 网关 Kong 插件 AWS Lambda 中文文档 | 把酒诗代码，趁乱写年华。</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.1/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-115330315-2','auto');ga('send','pageview');
+</script><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/2.0.4/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/2.1.4/toastr.min.css"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">微服务 API 网关 Kong 插件 AWS Lambda 中文文档</h1><a id="logo" href="/.">把酒诗代码，趁乱写年华。</a><p class="description">是谁来自 Python Java, 却囿于 PHP, Go 与 Lua。（上述语言博主一概不会。）</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/tags/"><i class="fa fa-tag"> 标签</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">微服务 API 网关 Kong 插件 AWS Lambda 中文文档</h1><div class="post-meta">2019-10-21<span> | </span><span class="category"><a href="/categories/与代码/">与代码</a></span></div><a class="disqus-comment-count" href="/2019/10/21/kong-plugin-aws-lambda/#vcomment"><span class="valine-comment-count" data-xid="/2019/10/21/kong-plugin-aws-lambda/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.</span> <span class="toc-text">术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-Service-上启用插件"><span class="toc-number">3.</span> <span class="toc-text">在 Service 上启用插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-Route-上启用插件"><span class="toc-number">4.</span> <span class="toc-text">在 Route 上启用插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-Consumer-上启用插件"><span class="toc-number">5.</span> <span class="toc-text">在 Consumer 上启用插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局插件"><span class="toc-number">6.</span> <span class="toc-text">全局插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-number">7.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#发送参数"><span class="toc-number">7.1.</span> <span class="toc-text">发送参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#已知的问题"><span class="toc-number">7.2.</span> <span class="toc-text">已知的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分步指南"><span class="toc-number">8.</span> <span class="toc-text">分步指南</span></a></li></ol></div></div><div class="post-content"><p>从Kong调用 <a href="https://aws.amazon.com/lambda/" target="_blank" rel="external">AWS Lambda</a>函数。它可以与其他请求插件结合使用以保护，管理或扩展功能。</p>
+<blockquote>
+<p>注意：此插件与0.14.0之前的Kong版本和0.34之前的Kong Enterprise捆绑在一起的功能与此处记录的功能不同。<br>有关详细信息，请参阅<a href="https://github.com/Kong/kong/blob/master/CHANGELOG.md" target="_blank" rel="external">CHANGELOG</a>。</p>
+</blockquote>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li><code>plugin</code>: 在请求被代理到上游API之前或之后，在Kong内部执行操作的插件。</li>
+<li><code>Service</code>: 表示外部 <em>upstream</em> API或微服务的Kong实体。</li>
+<li><code>Route</code>: 表示将下游请求映射到上游服务的方法的Kong实体。</li>
+<li><code>Consumer</code>: 代表使用API的开发人员或机器的Kong实体。当使用Kong时，Consumer 仅与Kong通信，其代理对所述上游API的每次调用。</li>
+<li><code>Credential</code>: 与Consumer关联的唯一字符串，也称为API密钥。</li>
+<li><code>upstream service</code>: 这是指位于Kong后面的您自己的 API/service，转发客户端请求。</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>此插件与具有以下协议的请求兼容：</p>
+<ul>
+<li><code>http</code></li>
+<li><code>https</code></li>
+</ul>
+<p>此插件与无DB模式兼容。</p>
+<h2 id="在-Service-上启用插件"><a href="#在-Service-上启用插件" class="headerlink" title="在 Service 上启用插件"></a>在 Service 上启用插件</h2><p><strong>使用数据库：</strong></p>
+<p>通过发出以下请求在Service上配置此插件：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/services/&#123;service&#125;/plugins \</div><div class="line">    -<span class="ruby">-data <span class="string">"name=aws-lambda"</span>  \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_key=AWS_KEY"</span> \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_secret=AWS_SECRET"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.aws_region=AWS_REGION"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.function_name=LAMBDA_FUNCTION_NAME"</span></span></div></pre></td></tr></table></figure></p>
+<p><strong>不使用数据库：</strong></p>
+<p>通过添加此部分在服务上配置此插件执行声明性配置文件：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">plugins</span>:</div><div class="line">- <span class="attribute">name</span>: aws-lambda</div><div class="line">  <span class="attribute">service</span>: &#123;service&#125;</div><div class="line">  <span class="attribute">config</span>:</div><div class="line">    <span class="attribute">aws_key</span>: AWS_KEY</div><div class="line">    <span class="attribute">aws_secret</span>: AWS_SECRET</div><div class="line">    <span class="attribute">aws_region</span>: AWS_REGION</div><div class="line">    <span class="attribute">function_name</span>: LAMBDA_FUNCTION_NAME</div></pre></td></tr></table></figure>
+<p>在这两种情况下，<code>{service}</code>是此插件配置将定位的<code>Route</code>的<code>ID</code>或名称。</p>
+<h2 id="在-Route-上启用插件"><a href="#在-Route-上启用插件" class="headerlink" title="在 Route 上启用插件"></a>在 Route 上启用插件</h2><p><strong>使用数据库：</strong></p>
+<p>通过发出以下请求在 Route 上配置此插件：<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/routes/&#123;route&#125;/plugins \</div><div class="line">    -<span class="ruby">-data <span class="string">"name=aws-lambda"</span>  \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_key=AWS_KEY"</span> \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_secret=AWS_SECRET"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.aws_region=AWS_REGION"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.function_name=LAMBDA_FUNCTION_NAME"</span></span></div></pre></td></tr></table></figure></p>
+<p><strong>不使用数据库：</strong></p>
+<p>通过添加此部分在 Route 上配置此插件执行声明性配置文件：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">plugins</span>:</div><div class="line">- <span class="attribute">name</span>: aws-lambda</div><div class="line">  <span class="attribute">route</span>: &#123;route&#125;</div><div class="line">  <span class="attribute">config</span>:</div><div class="line">    <span class="attribute">aws_key</span>: AWS_KEY</div><div class="line">    <span class="attribute">aws_secret</span>: AWS_SECRET</div><div class="line">    <span class="attribute">aws_region</span>: AWS_REGION</div><div class="line">    <span class="attribute">function_name</span>: LAMBDA_FUNCTION_NAME</div></pre></td></tr></table></figure>
+<p>在这两种情况下，，<code>{route}</code>是此插件配置将定位的 route 的<code>id</code>或<code>name</code>。</p>
+<h2 id="在-Consumer-上启用插件"><a href="#在-Consumer-上启用插件" class="headerlink" title="在 Consumer 上启用插件"></a>在 Consumer 上启用插件</h2><p><strong>使用数据库：</strong></p>
+<p>您可以使用<code>http://localhost:8001/plugins</code>在特定的Consumers上启用此插件:</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ curl -X POST http://kong:8001/consumers/&#123;consumer&#125;/plugins \</div><div class="line">    -<span class="ruby">-data <span class="string">"name=aws-lambda"</span> \</span></div><div class="line"><span class="ruby">     \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_key=AWS_KEY"</span> \</span></div><div class="line"><span class="ruby">    --data-urlencode <span class="string">"config.aws_secret=AWS_SECRET"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.aws_region=AWS_REGION"</span> \</span></div><div class="line"><span class="ruby">    --data <span class="string">"config.function_name=LAMBDA_FUNCTION_NAME"</span></span></div></pre></td></tr></table></figure>
+<p><strong>不使用数据库：</strong></p>
+<p>通过添加此部分在Consumer上配置此插件执行声明性配置文件：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">plugins</span>:</div><div class="line">- <span class="attribute">name</span>: aws-lambda</div><div class="line">  <span class="attribute">consumer</span>: &#123;consumer&#125;</div><div class="line">  <span class="attribute">config</span>:</div><div class="line">    <span class="attribute">aws_key</span>: AWS_KEY</div><div class="line">    <span class="attribute">aws_secret</span>: AWS_SECRET</div><div class="line">    <span class="attribute">aws_region</span>: AWS_REGION</div><div class="line">    <span class="attribute">function_name</span>: LAMBDA_FUNCTION_NAME</div></pre></td></tr></table></figure>
+<p>在这两种情况下，<code>{consumer</code>}都是此插件配置将定位的<code>Consumer</code>的<code>id</code>或<code>username</code>。<br>您可以组合<code>consumer_id</code>和<code>service_id</code> 。<br>在同一个请求中，进一步缩小插件的范围。</p>
+<h2 id="全局插件"><a href="#全局插件" class="headerlink" title="全局插件"></a>全局插件</h2><ul>
+<li><strong>使用数据库：</strong>可以使用<code>http://kong:8001/plugins/</code>配置所有插件。</li>
+<li><strong>不使用数据库：</strong>可以通过<code>plugins:</code>配置所有插件：声明性配置文件中的条目。</li>
+</ul>
+<p>与任何 Service ，Route 或 Consumer （或API，如果您使用旧版本的Kong）无关的插件被视为“全局”，并将在每个请求上运行。有关更多信息，请阅读<a href="https://docs.konghq.com/latest/admin-api/#add-plugin" target="_blank" rel="external">插件参考</a>和<a href="https://docs.konghq.com/latest/admin-api/#precedence" target="_blank" rel="external">插件优先级</a>部分。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>以下是可在此插件配置中使用的所有参数的列表：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td></td>
+<td>要使用的插件的名称，在本例中为<code>aws-lambda</code></td>
+</tr>
+<tr>
+<td><code>service_id</code></td>
+<td></td>
+<td>此插件将定位的 Service 的ID。</td>
+</tr>
+<tr>
+<td><code>route_id</code></td>
+<td></td>
+<td>此插件将定位的 Route 的ID。</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td><code>true</code></td>
+<td>是否将应用此插件。</td>
+</tr>
+<tr>
+<td><code>consumer_id</code></td>
+<td></td>
+<td>此插件将定位的Consumer的id</td>
+</tr>
+<tr>
+<td><code>config.aws_key</code></td>
+<td></td>
+<td>调用功能时要使用的AWS密钥凭证。</td>
+</tr>
+<tr>
+<td><code>config.aws_secret</code></td>
+<td></td>
+<td>调用功能时要使用的AWS秘密凭证</td>
+</tr>
+<tr>
+<td><code>config.aws_region</code></td>
+<td></td>
+<td>Lambda函数所在的AWS区域。支持的区域是：<code>us-east-1</code>,<code>us-east-2</code>, <code>ap-northeast-1</code>, <code>ap-northeast-2</code>, <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>eu-central-1</code>, <code>eu-west-1</code></td>
+</tr>
+<tr>
+<td><code>config.function_name</code></td>
+<td></td>
+<td>要调用的AWS Lambda函数名称</td>
+</tr>
+<tr>
+<td><code>config.qualifier</code> <br> <em>optional</em></td>
+<td></td>
+<td>调用功能时要使用的 <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax" target="_blank" rel="external">Qualifier </a>。</td>
+</tr>
+<tr>
+<td><code>config.invocation_type</code>  <br> <em>optional</em></td>
+<td><code>RequestResponse</code></td>
+<td>调用函数时要使用的 <a href="http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax" target="_blank" rel="external">InvocationType</a>。可用类型为 <code>RequestResponse</code>，<code>Event</code>，<code>DryRun</code></td>
+</tr>
+<tr>
+<td><code>config.log_type</code>  <br> <em>optional</em></td>
+<td><code>Tail</code></td>
+<td>调用函数时要使用的<a href="http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax" target="_blank" rel="external">LogType</a>。默认情况下，不支持<code>none</code>和<code>Tail</code></td>
+</tr>
+<tr>
+<td><code>config.timeout</code>  <br> <em>optional</em></td>
+<td><code>60000</code></td>
+<td>调用该函数时的可选超时（以毫秒为单位）</td>
+</tr>
+<tr>
+<td><code>config.keepalive</code>  <br> <em>optional</em></td>
+<td><code>60000</code></td>
+<td>可选值（以毫秒为单位），用于定义空闲连接在关闭之前将存活多长时间</td>
+</tr>
+<tr>
+<td><code>config.unhandled_status</code> <br> <em>optional</em></td>
+<td><code>200</code>,<code>202</code> 或 <code>204</code></td>
+<td><a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_ResponseSyntax" target="_blank" rel="external">Unhandled Function Error</a>时使用的响应状态代码（而不是默认的<code>200</code>、<code>202</code>或<code>204</code>）</td>
+</tr>
+<tr>
+<td><code>config.forward_request_body</code> <br> <em>optional</em></td>
+<td><code>false</code></td>
+<td>一个可选值，用于定义是否在JSON编码请求的<code>request_body</code>字段中发送请求正文。如果可以解析正文参数，则将在请求的单独的<code>request_body_args</code>字段中发送它们。正文参数可以针对<code>application/json</code>，<code>application/x-www-form-urlencoded</code>和<code>multipart/form-data</code>内容类型进行解析。</td>
+</tr>
+<tr>
+<td><code>config.forward_request_headers</code> <br> <em>optional</em></td>
+<td><code>false</code></td>
+<td>一个可选值，用于定义是否将原始HTTP请求标头作为映射发送到JSON编码请求的<code>request_headers</code>字段中。</td>
+</tr>
+<tr>
+<td><code>config.forward_request_method</code> <br> <em>optional</em></td>
+<td><code>false</code></td>
+<td>一个可选值，用于定义是否在JSON编码请求的<code>request_method</code>字段中发送原始HTTP请求方法动词。</td>
+</tr>
+<tr>
+<td><code>config.forward_request_uri</code>  <br> <em>optional</em></td>
+<td><code>false</code></td>
+<td>一个可选值，用于定义是否在JSON编码请求的<code>request_uri</code>字段中发送原始HTTP请求URI。请求URI参数（如果有）将在JSON主体的单独的<code>request_uri_args</code>字段中发送。</td>
+</tr>
+<tr>
+<td><code>config.is_proxy_integration</code>  <br> <em>optional</em></td>
+<td><code>false</code></td>
+<td>一个可选值，它定义是否将从Lambda接收的响应格式转换为此格式。请注意，未实现参数<code>isBase64Encoded</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>提醒：</strong> 默认情况下，curl将发送带有<code>application/x-www-form-urlencoded</code> MIME类型的有效负载，该负载自然会由Kong进行URL解码。<br>为确保正确解码可能出现在您的AWS密钥或机密中的特殊字符（如<code>+</code>），您必须对其进行URL编码，因此如果使用curl，请使用<code>--data-urlencode</code>。<br>这种方法的替代方法是使用其他MIME类型（例如<code>application/json</code>）发送有效负载，或使用其他HTTP客户端。</p>
+<h3 id="发送参数"><a href="#发送参数" class="headerlink" title="发送参数"></a>发送参数</h3><p>与请求一起发送的任何表单参数也将作为参数发送到AWS Lambda函数。</p>
+<h3 id="已知的问题"><a href="#已知的问题" class="headerlink" title="已知的问题"></a>已知的问题</h3><p><strong>使用伪造的上游服务</strong></p>
+<p>使用AWS Lambda插件时，响应将由插件本身返回，而无需将请求代理到任何上游服务。<br>这意味着服务的<code>host</code>, <code>port</code>, <code>path</code>属性将被忽略，但仍必须为由Kong验证的实体指定。<br>主机属性尤其必须是IP地址，或者是由名称服务器解析的主机名。</p>
+<p><strong>响应插件</strong></p>
+<p>系统中存在一个已知限制，该限制会阻止执行某些响应插件。<br>我们计划将来删除此限制。</p>
+<h2 id="分步指南"><a href="#分步指南" class="headerlink" title="分步指南"></a>分步指南</h2><p><strong>步骤</strong></p>
+<ol>
+<li>以允许用户使用lambda函数操作以及创建用户和角色的用户身份访问AWS Console。</li>
+<li>在AWS中创建执行角色</li>
+<li>创建一个将通过Kong调用该功能的用户，对其进行测试。</li>
+<li>在Kong中创建一个Service＆Route，添加链接到我们的aws函数的aws-lambda插件并执行它。</li>
+</ol>
+<p><strong>配置</strong></p>
+<ol>
+<li><p>首先，让我们为lambda函数创建一个称为LambdaExecutor的执行角色。</p>
+<p> 在IAM控制台中创建一个选择AWS Lambda服务的新角色，将没有任何策略，因为本示例中的函数将简单地执行自身，从而返回硬编码JSON作为响应，而无需访问其他AWS资源</p>
+</li>
+<li><p>现在，我们创建一个名为KongInvoker的用户，由我们的Kong API网关用来调用该函数。</p>
+<p> 在IAM控制台中，创建一个新用户，必须通过访问和秘密密钥向其提供编程访问权限；然后将直接附加现有策略，尤其是预定义的AWSLambdaRole。确认用户创建后，将访问密钥和秘密密钥存储在安全的地方。</p>
+</li>
+<li><p>现在我们需要创建lambda函数本身，将在弗吉尼亚北部地区（代码us-east-1）进行。</p>
+<p> 在Lambda Management中，创建一个新函数Mylambda，将没有蓝图，因为我们将在下面粘贴代码。</p>
+<p> 对于执行角色，我们选择一个以前专门创建的LambdaExecutor角色使用下面的内联代码来返回简单的JSON响应，请注意，这是Python 3.6解释器的代码。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">import</span> json</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">lambda_handler</span><span class="params">(event, context)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line"><span class="string">      If is_proxy_integration is set to true :</span></div><div class="line"><span class="string">      jsonbody='''&#123;"statusCode": 200, "body": &#123;"response": "yes"&#125;&#125;'''</span></div><div class="line"><span class="string">    """</span></div><div class="line">    jsonbody=<span class="string">'''&#123;"response": "yes"&#125;'''</span></div><div class="line">    <span class="keyword">return</span> json.loads(jsonbody)</div></pre></td></tr></table></figure>
+<p> 从AWS控制台测试lambda函数，并确保执行成功。</p>
+</li>
+<li><p>最后，我们在Kong中设置了Service＆Route，并将其链接到刚刚创建的功能。</p>
+</li>
+</ol>
+<p><strong>使用数据库</strong></p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl -i -X POST http://&#123;kong_hostname&#125;:8001/services \</div><div class="line">-<span class="ruby">-data <span class="string">'name=lambda1'</span> \</span></div><div class="line"><span class="ruby">--data <span class="string">'url=http://localhost:8000'</span> \</span></div></pre></td></tr></table></figure>
+<p>该Service并不需要真正的<code>URL</code>，因为我们不会对上游进行HTTP调用，而需要由函数生成的响应。</p>
+<p>还要为 Service 创建一条 Route ：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -<span class="selector-tag">i</span> -X POST http:<span class="comment">//&#123;kong_hostname&#125;:8001/services/lambda1/routes \</span></div><div class="line">--data <span class="string">'paths[1]=/lambda1'</span></div></pre></td></tr></table></figure>
+<p>添加插件<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">curl -i -X POST http://&#123;kong_hostname&#125;:8001/services/lambda1/plugins \</div><div class="line">-<span class="ruby">-data <span class="string">'name=aws-lambda'</span> \</span></div><div class="line"><span class="ruby">--data-urlencode <span class="string">'config.aws_key=&#123;KongInvoker user key&#125;'</span> \</span></div><div class="line"><span class="ruby">--data-urlencode <span class="string">'config.aws_secret=&#123;KongInvoker user secret&#125;'</span> \</span></div><div class="line"><span class="ruby">--data <span class="string">'config.aws_region=us-east-1'</span> \</span></div><div class="line"><span class="ruby">--data <span class="string">'config.function_name=MyLambda'</span></span></div></pre></td></tr></table></figure></p>
+<p><strong>不使用数据库</strong></p>
+<p>将 Service, Route and Plugin 添加到声明性配置文件中：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">services</span>:</div><div class="line">- <span class="attribute">name</span>: lambda1</div><div class="line">  <span class="attribute">url</span>: <span class="attribute">http</span>:<span class="comment">//localhost:8000</span></div><div class="line"></div><div class="line"><span class="attribute">routes</span>:</div><div class="line">- <span class="attribute">service</span>: lambda1</div><div class="line">  <span class="attribute">paths</span>: [ <span class="string">"/lambda1"</span> ]</div><div class="line"></div><div class="line"><span class="attribute">plugins</span>:</div><div class="line">- <span class="attribute">service</span>: lambda1</div><div class="line">  <span class="attribute">name</span>: aws-lambda</div><div class="line">  <span class="attribute">config</span>:</div><div class="line">    <span class="attribute">aws_key</span>: &#123;KongInvoker user key&#125;</div><div class="line">    <span class="attribute">aws_secret</span>: &#123;KongInvoker user secret&#125;</div><div class="line">    <span class="attribute">aws_region</span>: us-east-<span class="number">1</span></div><div class="line">    <span class="attribute">function_name</span>: MyLambda</div></pre></td></tr></table></figure></p>
+<p>创建所有内容后，请调用服务并验证正确的调用，执行和响应：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl <span class="string">http:</span><span class="comment">//&#123;kong_hostname&#125;:8000/lambda1</span></div></pre></td></tr></table></figure></p>
+<p>附加标题：<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">x</span>-amzn-Remapped-Content-Length, X-Amzn-Trace-Id, <span class="keyword">x</span>-amzn-RequestId</div></pre></td></tr></table></figure></p>
+<p>JSON响应：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"response"</span>: <span class="string">"yes"</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>充分利用AWS Lambda在Kong的强大功能，尽享乐趣！</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>本文标题：</span>微服务 API 网关 Kong 插件 AWS Lambda 中文文档</p><p><span>文章作者：</span>qianyugang</p><p><span>发布时间：</span>2019-10-21</p><p><span>最后更新：</span>2025-06-15</p><p><span>原始链接：</span><a href="/2019/10/21/kong-plugin-aws-lambda/">https://102no.com/2019/10/21/kong-plugin-aws-lambda/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="https://102no.com/2019/10/21/kong-plugin-aws-lambda/"></i></span></p><p><span>版权声明：</span>本网站发表的全部原创内容（不仅限于文章、图片，包含文章评论），著作权均归其发表者所有，均采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0 CN</a> 许可协议。转载请注明作者以及原文链接，商业授权请联系作者。<br> <br> <p style="text-align:center"> <img src="https://i.loli.net/2020/11/16/7kT8gNZjuI3Kmex.png" width="90%"><br><br></p></p></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://102no.com/2019/10/21/kong-plugin-aws-lambda/" data-id="cmd77wiem00gr28mtj1n0kr7p" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS3LCMBAFwNz/0uQAxOS9ESRlqb2iwMjTXqjmo6+v+HoE1/OdzytcrXZ155svDAyM2zLa4J6/b5+SxJDHhoGBcQ7jaukk3GTDnf2axIaBgYFxdU+yQdebZvz6MDAwMF4vl5egLR4DAwPjNaPdQJM0MXkd/1CLY2Bg3JCRN8v+/vNH5hsYGBi3YjzKK99YkySyTR8vo8LAwNiakW9wrzFFqVlu4kU8GBgYWzPapHC94Fw5UraUPmJgYNyQkTS/2uFB0m5bacn9sA4GBsYBjFnxmY8zZyOHIvnDwMDYmpE0vNqA8m/Wj1n8UotjYGBsxGhngm1bbZjwlUkqBgbGCYz26FXedGs38dloAQMDY1fG7JBWUoi24ebPqruGGBgYN2fMSsd8wPmuBDE6ZoGBgbE1Iwm0Da4dALQvEQMD4xzGu9r0eej5UbACg4GBsTVjdoYhb4St/HcWFQYGxn6MlUNabRMtP6hRvwIMDIytGe3Bi5XEMfm1HYhiYGCcw8iV7ZHWWSk7WxkDA+MExmyJ9ujY7JhFcdgCAwNja0aeCK7knu3wMi+5MTAwdmU8yms9vWs304iNgYGxNWPWdJslebPx5Ov/LvUOMTAwbsXIt8h2tNmWu8l2XL9pDAyMjRifKziTZlke7uWdGBgYGPE9+QhhpcTFwMDAaBmzRlteVUfrYGBgHMCYPb6elwYD0XwXxcDAOIfxrl7WLB1cKaExMDAOYHwDWAfbGcAMMIsAAAAASUVORK5CYII=">分享</a><div class="tags"><a href="/tags/Kong教程/"><i class="fa fa-tag"></i>Kong教程</a><a href="/tags/Kong中文文档/"><i class="fa fa-tag"></i>Kong中文文档</a><a href="/tags/Kong插件/"><i class="fa fa-tag"></i>Kong插件</a></div><div class="post-nav"><a class="pre" href="/2019/10/23/kong-install-centos/">从 在 CentOS 安装 Kong</a><a class="next" href="/2019/10/14/kong-install-source/">使用源码安装 Kong</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == 'true' ? true : false;
+var verify = 'false' == 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'JyXcMD3pqe0hk6LmrzbiF7Ia-gzGzoHsz',
+  appKey:'gPRoQRTwyYE8eA74yorDb6cf',
+  placeholder:'Just so so',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'20'
+})
+</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://102no.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/与代码/">与代码</a><span class="category-list-count">124</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/乱七八糟/">乱七八糟</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/我是修电脑的/">我是修电脑的</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/说过的话/">说过的话</a><span class="category-list-count">53</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/走过的路/">走过的路</a><span class="category-list-count">22</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2025/05/09/ke-jia-yan-mian-san-ji-di/">客家腌面三及第🥣</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/04/01/sha-guo-hu-bo/">砂锅糊饽🥘</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/03/16/dao-xiao-miam/">刀削面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2025/02/11/33th-chunfen/">第三十三年春分</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/19/nan-ning-lao-you-fen/">南宁老友粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/12/13/liu-zhou-luo-si-fen/">柳州螺蛳粉🐚</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/22/chao-xi-mi-fen/">炒细米粉🍝</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/11/20/re-gan-mian/">热干面🍜</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/08/27/kong-3.7/">Kong 3.7重磅上线！Kong AI Gateway 正式 GA！🦍</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/05/27/dou-jiao-zheng-mian/">豆角蒸面🍜</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.102no.com/" title="102no.com" target="_blank">102no.com</a><ul></ul><a href="http://blog.forecho.com/" title="forecho's blog" target="_blank">forecho's blog</a><ul></ul><a href="https://blog.forecho.com/friendship-links/" title="博客联盟" target="_blank">博客联盟</a><ul></ul><a href="https://zhou.ge/" title="忆往事" target="_blank">忆往事</a><ul></ul><a href="https://chorder.net/" title="Chorder" target="_blank">Chorder</a><ul></ul><a href="https://atjason.com/" title="Jason" target="_blank">Jason</a><ul></ul><a href="http://jintang.zone/" title="Jintang'Zone" target="_blank">Jintang'Zone</a><ul></ul><a href="https://sergiojune.com/" title="梦开始的地方" target="_blank">梦开始的地方</a><ul></ul><a href="https://www.happysir.com/" title="happysir" target="_blank">happysir</a><ul></ul><a href="https://vulgur.github.io/" title="fork my life" target="_blank">fork my life</a><ul></ul><a href="https://chensenlin.cn/" title="特立独行的异类" target="_blank">特立独行的异类</a><ul></ul><a href="https://wmdpd.com/" title="完美的胖达" target="_blank">完美的胖达</a><ul></ul><a href="https://xbc.me/" title="神秘极客" target="_blank">神秘极客</a><ul></ul><a href="https://hiwannz.com/" title="见字如面" target="_blank">见字如面</a><ul></ul><a href="https://www.sweeterthandespair.com/" title="阿尔法凡" target="_blank">阿尔法凡</a><ul></ul><a href="https://yaoyedan.net/" title="妖业蛋" target="_blank">妖业蛋</a><ul></ul><a href="https://www.geekxh.com/" title="小浩算法" target="_blank">小浩算法</a><ul></ul><a href="https://logi.im/" title="LOGI" target="_blank">LOGI</a><ul></ul><a href="https://www.laruence.com/" title="风雪之隅" target="_blank">风雪之隅</a><ul></ul><a href="https://www.zhangxinxu.com/wordpress/" title="张鑫旭" target="_blank">张鑫旭</a><ul></ul><a href="https://www.ctq6.cn/" title="mikelPan" target="_blank">mikelPan</a><ul></ul><a href="https://xyzbz.cn/" title="网友小宋" target="_blank">网友小宋</a><ul></ul><a href="https://vjo.cc/" title="刘郎" target="_blank">刘郎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2025 <a href="/." rel="nofollow">把酒诗代码，趁乱写年华。.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
