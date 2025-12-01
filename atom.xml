@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2025-11-13T10:09:29.424Z</updated>
+  <updated>2025-12-01T06:56:28.378Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI编程工具2025</title>
+    <link href="https://102no.com/2025/12/01/ai-bian-cheng-2025/"/>
+    <id>https://102no.com/2025/12/01/ai-bian-cheng-2025/</id>
+    <published>2025-12-01T00:00:00.000Z</published>
+    <updated>2025-12-01T06:56:28.378Z</updated>
+    
+    <content type="html"><![CDATA[<p>谢邀，研发工作的变化，我觉得最大的变化就是从重「实现」，变为重「设计」了，从「写代码」，变为「教AI写代码」，而且要把它当一个有「实习生业务思维」的「高级研发工程师」。</p><p>之前在接研发需求的时候，大部分时间可能花在具体实现上面：调试API、写业务逻辑、处理边界情况，现在的AI工具在代码的具体实现上其实已经很强很成熟了，比如GitHub Copilot、Cursor之类的工具，使用比较强的大模型的代码能力其实已经超过了很多初中级的开发者了。</p><h1 id="从「写代码」过渡到「写需求」"><a href="#从「写代码」过渡到「写需求」" class="headerlink" title="从「写代码」过渡到「写需求」"></a>从「写代码」过渡到「写需求」</h1><p>但是如何让AI工具「写自己需要的代码」，这个反而变成更不容易更重要的事情。<br>AI 不是人类，它是不知道你的「文字」以外项目背景、业务逻辑、历史遗留问题，有时候为了让AI理解一些需求，需要花很久来梳理「这个功能到底是干什么」，可能对理解需求还有帮助。<br>能生成代码，但不一定是「最优解」，所以有一些提前的架构设计工作还是需要自己来，比如用什么技术栈、代码复杂度的上限、性能和可读性的平衡点。毕竟有时候AI会写出很多能跑但不能维护、可读性不怎么好的代码。这些其实就是架构设计的工作，之前是设计完自己实现，现在是设计好了让AI写。</p><h1 id="AI无法替代"><a href="#AI无法替代" class="headerlink" title="AI无法替代"></a>AI无法替代</h1><p>还有一些AI无法替代的东西，比如理解模糊的业务需求，产品经理说的话，AI听不懂、处理老项目的坑AI理解不了、设计多个跨系统的服务改动，AI对依赖关系还是不能理解的很透彻。所以需要我这个人类来做这个翻译传声筒。</p><h1 id="写作文"><a href="#写作文" class="headerlink" title="写作文"></a>写作文</h1><p>现在做一个产品、需求，提示词写的文字数量可能比代码要多得多，每次我都调侃是，做一个需求，就写一篇作文、做一个需求，就写一篇作文，等产品上线了，把我的提示词整理整理，基本就是一个完整的文档了。以前写代码的时候，需求紧了文档不重视，现在为让AI干活不得把这些东西写的明明白白，这反而是个好事儿：代码可能会过时，但好的文档一直有价值。<br>2025年的编程工作，已经从「how to code」变成「what to code」，AI解决了实现问题，但是其他的更上游的工作变的更重要，现在的日常就是，先做设计（写提示词），接着review AI 写的代码，最后再整体审视项目需求完成情况收尾。虽然代码量少了但是脑力劳动强度一点没降低。</p><blockquote><p>本文为参加知乎活动撰写：<a href="https://www.zhihu.com/question/1977078704380330991/answer/1977696456749114330" target="_blank" rel="external">AI 编程工具在 2025 年对程序员的工作流产生了怎样的重构？</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;谢邀，研发工作的变化，我觉得最大的变化就是从重「实现」，变为重「设计」了，从「写代码」，变为「教AI写代码」，而且要把它当一个有「实习生业务思维」的「高级研发工程师」。&lt;/p&gt;
+&lt;p&gt;之前在接研发需求的时候，大部分时间可能花在具体实现上面：调试API、写业务逻辑、处理边界情
+      
+    
+    </summary>
+    
+      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="知乎" scheme="https://102no.com/tags/%E7%9F%A5%E4%B9%8E/"/>
+    
+  </entry>
   
   <entry>
     <title>武汉汤粉🍜</title>
@@ -517,32 +543,6 @@
     
     
       <category term="知乎" scheme="https://102no.com/tags/%E7%9F%A5%E4%B9%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>苹果WWDC2023 发布的Apple Vision Pro🍎</title>
-    <link href="https://102no.com/2023/06/07/apple-vision-pro/"/>
-    <id>https://102no.com/2023/06/07/apple-vision-pro/</id>
-    <published>2023-06-07T00:00:00.000Z</published>
-    <updated>2025-06-15T08:02:10.997Z</updated>
-    
-    <content type="html"><![CDATA[<p>看到苹果发的这个Apple Vision Pro，瞬间想到微软当年发布的HoloLens，2015年发布第一代，2019年发布第二代，有幸在2016年的时候，在前公司玩过同事的这个HoloLens的一代产品，当时觉得非常惊艳，现在想来也觉得挺震撼。</p><p>苹果的这个新品和HoloLens一样，不单纯的是VR产品，更多的是AR（虚拟现实增强），或者说是更接近与MR（混合虚拟现实增强）？，大致意思就是通过摄像头实时的获取现实中的所有场景，在此场景的基础之上实时建模计算拟合之后再输出。</p><p>当时用 这个HoloLens印象最深的就是内置了 一个演示游戏，我带着眼镜看向地面，眼镜就实时建模计算 地面的材质、三维、光照以及周围环境等等信息，然后立马模拟出地面碎裂掉落的场景，实时输出到眼镜画面之上，不过碍于分辨率和计算能力，当时看起来还稍微有点假，不过等硬件和算力跟上去之后，应该会有更多的玩法，也会更加惊艳。</p><p>不过一些缺点也是明显存在，重量非常感人，基本就是大半个头盔的感觉，做不了什么太大的动作；戴上之后过一阵子发热就非常严重。二代应该比我当时玩的一代重量和发热控制好很多。</p><p>目前微软的这个产品除了给消费者使用，企业级应用也不少[1]，例如应用于航空航天、建筑改造、汽车行业、军事训练与作战[2]，基本上各个领域都有探索与应用。</p><p>不知道苹果的这个消费级的能做到什么地步，如果有配套的能特别让人惊艳的游戏或者应用相辅相成，应该会有概率成功，至于能不能引领下一个时代，还是需要加上一个问号。</p><p>如果把这类产品加上AI ，《头号玩家》会不会就真的到来了吧！？</p><p>参考：</p><ul><li><a href="https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition" target="_blank" rel="external">https://www.microsoftstore.com.cn/vr-and-mr/microsoft-hololens-2-industrial-edition</a></li><li><a href="https://www.uchstar.com/news_page/247.html" target="_blank" rel="external">https://www.uchstar.com/news_page/247.html</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;看到苹果发的这个Apple Vision Pro，瞬间想到微软当年发布的HoloLens，2015年发布第一代，2019年发布第二代，有幸在2016年的时候，在前公司玩过同事的这个HoloLens的一代产品，当时觉得非常惊艳，现在想来也觉得挺震撼。&lt;/p&gt;
-&lt;p&gt;苹果的这个
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Apple" scheme="https://102no.com/tags/Apple/"/>
     
   </entry>
   
