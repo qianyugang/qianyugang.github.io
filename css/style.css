@@ -409,12 +409,13 @@ div {
   margin: 0 0 30px 0;
 }
 .post .post-content .tagcloud a {
-  padding: 0px 5px;
+  padding: 0px 3px;
   margin: 3px;
   display: inline-block;
   border: 1px solid #808080;
-  border-radius: 999em;
+  border-radius: 5px;
   color: #aaa;
+  font-size: 14px;
 }
 .post .post-content .tagcloud a:hover {
   color: #fff;
