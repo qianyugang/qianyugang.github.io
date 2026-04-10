@@ -457,6 +457,7 @@ div {
   padding: 5px 9px;
   border: 1px solid #DDD;
   text-align: center;
+  border-radius: 5px;
 }
 .page-navigator a:hover,
 .page-navigator span:hover {
