@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2026-04-10T03:29:22.683Z</updated>
+  <updated>2026-04-13T07:42:58.832Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博客评论从 Valine 迁移 到 Waline</title>
+    <title>博客评论从 Valine 迁移 到 Waline💬</title>
     <link href="https://102no.com/2026/04/10/blog-comment-Valine-to-Waline/"/>
     <id>https://102no.com/2026/04/10/blog-comment-Valine-to-Waline/</id>
     <published>2026-04-10T00:00:00.000Z</published>
-    <updated>2026-04-10T03:29:22.683Z</updated>
+    <updated>2026-04-13T07:42:58.832Z</updated>
     
     <content type="html"><![CDATA[<p>前些日子收到了一个「关于 LeanCloud 停止对外提供服务的通知」，我的博客是Hexo的，评论系统用的是Valine，评论的后端服务刚好就是放在这个上面的，而且 Valine 也是很长时间没有更新了，是时候就得把它迁移到 Waline 上面去了。这个更安全，而且完美支持 Valine 的数据迁移（后面发现其实也没有那么完美）。主要是官方的那个指引写的没有那么小白，而且有些配置或者数据表变更了但是指引没有变，不过在AI帮助下还是一两小时解决问题。</p><h2 id="导出数据"><a href="#导出数据" class="headerlink" title="导出数据"></a>导出数据</h2><p>登录到Leancloud后台，直接进入数据存储-&gt;导入导出-&gt;数据导出-&gt;选择限定class-&gt;选择comment，点击导出，就可以从邮件里面下载这个jsonl文件了。</p><p>然后在waline的官方文档中，有一个<a href="https://waline.js.org/migration/tool.html" target="_blank" rel="external">数据迁移助手</a>，可以把各种格式的文件转换为waline支持的格式。直接把jsonl文件的内容直接复制出来，粘贴到迁移工具的输入框里，选择从<code>Valine</code>迁移至 <code>Waline MySQL/postgreSQL/SQLite</code>这个，点击「转换」就会下载一个csv出来。这里有一个小坑，就是导出的jsonl文件里有一行文件类型声明的代码：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span><span class="bash">filetype:JSON-streaming &#123;<span class="string">"type"</span>:<span class="string">"Class"</span>,<span class="string">"class"</span>:<span class="string">"Comment"</span>&#125;</span></div></pre></td></tr></table></figure></p><p>需要去掉，不然一直会转换失败，而且也不会有什么报错的那种。</p><h2 id="导入数据"><a href="#导入数据" class="headerlink" title="导入数据"></a>导入数据</h2><p>使用Waline自带的管理后台的导入数据功能，点击导入，选择上面转换之后的csv文件，一直失败报错：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Unexpected token <span class="string">'i'</span>, <span class="string">"id,nick,up"</span>... <span class="keyword">is</span> <span class="keyword">not</span> valid JSON</div></pre></td></tr></table></figure></p><p>我搜了一圈子发现这个问题好像一直存在。算了，看样子是这个导入工具有问题，跟最新的评论表结构不是那么兼容，于是乎我直接让AI帮我根据 <a href="https://github.com/walinejs/waline/blob/main/assets/waline.pgsql" target="_blank" rel="external">waline的pgsql建表语句</a> 这里面的最新的表结构，生成INSERT SQL语句，到到vercel的后台管理中sql-editor面板去直接执行，然后数据就进去了。</p><h2 id="关闭Vercel-Authentication"><a href="#关闭Vercel-Authentication" class="headerlink" title="关闭Vercel Authentication"></a>关闭Vercel Authentication</h2><p>又一个坑，数据插入进去之后发现，一直刷新不出来，而且提交新的评论会一直报这个错误：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">fail</span> <span class="keyword">to</span> fetch</div></pre></td></tr></table></figure></p><p>又是一顿搜索，发现解决方案就是参考这篇文章里面的 <a href="https://www.hjcheng0602.cn/blog/waline_set/waline/" target="_blank" rel="external">「采用waline配置博客评论出现fail to fetch解决方案」</a>，找到Vercel Authentication，找到你的项目里面Setting-&gt;Deployment Protection-&gt;Vercel Authentication，关掉即可。</p><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><p>最好还是需要一个自己的能直接访问的域名，毕竟vercel国内是不能直接访问的。先在你自己的vercel控制面板里找到Domains菜单，找到你的project点击edit，然后把Domain那一栏改成你自己的二级域名，它会弹出来一个指引，告诉你在你的域名解析里加一条CNAME记录，照着填进去保存，等几分钟生效即可。</p><h2 id="添加评论邮件通知"><a href="#添加评论邮件通知" class="headerlink" title="添加评论邮件通知"></a>添加评论邮件通知</h2><p>添加邮件通知，需要在vercel中配置环境变量，配置路径是你的项目-&gt;Setting-&gt;Environment Variables-&gt;右上角的Add Environment Variables，然后根据<a href="https://waline.js.org/guide/features/notification.html" target="_blank" rel="external">评论通知文档</a>，去配置对应的环境变量就可以，注意<code>SMTP_PASS</code>这个一般是需要去邮箱里配置专用密码，比如qq邮箱的需要去后台安全管理生成一个16位的授权码，别把登录密码写进去了。配置好之后，需要点击Deployment重新部署一下，环境变量才会生效。</p><p>以上操作全部完成之后，迁移工作打完收工。</p>]]></content>
     
