@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://102no.com/"/>
-  <updated>2026-09-20T09:11:06.552Z</updated>
+  <updated>2026-10-14T06:51:41.304Z</updated>
   <id>https://102no.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>复活一个iPad </title>
+    <link href="https://102no.com/2026/10/14/fu-huo-yi-ge-ipad/"/>
+    <id>https://102no.com/2026/10/14/fu-huo-yi-ge-ipad/</id>
+    <published>2026-10-14T00:00:00.000Z</published>
+    <updated>2026-10-14T06:51:41.304Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天用着的iPad的屏幕突然开始变成跑马灯了，就是屏幕下面一排背光貌似是坏了，变成了一排像是舞台灯的效果，而且有时候还的厉害。这个iPad也是用了差不多有8年了，屏幕本身其实也老化了很多了，黄斑、泛红，之类的问题都还挺多，于是我想着不然趁马上双十一换一个新的iPad得了，然后去京东淘宝一看，我的天，年初只需要两千出头的iPad11，现在竟然两千七八了，也涨太多了吧，直接就打消了我换新的念头，毕竟iPad只是拿来看看视频，算不上什么刚需。</p><p><img src="https://i.imgant.com/v2/iYR7iHG.jpeg" alt="ipad1.jpg"></p><h2 id="学习咋修"><a href="#学习咋修" class="headerlink" title="学习咋修"></a>学习咋修</h2><p>于是乎我理科生的脑子瞬间爆发了，我打算自己来修，毕竟以前在大学里帮同学修了无数的电脑。不过我还没修过这种感觉是比较精密一点的电子产品，但我觉得应该是大差不差，而且之前的一套工具全部都还留着。</p><p>于是乎我就开始了系统性的了解和学习。先是在iPad背后找到型号，A1822，然后再B站用A1822+屏幕当关键词，一下子就搜了一大堆换屏幕的，然后看了几个拆机视频就明白了应该咋修。这种非全贴合的屏幕其实分上下两层，上面的那一层是管触摸的一般叫「触摸层」也叫「外屏」，下面那一层叫「显示层」也叫「内屏」或「液晶层」，一般屏幕摔了的话，只需要换上面的触摸层，如果内外都摔了，就需要一起换，那个叫「屏幕总成」，我的其实不用换触摸屏，只需要换显示层即可。关键词学到了之后，就可以启动淘宝大法开始买配件了。</p><h2 id="买配件"><a href="#买配件" class="headerlink" title="买配件"></a>买配件</h2><p>配件其实很简单，就上面关键词在淘宝搜就可以了，一般都是深圳华强北发货，那边其实都很轻车熟路了，就找价格还可以的，销量还行的，下单就行，我买的显示层的内屏是￥63，如果是外屏就是￥35。我在看B站视频的时候，发现我这个情况还有个更便宜的修理方式，就是把内屏拆掉，只换背光也可以修好，换背光只要￥15即可，但是我看了换背光的视频感觉还是太麻烦，用到解胶剂什么的，再加上换屏幕也不是很贵而且简单一些，我就换屏幕算了。哎对这里还有一个小技巧，就是你不知道怎么修的时候，让卖配件的给你找怎么更换或者修理的视频，毕竟他为了卖给你配件，给你找的视频一定是最有用的。</p><h2 id="换"><a href="#换" class="headerlink" title="换"></a>换</h2><p>内屏到货了之后，里面带了几个工具，翘片、B-7000胶水，撬棒之类的，后面都派上用场了。第一步先关机，关凯之后就是要拆外屏，因为没有专业的热风枪，我就拿着吹风机开最热，把屏幕边缘都吹到烫手，然后用翘片一点一点的撬开，每撬开一点，就用类似银行卡那样的卡片塞进去以防再粘回去，就这样一点一点慢慢弄，就把屏幕打开了。</p><p><img src="https://i.imgant.com/v2/Pm1gz58.jpeg" alt="ipad2.jpg"></p><p>接下来的事情就简单了，先把屏幕的四颗螺丝全部拧下来，然后找到排线，把排线上的保护背板螺丝拆掉，慢慢的把排线的背胶撕掉，把新屏幕的排线轻轻的安装上去，背板再全部安装好，基本上屏幕已经算是成功一大半了，先别着急按螺丝，此时先把屏幕放着，按下开机键，看下是否能点亮，有时候可能是新屏幕本身也有问题这里也算是试一下，毕竟这些老机子的屏幕也都不是新的。</p><p>我比较幸运一下子就点亮了，一次成功，然后把触摸层先放上去，试一下，再试一下摄像头、指纹解锁、都正常可用，就把螺丝全都拧上去就可以了。螺丝这里有个小提示，iPad的四颗螺丝可能是长短不一的，最好是急着拧的顺序，我就拧错了一个还以为滑丝了拧着使不上力，后来才发现我是拧错了。</p><p>最后一步就是把外屏粘回去就可以了，可以买原厂的那种类似双面贴的撕拉胶，也可以用B-7000这种胶水，我是用撕拉胶粘的，这个也是淘宝上买对应型号的屏幕胶就可以了，关键字就是A1822屏幕背胶。由于我的iPad的外壳变形了，屏幕边缘我还是补了点B7000，增加一点密封性。</p><p>至此就大功告成了，还完屏幕就又正式复活了，后面如果电池啥的，感觉也能换了，修这玩意儿的感觉就是，你真的换了一次之后发现真的挺简单了，还有就是需要细心和耐心。还有就是一个干净无尘的环境，我就是都已经把撕拉胶粘上了，发现屏幕里飘进去一个黑渣渣，趁着胶还没粘牢我赶紧撕开除尘又粘上，多费了些功夫。</p><p>其实还可以搞的更精细一点的，比如把原来的胶都清理干净一点，屏幕对的更完美一点，不过一个老机子能用就行吧，不过想必华强北的师傅们也是熟能生巧这么过来的吧，感觉自己也算是又多了一门手艺呢！✌🏻</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;前几天用着的iPad的屏幕突然开始变成跑马灯了，就是屏幕下面一排背光貌似是坏了，变成了一排像是舞台灯的效果，而且有时候还的厉害。这个iPad也是用了差不多有8年了，屏幕本身其实也老化了很多了，黄斑、泛红，之类的问题都还挺多，于是我想着不然趁马上双十一换一个新的iPad得了，
+      
+    
+    </summary>
+    
+      <category term="我是修电脑的" scheme="https://102no.com/categories/%E6%88%91%E6%98%AF%E4%BF%AE%E7%94%B5%E8%84%91%E7%9A%84/"/>
+    
+    
+      <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
+    
+      <category term="Apple" scheme="https://102no.com/tags/Apple/"/>
+    
+  </entry>
   
   <entry>
     <title>五仁月饼🥮</title>
@@ -520,33 +547,6 @@
       <category term="生活经验" scheme="https://102no.com/tags/%E7%94%9F%E6%B4%BB%E7%BB%8F%E9%AA%8C/"/>
     
       <category term="美食" scheme="https://102no.com/tags/%E7%BE%8E%E9%A3%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kong 3.7重磅上线！Kong AI Gateway 正式 GA！🦍</title>
-    <link href="https://102no.com/2024/08/27/kong-3.7/"/>
-    <id>https://102no.com/2024/08/27/kong-3.7/</id>
-    <published>2024-08-27T00:00:00.000Z</published>
-    <updated>2025-06-15T08:02:11.010Z</updated>
-    
-    <content type="html"><![CDATA[<p>Kong Gateway 3.7 版本已经重磅上线，我们给 AI Gateway 带来了一系列升级，下面是 AI Gateway 的更新亮点一览。<br>文转载自 Kong Inc 公众号，原文查看 <a href="https://mp.weixin.qq.com/s/zMZpuEA1tI0UNlD7X7PP8A" target="_blank" rel="external">https://mp.weixin.qq.com/s/zMZpuEA1tI0UNlD7X7PP8A</a> </p><h1 id="AI-Gateway-正式-GA"><a href="#AI-Gateway-正式-GA" class="headerlink" title="AI Gateway 正式 GA"></a>AI Gateway 正式 GA</h1><p>在 Kong Gateway 的最新版本 3.7 中，我们正式宣布 Kong AI Gateway 达到了通用可用性（GA）阶段。</p><p>现在，AI 开发者们可以专注于开发 AI 定制应用，比如利用大型语言模型（LLM）和检索增强生成（RAG）技术打造的聊天机器人，或者其他 AI 集成方案。他们无需再从零开始搭建底层架构，去构建保证 AI 应用在生产环境中安全、可监控的基础设施。Kong Konnect 和 Kong Gateway Enterprise 平台将提供所需的扩展性支持。</p><p>此外，Kong AI Gateway 现在也可以作为一个软件即服务（SaaS）解决方案完全部署在云端。同时，Kong 还推出了新的 Konnect Dedicated Cloud Gateways 选项，供用户进行云端部署。</p><p>Kong AI Gateway 可以用于广泛的场景，帮助加速新的人工智能应用程序在生产环境中的落地。</p><h1 id="对现有的-OpenAI-SDK-提供支持"><a href="#对现有的-OpenAI-SDK-提供支持" class="headerlink" title="对现有的 OpenAI SDK 提供支持"></a>对现有的 OpenAI SDK 提供支持</h1><p>Kong AI Gateway 允许让用户通过 OpenAI API 规范作为统一标准，访问其支持的所有 LLM。</p><p>使用开发人员熟悉的 OpenAI API 规范将大大简化大家上手的难度。</p><p>并且， Kong AI Gateway 原生支持了 OpenAI SDK 客户端库，进一步简化了构建 AI 代理和应用程序的过程。您只需将请求重定向到指向 AI Gateway 路由的 URL，即可通过 AI Gateway 使用LLM。</p><p>如果您已经使用 OpenAI SDK 编写了现有的业务逻辑，则可以重用它来使用 Kong AI Gateway 支持的每个 LLM，无需修改代码，因为它是100%兼容的。</p><h1 id="引入流式-AI-消息支持"><a href="#引入流式-AI-消息支持" class="headerlink" title="引入流式 AI 消息支持"></a>引入流式 AI 消息支持</h1><p>Kong AI Gateway 已在”ai-proxy” 插件中，对所有LLM引擎加入了对AI的流式交互能力的原生支持。这将解锁更多实时体验，而不用等待 LLM 完成处理后再发送回客户端。</p><p>在流式模式下，响应将以词元（token）为单位通过 HTTP 响应块（SSE）逐个发送。用户可以通过设置“ ai-proxy” 的以下属性来启用该功能：</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">confi<span class="variable">g:</span></div><div class="line">  <span class="keyword">mode</span><span class="variable">l:</span></div><div class="line">    option<span class="variable">s:</span></div><div class="line">      response_streamin<span class="variable">g:</span> <span class="string">"allow"</span></div></pre></td></tr></table></figure><p>功能启用后，客户端便可在请求体中显式地进行流式请求，例如：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"prompt"</span>: <span class="string">"What is 1 + 1?"</span>,</div><div class="line">  <span class="attr">"stream"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure><p>凭借这项新功能，Kong AI Gateway 的用户将能够打造更具吸引力和互动性的人工智能体验。</p><h1 id="基于-Token-的高级限流能力-企业版"><a href="#基于-Token-的高级限流能力-企业版" class="headerlink" title="基于 Token 的高级限流能力 (企业版)"></a>基于 Token 的高级限流能力 (企业版)</h1><p>我们正在引入一项基于 token 请求量进行限流的企业级功能。通过启用新的“ai-rate-limiting-advanced” 插件，客户可以更好地管理组织中不同团队的 token 消耗水平，从而更好地控制整体 AI 开销。对于自托管 LLM 提供商，当应用程序中的 AI 流量增加时，客户将能够更好地调整其在 AI 基础设施上的流量。</p><p>Kong 已经提供了基于发送到 API 的请求数量进行速率限制的 API 速率限制功能。而新版“ai-rate-limiting-advanced” 插件则专注于所请求 AI token 的数量，并不考虑发送给它们原始 HTTP 请求的数量。如果客户希望同时对原始请求和特定AI Token进行速率限制，则“ai-rate-limiting-advanced” 插件可以与标准 Kong 速率限制插件结合使用。</p><p>ai-rate-limiting-advanced 插件是目前市面上唯一可以用于 AI 的速率限制插件。</p><h1 id="基于-Azure-的内容安全能力-企业版"><a href="#基于-Azure-的内容安全能力-企业版" class="headerlink" title="基于 Azure 的内容安全能力 (企业版)"></a>基于 Azure 的内容安全能力 (企业版)</h1><p>新的企业插件“ai-azure-content-safety”允许客户与包括“Azure AI”在内的多个内容安全服务无缝集成，以验证每个通过AI网关的prompt请求。这项功能也被所有ai-proxy插件的所有LLM引擎所支持。</p><p>例如：凭借该功能，客户可以使用 Azure 的原生安全服务策略，在 Kong AI Gateway 中检测和过滤所有不和谐的内容，并将该策略应用于所有 LLM 提供商的prompt请求，以实现内容安全的统一管理。</p><h1 id="基于-URL-动态选择-LLM"><a href="#基于-URL-动态选择-LLM" class="headerlink" title="基于 URL 动态选择 LLM"></a>基于 URL 动态选择 LLM</h1><p>该特性使用户可以通过客户端请求的 URL 路径动态调用所需的模型。同时，用户可以通过在插件配置中硬编码其名称来使用模型。通过启用此功能，Kong AI Gateway 便可以更容易地扩展到希望尝试各种模型的团队，而无需预先在 “ai-proxy” 插件中进行配置。</p><p>该功能可以通过 “ai-proxy” 的新 “config.route_source” 配置参数进行配置。并且，用户只需配置一次，便可使所有模型均通过识别URL路径的方式来动态地、灵活地调用。</p><h1 id="支持-Anthropic-Claude-2-1-Messages-API"><a href="#支持-Anthropic-Claude-2-1-Messages-API" class="headerlink" title="支持 Anthropic Claude 2.1 Messages API"></a>支持 Anthropic Claude 2.1 Messages API</h1><p>Kong AI Gateway 提供一个 API 接口，使用户可以随意调用部署在云端的或自托管提供商提供的模型。该接口在新版本中得到了扩展，以支持 Anthropic Claude 2.1 Messages 这样的通常用于创建聊天机器人或虚拟助手应用程序的API，用于管理用户与 Anthropic Claude 模型（助手）之间的对话交流。</p><p>基于用户需求， Kong AI Gateway 将持续增加对更多 LLM 的支持。</p><h1 id="更新-AI-用量统计的格式"><a href="#更新-AI-用量统计的格式" class="headerlink" title="更新 AI 用量统计的格式"></a>更新 AI 用量统计的格式</h1><p>随着 Kong AI Gateway 进入 GA 阶段，我们已经更新了所有由 Kong 处理的 AI 请求的分析日志格式。</p><p>通过这种新的日志格式，用户可以测量 “ai-proxy”，“ai-request-transformer”和“ai-response-transformer” 所请求的每个模型的消耗情况。</p><figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="string">"ai"</span>: &#123;</div><div class="line">    <span class="string">"ai-proxy"</span>: &#123;</div><div class="line">      <span class="string">"meta"</span>: &#123;</div><div class="line">        <span class="string">"request_model"</span>: <span class="string">"gpt-35-turbo"</span>,</div><div class="line">        <span class="string">"provider_name"</span>: <span class="string">"azure"</span>,</div><div class="line">        <span class="string">"response_model"</span>: <span class="string">"gpt-35-turbo"</span>,</div><div class="line">        <span class="string">"plugin_id"</span>: <span class="string">"5df193be-47a3-4f1b-8c37-37e31af0568b"</span></div><div class="line">      &#125;,</div><div class="line">      <span class="string">"payload"</span>: &#123;&#125;,</div><div class="line">      <span class="string">"usage"</span>: &#123;</div><div class="line">        <span class="string">"prompt_token"</span>: <span class="number">89</span>,</div><div class="line">        <span class="string">"completion_token"</span>: <span class="number">56</span>,</div><div class="line">        <span class="string">"total_tokens"</span>: <span class="number">145</span></div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    … more AI Plugins</div></pre></td></tr></table></figure><p>这种新的分析日志格式取代了旧的格式，以便企业用户实现更精细化的用量管理。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Kong Gateway 3.7 版本已经重磅上线，我们给 AI Gateway 带来了一系列升级，下面是 AI Gateway 的更新亮点一览。&lt;br&gt;文转载自 Kong Inc 公众号，原文查看 &lt;a href=&quot;https://mp.weixin.qq.com/s/z
-      
-    
-    </summary>
-    
-      <category term="与代码" scheme="https://102no.com/categories/%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Kong" scheme="https://102no.com/tags/Kong/"/>
-    
-      <category term="Kong中文文档" scheme="https://102no.com/tags/Kong%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/"/>
     
   </entry>
   
